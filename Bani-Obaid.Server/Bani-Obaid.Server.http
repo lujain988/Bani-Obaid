@@ -1,0 +1,6 @@
+@Bani_Obaid.Server_HostAddress = http://localhost:5128
+
+GET {{Bani_Obaid.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

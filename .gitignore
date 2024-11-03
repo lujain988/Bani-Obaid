@@ -361,3 +361,7 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/Bani-Obaid.Server/Models/MyDbContext.cs
+/Bani-Obaid.Server/appsettings.json
+/Bani-Obaid.Server/appsettings.json
+/Bani-Obaid.Server/Models/MyDbContext.cs

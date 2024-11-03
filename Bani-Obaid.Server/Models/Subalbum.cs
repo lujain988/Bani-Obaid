@@ -3,19 +3,9 @@ using System.Collections.Generic;
 
 namespace Bani_Obaid.Server.Models;
 
-public partial class Project
+public partial class Subalbum
 {
     public int Id { get; set; }
-
-    public string? Image { get; set; }
-
-    public string? Title { get; set; }
-
-    public string? Description { get; set; }
-
-    public string? Percentage { get; set; }
-
-    public string? Status { get; set; }
 
     public string? Img1 { get; set; }
 
@@ -33,7 +23,7 @@ public partial class Project
 
     public string? Img8 { get; set; }
 
-    public DateTime? CreatedAt { get; set; }
+    public int? AlbumsId { get; set; }
 
-    public DateTime? UpdatedAt { get; set; }
+    public virtual Album? Albums { get; set; }
 }

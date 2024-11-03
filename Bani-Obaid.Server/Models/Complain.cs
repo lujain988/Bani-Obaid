@@ -7,17 +7,17 @@ public partial class Complain
 {
     public int Id { get; set; }
 
-    public string Name { get; set; } = null!;
+    public string? Name { get; set; }
 
-    public string Email { get; set; } = null!;
+    public string? Email { get; set; }
 
-    public string Phone { get; set; } = null!;
+    public string? Phone { get; set; }
 
-    public string NationalId { get; set; } = null!;
+    public string? NationalId { get; set; }
 
-    public string ComplainType { get; set; } = null!;
+    public string? ComplainType { get; set; }
 
-    public string ComplainDetails { get; set; } = null!;
+    public string? ComplainDetails { get; set; }
 
     public string? Image { get; set; }
 

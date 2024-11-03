@@ -7,7 +7,7 @@ public partial class MunicipalityInfo
 {
     public int Id { get; set; }
 
-    public string Logo { get; set; } = null!;
+    public string? Logo { get; set; }
 
     public string Description { get; set; } = null!;
 

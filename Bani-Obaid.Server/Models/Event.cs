@@ -7,13 +7,17 @@ public partial class Event
 {
     public int Id { get; set; }
 
-    public string Title { get; set; } = null!;
+    public string? Title { get; set; }
 
-    public string Description { get; set; } = null!;
+    public string? Description { get; set; }
 
-    public string Location { get; set; } = null!;
+    public string? Location { get; set; }
 
-    public DateOnly EventDate { get; set; }
+    public TimeOnly? Time { get; set; }
+
+    public DateOnly? EventDate { get; set; }
+
+    public string? Image { get; set; }
 
     public DateTime? CreatedAt { get; set; }
 

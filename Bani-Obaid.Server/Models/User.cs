@@ -13,9 +13,11 @@ public partial class User
 
     public string Password { get; set; } = null!;
 
+    public byte[]? PasswordHash { get; set; }
+
+    public byte[]? PasswordSalt { get; set; }
+
     public DateTime? CreatedAt { get; set; }
 
     public DateTime? UpdatedAt { get; set; }
-
-    public virtual ICollection<EventParticipant> EventParticipants { get; set; } = new List<EventParticipant>();
 }

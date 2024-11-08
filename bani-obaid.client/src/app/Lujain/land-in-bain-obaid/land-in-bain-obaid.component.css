@@ -1,0 +1,20 @@
+.portfolio-image {
+  width: 100%; /* Makes the image responsive */
+  height: 300px; /* Set a fixed height */
+  object-fit: cover; /* Ensures the image covers the area without stretching */
+}
+
+.portfolio-page__img {
+  overflow: hidden; /* Prevents overflow if the image is larger than the box */
+}
+.portfolio-page__img {
+  margin-bottom: 10px; /* Adds space between the image and the name */
+}
+
+.portfolio-page__image-name {
+  font-size: 1em; /* Adjust font size as needed */
+  color: #333; /* Change color for better readability */
+  text-align: center; /* Center the name under the image */
+  margin-top: 5px; /* Space between image and place name */
+}
+

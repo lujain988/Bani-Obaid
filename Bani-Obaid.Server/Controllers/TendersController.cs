@@ -10,7 +10,7 @@ namespace Bani_Obaid.Server.Controllers
     public class TendersController : ControllerBase
     {
 
-        public readonly MyDbContext _db;
+        private readonly MyDbContext _db;
         public TendersController(MyDbContext db)
         {
             _db = db;

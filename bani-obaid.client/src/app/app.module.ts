@@ -9,6 +9,8 @@ import { RouterModule } from '@angular/router';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { FooterComponent } from './footer/footer.component';
 import { LandInBainObaidComponent } from './Lujain/land-in-bain-obaid/land-in-bain-obaid.component';
+import { TendersComponent } from './Dima/tenders/tenders.component';
+import { TenderDetailsComponent } from './Dima/tender-details/tender-details.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { LandInBainObaidComponent } from './Lujain/land-in-bain-obaid/land-in-ba
     HomeComponent,
     NavBarComponent,
     FooterComponent,
-    LandInBainObaidComponent
+    LandInBainObaidComponent,
+    TendersComponent,
+    TenderDetailsComponent
   ],
   imports: [
     BrowserModule, HttpClientModule,
@@ -24,7 +28,10 @@ import { LandInBainObaidComponent } from './Lujain/land-in-bain-obaid/land-in-ba
     RouterModule.forRoot([
 
       { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'landBaniObaid', component: LandInBainObaidComponent }
+      { path: 'landBaniObaid', component: LandInBainObaidComponent },
+      { path: 'Tenders', component: TendersComponent },
+      { path: "tenderdetail/:id", component: TenderDetailsComponent },
+
     ])
   ],
   providers: [],

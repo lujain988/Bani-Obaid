@@ -22,3 +22,9 @@
   color: var(--govity-white);
 }
 */
+
+
+.contact-page__contact-list li:hover .icon {
+  background-color: #0063ae;
+  color: var(--govity-white);
+}

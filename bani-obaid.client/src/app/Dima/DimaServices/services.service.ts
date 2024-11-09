@@ -26,7 +26,7 @@ export class ServicesService {
     return this.http.post<any>(`${this.staticData}/Tenders/AddNewTender`, data);
   }
 
-  updateLandmark(id: number, data: FormData): Observable<any> {
+  updateTendersk(id: number, data: FormData): Observable<any> {
     return this.http.put<any>(`${this.staticData}/Tenders/UpdateTenders/${id}`, data);
   }
 
@@ -34,5 +34,25 @@ export class ServicesService {
     return this.http.delete<any>(`${this.staticData}/Tenders/DeleteTender/${id}`);
   }
 
+  getAllProjects(): Observable<any> {
+    return this.http.get<any>(`${this.staticData}/Project/GetAllProjects`);
+  }
+
+  getprojectById(id: number): Observable<any> {
+    return this.http.get<any>(`${this.staticData}/Project/GetProjectbyId/${id}`);
+  }
+
+
+  createProject(data: FormData): Observable<any> {
+    return this.http.post<any>(`${this.staticData}/Project/addProject`, data);
+  }
+
+  updateProject(id: number, data: FormData): Observable<any> {
+    return this.http.put<any>(`${this.staticData}/Project/updateProject/${id}`, data);
+  }
+
+  deleteProject(id: number): Observable<any> {
+    return this.http.delete<any>(`${this.staticData}/Project/daleteproject/${id}`);
+  }
 
 }

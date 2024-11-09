@@ -1,0 +1,159 @@
+@import url('project-detail.component.css');
+.bar {
+  width: 100%;
+  background-color: #e0e0e0; /* Light background color for empty bar */
+  border-radius: 5px;
+  position: relative;
+  height: 20px;
+}
+
+.bar-inner {
+  height: 100%;
+  background-color: #4caf50; /* Color for filled part of the bar */
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: width 0.4s ease; /* Smooth transition */
+}
+
+
+
+
+.department-details__left {
+  margin-bottom: 30px;
+}
+
+.department-details__icon {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.department-details__title {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.project-details__img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.about-two__progress {
+  margin-top: 30px;
+}
+
+.bar {
+  width: 100%;
+  background-color: #e0e0e0;
+  border-radius: 5px;
+  height: 20px;
+  position: relative;
+}
+
+.bar-inner {
+  height: 100%;
+  background-color: #4caf50;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: width 0.4s ease;
+}
+
+.count-text {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+  color: white;
+  font-size: 14px;
+}
+
+.brand-one__carousel {
+  margin-top: 20px;
+}
+
+.brand-one__single img {
+  border-radius: 5px;
+}
+
+.sidebar__title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.department-details__services-list li {
+  margin-bottom: 10px;
+}
+
+.department-details__services-list a {
+  text-decoration: none;
+  color: #333;
+  font-size: 18px;
+}
+
+.icon-left-arrow {
+  margin-left: 10px;
+}
+
+
+.department-details__icon-and-title {
+  position: relative;
+  display: flex;
+  align-items: center;
+  direction: rtl;
+}
+
+.about-two__progress-title {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 28px;
+  color: var(--govity-black);
+  margin-bottom: 6px;
+  letter-spacing: var(--govity-letter-spacing-two);
+  direction: rtl;
+  text-align: right;
+  margin-bottom: 17px;
+}
+
+.bar[_ngcontent-ng-c1268426448] {
+  width: 100%;
+  background-color: #e0e0e0;
+  border-radius: 5px;
+  height: 20px;
+  position: relative;
+  direction: rtl;
+}
+.department-details__text-1 {
+  letter-spacing: var(--govity-letter-spacing-two);
+  margin-top: 16px;
+  margin-bottom: 29px;
+  direction: rtl;
+  text-align: right
+}
+.department-details__services-list[_ngcontent-ng-c1268426448] a[_ngcontent-ng-c1268426448] {
+  text-decoration: none;
+  color: #333;
+  font-size: 18px;
+  direction: rtl;
+}
+.sidebar__title[_ngcontent-ng-c1268426448] {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  direction: rtl;
+  text-align: right;
+}
+.count-text[_ngcontent-ng-c1268426448] {
+  position: absolute;
+  width: 100%;
+  text-align: right;
+  font-weight: bold;
+  color: #6c757d;
+  font-size: 14px;
+  opacity: 1 !important
+}

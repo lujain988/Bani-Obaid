@@ -1,0 +1,201 @@
+<!--<section class="page-header">
+  <div class="page-header-bg" style="background-image: url(assets/images/backgrounds/1.jpg)">
+  </div>
+  <div class="container">
+    <div class="page-header__inner">
+      <h2>المشاريع</h2>
+      <ul class="thm-breadcrumb list-unstyled">
+        <li><a routerLink="">الرئيسية</a></li>
+        <li><span>/</span></li>
+        <li>المشاريع</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+<section class="department-details">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-8 col-lg-7" *ngIf="project">
+        <div class="department-details__left">
+          <div class="department-details__icon-and-title">
+            <div class="department-details__icon">
+              <span class="icon-parthenon"></span>
+            </div>
+            <h3 class="department-details__title m-4">{{ project.title }}</h3>
+            <br>
+            <br>
+          </div>
+          <img [src]="'https://localhost:7243' + project?.image" alt="{{ project?.image }}" class="project-details__img">
+
+          <div class="about-two__progress">
+            <div class="about-two__progress-single">
+              <h4 class="about-two__progress-title"> نسبة الانجاز في المشروع :</h4>
+              <div class="bar">
+                <div class="bar-inner count-bar" [style.width.%]="project.percentage">
+                  <div class="count-text">{{project.percentage}}%</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="department-details__text-1">
+            {{ project.description }}
+          </p>
+        </div>-->
+<!-- Project Images Carousel -->
+<!--<h4 class="about-two__progress-title" *ngIf="projectImages.length > 0">صور عن المشروع:</h4>
+      <div *ngIf="projectImages.length > 0" class="brand-one__carousel thm-owl__carousel owl-theme owl-carousel" lang="en" dir="ltr">
+        <div *ngFor="let image of projectImages" class="brand-one__single">
+          <div class="items">
+            <img [src]="'https://localhost:7243' + image.media" alt="Project Image" style="margin: 10px" width="200px" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>-->
+<!--<div class="col-xl-4 col-lg-5">
+    <div class="department-details__right">
+    <div class="department-details__services-box">
+      <h3 class="sidebar__title">آخر المشاريع</h3>
+      <ul class="department-details__services-list list-unstyled">
+        <li *ngFor="let latestProject of latestProjects">
+          <a [routerLink]="['/project', latestProject.id]">{{ latestProject.title }}<span class="icon-left-arrow"></span></a>
+        </li>
+      </ul>
+     </div>
+   </div>
+</div>-->
+<!--</section>-->
+<!-- Page Header -->
+<!--<section class="page-header">
+  <div class="page-header-bg" style="background-image: url(assets/images/backgrounds/1.jpg)">
+  </div>
+  <div class="container">
+    <div class="page-header__inner">
+      <h2>المشاريع</h2>
+      <ul class="thm-breadcrumb list-unstyled">
+        <li><a routerLink="">الرئيسية</a></li>
+        <li><span>/</span></li>
+        <li>المشاريع</li>
+      </ul>
+    </div>
+  </div>
+</section>-->
+<!-- Project Details -->
+<!--<section class="department-details">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-8 col-lg-7" *ngIf="project">
+        <div class="department-detailsleft">
+          <div class="department-detailsicon-and-title">
+            <div class="department-detailsicon">
+              <span class="icon-parthenon"></span>
+            </div>
+            <h3 class="department-detailstitle m-4">{{ project.title }}</h3>
+          </div>-->
+<!-- Project Image -->
+<!--<img [src]="'https://localhost:7243' + project?.image" alt="{{ project?.image }}" class="project-detailsimg" />-->
+<!-- Progress Bar -->
+<!--<div class="about-twoprogress">
+  <div class="about-twoprogress-single">
+    <h4 class="about-twoprogress-title">نسبة الانجاز في المشروع:</h4>
+    <div class="bar">
+      <div class="bar-inner count-bar" [style.width.%]="project.percentage">
+        <div class="count-text">{{ project.percentage }}%</div>
+      </div>
+    </div>
+  </div>
+</div>-->
+<!-- Project Description -->
+<!--<p class="department-detailstext-1">{{ project.description }}</p>-->
+<!-- Project Images Carousel -->
+<!--<h4 class="about-twoprogress-title" *ngIf="projectImages.length > 0">صور عن المشروع:</h4>
+    <div *ngIf="projectImages.length > 0" class="brand-onecarousel thm-owlcarousel owl-theme owl-carousel" lang="en" dir="ltr">
+      <div *ngFor="let image of projectImages" class="brand-onesingle">
+        <div class="items">
+          <img [src]="'https://localhost:7243' + image" alt="Project Image" style="margin: 10px" width="200px" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>-->
+<!-- Latest Projects Sidebar -->
+<!--<div class="col-xl-4 col-lg-5">
+        <div class="department-detailsright">
+          <div class="department-detailsservices-box">
+            <h3 class="sidebartitle">آخر المشاريع</h3>
+            <ul class="department-details__services-list list-unstyled">
+              <li *ngFor="let latestProject of latestProjects">
+                <a [routerLink]="['/showProject', latestProject.id]">{{ latestProject.title }}<span class="icon-left-arrow"></span></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>-->
+<!-- Project Details -->
+<!-- Project Details -->
+<section class="department-details">
+  <div class="container">
+    <div class="row">
+      <!-- Latest Projects Sidebar -->
+      <div class="col-xl-4 col-lg-5">
+        <div class="department-details__right">
+          <div class="department-details__services-box">
+            <h3 class="sidebar__title">آخر المشاريع</h3>
+            <ul class="department-details__services-list list-unstyled">
+              <li *ngFor="let latestProject of latestProjects">
+                <a [routerLink]="['/showProject', latestProject.id]">{{ latestProject.title }}<span class="icon-left-arrow"></span></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Current Project Details -->
+      <div class="col-xl-8 col-lg-7" *ngIf="project">
+        <div class="department-details__left">
+          <div class="department-details__icon-and-title">
+            <div class="department-details__icon">
+              <span class="icon-parthenon"></span>
+            </div>
+            <h3 class="department-details__title m-4">{{ project.title }}</h3>
+          </div>
+          
+          <!-- Project Image -->
+          <img [src]="project.image ? 'https://localhost:7243' + project.image : ''" alt="Project Image" class="project-details__img" />
+          
+          <!-- Progress Bar -->
+          <div class="about-two__progress">
+            <div class="about-two__progress-single">
+              <h4 class="about-two__progress-title">نسبة الانجاز في المشروع:</h4>
+              <div class="bar">
+                <div class="bar-inner count-bar" [style.width.%]="project.percentage">
+                  <div class="count-text">{{ project.percentage }}%</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Project Description -->
+          <p class="department-details__text-1">{{ project.description }}</p>
+
+          <!-- Project Images Carousel -->
+          <h4 class="about-two__progress-title" *ngIf="projectImages.length > 0">صور عن المشروع:</h4>
+          <div *ngIf="projectImages.length > 0" class="brand-one__carousel thm-owl__carousel owl-theme owl-carousel" lang="en" dir="ltr">
+            <div *ngFor="let image of projectImages" class="brand-one__single">
+              <div class="items">
+                <img [src]="'https://localhost:7243' + image" alt="Project Image" style="margin: 10px" width="200px" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

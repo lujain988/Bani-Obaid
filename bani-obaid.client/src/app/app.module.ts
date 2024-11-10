@@ -14,6 +14,7 @@ import { TenderDetailsComponent } from './Dima/tender-details/tender-details.com
 import { ProjectComponent } from './Dima/project/project.component';
 import { TruncatePipe } from './Dima/truncate/truncate.pipe';
 import { ProjectDetailComponent } from './Dima/project-detail/project-detail.component';
+import { InvestmentsComponent } from './Dima/investments/investments.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ProjectDetailComponent } from './Dima/project-detail/project-detail.com
     TenderDetailsComponent,
     ProjectComponent,
     TruncatePipe,
-    ProjectDetailComponent
+    ProjectDetailComponent,
+    InvestmentsComponent
   ],
   imports: [
     BrowserModule, HttpClientModule,
@@ -39,7 +41,7 @@ import { ProjectDetailComponent } from './Dima/project-detail/project-detail.com
       { path: "tenderdetail/:id", component: TenderDetailsComponent },
       { path: 'Projects', component: ProjectComponent },
       { path: "showProject/:id", component: ProjectDetailComponent },
-
+      { path: 'Investments', component: InvestmentsComponent },
 
     ])
   ],

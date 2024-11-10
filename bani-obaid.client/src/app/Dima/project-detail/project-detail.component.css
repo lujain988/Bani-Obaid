@@ -157,3 +157,15 @@
   font-size: 14px;
   opacity: 1 !important
 }
+
+
+.department-details__icon span {
+  position: relative;
+  display: inline-block;
+  font-size: 18px;
+  color: var(--govity-white);
+  vertical-align: middle;
+  align-items: center;
+  justify-content: center;
+  margin-top: 9px;
+}

@@ -54,5 +54,11 @@ export class ServicesService {
   deleteProject(id: number): Observable<any> {
     return this.http.delete<any>(`${this.staticData}/Project/daleteproject/${id}`);
   }
+  getAllinvestents(): Observable<any> {
+    return this.http.get<any>(`${this.staticData}/Investment/GetAllInvestment`);
+  }
 
+  getinvestmentsById(id: number): Observable<any> {
+    return this.http.get<any>(`${this.staticData}/Investment/GetInvestmentById/${id}`);
+  }
 }

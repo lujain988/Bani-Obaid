@@ -1,0 +1,69 @@
+
+<section class="page-header">
+  <div class="page-header-bg" style="background-image: url(assets/images/backgrounds/1.jpg)">
+  </div>
+  <div class="container">
+    <div class="page-header__inner">
+      <h2>فرصنا الاستثمارية</h2> <!-- Title added in Arabic -->
+      <ul class="thm-breadcrumb list-unstyled">
+        <li><a routerLink="">الرئيسية</a></li>
+        <!-- Home in Arabic -->
+        <li><span>/</span></li>
+        <li>الفرص الاستثمارية</li> <!-- Portfolio in Arabic -->
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+<section class="investment-page" *ngIf="investmentdata.length === 0">
+  <div class="container">
+ 
+    <div class="section-title text-center">
+      <div class="section-title__icon">
+        <span class="fa fa-star"></span>
+      </div>
+      <span class="section-title__tagline">فرصُنا الإستثمارية</span>
+      <h2 class="section-title__title">لا يوجد فُرص لعرضها</h2>
+    </div>
+    <div class="row">
+      <div class="text-center">
+        <a href="/" class="btn thm-btn">العودة الى الصفحة الرئيسية</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="portfolio-page" *ngIf="investmentdata.length > 0">
+  <div class="container">
+    <div class="section-title text-center">
+      <div class="section-title__icon">
+        <span class="fa fa-star"></span>
+      </div>
+      <span class="section-title__tagline">فرصُنا الإستثمارية</span>
+      <h2 class="section-title__title">اكتشف الفرص الاستثمارية في بلدية <br> بني عبيد</h2>
+    </div>
+    <div class="row">
+      <div class="col-xl-4 col-lg-6 col-md-6 test" *ngFor="let item of investmentdata">
+        <div class="portfolio-page__single">
+          <div class="portfolio-page__img-box">
+            <div class="portfolio-page__img">
+              <img [src]="'https://localhost:7243' + item?.image" alt="{{ item?.image }}">
+            </div>
+            <div class="investments-page__content">
+              <p class="portfolio-page__sub-title">الفُرصة الإستثمارية</p>
+              <h4 class="portfolio-page__title">
+                <a href="path_to_investment_details">{{ item.name }}</a>
+              </h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

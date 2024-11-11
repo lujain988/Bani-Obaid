@@ -1,42 +1,77 @@
-<!--Page Header Start-->
-<section class="page-header">
-  <div class="page-header-bg" style="background-image: url(assets/images/backgrounds/page-header-bg.jpg)">
-  </div>
-  <div class="container">
-    <div class="page-header__inner">
-      <h2>معالم سياحية في بني عبيد</h2> <!-- Title added in Arabic -->
-      <ul class="thm-breadcrumb list-unstyled">
-        <li><a href="index.html">الرئيسية</a></li> <!-- Home in Arabic -->
-        <li><span>/</span></li>
-        <li>المعرض</li> <!-- Portfolio in Arabic -->
-      </ul>
+<body class="custom-cursor">
+  <!--Page Header Start-->
+  <section class="page-header">
+    <div class="page-header-bg" style="background-image: url(assets/images/backgrounds/darkened_header_image.jpg)">
     </div>
-  </div>
-</section>
+    <div class="container">
+      <div class="page-header__inner">
+        <h2>السياحة</h2>
+        <ul class="thm-breadcrumb list-unstyled">
+          <li><a href="index.html">الصفحة الرئيسية</a></li>
+          <li><span>/</span></li>
+          <li>السياحة في بني عبيد</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <!--Page Header End-->
+  <section class="department-page">
+    <div class="container">
+      <div class="section-title text-center">
+        <div class="section-title__icon">
+          <span class="fa fa-star"></span>
+        </div>
+        <span class="section-title__tagline">السياحة في بني عبيد</span>
+        <h2 class="section-title__title">اكتشف أهم معالم لواء <br>بني عبيد</h2>
+      </div>
+      <div class="row">
+        <!-- Loop through landmarks using *ngFor and add index -->
+        <div *ngFor="let land of landData; let i = index" class="our-history__inner" lang="ar" dir="ltr">
+          <!--Our History Single Start-->
+          <div class="our-history__single">
+            <div class="our-history__main-content-box">
+              <div class="our-history__main-content-single">
+                <ul class="row list-unstyled" [ngClass]="{'flex-row-reverse': i % 2 !== 0}">
+                  <li class="col-xl-6 col-lg-6">
+                    <div [ngClass]="{'our-history__img-box': i % 2 === 0, 'our-history__img-box-two': i % 2 !== 0}">
+                      <div class="our-history__img">
+                        <a [href]="land.link">
+                          <img [src]="'https://localhost:7243' + land.image" alt="{{ land.name }}" />
+                        </a>
+                      </div>
+                    </div>
+                  </li>
 
-<section class="portfolio-page">
-  <div class="container">
-    <div class="row">
-      <div *ngFor="let land of landData" class="col-xl-4 col-lg-6 col-md-6">
-        <div class="portfolio-page__single">
-          <div class="portfolio-page__img-box">
-            <div class="portfolio-page__img">
-              <img [src]="'https://localhost:7243' + land.image" alt="{{ land.name }}" class="portfolio-image"> 
+                  <li class="col-xl-6 col-lg-6">
+                    <!-- Conditionally use different content classes based on index -->
+                    <div [ngClass]="{'our-history__content-one': i % 2 === 0, 'our-history__content-two': i % 2 !== 0}">
+                      <div [ngClass]="{'our-history__content-one-title-box': i % 2 === 0, 'our-history__content-two-title-box': i % 2 !== 0}">
+                        <div [ngClass]="{'our-history__content-one-circle-one': i % 2 === 0, 'our-history__content-two-circle-one': i % 2 !== 0}">
+                          <div [ngClass]="{'our-history__content-one-circle-two': i % 2 === 0, 'our-history__content-two-circle-two': i % 2 !== 0}">
+                            <div [ngClass]="{'our-history__content-one-circle-three': i % 2 === 0, 'our-history__content-two-circle-three': i % 2 !== 0}"></div>
+                          </div>
+                        </div>
+                        <p [ngClass]="{'our-history__content-one-sub-title': i % 2 === 0, 'our-history__content-two-sub-title': i % 2 !== 0}" lang="ar" dir="rtl">
+                          {{ land.location }}
+                        </p>
+                        <h3 [ngClass]="{'our-history__content-one-title': i % 2 === 0, 'our-history__content-two-title': i % 2 !== 0}" lang="ar" dir="rtl">
+                          <a [href]="land.link" style="color:black">{{ land.name }}</a>
+                        </h3>
+                      </div>
+                      <div [ngClass]="{'our-history__content-one-text-box': i % 2 === 0, 'our-history__content-two-text-box': i % 2 !== 0}">
+                        <p [ngClass]="{'our-history__content-one-text': i % 2 === 0, 'our-history__content-two-text': i % 2 !== 0}" lang="ar" dir="rtl">
+                          {{ land.description }}
+                        </p>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
             </div>
-            <div class="portfolio-page__content">
-              <p class="portfolio-page__sub-title">{{land.location}}</p> 
-              <h4 class="portfolio-page__title">
-                <a href="portfolio-details.html">{{land.name}}</a> 
-              </h4>
-            </div>
-            <h4 class="portfolio-page__title">
-              <a href="portfolio-details.html">{{land.name}}</a> 
-            </h4>
-
           </div>
+          <!--Our History Single End-->
         </div>
       </div>
     </div>
-  </div>
-</section>
-<!--Portfolio Page End-->
+  </section>
+</body>

@@ -1,20 +1,14 @@
-.portfolio-image {
-  width: 100%; /* Makes the image responsive */
-  height: 300px; /* Set a fixed height */
-  object-fit: cover; /* Ensures the image covers the area without stretching */
+.our-history__img img,
+.our-history__img-two img,
+.our-history__img-box img,
+.our-history__img-box-two img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px; /* Optional for rounded corners */
+  transform: none !important; /* Remove any transformation */
+  rotate: 11.5deg !important;
+  perspective: none !important; /* Remove any perspective distortion */
+  animation: none !important; /* Disable any animations that may affect the image */
+  transition: none !important; /* Disable transitions */
+  object-fit: cover; /* Maintain aspect ratio within the container */
 }
-
-.portfolio-page__img {
-  overflow: hidden; /* Prevents overflow if the image is larger than the box */
-}
-.portfolio-page__img {
-  margin-bottom: 10px; /* Adds space between the image and the name */
-}
-
-.portfolio-page__image-name {
-  font-size: 1em; /* Adjust font size as needed */
-  color: #333; /* Change color for better readability */
-  text-align: center; /* Center the name under the image */
-  margin-top: 5px; /* Space between image and place name */
-}
-

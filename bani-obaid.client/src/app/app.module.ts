@@ -15,6 +15,7 @@ import { ProjectComponent } from './Dima/project/project.component';
 import { TruncatePipe } from './Dima/truncate/truncate.pipe';
 import { ProjectDetailComponent } from './Dima/project-detail/project-detail.component';
 import { InvestmentsComponent } from './Dima/investments/investments.component';
+import { LandMarkDetailsComponent } from './Lujain/land-mark-details/land-mark-details.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { InvestmentsComponent } from './Dima/investments/investments.component';
     ProjectComponent,
     TruncatePipe,
     ProjectDetailComponent,
-    InvestmentsComponent
+    InvestmentsComponent,
+    LandMarkDetailsComponent
   ],
   imports: [
     BrowserModule, HttpClientModule,
@@ -37,6 +39,7 @@ import { InvestmentsComponent } from './Dima/investments/investments.component';
 
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'landBaniObaid', component: LandInBainObaidComponent },
+      { path: "landmark/:id", component: LandMarkDetailsComponent },
       { path: 'Tenders', component: TendersComponent },
       { path: "tenderdetail/:id", component: TenderDetailsComponent },
       { path: 'Projects', component: ProjectComponent },

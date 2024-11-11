@@ -41,7 +41,8 @@
                     </div>
                     <div [ngClass]="{'our-history__content-one-text-box': i % 2 === 0, 'our-history__content-two-text-box': i % 2 !== 0}">
                       <p [ngClass]="{'our-history__content-one-text': i % 2 === 0, 'our-history__content-two-text': i % 2 !== 0}" lang="ar" dir="rtl">
-                        {{ land.description }}
+                        {{ land.description | truncate:300 }}
+
                       </p>
                     </div>
                   </div>

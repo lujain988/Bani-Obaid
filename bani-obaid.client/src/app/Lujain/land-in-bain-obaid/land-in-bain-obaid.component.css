@@ -21,3 +21,10 @@
 .text-align-right {
   text-align: right;
 }
+.our-history__content-one-text,
+.our-history__content-two-text {
+  white-space: normal; /* Allow text wrapping */
+  word-wrap: break-word; /* Break words if they’re too long */
+  overflow: hidden; /* Hide any overflow */
+  text-align: justify; /* Optional: Justify the text for a cleaner look */
+}

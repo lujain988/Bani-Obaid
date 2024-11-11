@@ -12,3 +12,12 @@
   transition: none !important; /* Disable transitions */
   object-fit: cover; /* Maintain aspect ratio within the container */
 }
+/* Align text to the left */
+.text-align-left {
+  text-align: left;
+}
+
+/* Align text to the right */
+.text-align-right {
+  text-align: right;
+}

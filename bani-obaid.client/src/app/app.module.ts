@@ -31,8 +31,7 @@ import { LandMarkDetailsComponent } from './Lujain/land-mark-details/land-mark-d
     TruncatePipe,
     ProjectDetailComponent,
     InvestmentsComponent,
-    InvestmentDetaialComponent
-    InvestmentsComponent,
+    InvestmentDetaialComponent,
     LandMarkDetailsComponent
   ],
   imports: [

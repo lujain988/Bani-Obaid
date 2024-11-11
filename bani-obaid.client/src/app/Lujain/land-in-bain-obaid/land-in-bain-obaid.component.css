@@ -12,3 +12,19 @@
   transition: none !important; /* Disable transitions */
   object-fit: cover; /* Maintain aspect ratio within the container */
 }
+/* Align text to the left */
+.text-align-left {
+  text-align: left;
+}
+
+/* Align text to the right */
+.text-align-right {
+  text-align: right;
+}
+.our-history__content-one-text,
+.our-history__content-two-text {
+  white-space: normal; /* Allow text wrapping */
+  word-wrap: break-word; /* Break words if they’re too long */
+  overflow: hidden; /* Hide any overflow */
+  text-align: justify; /* Optional: Justify the text for a cleaner look */
+}

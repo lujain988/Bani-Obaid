@@ -17,6 +17,8 @@ import { ProjectComponent } from './Dima/project/project.component';
 import { TruncatePipe } from './Dima/truncate/truncate.pipe';
 import { ProjectDetailComponent } from './Dima/project-detail/project-detail.component';
 import { InvestmentsComponent } from './Dima/investments/investments.component';
+import { InvestmentDetaialComponent } from './Dima/investment-detaial/investment-detaial.component';
+import { LandMarkDetailsComponent } from './Lujain/land-mark-details/land-mark-details.component';
 import { JobsComponent } from './Mohammad/jobs/jobs.component';
 import { JobDetailsComponent } from './Mohammad/job-details/job-details.component';
 import { JobManagementComponent } from './Mohammad/jobs-management/jobs-management.component';
@@ -41,6 +43,9 @@ import { EditJobComponent } from './Mohammad/edit-job/edit-job.component';
     JobManagementComponent,
     AddJobComponent,
     EditJobComponent
+    InvestmentsComponent,
+    InvestmentDetaialComponent,
+    LandMarkDetailsComponent
   ],
   imports: [
     ReactiveFormsModule ,
@@ -50,6 +55,7 @@ import { EditJobComponent } from './Mohammad/edit-job/edit-job.component';
 
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'landBaniObaid', component: LandInBainObaidComponent },
+      { path: "landmark/:id", component: LandMarkDetailsComponent },
       { path: 'Tenders', component: TendersComponent },
       { path: "tenderdetail/:id", component: TenderDetailsComponent },
       { path: 'Projects', component: ProjectComponent },
@@ -60,6 +66,9 @@ import { EditJobComponent } from './Mohammad/edit-job/edit-job.component';
       { path: 'JobsManagement', component: JobManagementComponent },
       { path: 'addJob', component: AddJobComponent },
       { path: 'editJob/:id', component: EditJobComponent },
+      { path: "investmentdetail/:id", component: InvestmentDetaialComponent },
+
+
     ])
   ],
   providers: [],

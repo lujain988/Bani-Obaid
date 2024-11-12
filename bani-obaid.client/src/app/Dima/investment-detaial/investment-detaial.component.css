@@ -1,0 +1,29 @@
+.team-details {
+  position: relative;
+  display: block;
+  z-index: 1;
+  direction: rtl;
+}
+
+
+
+.team-details__top-name {
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 50px;
+  text-align: right;
+}
+.team-details__top-text-1 {
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 36px;
+  letter-spacing: var(--govity-letter-spacing);
+  color: var(--govity-base);
+  margin-top: 21px;
+  margin-bottom: 29px;
+  text-align: right;
+}
+.team-details__top-text-2 {
+  letter-spacing: var(--govity-letter-spacing-two);
+  text-align: right;
+}

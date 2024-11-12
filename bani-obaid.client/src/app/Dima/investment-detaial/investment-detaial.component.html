@@ -1,0 +1,49 @@
+<section class="page-header">
+  <div class="page-header-bg" style="background-image: url(assets/images/backgrounds/1.jpg)">
+  </div>
+  <div class="container">
+    <div class="page-header__inner">
+      <h2>فرصنا الاستثمارية</h2> <!-- Title added in Arabic -->
+      <ul class="thm-breadcrumb list-unstyled">
+        <li><a routerLink="">الرئيسية</a></li>
+        <!-- Home in Arabic -->
+        <li><span>/</span></li>
+        <li>الفرص الاستثمارية</li> <!-- Portfolio in Arabic -->
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+<section class="team-details">
+  <div class="container">
+    <div class="team-details__top">
+      <div class="row"  *ngIf="investment">
+        <div class="col-xl-6 col-lg-6">
+          <div class="team-details__left">
+            <div class="team-details__img">
+           
+              <img [src]="investment.image ? 'https://localhost:7243' + investment.image : ''" alt="investment Image"  />
+
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-6 col-lg-6" >
+          <div class="team-details__right">
+            <div class="team-details__top-content">
+              <h3 class="team-details__top-name">{{investment.name}}</h3>
+              <p class="team-details__top-text-1" style="color:black"> تاريخ انتهاء الفرصة :{{investment.finalDate| date: 'yyyy-MM-dd'}}  </p>
+
+              <p class="team-details__top-text-1">وصف الفُرصة</p>
+              <p class="team-details__top-text-2">{{investment.description}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

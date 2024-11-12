@@ -42,8 +42,7 @@ import { EditJobComponent } from './Mohammad/edit-job/edit-job.component';
     JobDetailsComponent,
     JobManagementComponent,
     AddJobComponent,
-    EditJobComponent
-    InvestmentsComponent,
+    EditJobComponent,
     InvestmentDetaialComponent,
     LandMarkDetailsComponent
   ],

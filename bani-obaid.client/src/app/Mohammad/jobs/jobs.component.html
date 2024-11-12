@@ -1,0 +1,40 @@
+
+<button routerLink="/JobsManagement">JobsManagement</button>
+
+<section class="feature-four">
+  <div class="container" dir="rtl">
+    <div class="section-title text-center">
+      <div class="section-title__icon">
+        <span class="fa fa-star"></span>
+      </div>
+      <span class="section-title__tagline">فرص العمل</span>
+      <h2 class="section-title__title">اكتشف فرص العمل المتوفرة في بلدية <br> بني عبيد</h2>
+    </div>
+    <div class="row">
+      <!-- Job Cards Start -->
+      <div *ngIf="jobData && jobData.length > 0" class="col-12 d-flex flex-wrap justify-content-around">
+        <div *ngFor="let job of jobData" class="col-xl-4 col-lg-4 col-md-6 job-card">
+          <div class="feature-four__single">
+            <div class="feature-four__img-box">
+              <a routerLink="/jobDetailes/{{job.id}}">
+                <div class="feature-four__img">
+                  <img src="../../../assets/images/job-opening.jpg" alt="Job Image">
+                </div>
+              </a>
+              <div class="feature-four__icon">
+                <i class="fs-3 text-white fas fa-briefcase"></i>
+              </div>
+            </div>
+            <h3 class="feature-four__title">
+              <a routerLink="/jobDetailes/{{job.id}}">{{ job.title }}</a>
+            </h3>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="jobData && jobData.length === 0" class="no-jobs">
+        <p>لا يوجد فُرص لعرضها</p>
+      </div>
+      <!-- Job Cards End -->
+    </div>
+  </div>
+</section>

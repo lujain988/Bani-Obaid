@@ -1,0 +1,31 @@
+<div style="direction:rtl">
+  <h2 class="form-title">إضافة وظيفة جديده</h2>
+
+  <form [formGroup]="jobForm" (ngSubmit)="onSubmit()" class="job-form">
+    <div class="form-group">
+      <label for="title">العنوان:</label>
+      <input id="title" formControlName="title" type="text" required />
+    </div>
+
+    <div class="form-group">
+      <label for="image">إضافة صورة:</label>
+      <input id="image" formControlName="image" type="text" />
+    </div>
+
+    <div class="form-group">
+      <label for="type">النوع:</label>
+      <select id="type" formControlName="type" required>
+        <option value="">اختر نوع الفرصة</option>
+        <option value="1">فرص ديوان الخدمة</option>
+        <option value="2">فرص مؤقتة</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="link">رابط (اختياري):</label>
+      <input id="link" formControlName="link" type="text" placeholder="....https://www" />
+    </div>
+
+    <button type="submit" [disabled]="jobForm.invalid" class="submit-button">اضافة الوظيفه</button>
+  </form>
+</div>

@@ -1,6 +1,8 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { ReactiveFormsModule } from '@angular/forms'; // Import ReactiveFormsModule
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +17,11 @@ import { ProjectComponent } from './Dima/project/project.component';
 import { TruncatePipe } from './Dima/truncate/truncate.pipe';
 import { ProjectDetailComponent } from './Dima/project-detail/project-detail.component';
 import { InvestmentsComponent } from './Dima/investments/investments.component';
+import { JobsComponent } from './Mohammad/jobs/jobs.component';
+import { JobDetailsComponent } from './Mohammad/job-details/job-details.component';
+import { JobManagementComponent } from './Mohammad/jobs-management/jobs-management.component';
+import { AddJobComponent } from './Mohammad/add-job/add-job.component';
+import { EditJobComponent } from './Mohammad/edit-job/edit-job.component';
 
 @NgModule({
   declarations: [
@@ -28,9 +35,15 @@ import { InvestmentsComponent } from './Dima/investments/investments.component';
     ProjectComponent,
     TruncatePipe,
     ProjectDetailComponent,
-    InvestmentsComponent
+    InvestmentsComponent,
+    JobsComponent,
+    JobDetailsComponent,
+    JobManagementComponent,
+    AddJobComponent,
+    EditJobComponent
   ],
   imports: [
+    ReactiveFormsModule ,
     BrowserModule, HttpClientModule,
     AppRoutingModule,
     RouterModule.forRoot([
@@ -42,7 +55,11 @@ import { InvestmentsComponent } from './Dima/investments/investments.component';
       { path: 'Projects', component: ProjectComponent },
       { path: "showProject/:id", component: ProjectDetailComponent },
       { path: 'Investments', component: InvestmentsComponent },
-
+      { path: "jobs/:id", component: JobsComponent },
+      { path: "jobDetailes/:id", component: JobDetailsComponent },
+      { path: 'JobsManagement', component: JobManagementComponent },
+      { path: 'addJob', component: AddJobComponent },
+      { path: 'editJob/:id', component: EditJobComponent },
     ])
   ],
   providers: [],

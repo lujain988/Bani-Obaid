@@ -1,0 +1,45 @@
+<section class="job-management" style="direction:rtl">
+  <div class="container">
+    <div class="header">
+      <h2>Job Management</h2>
+      <!-- Add Button -->
+      <br>
+      <button class="btn btn-primary" (click)="addJob()">إضافة وظيفة جديدة</button>
+    </div>
+
+    <!-- Job Table -->
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>العنوان</th>
+          <th>النوع</th>
+          <th>الحالة</th>
+          <th>الإجراءات</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let job of jobs; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ job.title }}</td>
+          <td>{{ job.type == "1" ? 'فرص ديوان الخدمة ' : 'فرص مؤقته' }}</td>
+          <td>{{ job.status == "active" ? 'فعال' : 'غير فعال' }}</td>
+          <td>
+            <!-- Edit Button -->
+            <button class="btn btn-warning btn-sm" (click)="editJob(job.id)">تعديل</button>
+            /
+            <!-- Delete Button -->
+            <button class="btn btn-danger btn-sm" (click)="deleteJob(job.id)">حذف</button>
+            /
+            <!-- Activate/Deactivate Button -->
+            <button class="btn btn-secondary btn-sm"
+                    [ngClass]="{'btn-success': !job.isActive, 'btn-secondary': job.isActive}"
+                    (click)="toggleActivation(job.id)">
+              {{ job.status == 'active' ? 'الغاء التفعيل' : 'تفعيل' }}
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>

@@ -1,163 +1,103 @@
-<div class="custom-cursor__cursor"></div>
-<div class="custom-cursor__cursor-two"></div>
+    <!-- Navbar -->
+<nav class="navbar navbar-expand-lg fixed-top" lang="ar" dir="rtl">
+  <div class="container">
+    <!-- Logo -->
+    <a class="navbar-brand" href="/">
+      <img src="assets/images/resources/logobani.jpg" alt="Logo" style="height:50px; width:50px">
+    </a>
+    <!-- Mobile Toggle Button -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarExample01" aria-controls="navbarExample01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
+    </button>
+    <!-- Navbar Links -->
+    <div class="collapse navbar-collapse" id="navbarExample01">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="/">الرئيسية</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownAbout" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            عن بلدية بني عبيد
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownAbout">
+            <li><a class="dropdown-item" href="/about-municipality">نبذة عن بلدية بني عبيد</a></li>
+            <li><a class="dropdown-item" href="/president">كلمة رئيس البلدية</a></li>
+            <li><a class="dropdown-item" href="/organizational-chart">الهيكل التنظيمي</a></li>
+            <li><a class="dropdown-item" href="/municipality-member">الأعضاء</a></li>
+            <li><a class="dropdown-item" href="/landmarks">أهم المعالم في بني عبيد</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMedia" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            المركز الإعلامي
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMedia">
+            <li><a class="dropdown-item" href="/news">أخبار بني عبيد</a></li>
+            <li><a class="dropdown-item" href="/events">الفعاليات</a></li>
+            <li><a class="dropdown-item" href="/gallery">معرض الصور</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownProjects" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            المشاريع والعطاءات
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownProjects">
+            <li><a class="dropdown-item" routerLink="/Tenders">العطاءات</a></li>
+            <li><a class="dropdown-item" routerLink="/Projects">المشاريع</a> </li>
+            <li><a class="dropdown-item" routerLink="/Investments">الفرص الاستثمارية</a> </li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownJobs" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            فرص العمل
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownJobs">
+            <li><a class="dropdown-item" routerLink="/jobs/1">ديوان الخدمة المدنية</a></li>
+            <li><a class="dropdown-item" routerLink="/jobs/2">فرص مؤقتة</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownTourism" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            السياحة
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownTourism">
+            <li><a class="dropdown-item" routerLink="/landBaniObaid">السياحة في بني عبيد</a></li>
+            <li><a class="dropdown-item" routerLink="">السياحة في الشمال</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/e-services">الخدمات الإلكترونية</a>
+        </li>
+      </ul>
 
-
-
-
-
-<div class="preloader">
-  <div class="preloader__image"></div>
-</div>
-<!-- /.preloader -->
-
-
-
-  <header class="main-header" lang="ar" dir="rtl">
-    <nav class="main-menu">
-      <div class="main-menu__wrapper">
-        <div class="main-menu__wrapper-inner">
-          <div class="main-menu__logo">
-            <a href="index.html"><img src="assets/images/resources/logo-1.png" alt=""></a>
-          </div>
-          <div class="main-menu__top">
-            <div class="main-menu__top-inner">
-              <div class="main-menu__top-left">
-                <div class="main-menu__social">
-                  <a href="#"><i class="fab fa-twitter"></i></a>
-                  <a href="#"><i class="fab fa-facebook"></i></a>
-                  <a href="#"><i class="fab fa-pinterest-p"></i></a>
-                  <a href="#"><i class="fab fa-instagram"></i></a>
-                </div>
-              </div>
-              <div class="main-menu__top-right">
-                <ul class="list-unstyled main-menu__contact-list">
-                  <li>
-                    <div class="icon">
-                      <i class="fas fa-envelope"></i>
-                    </div>
-                    <div class="text">
-                      <p><a href="">needhecompany.com</a></p>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="icon">
-                      <i class="fas fa-clock"></i>
-                    </div>
-                    <div class="text">
-                      <p>Open hours: Mon - Fri 8.00 am - 6.00 pm</p>
-                    </div>
-                  </li>
-                </ul>
-                <ul class="list-unstyled main-menu__top-menu">
-                  <li><a href="about.html">Council</a></li>
-                  <li><a href="about.html">Government</a></li>
-                  <li><a href="contact.html">Complaints</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="main-menu__bottom">
-            <div class="main-menu__bottom-inner">
-              <div class="main-menu__main-menu-box">
-                <a  class="mobile-nav__toggler"><i class="fa fa-bars"></i></a>
-                <ul class="main-menu__list">
-                  <li class="dropdown megamenu">
-                    <a href="#">Home </a>
-                 
-                  </li>
-                  <li></li>
-                  <li class="dropdown">
-                    <a href="#">Services</a>
-                    <ul class="sub-menu">
-
-                      <li><a routerLink="/Tenders">العطاءات</a></li>
-                      <li><a routerLink="/Projects">المشاريع</a> </li>
-                      <li><a routerLink="/Investments">الفرص الاستثمارية</a> </li>
-                    
-                    </ul>
-                  </li>
-                  <li class="dropdown">
-                    <a href="#">Departments</a>
-                    <ul class="sub-menu">
-                      <li><a href="departments.html">Departments</a></li>
-                      <li><a href="department-details.html">Department details</a></li>
-                    </ul>
-                  </li>
-
-                  <li class="dropdown">
-                    <a href="#">فرص العمل</a>
-                    <ul class="sub-menu">
-                      <li><a routerLink="/jobs/1">ديوان الخدمة المدنية</a></li>
-                      <li><a routerLink="/jobs/2">فرص مؤقتة</a></li>
-                    </ul>
-                  </li>
-                  <li class="dropdown">
-                    <a>السياحة</a>
-                    <ul class="sub-menu">
-                      
-                      <li><a routerLink="/landBaniObaid">السياحة في بني عبيد</a></li>
-                      <li><a>السياحة في الشمال</a></li>
-
-                    </ul>
-                  </li>
-                  <li class="dropdown">
-                    <a href="#">Shop</a>
-                    <ul class="sub-menu">
-                      <li><a href="shop.html">Shop</a></li>
-                      <li><a href="shop-details.html">Shop details</a></li>
-                      <li><a href="cart.html">Cart</a></li>
-                      <li><a href="checkout.html">Checkout</a></li>
-                    </ul>
-                  </li>
-                  <li>
-                    <a href="contact.html">Contact</a>
-                  </li>
-                </ul>
-              </div>
-              <div class="main-menu__right">
-                <div class="main-menu__call">
-                  <div class="main-menu__call-icon">
-                    <span class="icon-telephone"></span>
-                  </div>
-                  <div class="main-menu__call-content">
-                    <p class="main-menu__call-sub-title">Call Anytime</p>
-                    <h5 class="main-menu__call-number">
-                      <a href="tel:9212340800">
-                        +92 (1234)
-                        0800
-                      </a>
-                    </h5>
-                  </div>
-                </div>
-                <div class="main-menu__search-box">
-                  <a href="#" class="main-menu__search search-toggler icon-magnifying-glass"></a>
-                </div>
-                <div class="language-switcher">
-                  <select class="selectpicker">
-                    <option data-content="<span class='lang-en'><img src='assets/images/lang-flag/en.png' alt=''>English</span>"
-                            value="en" selected>
-                      English
-                    </option>
-                    <option data-content="<span class='lang-fr'><img src='assets/images/lang-flag/fr.png' alt=''>French</span>"
-                            value="fr">
-                      French
-                    </option>
-
-                    <option data-content="<span class='lang-it'><img src='assets/images/lang-flag/it.png' alt=''>Italian</span>"
-                            value="it">
-                      Italian
-                    </option>
-                  </select>
-
-                </div>
-                <div class="main-menu__btn-box">
-                  <a href="contact.html" class="thm-btn main-menu__btn">Report Issue</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </nav>
-  </header>
-
+      <!-- Social Icons and Contact -->
+      <ul class="navbar-nav flex-row social-icons">
+        <li class="nav-item">
+          <a class="nav-link px-2" href="https://www.facebook.com/ramtha.municipality/?locale=ar_AR7">
+            <i class="fab fa-facebook-square"></i>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link px-2" href="https://twitter.com/RamthaMunic?t=ghT4dCI8RjTwi_OZ1tgrUg&amp;s=09">
+            <i class="fab fa-twitter"></i>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link px-2" href="https://youtube.com/@RamthaMunic?si=TQJjj1Upu3KRic6X">
+            <i class="fab fa-youtube"></i>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link px-2" href="tel:+962786088830">
+            <i class="fas fa-phone"></i>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link px-2" href="mailto:ramtha.munic@gmail.com">
+            <i class="fas fa-envelope"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

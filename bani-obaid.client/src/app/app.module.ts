@@ -43,7 +43,6 @@ import { EditJobComponent } from './Mohammad/edit-job/edit-job.component';
     JobManagementComponent,
     AddJobComponent,
     EditJobComponent,
-    InvestmentsComponent,
     InvestmentDetaialComponent,
     LandMarkDetailsComponent
   ],

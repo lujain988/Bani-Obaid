@@ -1,0 +1,150 @@
+/* Ensure text wraps and aligns to the right */
+.text-wrap {
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  text-align: right;
+}
+
+/* Image section aligned to the right */
+.team-details__right {
+  text-align: right;
+}
+
+/* Left-align the text content */
+.team-details__left {
+  text-align: left;
+}
+
+/* Ensuring images within the section are not constrained */
+.team-details__img img {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+}
+
+/* Align text content within the top section to the right */
+.team-details__top-content {
+  text-align: right;
+}
+
+/* Carousel adjustments to remove gaps and make images larger */
+.brand-one__carousel {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0; /* Remove gap between images */
+  overflow-x: auto; /* Allow horizontal scrolling if necessary */
+}
+
+.brand-one__single {
+  flex: 0 0 auto;
+}
+
+.items img {
+  width: 100%; /* Make image take the full width of its container */
+  height: 300px; /* Set a consistent height for the images */
+  object-fit: cover; /* Ensure image covers the container without distortion */
+  margin: 0; /* Remove any default margin */
+}
+
+/* Modal styling */
+.image-modal {
+  display: block;
+  position: fixed;
+  z-index: 1000;
+  padding-top: 60px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+  .image-modal .modal-content {
+    margin: auto;
+    display: block;
+    max-width: 80%;
+    max-height: 80%;
+  }
+
+  .image-modal .close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .image-modal .prev, .image-modal .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -50px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    transition: 0.3s;
+    user-select: none;
+  }
+
+  .image-modal .prev {
+    left: 0;
+  }
+
+  .image-modal .next {
+    right: 0;
+  }
+
+/* Owl Carousel Dots Customization */
+.owl-theme .owl-dots .owl-dot span {
+  width: 16px; /* Increase dot size */
+  height: 16px;
+  background-color: #ccc;
+  border-radius: 50%;
+  transition: background-color 0.3s;
+}
+
+.owl-theme .owl-dots .owl-dot.active span {
+  background-color: #333; /* Change color for active dot */
+}
+/* Carousel container - remove flex and ensure dots appear below images */
+.brand-one__carousel {
+  display: block; /* Set block display to ensure dots appear below */
+  overflow: hidden;
+  width: 100%; /* Ensure carousel takes full width */
+}
+
+/* Carousel items - ensure no space between images */
+.brand-one__single {
+  display: inline-block; /* Display items inline to avoid line breaks */
+}
+
+.items img {
+  width: 100%; /* Make image take the full width of its container */
+  height: 300px; /* Set a consistent height for the images */
+  object-fit: cover; /* Ensure image covers the container without distortion */
+  margin: 0; /* Remove any default margin */
+}
+
+/* Owl Carousel Dots Customization */
+.owl-theme .owl-dots {
+  text-align: center; /* Center dots below images */
+  margin-top: 10px; /* Add a bit of space above dots */
+}
+
+  .owl-theme .owl-dots .owl-dot span {
+    width: 16px; /* Increase dot size */
+    height: 16px;
+    background-color: #ccc;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+  }
+
+  .owl-theme .owl-dots .owl-dot.active span {
+    background-color: #333; /* Change color for active dot */
+  }

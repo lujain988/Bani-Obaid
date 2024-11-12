@@ -34,8 +34,6 @@ namespace Bani_Obaid.Server.Controllers
             var land = _db.Landmarks.FirstOrDefault(a => a.Id == id);
             return land != null ? Ok(land) : NotFound();
         }
-
-        // POST: api/LandMark
         [HttpPost]
         public IActionResult CreateLandmark([FromForm] LandDTORequiest landDTO)
         {
@@ -52,7 +50,7 @@ namespace Bani_Obaid.Server.Controllers
                 CreatedAt = landDTO.CreatedAt ?? DateTime.Now,
             };
 
-            // Handle image upload
+            // Handle main image upload
             if (landDTO.Image != null && landDTO.Image.Length > 0)
             {
                 var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images");
@@ -67,12 +65,32 @@ namespace Bani_Obaid.Server.Controllers
 
                 landmark.Image = $"/images/{uniqueFileName}";
             }
+            var imgProperties = new List<string> { "Img1", "Img2", "Img3", "Img4", "Img5", "Img6", "Img7" };
+            for (int i = 0; i < imgProperties.Count; i++)
+            {
+                var imgFile = landDTO.GetType().GetProperty($"Img{i + 1}")?.GetValue(landDTO) as IFormFile;
+                if (imgFile != null && imgFile.Length > 0)
+                {
+                    var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images");
+                    Directory.CreateDirectory(uploadsFolder);
+                    var uniqueFileName = Guid.NewGuid().ToString() + "_" + imgFile.FileName;
+                    var filePath = Path.Combine(uploadsFolder, uniqueFileName);
+
+                    using (var fileStream = new FileStream(filePath, FileMode.Create))
+                    {
+                        imgFile.CopyTo(fileStream);
+                    }
+
+                    landmark.GetType().GetProperty(imgProperties[i])?.SetValue(landmark, $"/images/{uniqueFileName}");
+                }
+            }
 
             _db.Landmarks.Add(landmark);
             _db.SaveChanges();
 
             return CreatedAtAction(nameof(GetLand), new { id = landmark.Id }, landmark);
         }
+
         // PUT: api/LandMark/{id}
         [HttpPut("{id}")]
         public IActionResult UpdateLandmark(int id, [FromForm] LandDTORequiest landDTO)
@@ -102,7 +120,7 @@ namespace Bani_Obaid.Server.Controllers
             // Always update the UpdatedAt timestamp
             existingLandmark.UpdatedAt = landDTO.UpdatedAt ?? DateTime.Now;
 
-            // Handle image upload if a new image is provided
+            // Handle main image upload if a new image is provided
             if (landDTO.Image != null && landDTO.Image.Length > 0)
             {
                 var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images");
@@ -119,6 +137,28 @@ namespace Bani_Obaid.Server.Controllers
                 existingLandmark.Image = $"/images/{uniqueFileName}";
             }
 
+            // Handle additional images (img1, img2, img3, etc.)
+            for (int i = 1; i <= 7; i++)
+            {
+                var imgFile = Request.Form.Files[$"img{i}"];
+                if (imgFile != null && imgFile.Length > 0)
+                {
+                    var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images");
+                    Directory.CreateDirectory(uploadsFolder);
+                    var uniqueFileName = Guid.NewGuid().ToString() + "_" + imgFile.FileName;
+                    var filePath = Path.Combine(uploadsFolder, uniqueFileName);
+
+                    using (var fileStream = new FileStream(filePath, FileMode.Create))
+                    {
+                        imgFile.CopyTo(fileStream);
+                    }
+
+                    // Dynamically update img properties in the model
+                    existingLandmark.GetType().GetProperty($"Img{i}")?.SetValue(existingLandmark, $"/images/{uniqueFileName}");
+                }
+            }
+
+            // Save changes to the database
             _db.SaveChanges();
             return Ok(new { message = "Landmark updated successfully" });
         }

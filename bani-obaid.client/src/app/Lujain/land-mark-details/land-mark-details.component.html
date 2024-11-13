@@ -1,1 +1,108 @@
-<p>land-mark-details works!</p>
+<!-- Page Header Start -->
+<section class="page-header" lang="ar" dir="rtl">
+    <div class="page-header-bg" style="background-image: url('assets/images/backgrounds/bani.jpg');">
+    </div>
+    <div class="container">
+        <div class="page-header__inner">
+            <ul class="thm-breadcrumb list-unstyled" style="padding-inline-start:0px">
+                <h2>{{ landmark.name }}</h2>
+                <li><a href="/">الرئيسية</a></li>
+                <li><span>/</span></li>
+                <li class="header-size">{{ landmark.name }}</li>
+            </ul>
+        </div>
+    </div>
+</section>
+<!-- Page Header End -->
+
+<br>
+<br>
+<br>
+<br>
+
+<!-- Landmarks Page Start -->
+<section class="team-details">
+    <div class="container">
+        <!-- Loading Indicator -->
+        <div *ngIf="isLoading" class="loading-spinner">
+            <p>تحميل...</p>
+        </div>
+
+        <!-- Error Message -->
+        <div *ngIf="errorMessage" class="error-message">
+            <p>{{ errorMessage }}</p>
+        </div>
+
+        <!-- Landmark Details Section -->
+        <div *ngIf="landmark" lang="ar">
+            <div class="team-details__top">
+                <div class="row">
+                    <!-- Text Section (Left) -->
+                    <div class="col-xl-6 col-lg-6">
+                        <div class="team-details__left text-left">
+                            <div class="team-details__top-content">
+                                <h3 class="team-details__top-name">{{ landmark.name }}</h3>
+                                <p class="team-details__top-text-1">{{ landmark.location }}</p>
+                                <p class="team-details__top-text-2 text-wrap">{{ landmark.description }}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Image Section (Right) -->
+                    <div class="col-xl-6 col-lg-6" *ngIf="landmark.image" lang="ar" dir="rtl">
+                        <div class="team-details__right">
+                            <div class="team-details__img">
+                                <img [src]="baseUrl + landmark.image" alt="Main Image of {{ landmark.name }}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional Images Section -->
+            <h4 class="about-two__progress-title text-wrap" lang="ar" dir="rtl">صور {{ landmark.name }}:</h4>
+
+            <!-- Check if additional images exist -->
+            <div *ngIf="images.length > 0; else noImages" class="brand-one__carousel thm-owl__carousel owl-theme owl-carousel" 
+                 data-owl-options='{
+                     "items": 2,
+                     "margin": 0,
+                     "smartSpeed": 1950,
+                     "loop": true,
+                     "autoplay": false,
+                     "autoplayTimeout": 2000,
+                     "nav": false,
+                     "dots": true,
+                     "responsive": {
+                         "0": { "items": 1 },
+                         "768": { "items": 2 },
+                         "1024": { "items": 3 }
+                     }
+                 }'>
+
+                <!-- Display each existing image in the filtered images array -->
+                <div *ngFor="let img of images; let i = index" class="brand-one__single">
+                    <div class="items">
+                        <img [src]="img" alt="صورة {{ i + 1 }} لـ {{ landmark.name }}"
+                             style="width: 100%; height: 300px; object-fit: cover;"
+                             (click)="openModal(img, i)" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- Template to display if there are no images -->
+            <ng-template #noImages>
+                <p class="no-images-message" style="text-align: center;">لا يوجد صور حاليا</p>
+            </ng-template>
+
+        </div>
+    </div>
+</section>
+<!-- Landmarks Page End -->
+<!-- Image Modal -->
+<div *ngIf="isModalOpen" class="image-modal">
+    <span class="close" (click)="closeModal()">&times;</span>
+    <img class="modal-content" [src]="currentImage" alt="Landmark Image">
+    <a class="prev" (click)="previousImage()">&#10094; السابق</a>
+    <a class="next" (click)="nextImage()">التالي &#10095;</a>
+</div>

@@ -46,7 +46,6 @@ import { EventsComponent } from './Mohammad/events/events.component';
     JobManagementComponent,
     AddJobComponent,
     EditJobComponent,
-    InvestmentsComponent,
     InvestmentDetaialComponent,
     LandMarkDetailsComponent,
     EServiceComponent,

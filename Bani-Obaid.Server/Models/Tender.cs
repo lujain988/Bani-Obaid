@@ -25,7 +25,7 @@ public partial class Tender
 
     public string? Amount { get; set; }
 
-    public DateOnly? ClosingDate { get; set; }
+    public DateTime? ClosingDate { get; set; }
 
     public DateTime? CreatedAt { get; set; }
 

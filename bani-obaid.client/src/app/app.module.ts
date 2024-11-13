@@ -24,6 +24,9 @@ import { JobDetailsComponent } from './Mohammad/job-details/job-details.componen
 import { JobManagementComponent } from './Mohammad/jobs-management/jobs-management.component';
 import { AddJobComponent } from './Mohammad/add-job/add-job.component';
 import { EditJobComponent } from './Mohammad/edit-job/edit-job.component';
+import { EServiceComponent } from './Mohammad/e-service/e-service.component';
+import { OwnershipTransferComponent } from './Mohammad/ownership-transfer/ownership-transfer.component';
+import { EventsComponent } from './Mohammad/events/events.component';
 
 @NgModule({
   declarations: [
@@ -42,10 +45,13 @@ import { EditJobComponent } from './Mohammad/edit-job/edit-job.component';
     JobDetailsComponent,
     JobManagementComponent,
     AddJobComponent,
-    EditJobComponent
+    EditJobComponent,
     InvestmentsComponent,
     InvestmentDetaialComponent,
-    LandMarkDetailsComponent
+    LandMarkDetailsComponent,
+    EServiceComponent,
+    OwnershipTransferComponent,
+    EventsComponent
   ],
   imports: [
     ReactiveFormsModule ,
@@ -67,6 +73,9 @@ import { EditJobComponent } from './Mohammad/edit-job/edit-job.component';
       { path: 'addJob', component: AddJobComponent },
       { path: 'editJob/:id', component: EditJobComponent },
       { path: "investmentdetail/:id", component: InvestmentDetaialComponent },
+      { path: 'EService', component: EServiceComponent },
+      { path: 'OwnershipTransfer', component: OwnershipTransferComponent },
+      { path: 'Events', component: EventsComponent }
 
 
     ])

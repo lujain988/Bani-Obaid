@@ -15,7 +15,7 @@ public partial class Event
 
     public TimeOnly? Time { get; set; }
 
-    public DateOnly? EventDate { get; set; }
+    public DateTime? EventDate { get; set; }
 
     public string? Image { get; set; }
 

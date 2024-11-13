@@ -1,5 +1,6 @@
-using Bani_Obaid.Server.Models;
+﻿using Bani_Obaid.Server.Models;
 using Microsoft.EntityFrameworkCore;
+using Bani_Obaid.Server.Controllers;
 
 var builder = WebApplication.CreateBuilder(args);
 

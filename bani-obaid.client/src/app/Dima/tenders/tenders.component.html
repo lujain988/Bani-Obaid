@@ -1,0 +1,57 @@
+<section class="page-header">
+  <div class="page-header-bg" style="background-image: url(assets/images/backgrounds/1.jpg)">
+  </div>
+  <div class="container">
+    <div class="page-header__inner">
+      <h2>العطاءات</h2> <!-- Title added in Arabic -->
+      <ul class="thm-breadcrumb list-unstyled">
+        <li><a routerLink="">الرئيسية</a></li>
+        <!-- Home in Arabic -->
+        <li><span>/</span></li>
+        <li>العطاءات</li> <!-- Portfolio in Arabic -->
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="department-page">
+  <div class="container">
+    <div class="row">
+      <section class="feature-five" style="margin-top: -13px; padding-top: 0px">
+        <div class="container">
+          <div class="section-title text-center">
+            <div class="section-title__icon">
+              <span class="fa fa-star" style="color: #0063ae;"></span>
+            </div>
+            <span class="section-title__tagline">عطاءاتُنا</span>
+            <h2 class="section-title__title">اكتشف عطاءات بلدية <br>بني عبيد</h2>
+          </div>
+          <div class="row">
+            <!-- Repeat this block for each tender -->
+            <div class="col-xl-4 col-lg-4"  *ngFor="let item of tenderdata" >
+              <div class="feature-four__single">
+                <div class="feature-four__img-box">
+                  <div class="feature-four__img">
+                    <img src="assets/images/backgrounds/tender.png" alt="Tender Image">
+                  </div>
+                </div>
+                <h3 class="feature-four__title" style="height: 0px; margin-bottom: 15px; margin-top: 20px">
+                  <a [routerLink]="['/tenderdetail', item.id]">
+                    {{ item.title }}
+                  </a>
+                </h3>
+                <br>
+                <div class="contact-two__btn-box" style="margin-top: 50px">
+                  <a [routerLink]="['/tenderdetail', item.id]">
+                    <button type="button" class="thm-btn contact-two__btn">المزيد</button>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <!-- End of single tender block -->
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>

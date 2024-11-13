@@ -1,0 +1,30 @@
+.contact-page__img::before {
+  content: "";
+  position: absolute;
+  top: 28px;
+  left: -30px;
+  bottom: 32px;
+  width: 30px;
+  background-color: #0d6efd;
+}
+.contact-page__img::before {
+  content: "";
+  position: absolute;
+  top: 28px;
+  left: -30px;
+  bottom: 32px;
+  width: 30px;
+  background-color: #0063ae;
+}
+
+/*.contact-page__contact-list li:hover .icon {
+  background-color: #0063ae00;
+  color: var(--govity-white);
+}
+*/
+
+
+.contact-page__contact-list li:hover .icon {
+  background-color: #0063ae;
+  color: var(--govity-white);
+}

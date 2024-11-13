@@ -1,0 +1,179 @@
+
+
+
+<section class="page-header">
+  <div class="page-header-bg" style="background-image: url(assets/images/backgrounds/1.jpg)">
+  </div>
+  <div class="container">
+    <div class="page-header__inner">
+      <h2>العطاءات</h2>
+      <ul class="thm-breadcrumb list-unstyled">
+        <li><a routerLink="">الرئيسية</a></li>
+        <li><span>/</span></li>
+        <li>العطاءات</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!--<section class="contact-page">
+  <div class="container">
+    <div class="contact-page__top">
+      <div class="row">
+        <div class="col-xl-12 col-lg-12" *ngIf="tender">
+          <div class="contact-page__right" style="margin-top: -13px; padding-top: 0px">
+            <div class="section-title text-center">
+              <div class="section-title__icon">
+                <span class="fa fa-star" style="color: #0063ae;"></span>
+              </div>
+              <h2 class="section-title__title" style="direction: rtl;">{{tender.title}}</h2>
+            </div>
+
+            <p class="contact-page__text text-center" style="direction: rtl;">{{tender.description}}</p>
+
+            <ul class="list-unstyled contact-page__contact-list">
+              <li style="direction: rtl;">
+                <div class="icon">
+                  <span class="fas fa-money-bill" style="color: #0063ae;"></span>
+                </div>
+                <div class="content" style="margin-right: 15px">
+                  <p>قيمة العطاء :</p>
+                  <h4>{{tender.amount}}</h4>
+                </div>
+              </li>
+              <li style="direction: rtl;">
+                <div class="icon">
+                  <span class="far fa-calendar-alt" style="color: #0063ae;"></span>
+                </div>
+                <div class="content" style="margin-right: 15px;">
+                  <p> الموعد النهائي لاستلام العروض :</p>
+                  <h4>{{ tender.closingDate | date:'yyyy-MM-dd' }}</h4>
+                </div>
+              </li>
+              <li style="direction: rtl;">
+                <div class="icon">
+                  <span class="far fa-image" style="color: #0063ae;"></span>
+                </div>
+               <div class="content" style="margin-right: 15px">
+    <p>تحميل الصورة :</p>
+    <button (click)="downloadImage('https://localhost:7243' + tender.image)" class="btn btn-primary">
+      تحميل
+    </button>
+  </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center">
+      <p style="color: red"><sub> *</sub>يرجى التواصل مع البلدية للمشاركة في العطاء.</p>
+
+      <div class="col-xl-6 col-lg-6" style="padding: 10px">
+        <div class="contact-page__left">
+          <div class="contact-page__img-box text-center">
+            <div class="contact-page__img" *ngIf="tender.image">
+              <img [src]="'https://localhost:7243' + tender.image" alt="{{ tender.image }}" class="portfolio-image" style="max-width: 100%; height: auto;">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center">
+      <div class="col-xl-6 col-lg-6" style="padding: 10px">
+        <div class="contact-page__left">
+          <div class="contact-page__img-box text-center">
+            <div class="contact-page__img" *ngIf="tender.img1">
+              <img [src]="'https://localhost:7243' + tender.img1" alt="{{ tender.img1 }}" class="portfolio-image" style="max-width: 100%; height: auto;">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>-->
+
+
+
+<section class="contact-page">
+  <div class="container">
+    <div class="contact-page__top">
+      <div class="row">
+        <div class="col-xl-12 col-lg-12" *ngIf="tender">
+          <div class="contact-page__right">
+            <div class="section-title text-center">
+              <div class="section-title__icon">
+                <span class="fa fa-star" style="color: #0063ae;"></span>
+              </div>
+              <h2 class="section-title__title" style="direction: rtl;">{{ tender.title }}</h2>
+            </div>
+
+            <p class="contact-page__text text-center" style="direction: rtl;">{{ tender.description }}</p>
+
+            <ul class="list-unstyled contact-page__contact-list">
+              <li style="direction: rtl;">
+                <div class="icon">
+                  <span class="fas fa-money-bill" style="color: #0063ae;"></span>
+                </div>
+                <div class="content" style="margin-right: 15px">
+                  <p>قيمة العطاء :</p>
+                  <h4>{{ tender.amount }}</h4>
+                </div>
+              </li>
+              <li style="direction: rtl;">
+                <div class="icon">
+                  <span class="far fa-calendar-alt" style="color: #0063ae;"></span>
+                </div>
+                <div class="content" style="margin-right: 15px;">
+                  <p>الموعد النهائي لاستلام العروض :</p>
+                  <h4>{{ tender.closingDate | date: 'yyyy-MM-dd' }}</h4>
+                </div>
+              </li>
+              <li style="direction: rtl;">
+                <div class="icon">
+                  <span class="far fa-image" style="color: #0063ae;"></span>
+                </div>
+                <div class="content" style="margin-right: 15px">
+                  <p>تحميل الصورة :</p>
+                  <button (click)="downloadImage('https://localhost:7243' + tender?.image)" class="btn btn-primary">
+                    تحميل
+                  </button>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center">
+      <p style="color: red"><sub> *</sub>يرجى التواصل مع البلدية للمشاركة في العطاء.</p>
+
+      <div class="col-xl-6 col-lg-6" style="padding: 10px ;">
+        <div class="contact-page__left">
+          <div class="contact-page__img-box text-center">
+            <div class="contact-page__img" *ngIf="tender?.image">
+              <img [src]="'https://localhost:7243' + tender?.image" alt="{{ tender?.image }}" class="portfolio-image" style="max-width: 100%; height: auto;">
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="text-center">
+        <div class="col-xl-6 col-lg-6" style="padding: 10px">
+          <div class="contact-page__left">
+            <div class="contact-page__img-box text-center">
+              <div class="contact-page__img" *ngIf="tender?.img1">
+                <img [src]="'https://localhost:7243' + tender?.img1" alt="{{ tender?.img1 }}" class="portfolio-image" style="max-width: 100%; height: auto;">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

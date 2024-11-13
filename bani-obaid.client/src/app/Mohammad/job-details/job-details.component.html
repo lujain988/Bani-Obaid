@@ -1,0 +1,48 @@
+<section class="news-details">
+  <div class="container">
+    <div class="row" [ngClass]="{'justify-content-center': latestJobs.length === 0}">
+      <!-- Main Job Content -->
+      <div [ngClass]="latestJobs.length > 0 ? 'col-xl-8 col-lg-7' : 'col-xl-10 col-lg-10'">
+        <div class="news-details__left">
+          <div class="news-details__content">
+            <h3 class="news-details__title-1">{{ jobDetails?.title }}</h3>
+            <h5 class="mb-4" *ngIf="jobDetails?.type === '1'">
+              <a [href]="jobDetails?.link" target="_blank" class="text-primary" style="text-decoration: none">
+                للتقديم من هنا
+              </a>
+            </h5>
+          </div>
+          <div class="news-details__img-box">
+            <div class="news-details__img">
+              <img src="../../../assets/images/job-offer.jpg" alt="Job Image">
+            </div>
+            <div class="news-details__date">
+              <p>{{ jobDetails?.date | date: 'd MMM' }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sidebar for Latest Jobs -->
+      <div *ngIf="latestJobs.length >= 0" class="col-xl-4 col-lg-5">
+        <div class="sidebar">
+          <div class="sidebar__single sidebar__post">
+            <h3 class="sidebar__title">فرص عمل اخرى</h3>
+            <ul class="sidebar__post-list list-unstyled">
+              <li *ngFor="let latestJob of latestJobs">
+                <div class="sidebar__post-image">
+                  <img src="../../../assets/images/job-opening.jpg" alt="Latest Job Image">
+                </div>
+                <div class="sidebar__post-content">
+                  <h3>
+                    <a routerLink="/jobDetailes/{{latestJob.id}}" >{{ latestJob.title }}</a>
+                  </h3>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

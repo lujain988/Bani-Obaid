@@ -1,0 +1,188 @@
+<!--<section class="page-header">
+  <div class="page-header-bg" style="background-image: url(assets/images/backgrounds/1.jpg)">
+  </div>
+  <div class="container">
+    <div class="page-header__inner">
+      <h2>المشاريع</h2>
+      <ul class="thm-breadcrumb list-unstyled">
+        <li><a routerLink="">الرئيسية</a></li>
+        <li><span>/</span></li>
+        <li>المشاريع</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+<section class="department-page">
+  <div class="container">
+    <div class="section-title text-center">
+      <div class="section-title__icon">
+        <span class="fa fa-star"></span>
+      </div>
+      <span class="section-title__tagline">مشاريعُنا</span>
+      <h2 class="section-title__title">لا يوجد مشاريع لعرضها</h2>
+    </div>
+    <div class="row">
+      <div class="text-center">
+        <a href="/" class="btn thm-btn">العودة الى الصفحة الرئيسية</a>
+      </div>
+    </div>
+  </div>
+</section>-->
+<!-- If projects are available -->
+<!--<section class="department-page">
+  <div class="container">
+    <div class="section-title text-center">
+      <div class="section-title__icon">
+        <span class="fa fa-star"></span>
+      </div>
+      <span class="section-title__tagline">مشاريعُنا</span>
+      <h2 class="section-title__title">اكتشف مشاريع بلدية <br> بني عبيد</h2>
+    </div>
+    <div class="row">-->
+<!-- Loop through each project -->
+<!--<div class="col-xl-4 col-lg-3 col-md-6" *ngFor="let item of projectdata">
+  <div class="department-two__single">
+    <div class="department-two__img-box">
+      <div class="department-two__img">
+        <img src="{{ item.image }}" alt="" height="400px">
+      </div>
+      <div class="department-two__content">
+        <div class="department-two__icon">
+          <span class="icon-parthenon"></span>
+        </div>
+        <h3 class="department-two__title">
+          <a href="/showProject/{{ item.id }}">
+            {{ item.title }}
+          </a>
+        </h3>
+        <div class="about-two__progress">
+          <div class="about-two__progress-single">
+            <h4 class="about-two__progress-title">نسبة الانجاز</h4>
+            <div class="bar">
+              <div class="bar-inner count-bar" data-percent="{{ item.percentage }}%">
+                <div class="count-text">{{ item.percentage }}%</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="department-two__content-two">
+        <h3 class="department-two__title-two">
+          <a href="/showProject/{{ item.id }}">
+            {{ item.title }}
+          </a>
+        </h3>
+        <p class="department-two__text">{{ item.description | truncate(50) }}</p>
+        <div class="department-two__btn-box">
+          <a href="/showProject/{{ item.id }}" class="department-two__btn">
+            قراءة المزيد&nbsp;<i class="icon-left-arrow"></i>
+          </a>
+        </div>
+        <div class="department-two__icon-two">
+          <span class="icon-parthenon"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>-->
+<!-- End of project loop -->
+<!--</div>
+  </div>
+</section>-->
+<section class="page-header">
+  <div class="page-header-bg" style="background-image: url(assets/images/backgrounds/1.jpg)">
+  </div>
+  <div class="container">
+    <div class="page-header__inner">
+      <h2>المشاريع</h2>
+      <ul class="thm-breadcrumb list-unstyled">
+        <li><a routerLink="">الرئيسية</a></li>
+        <li><span>/</span></li>
+        <li>المشاريع</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="department-page" *ngIf="projectdata.length === 0">
+  <div class="container">
+    <div class="section-title text-center">
+      <div class="section-title__icon">
+        <span class="fa fa-star"></span>
+      </div>
+      <span class="section-title__tagline">مشاريعُنا</span>
+      <h2 class="section-title__title">لا يوجد مشاريع لعرضها</h2>
+    </div>
+    <div class="row">
+      <div class="text-center">
+        <a routerLink="/" class="btn thm-btn">العودة الى الصفحة الرئيسية</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- If projects are available -->
+<section class="department-page" *ngIf="projectdata.length > 0">
+  <div class="container">
+    <div class="section-title text-center">
+      <div class="section-title__icon">
+        <span class="fa fa-star"></span>
+      </div>
+      <span class="section-title__tagline">مشاريعُنا</span>
+      <h2 class="section-title__title">اكتشف مشاريع بلدية <br> بني عبيد</h2>
+    </div>
+    <div class="row">
+      <!-- Loop through each project -->
+      <div class="col-xl-4 col-lg-3 col-md-6" *ngFor="let item of projectdata">
+        <div class="department-two__single">
+          <div class="department-two__img-box">
+            <div class="department-two__img">
+           
+              <img [src]="'https://localhost:7243' + item?.image" alt="{{ item?.image }}" height="400">
+
+            </div>
+            <div class="department-two__content">
+              <div class="department-two__icon">
+                <span class="icon-parthenon"></span>
+              </div>
+              <h3 class="department-two__title">
+                <a [routerLink]="['/showProject', item.id]">
+                  {{ item.title }}
+                </a>
+              </h3>
+              <div class="about-two__progress">
+                <div class="about-two__progress-single">
+                  <h4 class="about-two__progress-title">نسبة الانجاز</h4>
+                  <div class="bar">
+                    <div class="bar-inner count-bar" [style.width.%]="item.percentage">
+                      <div class="count-text">{{item.percentage}}%</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="department-two__content-two">
+              <h3 class="department-two__title-two">
+                <a [routerLink]="['/showProject', item.id]">
+                  {{ item.title }}
+                </a>
+              </h3>
+              <p class="department-two__text">{{ item.description | truncate:50 }}</p>
+              <div class="department-two__btn-box">
+                <a [routerLink]="['/showProject', item.id]" class="department-two__btn">
+                  قراءة المزيد&nbsp;<i class="icon-left-arrow"></i>
+                </a>
+              </div>
+              <div class="department-two__icon-two">
+                <span class="icon-parthenon"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End of project loop -->
+    </div>
+  </div>
+</section>

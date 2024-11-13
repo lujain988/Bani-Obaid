@@ -1,0 +1,35 @@
+/* Style for the button */
+.thm-btn.contact-two__btn {
+  background-color: #0063ae; /* Button background color */
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 4px;
+  width:110px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+  /* Button hover effect */
+  .thm-btn.contact-two__btn:hover {
+    background-color: #1f91c3; /* Slightly darker shade on hover */
+  }
+
+
+.feature-four__single {
+  margin-right: auto; /* Pushes the div to the right */
+}
+.feature-four__title a:hover {
+  color: #0063ae;
+}
+
+.row {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: calc(var(--bs-gutter-y)* -1);
+  margin-right: calc(var(--bs-gutter-x) / -2);
+  margin-left: calc(var(--bs-gutter-x) / -2);
+  justify-content: flex-end;
+}

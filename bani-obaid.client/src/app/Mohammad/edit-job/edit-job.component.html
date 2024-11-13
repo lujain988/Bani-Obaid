@@ -1,0 +1,31 @@
+<div style="direction: rtl">
+  <h2 class="form-title">تعديل الوظيفة</h2>
+
+  <form [formGroup]="editJobForm" (ngSubmit)="onSubmit()" class="job-form">
+    <div class="form-group">
+      <label for="title">العنوان:</label>
+      <input id="title" formControlName="title" type="text" required />
+    </div>
+
+    <div class="form-group">
+      <label for="image">الصورة:</label>
+      <input id="image" formControlName="image" type="text" />
+    </div>
+
+    <div class="form-group">
+      <label for="type">النوع:</label>
+      <select id="type" formControlName="type" required>
+        <option value="">Select Type</option>
+        <option value="1">وظيفة ديوان الخدمة</option>
+        <option value="2">وظيفة مؤقتة</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="link">الرابط:</label>
+      <input id="link" formControlName="link" type="text" />
+    </div>
+
+    <button type="submit" [disabled]="editJobForm.invalid" class="submit-button">حفظ التعديلات</button>
+  </form>
+</div>

@@ -3,6 +3,7 @@ using Bani_Obaid.Server.Dto;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
@@ -27,13 +28,30 @@ namespace Bani_Obaid.Server.Controllers
             return land != null ? Ok(land) : NotFound();
         }
 
-        // GET: api/LandMark/{id}
         [HttpGet("{id}")]
         public IActionResult GetLand(int id)
         {
             var land = _db.Landmarks.FirstOrDefault(a => a.Id == id);
-            return land != null ? Ok(land) : NotFound();
+            if (land == null) return NotFound();
+
+            // Retrieve associated images
+            var images = _db.LandmarkImages
+                .Where(img => img.LandmarkId == id)
+                .Select(img => new { img.Id, img.ImageUrl })
+                .ToList();
+
+            // Return response in the expected format
+            var response = new
+            {
+                land,
+                images
+            };
+
+            return Ok(response);
         }
+
+
+        // POST: api/LandMark
         [HttpPost]
         public IActionResult CreateLandmark([FromForm] LandDTORequiest landDTO)
         {
@@ -65,31 +83,41 @@ namespace Bani_Obaid.Server.Controllers
 
                 landmark.Image = $"/images/{uniqueFileName}";
             }
-            var imgProperties = new List<string> { "Img1", "Img2", "Img3", "Img4", "Img5", "Img6", "Img7" };
-            for (int i = 0; i < imgProperties.Count; i++)
-            {
-                var imgFile = landDTO.GetType().GetProperty($"Img{i + 1}")?.GetValue(landDTO) as IFormFile;
-                if (imgFile != null && imgFile.Length > 0)
-                {
-                    var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images");
-                    Directory.CreateDirectory(uploadsFolder);
-                    var uniqueFileName = Guid.NewGuid().ToString() + "_" + imgFile.FileName;
-                    var filePath = Path.Combine(uploadsFolder, uniqueFileName);
-
-                    using (var fileStream = new FileStream(filePath, FileMode.Create))
-                    {
-                        imgFile.CopyTo(fileStream);
-                    }
-
-                    landmark.GetType().GetProperty(imgProperties[i])?.SetValue(landmark, $"/images/{uniqueFileName}");
-                }
-            }
 
             _db.Landmarks.Add(landmark);
             _db.SaveChanges();
 
+            // Handle additional images in landmark_images table
+            if (landDTO.AdditionalImages != null && landDTO.AdditionalImages.Count > 0)
+            {
+                foreach (var imgFile in landDTO.AdditionalImages)
+                {
+                    if (imgFile != null && imgFile.Length > 0)
+                    {
+                        var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images");
+                        Directory.CreateDirectory(uploadsFolder);
+                        var uniqueFileName = Guid.NewGuid().ToString() + "_" + imgFile.FileName;
+                        var filePath = Path.Combine(uploadsFolder, uniqueFileName);
+
+                        using (var fileStream = new FileStream(filePath, FileMode.Create))
+                        {
+                            imgFile.CopyTo(fileStream);
+                        }
+
+                        var landmarkImage = new LandmarkImage
+                        {
+                            LandmarkId = landmark.Id,
+                            ImageUrl = $"/images/{uniqueFileName}"
+                        };
+                        _db.LandmarkImages.Add(landmarkImage);
+                    }
+                }
+                _db.SaveChanges();
+            }
+
             return CreatedAtAction(nameof(GetLand), new { id = landmark.Id }, landmark);
         }
+
 
         // PUT: api/LandMark/{id}
         [HttpPut("{id}")]
@@ -101,24 +129,11 @@ namespace Bani_Obaid.Server.Controllers
                 return NotFound($"Landmark with ID {id} not found.");
             }
 
-            // Only update properties if they are not null or empty
-            if (!string.IsNullOrEmpty(landDTO.Name))
-            {
-                existingLandmark.Name = landDTO.Name;
-            }
-
-            if (!string.IsNullOrEmpty(landDTO.Location))
-            {
-                existingLandmark.Location = landDTO.Location;
-            }
-
-            if (!string.IsNullOrEmpty(landDTO.Description))
-            {
-                existingLandmark.Description = landDTO.Description;
-            }
-
-            // Always update the UpdatedAt timestamp
-            existingLandmark.UpdatedAt = landDTO.UpdatedAt ?? DateTime.Now;
+            // Update properties if provided
+            existingLandmark.Name = landDTO.Name ?? existingLandmark.Name;
+            existingLandmark.Location = landDTO.Location ?? existingLandmark.Location;
+            existingLandmark.Description = landDTO.Description ?? existingLandmark.Description;
+            existingLandmark.UpdatedAt = DateTime.Now;
 
             // Handle main image upload if a new image is provided
             if (landDTO.Image != null && landDTO.Image.Length > 0)
@@ -133,36 +148,40 @@ namespace Bani_Obaid.Server.Controllers
                     landDTO.Image.CopyTo(fileStream);
                 }
 
-                // Update image path
+                // Update main image path
                 existingLandmark.Image = $"/images/{uniqueFileName}";
             }
 
-            // Handle additional images (img1, img2, img3, etc.)
-            for (int i = 1; i <= 7; i++)
+            // Handle additional images
+            if (landDTO.AdditionalImages != null && landDTO.AdditionalImages.Count > 0)
             {
-                var imgFile = Request.Form.Files[$"img{i}"];
-                if (imgFile != null && imgFile.Length > 0)
+                foreach (var imgFile in landDTO.AdditionalImages)
                 {
-                    var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images");
-                    Directory.CreateDirectory(uploadsFolder);
-                    var uniqueFileName = Guid.NewGuid().ToString() + "_" + imgFile.FileName;
-                    var filePath = Path.Combine(uploadsFolder, uniqueFileName);
-
-                    using (var fileStream = new FileStream(filePath, FileMode.Create))
+                    if (imgFile != null && imgFile.Length > 0)
                     {
-                        imgFile.CopyTo(fileStream);
-                    }
+                        var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images");
+                        Directory.CreateDirectory(uploadsFolder);
+                        var uniqueFileName = Guid.NewGuid().ToString() + "_" + imgFile.FileName;
+                        var filePath = Path.Combine(uploadsFolder, uniqueFileName);
 
-                    // Dynamically update img properties in the model
-                    existingLandmark.GetType().GetProperty($"Img{i}")?.SetValue(existingLandmark, $"/images/{uniqueFileName}");
+                        using (var fileStream = new FileStream(filePath, FileMode.Create))
+                        {
+                            imgFile.CopyTo(fileStream);
+                        }
+
+                        var landmarkImage = new LandmarkImage
+                        {
+                            LandmarkId = existingLandmark.Id,
+                            ImageUrl = $"/images/{uniqueFileName}"
+                        };
+                        _db.LandmarkImages.Add(landmarkImage);
+                    }
                 }
             }
 
-            // Save changes to the database
             _db.SaveChanges();
             return Ok(new { message = "Landmark updated successfully" });
         }
-
 
         // DELETE: api/LandMark/{id}
         [HttpDelete("{id}")]
@@ -174,6 +193,7 @@ namespace Bani_Obaid.Server.Controllers
                 return NotFound();
             }
 
+            // Delete main image if it exists
             if (!string.IsNullOrEmpty(landmark.Image))
             {
                 var imagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", landmark.Image.TrimStart('/'));
@@ -183,9 +203,43 @@ namespace Bani_Obaid.Server.Controllers
                 }
             }
 
+            // Delete associated images from landmark_images
+            var images = _db.LandmarkImages.Where(img => img.LandmarkId == id).ToList();
+            foreach (var image in images)
+            {
+                var imagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", image.ImageUrl.TrimStart('/'));
+                if (System.IO.File.Exists(imagePath))
+                {
+                    System.IO.File.Delete(imagePath);
+                }
+                _db.LandmarkImages.Remove(image);
+            }
+
             _db.Landmarks.Remove(landmark);
             _db.SaveChanges();
             return NoContent();
+        }
+
+        // DELETE: api/LandMark/DeleteImage/{imageId}
+        [HttpDelete("DeleteImage/{imageId}")]
+        public IActionResult DeleteImage(int imageId)
+        {
+            var image = _db.LandmarkImages.FirstOrDefault(img => img.Id == imageId);
+            if (image == null)
+            {
+                return NotFound("Image not found.");
+            }
+
+            // Delete image file from the server
+            var imagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", image.ImageUrl.TrimStart('/'));
+            if (System.IO.File.Exists(imagePath))
+            {
+                System.IO.File.Delete(imagePath);
+            }
+
+            _db.LandmarkImages.Remove(image);
+            _db.SaveChanges();
+            return Ok(new { message = "Image deleted successfully" });
         }
     }
 }

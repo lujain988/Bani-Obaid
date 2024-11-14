@@ -1,3 +1,4 @@
+/* Image Styling */
 .our-history__img img,
 .our-history__img-two img,
 .our-history__img-box img,
@@ -6,25 +7,36 @@
   height: auto;
   border-radius: 8px; /* Optional for rounded corners */
   transform: none !important; /* Remove any transformation */
-  rotate: 11.5deg !important;
+  rotate: 11.56deg !important;
   perspective: none !important; /* Remove any perspective distortion */
   animation: none !important; /* Disable any animations that may affect the image */
   transition: none !important; /* Disable transitions */
   object-fit: cover; /* Maintain aspect ratio within the container */
 }
-/* Align text to the left */
+
+/* Text Alignment */
 .text-align-left {
   text-align: left;
 }
 
-/* Align text to the right */
 .text-align-right {
   text-align: right;
 }
-.our-history__content-one-text,
-.our-history__content-two-text {
+
+/* Content Styling */
+.our-history__content-one,
+.our-history__content-two {
   white-space: normal; /* Allow text wrapping */
   word-wrap: break-word; /* Break words if they’re too long */
   overflow: hidden; /* Hide any overflow */
   text-align: justify; /* Optional: Justify the text for a cleaner look */
+}
+
+/* Conditional Content Alignment */
+.our-history__content-one {
+  text-align: left; /* Align text to the left if the image is on the left */
+}
+
+.our-history__content-two {
+  text-align: right; /* Align text to the right if the image is on the right */
 }

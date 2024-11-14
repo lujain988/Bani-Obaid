@@ -10,7 +10,6 @@ export class LujainService {
   constructor(private http: HttpClient) { }
   staticData = "https://localhost:7243/api";
 
-  // Landmark-related methods
   getAllLandmarks(): Observable<any> {
     return this.http.get<any>(`${this.staticData}/LandMark`);
   }
@@ -29,5 +28,9 @@ export class LujainService {
 
   deleteLandmark(id: number): Observable<any> {
     return this.http.delete<any>(`${this.staticData}/LandMark/${id}`);
+  }
+
+  deleteLandmarkImage(imageId: number): Observable<any> {
+    return this.http.delete<any>(`${this.staticData}/LandMark/DeleteImage/${imageId}`);
   }
 }

@@ -1,0 +1,62 @@
+<div class="container" dir="rtl">
+  <div class="section-title text-center">
+    <h2 class="section-title__title">طلب نقل الملكية</h2>
+    <p class="section-title__description">
+      نموذج طلب نقل الملكية للعقارات. يرجى ملء النموذج التالي بالمعلومات الصحيحة والكاملة.
+    </p>
+  </div>
+
+  <form [formGroup]="ownershipForm" (ngSubmit)="onSubmit()" class="modern-form">
+    <div class="form-group">
+      <label for="landlord_phone">رقم هاتف المالك الحالي</label>
+      <input type="number" placeholder="رقم هاتف المالك الحالي" formControlName="landlordPhone">
+    </div>
+
+    <div class="form-group two-columns">
+      <div>
+        <label for="new_owner_name">اسم المالك الجديد</label>
+        <input type="text" placeholder="اسم المالك الجديد" formControlName="newOwnerName">
+      </div>
+      <div>
+        <label for="new_owner_phone">رقم هاتف المالك الجديد</label>
+        <input type="number" placeholder="رقم هاتف المالك الجديد" formControlName="newOwnerPhone">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="national_id">الرقم الوطني</label>
+      <input type="number" placeholder="الرقم الوطني" formControlName="nationalId">
+    </div>
+
+    <div class="form-group two-columns">
+      <div>
+        <label for="property_number">رقم العقار</label>
+        <input type="text" placeholder="رقم العقار" formControlName="propertyNumber">
+      </div>
+      <div>
+        <label for="municipality_name">اسم البلدية</label>
+        <input type="text" placeholder="مثل : الرمثا/ البويضة" formControlName="municipalityName">
+      </div>
+    </div>
+
+    <div class="form-group two-columns">
+      <div>
+        <label for="basin">الحوض</label>
+        <input type="text" placeholder="الحوض" formControlName="basin">
+      </div>
+      <div>
+        <label for="district">المنطقة</label>
+        <input type="text" placeholder="المنطقة" formControlName="district">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="land_number">رقم الأرض</label>
+      <input type="text" placeholder="رقم الأرض" formControlName="landNumber">
+    </div>
+
+    <div class="form-btn">
+      <button type="submit" class="btn-submit" [disabled]="!ownershipForm.valid">أرسل</button>
+    </div>
+  </form>
+</div>

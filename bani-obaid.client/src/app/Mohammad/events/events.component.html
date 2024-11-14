@@ -1,0 +1,59 @@
+
+<section style="direction: rtl;" class="events-page">
+  <div class="container">
+    <div class="section-title text-center">
+      <div class="section-title__icon">
+        <span class="fa fa-star"></span>
+      </div>
+      <span class="section-title__tagline">فعالياتنا</span>
+      <h1>اكتشف فعاليات بلدية بني عبيد</h1>
+    </div>
+    <br />
+    <div class="row">
+      <!-- Loop through events dynamically -->
+      <div *ngFor="let event of events" class="col-xl-4 col-lg-4">
+        <div class="event-three__single">
+          <div class="event-three__img-box">
+            <div class="event-three__img">
+              <img class="event-img" [src]="event.image" alt="Event Image" />
+            </div>
+          </div>
+          <div class="event-three__content">
+            <div class="event-three__meta-and-title">
+              <ul class="event-three__meta list-unstyled">
+                <li>
+                  <div class="icon">
+                    <span class="fa fa-clock"></span>
+                  </div>
+                  <div class="text" style="margin-left: 20px">
+                    <p>&nbsp;{{ formatTime(event.time) }}</p>
+                  </div>
+                </li>
+                <li>
+                  <div class="icon">
+                    <span class="fa fa-map-marker">&nbsp;</span>
+                  </div>
+                  <div class="text">
+                    <p>&nbsp;{{ event.location }}</p>
+                  </div>
+                </li>
+              </ul>
+              <h4 class="event-three__title" style="font-size: 20px">
+                <a [routerLink]="['/eventdetail', event.id]">{{ event.title }}</a>
+              </h4>
+            </div>
+            <div class="event-three__btn-box">
+              <a [routerLink]="['/eventdetail', event.id]" class="event-three__btn">
+                للمزيد <i class="icon-left-arrow"></i>
+              </a>
+            </div>
+            <div class="event-three__date">
+              <p>{{ formatDate(event.eventDate) }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

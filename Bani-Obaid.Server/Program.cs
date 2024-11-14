@@ -1,5 +1,6 @@
-using Bani_Obaid.Server.Models;
+﻿using Bani_Obaid.Server.Models;
 using Microsoft.EntityFrameworkCore;
+using Bani_Obaid.Server.Controllers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,8 +11,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-//builder.Services.AddDbContext<MyDbContext>(options =>
-    //options.UseSqlServer(builder.Configuration.GetConnectionString("YourConnectionString")));
+builder.Services.AddDbContext<MyDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("YourConnectionString")));
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("CORS", builder =>

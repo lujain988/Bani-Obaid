@@ -1,0 +1,55 @@
+<div style="direction: rtl;">
+  <section class="services-two">
+    <div class="services-two__inner" id="services">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <div class="section-title">
+              <div class="section-title__icon">
+                <span class="fa fa-star"></span>
+              </div>
+              <span class="section-title__tagline">الخدمات الالكترونيه</span>
+              <h3 class="section-title__title" style="font-size: 33px !important;">
+                اكتشف الخدمات الالكترونية المقدمة من بلدية بني عبيد
+              </h3>
+              <br />
+              <p style="color: rgb(75, 75, 75) !important;">
+                يوفر نظام الخدمات الالكترونية جميع الخدمات التي يحتاجها المواطنين في بني عبيد الذي يوفر الوقت
+                والجهد والمعاملات الورقية التقليدية،<br />
+                ما عليك سوى اختيار الخدمة المطلوبة من بوابة الخدمات الالكترونية واكمال الاجراءات بكل سهولة ويسر
+              </p>
+              <br />
+
+              <div class="row" style="justify-content: center">
+                <!-- Start of Single Service -->
+                <div class="col-xl-3 col-lg-4 col-md-5" *ngFor="let service of services">
+                  <div class="services-two__single text-center" style="height: 100%; padding-right: 30px;">
+                    <div class="services-content" style="height: 70%; display: flex; flex-direction: column; justify-content: center;">
+                      <div class="department-three__icon">
+                        <span [class]="service.icon"></span>
+                      </div>
+                      <br />
+                      <h2 class="services-two__title">
+                        <a [href]="service.detailsLink">{{ service.title }}<br /></a>
+                      </h2>
+                      <br />
+                      <div class="contact-two__btn-box">
+                        <button *ngIf="service.externalLink" type="submit" class="thm-btn contact-two__btn" (click)="openExternalLink(service.externalLink)">
+                          انتقل الى الخدمة
+                        </button>
+                        <a *ngIf="service.internalLink" [routerLink]="service.internalLink">
+                          <button type="submit" class="thm-btn contact-two__btn">انتقل الى الخدمة</button>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- End of Single Service -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

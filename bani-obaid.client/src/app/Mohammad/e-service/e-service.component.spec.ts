@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { JobManagementComponent } from './jobs-management.component';
+import { EServiceComponent } from './e-service.component';
 
-describe('JobsManagementComponent', () => {
-  let component: JobManagementComponent;
-  let fixture: ComponentFixture<JobManagementComponent>;
+describe('EServiceComponent', () => {
+  let component: EServiceComponent;
+  let fixture: ComponentFixture<EServiceComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [JobManagementComponent]
+      declarations: [EServiceComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(JobManagementComponent);
+    fixture = TestBed.createComponent(EServiceComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

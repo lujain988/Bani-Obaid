@@ -43,4 +43,15 @@ export class UrlService {
   editStatus(id: any): Observable<any> {
     return this.http.get<any>(`${this.staticData}/Jobs/ChangeStatus/${id}`);
   }
+
+  // POST method to create a new ownership transfer
+  addOwnershipTransfer(data: any): Observable<any> {
+    return this.http.post<any>(`${this.staticData}/OwnershipTransfer/api/OwnershipTransfers`, data);
+  }
+
+  getEvents(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.staticData}/Events`);
+  }
+
 }
+

@@ -8270,6 +8270,7 @@ ul {
 
 .event-three__img {
   position: relative;
+  bottom: 70px;
   display: block;
   overflow: hidden;
   z-index: 1;

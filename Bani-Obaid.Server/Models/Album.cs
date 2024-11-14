@@ -17,5 +17,7 @@ public partial class Album
 
     public DateTime? UpdatedAt { get; set; }
 
-    public virtual ICollection<Subalbum> Subalbums { get; set; } = new List<Subalbum>();
+    public int? GenralLandId { get; set; }
+
+    public virtual GenralLand? GenralLand { get; set; }
 }

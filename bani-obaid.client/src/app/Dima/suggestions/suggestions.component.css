@@ -1,0 +1,29 @@
+[_nghost-ng-c3348096211] {
+  max-width: 1280px;
+  padding: 2rem;
+  text-align: right !important;
+  direction: rtl !important;
+}
+
+.contact-two__bg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  opacity: 0.1;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  mix-blend-mode: luminosity;
+  z-index: -1;
+}
+.section-title__title {
+  margin: 0;
+  color: var(--govity-black);
+  font-size: 45px;
+  line-height: 54px;
+  font-weight: 700;
+  letter-spacing: var(--govity-letter-spacing);
+}
+

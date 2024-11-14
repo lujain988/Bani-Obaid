@@ -1,7 +1,7 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { ReactiveFormsModule } from '@angular/forms'; // Import ReactiveFormsModule
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // Import ReactiveFormsModule
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -27,6 +27,7 @@ import { EditJobComponent } from './Mohammad/edit-job/edit-job.component';
 import { EServiceComponent } from './Mohammad/e-service/e-service.component';
 import { OwnershipTransferComponent } from './Mohammad/ownership-transfer/ownership-transfer.component';
 import { EventsComponent } from './Mohammad/events/events.component';
+import { SuggestionsComponent } from './Dima/suggestions/suggestions.component';
 
 @NgModule({
   declarations: [
@@ -50,9 +51,11 @@ import { EventsComponent } from './Mohammad/events/events.component';
     LandMarkDetailsComponent,
     EServiceComponent,
     OwnershipTransferComponent,
-    EventsComponent
+    EventsComponent,
+    SuggestionsComponent
   ],
   imports: [
+    FormsModule,
     ReactiveFormsModule ,
     BrowserModule, HttpClientModule,
     AppRoutingModule,
@@ -74,7 +77,8 @@ import { EventsComponent } from './Mohammad/events/events.component';
       { path: "investmentdetail/:id", component: InvestmentDetaialComponent },
       { path: 'EService', component: EServiceComponent },
       { path: 'OwnershipTransfer', component: OwnershipTransferComponent },
-      { path: 'Events', component: EventsComponent }
+      { path: 'Events', component: EventsComponent },
+      { path: "AddSuggestions", component: SuggestionsComponent },
 
 
     ])

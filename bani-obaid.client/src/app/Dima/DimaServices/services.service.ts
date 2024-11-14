@@ -61,4 +61,11 @@ export class ServicesService {
   getinvestmentsById(id: number): Observable<any> {
     return this.http.get<any>(`${this.staticData}/Investment/GetInvestmentById/${id}`);
   }
+
+  AddSuggest(data: any): Observable<any> {
+    return this.http.post<any>(`${this.staticData}/Suggest/AddNewSuggestion`, data);
+
+  }
+
+
 }

@@ -18,7 +18,7 @@ export class SuggestionsComponent {
     if (form.invalid) {
       Swal.fire({
         icon: 'warning',
-        title: 'يرجى ملء جميع الحقول المطلوبة',
+        title: 'يرجى ملىء جميع الحقول المطلوبة',
         text: '  (*) الرجاء التأكد من إدخال جميع الحقول المسبوقة بعلامة',
         confirmButtonText: 'موافق'
       });

@@ -87,7 +87,7 @@ namespace Bani_Obaid.Server.Controllers
                     memberrequset.Image.CopyTo(fileStream);
                 }
 
-                //memberrequset.Image = $"/images/{mainImageFileName}";
+                member.Image = $"/images/{mainImageFileName}";
             }
 
             member.Name = memberrequset.Name;

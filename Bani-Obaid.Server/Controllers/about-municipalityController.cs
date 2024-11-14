@@ -86,7 +86,7 @@ namespace Bani_Obaid.Server.Controllers
                     aboutrequest.DescriptionImage.CopyTo(fileStream);
                 }
 
-                //aboutrequest.DescriptionImage = $"/images/{mainImageFileName}";
+                Municipality.DescriptionImage = $"/images/{mainImageFileName}";
             }
             Municipality.Description = aboutrequest.Description;
             Municipality.Vision = aboutrequest.Vision;

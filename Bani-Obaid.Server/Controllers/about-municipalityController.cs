@@ -22,40 +22,40 @@ namespace Bani_Obaid.Server.Controllers
             return Ok(Municipality);
         }
 
-        //[HttpPost("addMunicipality")]
-        //public IActionResult Municipality([FromForm] AboutMunicipality municipalityrequest)
-        //{
-        //    if (municipalityrequest.DescriptionImage == null || municipalityrequest.DescriptionImage.Length == 0)
-        //    {
-        //        return BadRequest("The main municipality image is required.");
-        //    }
+        [HttpPost("addMunicipality")]
+        public IActionResult Municipality([FromForm] AboutMunicipality municipalityrequest)
+        {
+            if (municipalityrequest.DescriptionImage == null || municipalityrequest.DescriptionImage.Length == 0)
+            {
+                return BadRequest("The main municipality image is required.");
+            }
 
-        //    var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images");
-        //    if (!Directory.Exists(uploadsFolder))
-        //    {
-        //        Directory.CreateDirectory(uploadsFolder);
-        //    }
+            var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images");
+            if (!Directory.Exists(uploadsFolder))
+            {
+                Directory.CreateDirectory(uploadsFolder);
+            }
 
-        //    var mainImageFileName = Guid.NewGuid().ToString() + "_" + municipalityrequest.DescriptionImage.FileName;
-        //    var mainImagePath = Path.Combine(uploadsFolder, mainImageFileName);
-        //    using (var fileStream = new FileStream(mainImagePath, FileMode.Create))
-        //    {
-        //        municipalityrequest.DescriptionImage.CopyTo(fileStream);
-        //    }
+            var mainImageFileName = Guid.NewGuid().ToString() + "_" + municipalityrequest.DescriptionImage.FileName;
+            var mainImagePath = Path.Combine(uploadsFolder, mainImageFileName);
+            using (var fileStream = new FileStream(mainImagePath, FileMode.Create))
+            {
+                municipalityrequest.DescriptionImage.CopyTo(fileStream);
+            }
 
-        //    var newMunicipality = new MunicipalityInfo
-        //    {
-        //        Description = municipalityrequest.Description,
-        //        DescriptionImage = mainImagePath,  
-        //        Vision = municipalityrequest.Vision,
-        //        Mission = municipalityrequest.Mission,
-        //    };
+            var newMunicipality = new MunicipalityInfo
+            {
+                Description = municipalityrequest.Description,
+                DescriptionImage = $"/images/{mainImageFileName}",
+                Vision = municipalityrequest.Vision,
+                Mission = municipalityrequest.Mission,
+            };
 
-        //    _db.MunicipalityInfos.Add(newMunicipality);
-        //    _db.SaveChanges();
+            _db.MunicipalityInfos.Add(newMunicipality);
+            _db.SaveChanges();
 
-        //    return Ok(newMunicipality);
-        //}
+            return Ok(newMunicipality);
+        }
 
 
         [HttpPut("updateMunicipality/{id}")]
@@ -68,26 +68,26 @@ namespace Bani_Obaid.Server.Controllers
                 return NotFound("Municipality not found.");
             }
 
-            //var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images");
+            var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images");
 
-            //if (!Directory.Exists(uploadsFolder))
-            //{
-            //    Directory.CreateDirectory(uploadsFolder);
-            //}
+            if (!Directory.Exists(uploadsFolder))
+            {
+                Directory.CreateDirectory(uploadsFolder);
+            }
 
 
-            //if (AboutMunicipality.Image != null && AboutMunicipality.Image.Length > 0)
-            //{
-            //    var mainImageFileName = Guid.NewGuid().ToString() + "_" + AboutMunicipality.Image.FileName;
-            //    var mainImagePath = Path.Combine(uploadsFolder, mainImageFileName);
+            if (aboutrequest.DescriptionImage != null && aboutrequest.DescriptionImage.Length > 0)
+            {
+                var mainImageFileName = Guid.NewGuid().ToString() + "_" + aboutrequest.DescriptionImage.FileName;
+                var mainImagePath = Path.Combine(uploadsFolder, mainImageFileName);
 
-            //    using (var fileStream = new FileStream(mainImagePath, FileMode.Create))
-            //    {
-            //        AboutMunicipality.Image.CopyTo(fileStream);
-            //    }
+                using (var fileStream = new FileStream(mainImagePath, FileMode.Create))
+                {
+                    aboutrequest.DescriptionImage.CopyTo(fileStream);
+                }
 
-            //    MunicipalityInfo.Image = $"/images/{mainImageFileName}";
-            //}
+                //aboutrequest.DescriptionImage = $"/images/{mainImageFileName}";
+            }
             Municipality.Description = aboutrequest.Description;
             Municipality.Vision = aboutrequest.Vision;
             Municipality.Mission = aboutrequest.Mission;
@@ -96,6 +96,28 @@ namespace Bani_Obaid.Server.Controllers
             _db.MunicipalityInfos.Update(Municipality);
             _db.SaveChanges();
             return Ok(Municipality);
+        }
+
+
+        [HttpDelete("DeleteMunicipality/{id}")]
+        public IActionResult DeleteMunicipality(int id)
+        {
+
+            if (id <= 0)
+            {
+                return BadRequest("Please Enter A  valid Id");
+
+            }
+
+            var Municipality = _db.MunicipalityInfos.FirstOrDefault(m => m.Id == id);
+            if (Municipality != null)
+            {
+                _db.Remove(Municipality);
+                _db.SaveChanges();
+                return NoContent();
+
+            }
+            return NotFound("there is no Municipality with this id");
         }
     }
 }

@@ -29,6 +29,7 @@ import { OwnershipTransferComponent } from './Mohammad/ownership-transfer/owners
 import { EventsComponent } from './Mohammad/events/events.component';
 import { SuggestionsComponent } from './Dima/suggestions/suggestions.component';
 import { GeneralLandComponent } from './Lujain/general-land/general-land.component';
+import { GeneralLandDetailsComponent } from './Lujain/general-land-details/general-land-details.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { GeneralLandComponent } from './Lujain/general-land/general-land.compone
     OwnershipTransferComponent,
     EventsComponent,
     SuggestionsComponent,
-    GeneralLandComponent
+    GeneralLandComponent,
+    GeneralLandDetailsComponent
   ],
   imports: [
     FormsModule,

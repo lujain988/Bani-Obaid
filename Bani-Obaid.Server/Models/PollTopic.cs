@@ -18,4 +18,6 @@ public partial class PollTopic
     public DateTime? CreatedAt { get; set; }
 
     public DateTime? CloseAt { get; set; }
+
+    public virtual ICollection<PollVote> PollVotes { get; set; } = new List<PollVote>();
 }

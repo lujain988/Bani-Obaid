@@ -187,31 +187,25 @@
 
           <!-- Project Images Carousel -->
           <h4 class="about-two__progress-title" *ngIf="projectImages.length > 0">صور عن المشروع:</h4>
-          <div *ngIf="projectImages.length > 0" class="brand-one__carousel thm-owl__carousel owl-theme owl-carousel" lang="en" dir="ltr">
+          <!--<div *ngIf="projectImages.length > 0" class="brand-one__carousel thm-owl__carousel owl-theme owl-carousel" lang="en" dir="ltr">
             <div *ngFor="let image of projectImages" class="brand-one__single">
               <div class="items">
                 <img [src]="'https://localhost:7243' + image" alt="Project Image" style="margin: 10px" width="200px" />
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+          </div>-->
 
+          <div *ngIf="projectImages.length > 0" id="projectImagesCarousel" class="carousel slide" data-bs-ride="carousel">
 
-<!--<div *ngIf="projectImages.length > 0" id="projectImagesCarousel" class="carousel slide" data-bs-ride="carousel">-->
-
-  <!-- Carousel Inner (Slider Content) -->
-  <!--<div class="carousel-inner">
+   <!--Carousel Inner (Slider Content)--> 
+  <div class="carousel-inner">
     <div *ngFor="let image of projectImages; let i = index" class="carousel-item" [class.active]="i === 0">
       <img [src]="'https://localhost:7243' + image" class="d-block w-100" alt="Project Image" style="margin: 10px; height: 400px; object-fit: cover;" />
     </div>
-  </div>-->
+  </div>
 
-  <!-- Optional Controls -->
-  <!--<button class="carousel-control-prev" type="button" data-bs-target="#projectImagesCarousel" data-bs-slide="prev">
+   <!--Optional Controls--> 
+  <button class="carousel-control-prev" type="button" data-bs-target="#projectImagesCarousel" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Previous</span>
   </button>
@@ -219,4 +213,12 @@
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Next</span>
   </button>
-</div>-->
+</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+

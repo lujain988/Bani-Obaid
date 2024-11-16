@@ -30,6 +30,7 @@ import { EventsComponent } from './Mohammad/events/events.component';
 import { SuggestionsComponent } from './Dima/suggestions/suggestions.component';
 import { GeneralLandComponent } from './Lujain/general-land/general-land.component';
 import { GeneralLandDetailsComponent } from './Lujain/general-land-details/general-land-details.component';
+import { AdminDashboardComponent } from './Admin/admin-dashboard/admin-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { GeneralLandDetailsComponent } from './Lujain/general-land-details/gener
     EventsComponent,
     SuggestionsComponent,
     GeneralLandComponent,
-    GeneralLandDetailsComponent
+    GeneralLandDetailsComponent,
+    AdminDashboardComponent
   ],
   imports: [
     FormsModule,
@@ -86,7 +88,14 @@ import { GeneralLandDetailsComponent } from './Lujain/general-land-details/gener
       { path: 'Events', component: EventsComponent },
       { path: "AddSuggestions", component: SuggestionsComponent },
 
+      {
+        path: 'adminDashboard', component: AdminDashboardComponent, children: [
+          { path: 'home', component: HomeComponent },
 
+       
+        ]
+
+      }
     ])
   ],
   providers: [],

@@ -69,6 +69,7 @@ import { GeneralLandDetailsComponent } from './Lujain/general-land-details/gener
       { path: 'landBaniObaid', component: LandInBainObaidComponent },
       { path: "landmark/:id", component: LandMarkDetailsComponent },
       { path: 'north', component: GeneralLandComponent },
+      { path: "north/:id", component: GeneralLandDetailsComponent },
       { path: 'Tenders', component: TendersComponent },
       { path: "tenderdetail/:id", component: TenderDetailsComponent },
       { path: 'Projects', component: ProjectComponent },

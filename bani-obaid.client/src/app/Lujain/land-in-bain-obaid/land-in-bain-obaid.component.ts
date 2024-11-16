@@ -21,10 +21,8 @@ export class LandInBainObaidComponent implements OnInit {
     this._ser.getAllLandmarks().subscribe(
       (data) => {
         this.landData = data;
-        console.log('Fetched Land Data:', this.landData);
       },
       (error) => {
-        console.error('Error fetching land data:', error);
         Swal.fire({
           icon: 'error',
           title: 'Error',

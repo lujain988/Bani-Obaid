@@ -1,1 +1,43 @@
-<p>general-land-details works!</p>
+<!-- Page Header Start -->
+<section class="page-header" lang="ar" dir="rtl">
+  <div class="page-header-bg" style="background-image: url('assets/images/backgrounds/bani.jpg');"></div>
+  <div class="container">
+    <div class="page-header__inner">
+      <ul class="thm-breadcrumb list-unstyled">
+        <h2>{{ landmark?.name }}</h2>
+        <li><a href="/">الرئيسية</a></li>
+        <li><span>/</span></li>
+        <li>{{ landmark?.name }}</li>
+      </ul>
+    </div>
+  </div>
+</section>
+<!-- Page Header End -->
+
+<br />
+
+<div class="gallery-container">
+  <div class="section-title__icon">
+    <span class="fa fa-star"></span>
+  </div>
+  <h3 class="gallery-title">ألبوم صور {{ landmark?.name }}</h3> <br />
+  <div *ngIf="images.length === 0" class="no-images-message">
+    <p>لا يوجد صور حاليا</p>
+  </div>
+  <div class="gallery" *ngIf="images.length > 0">
+    <div class="gallery-item" *ngFor="let image of images; let i = index">
+      <a href="javascript:void(0)" (click)="openModal(image, i)">
+        <img [src]="image" alt="Gallery Image" />
+      </a>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="isModalOpen" class="popup-overlay" (click)="closeModal()">
+  <div class="popup-content" (click)="stopPropagation($event)">
+    <span class="close-btn" (click)="closeModal()">×</span>
+    <button class="prev-btn" (click)="previousImage()">&#10094;</button>
+    <img [src]="currentImage" alt="Modal Image" class="popup-image" />
+    <button class="next-btn" (click)="nextImage()">&#10095;</button>
+  </div>
+</div>

@@ -33,4 +33,7 @@ export class LujainService {
   deleteLandmarkImage(imageId: number): Observable<any> {
     return this.http.delete<any>(`${this.staticData}/LandMark/DeleteImage/${imageId}`);
   }
+  postComplain(data: FormData): Observable<any> {
+    return this.http.post<any>(`${this.staticData}/Complain/Complain`, data);
+  }
 }

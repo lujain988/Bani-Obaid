@@ -31,6 +31,7 @@ import { SuggestionsComponent } from './Dima/suggestions/suggestions.component';
 import { GeneralLandComponent } from './Lujain/general-land/general-land.component';
 import { GeneralLandDetailsComponent } from './Lujain/general-land-details/general-land-details.component';
 import { AdminDashboardComponent } from './Admin/admin-dashboard/admin-dashboard.component';
+import { ComplainComponent } from './Lujain/complain/complain.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { AdminDashboardComponent } from './Admin/admin-dashboard/admin-dashboard
     SuggestionsComponent,
     GeneralLandComponent,
     GeneralLandDetailsComponent,
-    AdminDashboardComponent
+    AdminDashboardComponent,
+    ComplainComponent
   ],
   imports: [
     FormsModule,
@@ -72,6 +74,7 @@ import { AdminDashboardComponent } from './Admin/admin-dashboard/admin-dashboard
       { path: "landmark/:id", component: LandMarkDetailsComponent },
       { path: 'north', component: GeneralLandComponent },
       { path: "north/:id", component: GeneralLandDetailsComponent },
+      { path: 'complain', component: ComplainComponent },
       { path: 'Tenders', component: TendersComponent },
       { path: "tenderdetail/:id", component: TenderDetailsComponent },
       { path: 'Projects', component: ProjectComponent },

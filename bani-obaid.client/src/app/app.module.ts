@@ -32,6 +32,7 @@ import { GeneralLandComponent } from './Lujain/general-land/general-land.compone
 import { GeneralLandDetailsComponent } from './Lujain/general-land-details/general-land-details.component';
 import { AdminDashboardComponent } from './Admin/admin-dashboard/admin-dashboard.component';
 import { ComplainComponent } from './Lujain/complain/complain.component';
+import { TeamComponent } from './Lujain/team/team.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { ComplainComponent } from './Lujain/complain/complain.component';
     GeneralLandComponent,
     GeneralLandDetailsComponent,
     AdminDashboardComponent,
-    ComplainComponent
+    ComplainComponent,
+    TeamComponent
   ],
   imports: [
     FormsModule,
@@ -75,6 +77,7 @@ import { ComplainComponent } from './Lujain/complain/complain.component';
       { path: 'north', component: GeneralLandComponent },
       { path: "north/:id", component: GeneralLandDetailsComponent },
       { path: 'complain', component: ComplainComponent },
+      { path: 'team', component: TeamComponent },
       { path: 'Tenders', component: TendersComponent },
       { path: "tenderdetail/:id", component: TenderDetailsComponent },
       { path: 'Projects', component: ProjectComponent },

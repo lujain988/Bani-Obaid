@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace Bani_Obaid.Server.Models;
 
@@ -18,6 +19,6 @@ public partial class Album
     public DateTime? UpdatedAt { get; set; }
 
     public int? GenralLandId { get; set; }
-
+    [JsonIgnore]
     public virtual GenralLand? GenralLand { get; set; }
 }

@@ -1,0 +1,6 @@
+.department-page .department-two__img img {
+  width: 100%; /* Full width of the image container */
+  height: 300px; /* Further increased height for a larger display */
+  object-fit: cover; /* Ensures the image scales properly without distortion */
+  border-radius: 8px; /* Optional: keeps the existing style */
+}

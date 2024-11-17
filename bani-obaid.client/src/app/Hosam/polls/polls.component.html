@@ -1,0 +1,70 @@
+<section class="page-header">
+  <div class="page-header-bg" style="background-image: url('assets/images/backgrounds/bani.jpg')">
+  </div>
+  <div class="container">
+    <div class="page-header__inner">
+      <ul class="thm-breadcrumb list-unstyled" style="padding-inline-start:0px">
+        <h2>استطلاعات الرأي</h2>
+        <li><a href="/">الرئيسية</a></li>
+        <li><span>/</span></li>
+        <li class="header-size">استطلاعات الرأي</li>
+      </ul>
+    </div>
+  </div>
+</section>
+<br>
+<!-- Page Header End -->
+<!--Events Page Start-->
+<section class="events-page  mb-3">
+  <div class="container">
+    <div class="section-title text-center">
+      <div class="section-title__icon">
+        <span class="fa fa-star"></span>
+      </div>
+      <span class="section-title__tagline">استطلاعاتُنا</span>
+      <h2 class="section-title__title">اكتشف استطلاعات رأي بلدية <br>بني عبيد</h2>
+    </div>
+    <br />
+    <br />
+    <div class="row justify-content-around ">
+      <!--Event Three Single Start-->
+      <div *ngFor="let Poll of Polls" class="col-xl-4 col-lg-4">
+        <div class="event-three__single">
+          <div class="event-three__img-box">
+            <div class="event-three__img">
+              <img src="assets/images/Polls/{{Poll.image}}" alt="">
+            </div>
+          </div>
+          <div class="event-three__content">
+            <div class="event-three__meta-and-title">
+              <ul class="event-three__meta list-unstyled">
+              </ul>
+              <h3 class="event-three__title text-center">
+                <a routerLink="/Poll/{{Poll.id}}">{{Poll.title}}</a>
+              </h3>
+            </div>
+            <div class="event-three__btn-box">
+              <a routerLink="/Poll/{{Poll.id}}" class="event-three__btn">
+                إقــرأ
+                الـمــزيـد<i class="icon-left-arrow"></i>
+              </a>
+            </div>
+            <div class="event-three__date text-center">
+              <p>ابتداء</p>
+              <p>{{Poll.createdAt}}</p>
+            </div>
+            <div class="event-three__date bg-danger text-center" style="
+    left: 0;
+    right: initial;
+">
+              <p>إنتهاء</p>
+              <p>{{Poll.closeAt}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--Event Three Single End-->
+    </div>
+  </div>
+</section>
+

@@ -1,0 +1,120 @@
+<section class="page-header">
+  <div class="page-header-bg" style="background-image: url('assets/images/backgrounds/bani.jpg')">
+  </div>
+  <div class="container">
+    <div class="page-header__inner">
+      <ul class="thm-breadcrumb list-unstyled" style="padding-inline-start:0px">
+        <h2>استطلاعات الرأي</h2>
+        <li><a href="/">الرئيسية</a></li>
+        <li><span>/</span></li>
+        <li class="header-size">استطلاعات الرأي</li>
+      </ul>
+    </div>
+  </div>
+</section>
+<br>
+
+<section class="event-details pt-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-12">
+        <div class="event-details__left text-center">
+          <div class=" event-details__img text-center">
+            <img class="w-50" src="assets/images/Polls/{{Poll.image}}" alt="">
+          </div>
+          <h3 class="event-details__title-1">{{Poll.title}}</h3>
+          <p class="event-details__text-1">{{Poll.description}}</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section dir="rtl" class="contact-one">
+  <div class="text-center m-3 row">
+    <span class="h6">
+      نسبة الموافقة على
+      الإستطلاع هي:
+    </span><h2 class="mb-1 agree">{{Percentage}}%</h2>
+  </div>
+  <br />
+  <div class="contact-one__bg" style="background-image: url(assets/images/backgrounds/contact-one-bg.png);">
+  </div>
+  <div class="container">
+    <div class="section-title text-center">
+      <div class="section-title__icon">
+        <span class="fa fa-star"></span>
+      </div>
+      <span class="section-title__tagline">
+        <h2 class="section-title__title">
+          للمشاركة في الإستطلاع
+
+        </h2>
+      </span>
+
+    </div>
+    <div class="contact-one__form-box ">
+      <form (ngSubmit)="onSubmit(pollForm)" #pollForm="ngForm">
+        <div class="row">
+          <div class="col-xl-12">
+            <div class="contact-one__input-box">
+              <input type="text"
+                     placeholder="الرقم الوطني"
+                     name="NationalId"
+                     #NationalId="ngModel"
+                     [(ngModel)]="formData.NationalId"
+                     pattern="^[0-9]{10}$"
+                     required />
+              <div *ngIf="NationalId.invalid && (NationalId.dirty || NationalId.touched)" class="text-danger">
+                <small *ngIf="NationalId.errors?.['required']">ادخل رقمك الوطني</small>
+                <small *ngIf="NationalId.errors?.['pattern']">يجب أن يتكون الرقم الوطني من عشر خانات</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xl-12">
+            <div class="contact-one__input-box">
+              <select class="select-poll"
+                      name="VoteRate"
+                      #VoteRate="ngModel"
+                      [(ngModel)]="formData.VoteRate"
+                      required>
+                <option value="" disabled selected>-- هل أنت موافق --</option>
+                <option value="4">موافق بشدة</option>
+                <option value="3">موافق</option>
+                <option value="2">محايد</option>
+                <option value="1">معارض</option>
+                <option value="0">معارض بشدة</option>
+              </select>
+              <div *ngIf="VoteRate.invalid && (VoteRate.dirty || VoteRate.touched)" class="text-danger">
+                <small *ngIf="VoteRate.errors?.['required']">يجب اختيار مدى الوافقة</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xl-12">
+            <div class="contact-one__input-box">
+              <textarea name="Message"
+                        id=""
+                        rows="4"
+                        placeholder="أترك رسالة قصيرة (إختياري)"
+                        [(ngModel)]="formData.Message"
+                        #Message="ngModel"></textarea>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xl-12">
+            <div class="contact-two__btn-box">
+              <button type="submit" class="thm-btn contact-two__btn" [disabled]="pollForm.invalid">شارك رأيك</button>
+            </div>
+          </div>
+        </div>
+      </form>
+
+      <div class="result"></div>
+    </div>
+  </div>
+</section>

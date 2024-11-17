@@ -33,6 +33,8 @@ import { GeneralLandDetailsComponent } from './Lujain/general-land-details/gener
 import { AdminDashboardComponent } from './Admin/admin-dashboard/admin-dashboard.component';
 import { ComplainComponent } from './Lujain/complain/complain.component';
 import { TeamComponent } from './Lujain/team/team.component';
+import { PollsComponent } from './Hosam/polls/polls.component';
+import { PollDetailsComponent } from './Hosam/poll-details/poll-details.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +64,9 @@ import { TeamComponent } from './Lujain/team/team.component';
     GeneralLandDetailsComponent,
     AdminDashboardComponent,
     ComplainComponent,
-    TeamComponent
+    TeamComponent,
+    PollsComponent,
+    PollDetailsComponent
   ],
   imports: [
     FormsModule,
@@ -93,6 +97,8 @@ import { TeamComponent } from './Lujain/team/team.component';
       { path: 'OwnershipTransfer', component: OwnershipTransferComponent },
       { path: 'Events', component: EventsComponent },
       { path: "AddSuggestions", component: SuggestionsComponent },
+      { path: "Polls", component: PollsComponent },
+      { path: "Poll/:id", component: PollDetailsComponent },
 
       {
         path: 'adminDashboard', component: AdminDashboardComponent, children: [

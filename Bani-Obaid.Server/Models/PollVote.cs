@@ -9,7 +9,7 @@ public partial class PollVote
 
     public int? PollTopicId { get; set; }
 
-    public int? NationalId { get; set; }
+    public long? NationalId { get; set; }
 
     public string? Message { get; set; }
 

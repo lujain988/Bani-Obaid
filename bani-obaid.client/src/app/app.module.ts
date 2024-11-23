@@ -1,7 +1,7 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { ReactiveFormsModule } from '@angular/forms'; // Import ReactiveFormsModule
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // Import ReactiveFormsModule
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -27,6 +27,14 @@ import { EditJobComponent } from './Mohammad/edit-job/edit-job.component';
 import { EServiceComponent } from './Mohammad/e-service/e-service.component';
 import { OwnershipTransferComponent } from './Mohammad/ownership-transfer/ownership-transfer.component';
 import { EventsComponent } from './Mohammad/events/events.component';
+import { SuggestionsComponent } from './Dima/suggestions/suggestions.component';
+import { GeneralLandComponent } from './Lujain/general-land/general-land.component';
+import { GeneralLandDetailsComponent } from './Lujain/general-land-details/general-land-details.component';
+import { AdminDashboardComponent } from './Admin/admin-dashboard/admin-dashboard.component';
+import { ComplainComponent } from './Lujain/complain/complain.component';
+import { TeamComponent } from './Lujain/team/team.component';
+import { PollsComponent } from './Hosam/polls/polls.component';
+import { PollDetailsComponent } from './Hosam/poll-details/poll-details.component';
 
 @NgModule({
   declarations: [
@@ -50,9 +58,18 @@ import { EventsComponent } from './Mohammad/events/events.component';
     LandMarkDetailsComponent,
     EServiceComponent,
     OwnershipTransferComponent,
-    EventsComponent
+    EventsComponent,
+    SuggestionsComponent,
+    GeneralLandComponent,
+    GeneralLandDetailsComponent,
+    AdminDashboardComponent,
+    ComplainComponent,
+    TeamComponent,
+    PollsComponent,
+    PollDetailsComponent
   ],
   imports: [
+    FormsModule,
     ReactiveFormsModule ,
     BrowserModule, HttpClientModule,
     AppRoutingModule,
@@ -61,6 +78,10 @@ import { EventsComponent } from './Mohammad/events/events.component';
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'landBaniObaid', component: LandInBainObaidComponent },
       { path: "landmark/:id", component: LandMarkDetailsComponent },
+      { path: 'north', component: GeneralLandComponent },
+      { path: "north/:id", component: GeneralLandDetailsComponent },
+      { path: 'complain', component: ComplainComponent },
+      { path: 'team', component: TeamComponent },
       { path: 'Tenders', component: TendersComponent },
       { path: "tenderdetail/:id", component: TenderDetailsComponent },
       { path: 'Projects', component: ProjectComponent },
@@ -74,9 +95,19 @@ import { EventsComponent } from './Mohammad/events/events.component';
       { path: "investmentdetail/:id", component: InvestmentDetaialComponent },
       { path: 'EService', component: EServiceComponent },
       { path: 'OwnershipTransfer', component: OwnershipTransferComponent },
-      { path: 'Events', component: EventsComponent }
+      { path: 'Events', component: EventsComponent },
+      { path: "AddSuggestions", component: SuggestionsComponent },
+      { path: "Polls", component: PollsComponent },
+      { path: "Poll/:id", component: PollDetailsComponent },
 
+      {
+        path: 'adminDashboard', component: AdminDashboardComponent, children: [
+          { path: 'home', component: HomeComponent },
 
+       
+        ]
+
+      }
     ])
   ],
   providers: [],

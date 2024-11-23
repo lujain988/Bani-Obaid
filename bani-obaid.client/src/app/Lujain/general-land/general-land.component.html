@@ -1,0 +1,47 @@
+<section class="department-page">
+  <div class="container">
+    <div class="section-title text-center">
+      <div class="section-title__icon">
+        <span class="fa fa-star"></span>
+      </div>
+      <span class="section-title__tagline">ألبوماتنا</span>
+      <h2 class="section-title__title">اكتشف معالم السياحة في الشمال</h2>
+    </div>
+
+    <div class="row">
+      <!-- Loop through each landmark in landData array -->
+      <div *ngFor="let land of landData" class="col-xl-3 col-lg-3 col-md-6">
+        <div class="department-two__single landmark-card">
+          <div class="department-two__img-box">
+            <div class="department-two__img">
+              <img [src]="'https://localhost:7243' + land.image" alt="{{ land.name }}" class="landmark-image">
+            </div>
+            <div class="department-two__content">
+              <h3 class="department-two__title">
+                <a [routerLink]="['/north', land.id]">{{ land.name }}</a>
+              </h3>
+              <div class="department-two__icon">
+                <span class="icon-lotus"></span>
+              </div>
+            </div>
+            <div class="department-two__content-two">
+              <h3 class="department-two__title-two">
+                <a [routerLink]="['/north', land.id]">{{ land.name }}</a>
+              </h3>
+              <p class="department-two__text">{{ land.description | truncate:50 }}</p>
+              <div class="department-two__btn-box">
+                <a [routerLink]="['/north', land.id]" class="department-two__btn">
+                  تصفح الألبوم <i class="icon-right-arrow"></i>
+                </a>
+              </div>
+              <div class="department-two__icon-two">
+                <span class="icon-lotus"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End of landmark item loop -->
+    </div>
+  </div>
+</section>

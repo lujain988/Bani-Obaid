@@ -1,0 +1,94 @@
+/* Gallery Section */
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Increased gap for better spacing between items */
+  justify-content: center;
+}
+
+.gallery-item {
+  width: 300px; /* Increased width for larger images */
+  height: 300px; /* Increased height for larger images */
+  overflow: hidden;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+    .gallery-item img:hover {
+      transform: scale(1.1); /* Add a hover effect to enlarge the image slightly */
+    }
+
+/* Modal Styles */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup-content {
+  position: relative;
+  max-width: 90%;
+  max-height: 90%;
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.popup-image {
+  width: 100%;
+  height: auto;
+  max-height: 80vh;
+}
+
+.close-btn,
+.prev-btn,
+.next-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.close-btn {
+  top: 10px;
+  right: 10px;
+  transform: none;
+}
+
+.prev-btn {
+  left: 10px;
+}
+
+.next-btn {
+  right: 10px;
+}
+.no-images-message {
+  text-align: center;
+  font-size: 18px;
+  color: #555;
+  margin: 20px 0;
+}

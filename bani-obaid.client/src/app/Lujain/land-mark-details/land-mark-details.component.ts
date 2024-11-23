@@ -1,4 +1,4 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { LujainService } from '../Services/lujain.service';
 
@@ -9,7 +9,7 @@ declare var $: any; // Ensure jQuery is available for Owl Carousel
   templateUrl: './land-mark-details.component.html',
   styleUrls: ['./land-mark-details.component.css']
 })
-export class LandMarkDetailsComponent implements AfterViewInit {
+export class LandMarkDetailsComponent implements OnInit, AfterViewInit {
   landmark: any;
   images: string[] = [];
   isLoading: boolean = true;
@@ -17,6 +17,8 @@ export class LandMarkDetailsComponent implements AfterViewInit {
   isModalOpen = false;
   currentImage: string = '';
   currentImageIndex: number = 0;
+
+  // Set baseUrl for localhost
   baseUrl: string = 'https://localhost:7243';
 
   constructor(
@@ -38,7 +40,6 @@ export class LandMarkDetailsComponent implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    // Initialize Owl Carousel after view is initialized
     $('.thm-owl__carousel').owlCarousel({
       items: 3,
       margin: 30,
@@ -46,8 +47,8 @@ export class LandMarkDetailsComponent implements AfterViewInit {
       loop: true,
       autoplay: false,
       autoplayTimeout: 3000,
-      nav: false, // Disable navigation arrows
-      dots: true, // Enable dots for navigation
+      nav: false,
+      dots: true,
       responsive: {
         0: { items: 1 },
         768: { items: 2 },
@@ -55,18 +56,30 @@ export class LandMarkDetailsComponent implements AfterViewInit {
       }
     });
   }
-
   fetchLandmarkDetails(id: number): void {
     this._ser.getLandmarkById(id).subscribe(
       (data) => {
-        this.landmark = data;
-        console.log('Fetched Landmark Data:', data);
-        this.isLoading = false;
+        // Log the entire data object to see the structure
+        console.log("Fetched Data:", data);
 
-        // Only include img1 to img7 if they exist
-        this.images = [
-          data.img1, data.img2, data.img3, data.img4, data.img5, data.img6, data.img7
-        ].filter(img => !!img).map(img => `${this.baseUrl}${img}`);
+        // Log specific properties for debugging
+        if (data && data.land) {
+          this.landmark = data.land;
+          console.log("Landmark Data:", this.landmark);  // Log the landmark data
+
+          // Construct full URL for main image
+          if (this.landmark.image) {
+            console.log("Landmark Image URL:", this.landmark.image);  // Log the image path
+            this.landmark.image = `${this.baseUrl}${this.landmark.image}`;
+          }
+
+          // Log additional images if available
+          this.images = data.images ? data.images.map((img: any) => `${this.baseUrl}${img.imageUrl}`) : [];
+          console.log("Additional Images:", this.images);
+        } else {
+          this.errorMessage = 'Landmark details not available.';
+        }
+        this.isLoading = false;
       },
       (error) => {
         console.error('Error fetching landmark details:', error);
@@ -77,7 +90,6 @@ export class LandMarkDetailsComponent implements AfterViewInit {
   }
 
 
-  // Modal logic here remains the same
   openModal(imageUrl: string, index: number): void {
     this.isModalOpen = true;
     this.currentImage = imageUrl;

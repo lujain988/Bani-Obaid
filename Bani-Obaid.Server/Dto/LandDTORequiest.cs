@@ -14,18 +14,6 @@
 
         public IFormFile? Image { get; set; }
 
-        public IFormFile? Img1 { get; set; }
-
-        public IFormFile? Img2 { get; set; }
-
-        public IFormFile? Img3 { get; set; }
-
-        public IFormFile? Img4 { get; set; }
-
-        public IFormFile? Img5 { get; set; }
-
-        public IFormFile? Img6 { get; set; }
-
-        public IFormFile? Img7 { get; set; }
+        public List<IFormFile>? AdditionalImages { get; set; }
     }
 }

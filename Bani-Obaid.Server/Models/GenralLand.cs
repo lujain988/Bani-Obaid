@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Bani_Obaid.Server.Models;
 
-public partial class Landmark
+public partial class GenralLand
 {
     public int Id { get; set; }
 
@@ -19,5 +19,5 @@ public partial class Landmark
 
     public string? Image { get; set; }
 
-    public virtual ICollection<LandmarkImage> LandmarkImages { get; set; } = new List<LandmarkImage>();
+    public virtual ICollection<Album> Albums { get; set; } = new List<Album>();
 }

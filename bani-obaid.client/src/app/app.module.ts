@@ -40,6 +40,8 @@ import { ProfileComponent } from './Admin/profile/profile.component';
 import { AddPollComponent } from './Admin/add-poll/add-poll.component';
 import { GetPollsComponent } from './Admin/get-polls/get-polls.component';
 import { EditPollComponent } from './Admin/edit-poll/edit-poll.component';
+import { AboutMunicipalityComponent } from './Ahmad/about-municipality/about-municipality.component';
+import { PresidentComponent } from './Ahmad/president/president.component';
 
 @NgModule({
   declarations: [
@@ -76,7 +78,9 @@ import { EditPollComponent } from './Admin/edit-poll/edit-poll.component';
     ProfileComponent,
     AddPollComponent,
     GetPollsComponent,
-    EditPollComponent
+    EditPollComponent,
+    AboutMunicipalityComponent,
+    PresidentComponent
   ],
   imports: [
     FormsModule,
@@ -108,6 +112,8 @@ import { EditPollComponent } from './Admin/edit-poll/edit-poll.component';
       { path: 'Events', component: EventsComponent },
       { path: "AddSuggestions", component: SuggestionsComponent },
       { path: "Polls", component: PollsComponent },
+      { path: "AboutMunicipality", component: AboutMunicipalityComponent },
+      { path: "President", component: PresidentComponent },
       { path: "Poll/:id", component: PollDetailsComponent },
       { path: "admin", component: LoginComponent },
 

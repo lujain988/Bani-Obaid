@@ -22,6 +22,19 @@ namespace Bani_Obaid.Server.Controllers
             return Ok(Municipality);
         }
 
+        [HttpGet("GetMunicipalityByID/{id}")]
+        public IActionResult GetMunicipalityByID(int id)
+        {
+            var municipality = _db.MunicipalityInfos.FirstOrDefault(m => m.Id == id);
+
+            if (municipality == null)
+            {
+                return NotFound("Municipality not found.");
+            }
+
+            return Ok(municipality);
+        }
+
         [HttpPost("addMunicipality")]
         public IActionResult Municipality([FromForm] AboutMunicipality municipalityrequest)
         {
@@ -56,7 +69,6 @@ namespace Bani_Obaid.Server.Controllers
 
             return Ok(newMunicipality);
         }
-
 
         [HttpPut("updateMunicipality/{id}")]
         public IActionResult UpdateMunicipality(int id, [FromForm] AboutMunicipality aboutrequest)
@@ -119,5 +131,6 @@ namespace Bani_Obaid.Server.Controllers
             }
             return NotFound("there is no Municipality with this id");
         }
+    
     }
 }

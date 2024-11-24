@@ -51,4 +51,41 @@ export class ServiceService {
   deletePresident(id: number): Observable<any> {
     return this.http.delete<any>(`${this.staticData}/president/DeletePresident/${id}`);
   }
+
+  //MunicipalityMember
+
+  getMember(): Observable<any> {
+    return this.http.get<any>(`${this.staticData}/MunicipalityMember/GetAllMembers`);
+  }
+
+  addMember(data: FormData): Observable<any> {
+    return this.http.post<any>(`${this.staticData}/MunicipalityMember/addMember`, data);
+  }
+
+  editMember(id: number, data: FormData): Observable<any> {
+    return this.http.put<any>(`${this.staticData}/MunicipalityMember/updatemember/${id}`, data);
+  }
+
+  deleteMember(id: number): Observable<any> {
+    return this.http.delete<any>(`${this.staticData}/MunicipalityMember/DeleteMember/${id}`);
+  }
+
+  //OrganizationStructure
+
+  getStructure(): Observable<any> {
+    return this.http.get<any>(`${this.staticData}/OrganizationStructure/GetStructure`);
+  }
+
+  addStructure(data: FormData): Observable<any> {
+    return this.http.post<any>(`${this.staticData}/OrganizationStructure/addStructure`, data);
+  }
+
+  editStructure(id: number, data: FormData): Observable<any> {
+    return this.http.put<any>(`${this.staticData}/OrganizationStructure/updateStructure/${id}`, data);
+  }
+
+  deleteStructure(id: number): Observable<any> {
+    return this.http.delete<any>(`${this.staticData}/OrganizationStructure/Deletestructure/${id}`);
+  }
+
 }

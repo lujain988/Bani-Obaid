@@ -1,0 +1,37 @@
+<section class="page-header">
+  <div class="page-header-bg" style="background-image: url(assets/images/backgrounds/1.jpg)">
+  </div>
+  <div class="container">
+    <div class="page-header__inner">
+      <h2>الهيكل التنظيمي</h2>
+      <ul class="thm-breadcrumb list-unstyled">
+        <li><a href="#">الرئيسية</a></li>
+        <li><span>/</span></li>
+        <li>الهيكل التنظيمي</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- الهيكل التنظيمي -->
+<main>
+  <section class="department-page" *ngIf="Structure">
+    <div class="container">
+      <div class="section-title text-center">
+        <div class="section-title__icon">
+          <span class="fa fa-star"></span>
+        </div>
+        <span class="section-title__tagline">{{ Structure?.title }}</span>
+        <h2 class="section-title__title">{{ Structure?.title }}</h2>
+      </div>
+      <div class="row">
+        <div style="text-align: center;">
+          <img [src]="'https://localhost:7243' + Structure?.image"
+               alt="{{ Structure?.title }}"
+               style="width: 100%; height: auto;">
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+

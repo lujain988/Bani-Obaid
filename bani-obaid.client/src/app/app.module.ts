@@ -42,6 +42,8 @@ import { GetPollsComponent } from './Admin/get-polls/get-polls.component';
 import { EditPollComponent } from './Admin/edit-poll/edit-poll.component';
 import { AboutMunicipalityComponent } from './Ahmad/about-municipality/about-municipality.component';
 import { PresidentComponent } from './Ahmad/president/president.component';
+import { MunicipalityMemberComponent } from './Ahmad/municipality-member/municipality-member.component';
+import { OrganizationStructureComponent } from './Ahmad/organization-structure/organization-structure.component';
 
 @NgModule({
   declarations: [
@@ -80,7 +82,9 @@ import { PresidentComponent } from './Ahmad/president/president.component';
     GetPollsComponent,
     EditPollComponent,
     AboutMunicipalityComponent,
-    PresidentComponent
+    PresidentComponent,
+    MunicipalityMemberComponent,
+    OrganizationStructureComponent
   ],
   imports: [
     FormsModule,
@@ -114,6 +118,8 @@ import { PresidentComponent } from './Ahmad/president/president.component';
       { path: "Polls", component: PollsComponent },
       { path: "AboutMunicipality", component: AboutMunicipalityComponent },
       { path: "President", component: PresidentComponent },
+      { path: "MunicipalityMember", component: MunicipalityMemberComponent },
+      { path: "OrganizationStructure", component: OrganizationStructureComponent },
       { path: "Poll/:id", component: PollDetailsComponent },
       { path: "admin", component: LoginComponent },
 

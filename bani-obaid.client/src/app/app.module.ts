@@ -35,6 +35,11 @@ import { ComplainComponent } from './Lujain/complain/complain.component';
 import { TeamComponent } from './Lujain/team/team.component';
 import { PollsComponent } from './Hosam/polls/polls.component';
 import { PollDetailsComponent } from './Hosam/poll-details/poll-details.component';
+import { LoginComponent } from './Admin/login/login.component';
+import { ProfileComponent } from './Admin/profile/profile.component';
+import { AddPollComponent } from './Admin/add-poll/add-poll.component';
+import { GetPollsComponent } from './Admin/get-polls/get-polls.component';
+import { EditPollComponent } from './Admin/edit-poll/edit-poll.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +71,12 @@ import { PollDetailsComponent } from './Hosam/poll-details/poll-details.componen
     ComplainComponent,
     TeamComponent,
     PollsComponent,
-    PollDetailsComponent
+    PollDetailsComponent,
+    LoginComponent,
+    ProfileComponent,
+    AddPollComponent,
+    GetPollsComponent,
+    EditPollComponent
   ],
   imports: [
     FormsModule,
@@ -99,10 +109,15 @@ import { PollDetailsComponent } from './Hosam/poll-details/poll-details.componen
       { path: "AddSuggestions", component: SuggestionsComponent },
       { path: "Polls", component: PollsComponent },
       { path: "Poll/:id", component: PollDetailsComponent },
+      { path: "admin", component: LoginComponent },
 
       {
         path: 'adminDashboard', component: AdminDashboardComponent, children: [
           { path: 'home', component: HomeComponent },
+          { path: 'profile', component: ProfileComponent },
+          { path: 'polls', component: GetPollsComponent },
+          { path: 'poll/:id', component: EditPollComponent },
+          { path: 'addPoll', component: AddPollComponent },
 
        
         ]

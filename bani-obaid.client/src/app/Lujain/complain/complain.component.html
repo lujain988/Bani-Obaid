@@ -1,0 +1,196 @@
+
+<section class="page-header">
+  <div class="page-header-bg" style="background-image: url(assets/images/backgrounds/1.jpg)">
+  </div>
+  <div class="container">
+    <div class="page-header__inner">
+      <h2>شكاوى واقتراحات</h2>
+      <ul class="thm-breadcrumb list-unstyled">
+        <li><a routerLink="">الرئيسية</a></li>
+        <li><span>/</span></li>
+        <li>شكاوى واقتراحات</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+<section class="contact-two" dir="rtl">
+  <div class="contact-two__bg"></div>
+  <div class="container" dir="rtl">
+    <div class="section-title text-center">
+      <p class="section-title__title">تقديم الشكاوي والاقتراحات</p>
+      <div class="section-title__icon">
+        <span class="fa fa-star"></span>
+      </div>
+
+      <p style="text-align: justify; margin-top: 2%">
+        نظرًا لحرصنا على تقديم أفضل الخدمات لمتلقي الخدمة، قمنا بتيسير عملية تقديم الشكاوى عبر موقعنا. هدفنا هو توفير
+        وقتكم الثمين، فأيها المواطن الكريم، أيتها المواطنة الكريمة، حتى يتسنى لنا معالجة الشكاوى بسرعة. يُمكنكم تقديم أي
+        شكوى من أي مكان وفي أي وقت.
+      </p>
+    </div>
+
+    <div class="contact-two__form-box">
+      <form (ngSubmit)="submitComplaint(complaintForm.value)" #complaintForm="ngForm" novalidate>
+
+
+        <!-- Form Fields -->
+        <div class="row">
+          <div class="col-xl-6">
+            <label for="name">الاسم</label>
+            <span style="color: red;">*</span>
+            <div class="contact-two__input-box">
+              <input type="text"
+                     id="name"
+                     name="Name"
+                     placeholder="الاسم"
+                     class="form-control"
+                     ngModel
+                     #name="ngModel"
+                     required />
+              <div *ngIf="name.invalid && name.touched" class="text-danger">الاسم مطلوب.</div>
+            </div>
+          </div>
+          <div class="col-xl-6">
+            <label for="email">البريد الإلكتروني</label>
+            <span style="color: red;">*</span>
+            <div class="contact-two__input-box">
+              <input type="email"
+                     id="email"
+                     name="Email"
+                     placeholder="البريد الإلكتروني"
+                     class="form-control"
+                     ngModel
+                     #email="ngModel"
+                     required />
+              <div *ngIf="email.invalid && email.touched" class="text-danger">البريد الإلكتروني مطلوب وبصيغة صحيحة.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xl-6">
+            <label for="phone">رقم الهاتف</label>
+            <span style="color: red;">*</span>
+            <div class="contact-two__input-box">
+              <input type="text"
+                     id="phone"
+                     name="Phone"
+                     placeholder="رقم الهاتف"
+                     class="form-control"
+                     ngModel
+                     #phone="ngModel"
+                     required
+                     pattern="^[0-9]{10}$" />
+              <div *ngIf="phone.invalid && phone.touched" class="text-danger">رقم الهاتف مطلوب وبصيغة صحيحة (10 أرقام).</div>
+            </div>
+          </div>
+          <div class="col-xl-6">
+            <label for="nationalId">الرقم الوطني</label>
+            <span style="color: red;">*</span>
+            <div class="contact-two__input-box">
+              <input type="text"
+                     id="nationalId"
+                     name="NationalId"
+                     placeholder="الرقم الوطني"
+                     class="form-control"
+                     ngModel
+                     #nationalId="ngModel"
+                     required
+                     minlength="10"
+                     maxlength="10" />
+              <div *ngIf="nationalId.invalid && nationalId.touched" class="text-danger">الرقم الوطني مطلوب ويجب أن يكون مكونًا من 10 أرقام.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xl-6">
+            <label for="complainType">نوع الشكوى</label>
+            <span style="color: red;">*</span>
+            <div class="contact-two__input-box">
+              <input type="text"
+                     id="complainType"
+                     name="ComplainType"
+                     placeholder="نوع الشكوى"
+                     class="form-control"
+                     ngModel
+                     #complainType="ngModel"
+                     required />
+              <div *ngIf="complainType.invalid && complainType.touched" class="text-danger">نوع الشكوى مطلوب.</div>
+            </div>
+          </div>
+          <div class="col-xl-6">
+            <label for="address">موقع الشكوى</label>
+            <span style="color: red;">*</span>
+            <div class="contact-two__input-box">
+              <input type="text"
+                     id="address"
+                     name="Address"
+                     placeholder="موقع الشكوى"
+                     class="form-control"
+                     ngModel
+                     #address="ngModel"
+                     required />
+              <div *ngIf="address.invalid && address.touched" class="text-danger">موقع الشكوى مطلوب.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xl-12">
+            <label for="complainDetails">تفاصيل الشكوى</label>
+            <span style="color: red;">*</span>
+            <div class="contact-two__input-box text-message-box">
+              <textarea id="complainDetails"
+                        name="ComplainDetails"
+                        placeholder="تفاصيل الشكوى"
+                        class="form-control"
+                        ngModel
+                        #complainDetails="ngModel"
+                        required></textarea>
+              <div *ngIf="complainDetails.invalid && complainDetails.touched" class="text-danger">تفاصيل الشكوى مطلوبة.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xl-12">
+            <div class="mb-5">
+              <label class="text-dark font-weight-medium" for="file">أرفق صورة (اختياري)</label>
+              <div class="input-group mb-3">
+                <input type="file"
+                       id="file"
+                       (change)="onFileChange($event)"
+                       class="form-control" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row" *ngIf="selectedFile">
+          <div class="col-xl-12 text-center">
+            <img id="showImage"
+                 style="max-width: 100%; height: auto;"
+                 [src]="getFilePreview()"
+                 alt="Preview" />
+          </div>
+        </div>
+
+
+        <p style="text-align: justify; margin-top: 6%">
+          ملاحظة: جميع الحقول المسبوقة بـــ
+          <span style="color: red;">*</span>
+          إجبارية وفي حالة عدم إدخال أي من هذه البيانات ستظهر رسالة باللون الأحمر تطلب إدخال بيانات الحقل.
+        </p>
+        <div class="contact-two__btn-box">
+          <button type="submit"
+                  class="thm-btn contact-two__btn">
+            ارسل
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

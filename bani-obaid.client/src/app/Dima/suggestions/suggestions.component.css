@@ -42,3 +42,28 @@
   margin-right: calc(var(--bs-gutter-x) / -2);
   margin-left: calc(var(--bs-gutter-x) / -2);
 }
+.contact-two__input-box input[type=text], .contact-two__input-box input[type=email] {
+  height: 58px;
+  width: 100%;
+  border: none;
+  background-color: #e9ecef;
+  padding-left: 30px;
+  padding-right: 30px;
+  outline: none;
+  font-size: 14px;
+  color: var(--govity-gray);
+  display: block;
+  letter-spacing: var(--govity-letter-spacing-two);
+}
+.contact-two__input-box textarea {
+  font-size: 14px;
+  color: var(--govity-gray);
+  height: 190px;
+  width: 100%;
+  background-color: #e9ecef;
+  padding: 20px 30px 30px;
+  border: none;
+  outline: none;
+  margin-bottom: 0px;
+  letter-spacing: var(--govity-letter-spacing-two);
+}

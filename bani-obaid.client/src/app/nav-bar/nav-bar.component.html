@@ -1,5 +1,5 @@
     <!-- Navbar -->
-<nav class="navbar navbar-expand-lg fixed-top" lang="ar" dir="rtl">
+<nav class="navbar navbar-expand-lg fixed-top" lang="ar" dir="rtl" *ngIf="!isAdminLogin()">
   <div class="container">
     <!-- Logo -->
     <a class="navbar-brand" href="/">
@@ -73,8 +73,8 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownTourism">
             <li><a class="dropdown-item" routerLink="/AddSuggestions">أفكار ومبادرات</a></li>
-            <li><a class="dropdown-item" routerLink="">شكاوى و اقتراحات </a></li>
-            <li><a class="dropdown-item" routerLink="">استطلاعات الرأي </a></li>
+            <li><a class="dropdown-item" routerLink="/complain">شكاوى و اقتراحات </a></li>
+            <li><a class="dropdown-item" routerLink="/Polls">استطلاعات الرأي </a></li>
           </ul>
         </li>
         <li class="nav-item">

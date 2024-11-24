@@ -29,6 +29,17 @@ import { OwnershipTransferComponent } from './Mohammad/ownership-transfer/owners
 import { EventsComponent } from './Mohammad/events/events.component';
 import { SuggestionsComponent } from './Dima/suggestions/suggestions.component';
 import { GeneralLandComponent } from './Lujain/general-land/general-land.component';
+import { GeneralLandDetailsComponent } from './Lujain/general-land-details/general-land-details.component';
+import { AdminDashboardComponent } from './Admin/admin-dashboard/admin-dashboard.component';
+import { ComplainComponent } from './Lujain/complain/complain.component';
+import { TeamComponent } from './Lujain/team/team.component';
+import { PollsComponent } from './Hosam/polls/polls.component';
+import { PollDetailsComponent } from './Hosam/poll-details/poll-details.component';
+import { LoginComponent } from './Admin/login/login.component';
+import { ProfileComponent } from './Admin/profile/profile.component';
+import { AddPollComponent } from './Admin/add-poll/add-poll.component';
+import { GetPollsComponent } from './Admin/get-polls/get-polls.component';
+import { EditPollComponent } from './Admin/edit-poll/edit-poll.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +65,18 @@ import { GeneralLandComponent } from './Lujain/general-land/general-land.compone
     OwnershipTransferComponent,
     EventsComponent,
     SuggestionsComponent,
-    GeneralLandComponent
+    GeneralLandComponent,
+    GeneralLandDetailsComponent,
+    AdminDashboardComponent,
+    ComplainComponent,
+    TeamComponent,
+    PollsComponent,
+    PollDetailsComponent,
+    LoginComponent,
+    ProfileComponent,
+    AddPollComponent,
+    GetPollsComponent,
+    EditPollComponent
   ],
   imports: [
     FormsModule,
@@ -67,6 +89,9 @@ import { GeneralLandComponent } from './Lujain/general-land/general-land.compone
       { path: 'landBaniObaid', component: LandInBainObaidComponent },
       { path: "landmark/:id", component: LandMarkDetailsComponent },
       { path: 'north', component: GeneralLandComponent },
+      { path: "north/:id", component: GeneralLandDetailsComponent },
+      { path: 'complain', component: ComplainComponent },
+      { path: 'team', component: TeamComponent },
       { path: 'Tenders', component: TendersComponent },
       { path: "tenderdetail/:id", component: TenderDetailsComponent },
       { path: 'Projects', component: ProjectComponent },
@@ -82,8 +107,22 @@ import { GeneralLandComponent } from './Lujain/general-land/general-land.compone
       { path: 'OwnershipTransfer', component: OwnershipTransferComponent },
       { path: 'Events', component: EventsComponent },
       { path: "AddSuggestions", component: SuggestionsComponent },
+      { path: "Polls", component: PollsComponent },
+      { path: "Poll/:id", component: PollDetailsComponent },
+      { path: "admin", component: LoginComponent },
 
+      {
+        path: 'adminDashboard', component: AdminDashboardComponent, children: [
+          { path: 'home', component: HomeComponent },
+          { path: 'profile', component: ProfileComponent },
+          { path: 'polls', component: GetPollsComponent },
+          { path: 'poll/:id', component: EditPollComponent },
+          { path: 'addPoll', component: AddPollComponent },
 
+       
+        ]
+
+      }
     ])
   ],
   providers: [],

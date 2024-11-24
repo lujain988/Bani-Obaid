@@ -35,6 +35,7 @@ import { ComplainComponent } from './Lujain/complain/complain.component';
 import { TeamComponent } from './Lujain/team/team.component';
 import { PollsComponent } from './Hosam/polls/polls.component';
 import { PollDetailsComponent } from './Hosam/poll-details/poll-details.component';
+import { LoginComponent } from './Admin/login/login.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +67,8 @@ import { PollDetailsComponent } from './Hosam/poll-details/poll-details.componen
     ComplainComponent,
     TeamComponent,
     PollsComponent,
-    PollDetailsComponent
+    PollDetailsComponent,
+    LoginComponent
   ],
   imports: [
     FormsModule,
@@ -99,6 +101,7 @@ import { PollDetailsComponent } from './Hosam/poll-details/poll-details.componen
       { path: "AddSuggestions", component: SuggestionsComponent },
       { path: "Polls", component: PollsComponent },
       { path: "Poll/:id", component: PollDetailsComponent },
+      { path: "admin", component: LoginComponent },
 
       {
         path: 'adminDashboard', component: AdminDashboardComponent, children: [

@@ -1,5 +1,5 @@
 <!-- app-navigation.component.html -->
-<div class="sidebar" >
+<div class="sidebar">
   <div class="logo">Dashboard</div>
 
   <div class="nav-section">MAIN</div>
@@ -23,7 +23,11 @@
   </a>
 
   <div class="nav-section">ACCOUNT</div>
-  <a  class="nav-link">
+  <a routerLink="/adminDashboard/profile" class="nav-link">
+    <span class="link-highlight"></span>
+    <i class="fas fa-sign-out-alt"></i> Profile
+  </a>
+  <a routerLink="/admin" (click)="Logout()" class="nav-link">
     <span class="link-highlight"></span>
     <i class="fas fa-sign-out-alt"></i> Logout
   </a>

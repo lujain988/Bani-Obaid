@@ -27,7 +27,7 @@ export class ServicesService {
     return this.http.post<any>(`${this.staticData}/Tenders/AddNewTender`, data);
   }
 
-  updateTendersk(id: number, data: FormData): Observable<any> {
+  updateTenders(id: number, data: FormData): Observable<any> {
     return this.http.put<any>(`${this.staticData}/Tenders/UpdateTenders/${id}`, data);
   }
 

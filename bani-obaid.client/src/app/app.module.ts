@@ -94,13 +94,15 @@ import { RegistrationManagementComponent } from './Mohammad/registration-managem
     OrganizationStructureComponent,
     GetTendersComponent,
     AddTendersComponent,
-    UpdateTendersComponent,
     OrganizationStructureComponent,
     EditPollComponent,
     EventDetailsComponent,
     EventManagementComponent,
     EventFormComponent,
-    RegistrationManagementComponent
+    RegistrationManagementComponent,
+    UpdateTendersComponent,
+
+
   ],
   imports: [
     FormsModule,

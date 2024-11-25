@@ -44,6 +44,9 @@ import { AboutMunicipalityComponent } from './Ahmad/about-municipality/about-mun
 import { PresidentComponent } from './Ahmad/president/president.component';
 import { MunicipalityMemberComponent } from './Ahmad/municipality-member/municipality-member.component';
 import { OrganizationStructureComponent } from './Ahmad/organization-structure/organization-structure.component';
+import { GetTendersComponent } from './Admin/get-tenders/get-tenders.component';
+import { AddTendersComponent } from './Admin/add-tenders/add-tenders.component';
+import { UpdateTendersComponent } from './Admin/update-tenders/update-tenders.component';
 
 @NgModule({
   declarations: [
@@ -84,7 +87,10 @@ import { OrganizationStructureComponent } from './Ahmad/organization-structure/o
     AboutMunicipalityComponent,
     PresidentComponent,
     MunicipalityMemberComponent,
-    OrganizationStructureComponent
+    OrganizationStructureComponent,
+    GetTendersComponent,
+    AddTendersComponent,
+    UpdateTendersComponent
   ],
   imports: [
     FormsModule,
@@ -130,7 +136,9 @@ import { OrganizationStructureComponent } from './Ahmad/organization-structure/o
           { path: 'polls', component: GetPollsComponent },
           { path: 'poll/:id', component: EditPollComponent },
           { path: 'addPoll', component: AddPollComponent },
-
+          { path: 'tenders', component: GetTendersComponent },
+          { path: 'AddTenders', component: AddTendersComponent },
+          { path: "updatetenders/:id", component: UpdateTendersComponent },
        
         ]
 

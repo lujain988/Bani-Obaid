@@ -1,0 +1,44 @@
+<section class="page-header">
+  <div class="page-header-bg" style="background-image: url(assets/images/backgrounds/1.jpg)">
+  </div>
+  <div class="container">
+    <div class="page-header__inner">
+      <h2>أعضاء البلدية</h2>
+      <ul class="thm-breadcrumb list-unstyled">
+        <li><a href="#">الرئيسية</a></li>
+        <li><span>/</span></li>
+        <li>أعضاء البلدية</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<main>
+  <section class="container">
+    <div class="section-title__icon" style="margin-top: 30px; padding-top: 0;">
+      <span class="fa fa-star"></span>
+    </div>
+    <h2 class="history-one__content-title">أعضاء البلدية</h2>
+    <div class="team-one__inner">
+      <div class="row">
+        <div class="col-xl-4 col-lg-4" *ngFor="let member of MemberArray">
+          <div class="team-one__single">
+            <div class="team-one__shape-1"></div>
+            <div class="team-one__img-box">
+              <div class="team-one__img">
+                <img class="card-image" [src]="'https://localhost:7243' + member.image" alt="{{ member.name }}">
+              </div>
+            </div>
+            <div class="team-one__content">
+              <h3 class="team-one__name">
+                <a href="#">{{ member.name }}</a>
+              </h3>
+              <p class="team-one__sub-title">{{ member.role }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+

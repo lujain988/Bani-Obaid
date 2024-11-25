@@ -1,0 +1,48 @@
+<section class="page-header">
+  <div class="page-header-bg" style="background-image: url(assets/images/backgrounds/1.jpg)">
+  </div>
+  <div class="container">
+    <div class="page-header__inner">
+      <h2>كلمة الرئيس</h2>
+      <ul class="thm-breadcrumb list-unstyled">
+        <li><a href="/home">الرئيسية</a></li>
+        <li><span>/</span></li>
+        <li>كلمة الرئيس</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!--Projects Page Start-->
+<section class="department-page" *ngIf="PresidentArray; else errorTemplate">
+  <div class="container">
+    <div class="section-title text-center">
+      <div class="section-title__icon">
+        <span class="fa fa-star"></span>
+      </div>
+      <h2 class="section-title__title">كلمة الرئيس</h2>
+    </div>
+    <div class="row">
+      <div class="text-center">
+        <img *ngIf="PresidentArray?.image" [src]="'https://localhost:7243' + PresidentArray.image" alt="{{ PresidentArray?.name }}" style="width: 60%;" />
+        <br><br>
+        <h3>بسم الله الرحمن الرحيم</h3>
+        <br>
+        <p *ngIf="PresidentArray?.speech" class="about-one__text" style="width: 75%; margin: 0 auto;">
+          {{ PresidentArray?.speech }}
+        </p>
+        <br><br>
+        <p *ngIf="PresidentArray?.name" class="about-one__big-text" style="font-size: 20px !important;">
+          {{ PresidentArray?.name }}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<ng-template #errorTemplate>
+  <div class="alert alert-danger text-center">
+    {{ errorMessage }}
+  </div>
+</ng-template>
+<!--Projects Page End-->

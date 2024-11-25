@@ -2,6 +2,7 @@
 using Bani_Obaid.Server.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace Bani_Obaid.Server.Controllers
 {
@@ -20,6 +21,19 @@ namespace Bani_Obaid.Server.Controllers
         {
             var Municipality = _db.MunicipalityInfos.ToList();
             return Ok(Municipality);
+        }
+
+        [HttpGet("GetMunicipalityByID/{id}")]
+        public IActionResult GetMunicipalityByID(int id)
+        {
+            var municipality = _db.MunicipalityInfos.FirstOrDefault(m => m.Id == id);
+
+            if (municipality == null)
+            {
+                return NotFound("Municipality not found.");
+            }
+
+            return Ok(municipality);
         }
 
         [HttpPost("addMunicipality")]
@@ -57,13 +71,12 @@ namespace Bani_Obaid.Server.Controllers
             return Ok(newMunicipality);
         }
 
-
         [HttpPut("updateMunicipality/{id}")]
-        public IActionResult UpdateMunicipality(int id, [FromForm] AboutMunicipality aboutrequest)
+        public IActionResult UpdateMunicipality(int id, [FromForm] AboutMunicipality aboutRequest)
         {
-            var Municipality = _db.MunicipalityInfos.FirstOrDefault(m => m.Id == id);
+            var municipality = _db.MunicipalityInfos.FirstOrDefault(m => m.Id == id);
 
-            if (Municipality == null)
+            if (municipality == null)
             {
                 return NotFound("Municipality not found.");
             }
@@ -75,28 +88,67 @@ namespace Bani_Obaid.Server.Controllers
                 Directory.CreateDirectory(uploadsFolder);
             }
 
-
-            if (aboutrequest.DescriptionImage != null && aboutrequest.DescriptionImage.Length > 0)
+            try
             {
-                var mainImageFileName = Guid.NewGuid().ToString() + "_" + aboutrequest.DescriptionImage.FileName;
-                var mainImagePath = Path.Combine(uploadsFolder, mainImageFileName);
-
-                using (var fileStream = new FileStream(mainImagePath, FileMode.Create))
+                // تحديث الصورة إذا تم رفع صورة جديدة
+                if (aboutRequest.DescriptionImage != null && aboutRequest.DescriptionImage.Length > 0)
                 {
-                    aboutrequest.DescriptionImage.CopyTo(fileStream);
+                    var mainImageFileName = Guid.NewGuid().ToString() + "_" + aboutRequest.DescriptionImage.FileName;
+                    var mainImagePath = Path.Combine(uploadsFolder, mainImageFileName);
+
+                    using (var fileStream = new FileStream(mainImagePath, FileMode.Create))
+                    {
+                        aboutRequest.DescriptionImage.CopyTo(fileStream);
+                    }
+
+                    municipality.DescriptionImage = $"/images/{mainImageFileName}";
                 }
 
-                Municipality.DescriptionImage = $"/images/{mainImageFileName}";
+                // تحديث الحقول الأخرى فقط إذا كانت القيم المرسلة غير فارغة
+                if (!string.IsNullOrEmpty(aboutRequest.Description))
+                {
+                    municipality.Description = aboutRequest.Description;
+                }
+
+                if (!string.IsNullOrEmpty(aboutRequest.Vision))
+                {
+                    municipality.Vision = aboutRequest.Vision;
+                }
+
+                if (!string.IsNullOrEmpty(aboutRequest.Mission))
+                {
+                    municipality.Mission = aboutRequest.Mission;
+                }
+
+                // تحديث تاريخ التعديل
+                municipality.UpdatedAt = DateTime.Now;
+
+                // تحديث السجل في قاعدة البيانات
+                _db.MunicipalityInfos.Update(municipality);
+                _db.SaveChanges();
+
+                return Ok(municipality);
             }
-            Municipality.Description = aboutrequest.Description;
-            Municipality.Vision = aboutrequest.Vision;
-            Municipality.Mission = aboutrequest.Mission;
-
-
-            _db.MunicipalityInfos.Update(Municipality);
-            _db.SaveChanges();
-            return Ok(Municipality);
+            catch (DbUpdateException ex)
+            {
+                // إرجاع تفاصيل الخطأ
+                return BadRequest(new
+                {
+                    Message = "An error occurred while updating the municipality.",
+                    Error = ex.InnerException?.Message ?? ex.Message
+                });
+            }
+            catch (Exception ex)
+            {
+                // معالجة أي أخطاء أخرى
+                return StatusCode(500, new
+                {
+                    Message = "An unexpected error occurred.",
+                    Error = ex.Message
+                });
+            }
         }
+
 
 
         [HttpDelete("DeleteMunicipality/{id}")]
@@ -119,5 +171,6 @@ namespace Bani_Obaid.Server.Controllers
             }
             return NotFound("there is no Municipality with this id");
         }
+    
     }
 }

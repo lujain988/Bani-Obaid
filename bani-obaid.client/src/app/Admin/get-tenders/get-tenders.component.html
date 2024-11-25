@@ -1,0 +1,56 @@
+<main>
+
+
+
+
+
+  
+  <div class="container mt-4 " style="direction: rtl; text-align: center">
+
+     
+    <h2 style="color:black" class="text-center mb-4">جميع العطاءات</h2>
+    <button class="btn btn-success btn-sm" [routerLink]="['/adminDashBoard/AddTenders']">اضافة عطاء جديد</button>
+
+    <div class="table-responsive mx-auto" style="max-width: 900px;">
+      <table class="table table-light table-hover table-bordered">
+        <thead>
+          <tr>
+            <th></th>
+            <th>عنوان العطاء</th>
+            <th>صورة العطاء</th>
+            <th>وصف العطاء</th>
+            <th>قيمة العطاء</th>
+            <th>الموعد النهائي للعطاء </th>
+
+            <th>الإجراء</th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+          <tr *ngFor="let item of tenderdata; let i = index">
+
+            <th scope="row">{{ item.id }}</th>
+            <td>{{ item.title }}</td>
+            <td><img class="img-fluid" src="https://localhost:7243/{{item.image}}" alt=""></td>
+            <td>{{item.description}}</td>
+            <td>{{item.amount}}</td>
+            <td>{{item.closingDate | date: 'yyyy-MM-dd'}}</td>
+
+            <td>
+
+              <button class="btn btn-primary btn-sm" [routerLink]="['/adminDashBoard/updatetenders', item.id]">
+                تعديل
+              </button>
+              <button class="btn btn-danger btn-sm" (click)="deleteTenders(item.id)">
+                حذف
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</main>
+

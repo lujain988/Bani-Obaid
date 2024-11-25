@@ -44,6 +44,9 @@ import { AboutMunicipalityComponent } from './Ahmad/about-municipality/about-mun
 import { PresidentComponent } from './Ahmad/president/president.component';
 import { MunicipalityMemberComponent } from './Ahmad/municipality-member/municipality-member.component';
 import { OrganizationStructureComponent } from './Ahmad/organization-structure/organization-structure.component';
+import { GetTendersComponent } from './Admin/get-tenders/get-tenders.component';
+import { AddTendersComponent } from './Admin/add-tenders/add-tenders.component';
+import { UpdateTendersComponent } from './Admin/update-tenders/update-tenders.component';
 import { EventDetailsComponent } from './Mohammad/event-details/event-details.component';
 import { EventManagementComponent } from './Mohammad/event-management/event-management.component';
 import { EventFormComponent } from './Mohammad/event-form/event-form.component';
@@ -88,6 +91,11 @@ import { RegistrationManagementComponent } from './Mohammad/registration-managem
     AboutMunicipalityComponent,
     PresidentComponent,
     MunicipalityMemberComponent,
+    OrganizationStructureComponent,
+    GetTendersComponent,
+    AddTendersComponent,
+    UpdateTendersComponent
+    OrganizationStructureComponent
     OrganizationStructureComponent,
     EditPollComponent,
     EventDetailsComponent,
@@ -145,7 +153,9 @@ import { RegistrationManagementComponent } from './Mohammad/registration-managem
           { path: 'polls', component: GetPollsComponent },
           { path: 'poll/:id', component: EditPollComponent },
           { path: 'addPoll', component: AddPollComponent },
-
+          { path: 'tenders', component: GetTendersComponent },
+          { path: 'AddTenders', component: AddTendersComponent },
+          { path: "updatetenders/:id", component: UpdateTendersComponent },
        
         ]
 

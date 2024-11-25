@@ -35,12 +35,12 @@ export class EventManagementComponent {
 
   // Add a new event
   addEvent() {
-    this.router.navigate(['/event-form']); // تأكد من وجود صفحة الإضافة
+    this.router.navigate(['/adminDashboard/event-form']); // تأكد من وجود صفحة الإضافة
   }
 
   // Edit an event
   editEvent(id: number) {
-    this.router.navigate(['/event-form', id]); // تأكد من وجود صفحة التعديل
+    this.router.navigate(['/adminDashboard/event-form', id]); // تأكد من وجود صفحة التعديل
   }
 
   // Delete an event

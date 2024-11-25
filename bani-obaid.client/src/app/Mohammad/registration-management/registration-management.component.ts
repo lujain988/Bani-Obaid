@@ -8,7 +8,7 @@ import { UrlService } from '../URL Service/url.service';
 })
 export class RegistrationManagementComponent implements OnInit {
   registrations: any[] = [];
-  eventId: any ;
+  eventId: any | null = null;
   events: any[] = [];
 
 

@@ -155,6 +155,15 @@ import { RegistrationManagementComponent } from './Mohammad/registration-managem
           { path: 'tenders', component: GetTendersComponent },
           { path: 'AddTenders', component: AddTendersComponent },
           { path: "updatetenders/:id", component: UpdateTendersComponent },
+          { path: "RegistrationManagement", component: RegistrationManagementComponent },
+          { path: "eventManagement", component: EventManagementComponent },
+          { path: 'event-form', component: EventFormComponent }, // للإضافة
+          { path: 'event-form/:id', component: EventFormComponent }, // للتعديل
+          { path: 'JobsManagement', component: JobManagementComponent },
+          { path: 'addJob', component: AddJobComponent },
+          { path: 'editJob/:id', component: EditJobComponent },
+
+
        
         ]
 

@@ -88,7 +88,7 @@ import { RegistrationManagementComponent } from './Mohammad/registration-managem
     AboutMunicipalityComponent,
     PresidentComponent,
     MunicipalityMemberComponent,
-    OrganizationStructureComponent
+    OrganizationStructureComponent,
     EditPollComponent,
     EventDetailsComponent,
     EventManagementComponent,

@@ -98,12 +98,15 @@ import { PartnerComponent } from './Ahmad/partner/partner.component';
     OrganizationStructureComponent,
     GetTendersComponent,
     AddTendersComponent,
-    UpdateTendersComponent,
     OrganizationStructureComponent,
     EditPollComponent,
     EventDetailsComponent,
     EventManagementComponent,
     EventFormComponent,
+    RegistrationManagementComponent,
+    UpdateTendersComponent,
+
+
     RegistrationManagementComponent,
     ImageHomePageComponent, 
     HomePresidentComponent, 

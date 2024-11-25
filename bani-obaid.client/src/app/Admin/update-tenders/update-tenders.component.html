@@ -1,1 +1,65 @@
-<p>update-tenders works!</p>
+
+<form #updateTenderForm="ngForm" (ngSubmit)="UpdateTender(updateTenderForm.value)" enctype="multipart/form-data" class="update-tender-form">
+
+
+    <h2 style="text-align: center; margin-bottom: 20px;">تحديث العطاء</h2>
+
+  <div class="form-group">
+    <label for="Title">عنوان العطاء</label>
+    <input type="text" id="Title" name="Title" [(ngModel)]="tender.title" class="form-control" required>
+  </div>
+
+  <div class="form-group">
+    <label for="Description">وصف العطاء</label>
+    <textarea id="Description" name="Description" [(ngModel)]="tender.description" class="form-control" required></textarea>
+  </div>
+
+  <div class="form-group">
+    <label for="Image"> الصورة الرئيسية </label>
+    <input type="file" id="Image"  (change)="changeImage($event)" class="form-control" [required]="true">
+    <img *ngIf="tender.image" [src]="'https://localhost:7243/' + tender.image" alt="Current Image" width="100">
+  </div>
+
+  <div class="form-group">
+    <label for="Img1"> 1 الصورة الاختيارية </label>
+    <input type="file" id="Img1" (change)="changeImg1($event)" class="form-control">
+    <img *ngIf="tender.img1" [src]="'https://localhost:7243/' + tender.img1" alt="Current Image 1" width="100">
+  </div>
+  <div class="form-group">
+    <label for="Img2">2 الصورة الاختيارية</label>
+    <input type="file" id="Img2" (change)="changeImg2($event)" class="form-control">
+    <img *ngIf="tender.img2" [src]="'https://localhost:7243/' + tender.img2" alt="Current Image 2" width="100">
+  </div>
+
+  <div class="form-group">
+    <label for="Img3">3 الصورة الاختيارية</label>
+    <input type="file" id="Img3" (change)="changeImg3($event)" class="form-control">
+    <img *ngIf="tender.img3" [src]="'https://localhost:7243/' + tender.img3" alt="Current Image 3" width="100">
+  </div>
+
+  <div class="form-group">
+    <label for="Img4">4 الصورة الاختيارية</label>
+    <input type="file" id="Img4" (change)="changeImg4($event)" class="form-control">
+    <img *ngIf="tender.img4" [src]="'https://localhost:7243/' +tender.img4" alt="Current Image 4" width="100">
+  </div>
+
+  <div class="form-group">
+    <label for="Img5">5 الصورة الاختيارية</label>
+    <input type="file" id="Img5" (change)="changeImg5($event)" class="form-control">
+    <img *ngIf="tender.img5" [src]="'https://localhost:7243/' +tender.img5" alt="Current Image 5" width="100">
+  </div>
+
+
+
+  <div class="form-group">
+    <label for="Amount">قيمة العاطاء</label>
+    <input type="text" id="Amount" name="Amount" [(ngModel)]="tender.amount" class="form-control" required>
+  </div>
+
+  <div class="form-group">
+    <label for="ClosingDate">تاريخ انتهاء العطاء</label>
+    <input type="date" id="ClosingDate" name="ClosingDate" [(ngModel)]="tender.closingDate" class="form-control" required>
+  </div>
+
+  <button type="submit" class="btn btn-primary">تعديل العطاء</button>
+</form>

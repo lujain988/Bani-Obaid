@@ -94,8 +94,8 @@ import { RegistrationManagementComponent } from './Mohammad/registration-managem
     OrganizationStructureComponent,
     GetTendersComponent,
     AddTendersComponent,
-    UpdateTendersComponent
-    OrganizationStructureComponent
+    UpdateTendersComponent,
+    OrganizationStructureComponent,
     EditPollComponent,
     EventDetailsComponent,
     EventManagementComponent,

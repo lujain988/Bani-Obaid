@@ -1,0 +1,34 @@
+.registration-management {
+  font-family: 'Cairo', sans-serif;
+}
+
+  .registration-management .table {
+    font-size: 0.9rem;
+  }
+
+  .registration-management .btn-outline-primary {
+    transition: 0.3s ease-in-out;
+  }
+
+    .registration-management .btn-outline-primary:hover {
+      background-color: #0d6efd;
+      color: #fff;
+    }
+
+  .registration-management .badge {
+    font-size: 0.8rem;
+    padding: 5px 10px;
+  }
+
+  .registration-management h2 {
+    font-size: 1.5rem;
+  }
+
+  .registration-management .form-label {
+    color: #495057;
+    font-weight: bold;
+  }
+
+.table thead th {
+  vertical-align: middle;
+}

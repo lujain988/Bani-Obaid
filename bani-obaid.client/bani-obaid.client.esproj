@@ -10,6 +10,5 @@
   <ItemGroup>
     <Folder Include="src\app\Ahmad\Service\" />
     <Folder Include="src\app\Mohammad\URL Service\" />
-    <Folder Include="src\app\Admin\" />
   </ItemGroup>
 </Project>

@@ -1,0 +1,53 @@
+<div style=" margin-left: 15%">
+  <section class="registration-management py-4" style="direction: rtl;">
+  <div class="container shadow p-4 bg-white rounded">
+    <h2 class="mb-4 text-primary">إدارة التسجيلات</h2>
+
+    <div class="mb-4">
+      <label for="eventId" class="form-label">اختر الفعالية لعرض المسجلين:</label>
+      <div class="d-flex align-items-center gap-3">
+        <select id="eventId"
+                class="form-select w-50"
+                [(ngModel)]="eventId"
+                (change)="loadRegistrationsByEvent(eventId)">
+          <option [value]="null" disabled>اختر فعالية</option>
+          <option *ngFor="let event of events" [value]="event.id">
+            {{ event.title }}
+          </option>
+        </select>
+        <button class="btn btn-outline-primary" (click)="loadAllRegistrations()">عرض الكل</button>
+      </div>
+    </div>
+
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover text-center">
+        <thead class="table-dark">
+          <tr>
+            <th>#</th>
+            <th>اسم المشارك</th>
+            <th>رقم الهاتف</th>
+            <th>البريد الإلكتروني</th>
+            <th>خيارات</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let registration of registrations">
+            <td>{{ registration.id }}</td>
+            <td>{{ registration.name }}</td>
+            <td>{{ registration.number }}</td>
+            <td>{{ registration.email }}</td>
+            <td>
+              <button class="btn btn-danger btn-sm" (click)="deleteRegistration(registration.id)">
+                حذف
+              </button>
+            </td>
+          </tr>
+          <tr *ngIf="registrations.length === 0">
+            <td colspan="6" class="text-muted">لا توجد تسجيلات متاحة.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+</div>

@@ -88,4 +88,48 @@ export class ServiceService {
     return this.http.delete<any>(`${this.staticData}/OrganizationStructure/Deletestructure/${id}`);
   }
 
+  //ImageHomePage
+
+  getHomeImage(): Observable<any> {
+    return this.http.get<any>(`${this.staticData}/HomePageImage/GetAllHomePageImages`);
+  }
+
+  getHomeImageById(id: string): Observable<any> {
+    return this.http.get<any>(`${this.staticData}/HomePageImage/GetHomePageImageById/${id}`);
+  }
+
+  addHomeImage(data: FormData): Observable<any> {
+    return this.http.post<any>(`${this.staticData}/HomePageImage/AddHomePageImage`, data);
+  }
+
+  editHomeImage(id: number, data: FormData): Observable<any> {
+    return this.http.put<any>(`${this.staticData}/HomePageImage/UpdateHomePageImage/${id}`, data);
+  }
+
+  deleteHomeImage(id: number): Observable<any> {
+    return this.http.delete<any>(`${this.staticData}/HomePageImage/DeleteHomePageImage/${id}`);
+  }
+
+  //Partner
+
+  getPartner(): Observable<any> {
+    return this.http.get<any>(`${this.staticData}/Partner/GetAllPartners`);
+  }
+
+  getPartnerById(id: string): Observable<any> {
+    return this.http.get<any>(`${this.staticData}/Partner/GetPartnerById/${id}`);
+  }
+
+  addPartner(data: FormData): Observable<any> {
+    return this.http.post<any>(`${this.staticData}/Partner/AddPartner`, data);
+  }
+
+  editPartner(id: number, data: FormData): Observable<any> {
+    return this.http.put<any>(`${this.staticData}/Partner/UpdatePartner/${id}`, data);
+  }
+
+  deletePartner(id: number): Observable<any> {
+    return this.http.delete<any>(`${this.staticData}/Partner/DeletePartner/${id}`);
+  }
+
 }

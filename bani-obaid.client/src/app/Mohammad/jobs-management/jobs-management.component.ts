@@ -32,13 +32,13 @@ export class JobManagementComponent implements OnInit {
   addJob() {
     // You can navigate to a separate form for adding a job or open a modal
     // For example:
-    this.router.navigate(['/addJob']); // Assuming /add-job is the route for the add job page
+    this.router.navigate(['/adminDashboard/addJob']); // Assuming /add-job is the route for the add job page
   }
 
   // Edit a job
   editJob(id: any) {
     // Navigate to the edit job page or open a modal with pre-filled form data
-    this.router.navigate(['/editJob', id]); // Assuming /edit-job/:id is the route for the edit job page
+    this.router.navigate(['/adminDashboard/editJob', id]); // Assuming /edit-job/:id is the route for the edit job page
   }
 
   // Delete a job

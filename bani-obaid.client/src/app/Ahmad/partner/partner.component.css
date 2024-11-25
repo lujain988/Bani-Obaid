@@ -1,0 +1,17 @@
+.brand-one {
+  padding: 50px 0;
+}
+
+.brand-one__title {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.brand-one__carousel .brand-one__single {
+  text-align: center;
+}
+
+.brand-one__img img {
+  max-width: 100%;
+  height: auto;
+}

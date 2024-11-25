@@ -1,0 +1,27 @@
+<div class="history-one__top">
+  <div class="container" dir="rtl">
+    <div class="section-title text-center">
+      <div class="section-title__icon">
+        <span class="fa fa-star" style="color: #0063ae;"></span>
+      </div>
+      <span class="section-title__tagline">احصائيات</span>
+      <h2 class="section-title__title">احصائيات بلدية بني عبيد</h2>
+    </div>
+  </div>
+</div>
+
+<br>
+<br>
+
+<section class="counter-one" dir="rtl">
+  <div class="container">
+    <div class="counter-one__inner">
+      <div *ngFor="let stat of statistics" class="counter-box">
+        <div class="counter-one__count">
+          <h3>{{ stat.currentCount }}</h3>
+        </div>
+        <p class="counter-one__text">{{ stat.text }}</p>
+      </div>
+    </div>
+  </div>
+</section>

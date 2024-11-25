@@ -1,0 +1,47 @@
+section.home-president {
+  width: 100%; /* عرض كامل */
+  max-width: 1370px; /* حد أقصى للعرض */
+  margin: 0 auto 2em auto; /* مركزي القسم مع مسافة أسفل */
+  padding: 50px 0;
+  background-color: var(--govity-primary); /* لون الخلفية */
+  text-align: center; /* محاذاة مركزية للنص */
+  direction: rtl; /* اتجاه النص من اليمين لليسار */
+}
+
+.home-president__name {
+  font-size: 32px;
+  font-weight: bold;
+  color: black; /* لون النص */
+  margin-bottom: 20px;
+}
+
+.home-president__speech {
+  font-size: 18px;
+  line-height: 1.8;
+  color: black; /* لون النص */
+  margin-bottom: 20px;
+}
+
+.home-president__btn-box {
+  margin-top: 20px;
+}
+
+.home-president__btn {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 30px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+  .home-president__btn:hover {
+    background-color: #0056b3;
+  }
+
+.home-president__image {
+  width: 513px;
+  height: 400px;
+  margin-bottom: 20px; 
+}

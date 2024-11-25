@@ -67,6 +67,15 @@ export class ServicesService {
     return this.http.post<any>(`${this.staticData}/Suggest/AddNewSuggestion`, data);
 
   }
+  getAllSuggestion(): Observable<any> {
+    return this.http.get<any>(`${this.staticData}/Suggest/GetAllSuggestion`);
+  }
+  deletesuggest(id: number): Observable<any> {
+    return this.http.delete<any>(`${this.staticData}/Suggest/Deletesuggestion/${id}`);
+  }
 
+  getsuggestById(id: number): Observable<any> {
+    return this.http.get<any>(`${this.staticData}/Suggest/GetSuggestionbyId/${id}`);
+  }
 
 }

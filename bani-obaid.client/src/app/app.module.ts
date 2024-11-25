@@ -51,6 +51,8 @@ import { EventDetailsComponent } from './Mohammad/event-details/event-details.co
 import { EventManagementComponent } from './Mohammad/event-management/event-management.component';
 import { EventFormComponent } from './Mohammad/event-form/event-form.component';
 import { RegistrationManagementComponent } from './Mohammad/registration-management/registration-management.component';
+import { GetSuggestionComponent } from './Admin/get-suggestion/get-suggestion.component';
+import { SuggestionDetailComponent } from './Admin/suggestion-detail/suggestion-detail.component';
 
 @NgModule({
   declarations: [
@@ -101,6 +103,8 @@ import { RegistrationManagementComponent } from './Mohammad/registration-managem
     EventFormComponent,
     RegistrationManagementComponent,
     UpdateTendersComponent,
+    GetSuggestionComponent,
+    SuggestionDetailComponent,
 
 
   ],
@@ -157,6 +161,9 @@ import { RegistrationManagementComponent } from './Mohammad/registration-managem
           { path: 'tenders', component: GetTendersComponent },
           { path: 'AddTenders', component: AddTendersComponent },
           { path: "updatetenders/:id", component: UpdateTendersComponent },
+          { path: 'suggestions', component: GetSuggestionComponent },
+          { path: "suggestiondetail/:id", component: SuggestionDetailComponent },
+
           { path: "RegistrationManagement", component: RegistrationManagementComponent },
           { path: "eventManagement", component: EventManagementComponent },
           { path: 'event-form', component: EventFormComponent }, // للإضافة

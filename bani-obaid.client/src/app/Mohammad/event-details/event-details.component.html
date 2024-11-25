@@ -1,0 +1,116 @@
+
+
+<section class="page-header">
+  <div class="page-header-bg" style="background-image: url(assets/images/backgrounds/1.jpg)">
+  </div>
+  <div class="container">
+    <div class="page-header__inner">
+      <h2>الفعاليات</h2> <!-- Title added in Arabic -->
+      <ul class="thm-breadcrumb list-unstyled">
+        <li><a routerLink="">الرئيسية</a></li>
+        <!-- Home in Arabic -->
+        <li><span>/</span></li>
+        <li>الفعاليات</li> <!-- Portfolio in Arabic -->
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+<section dir="rtl" class="event-details py-5">
+  <div class="container">
+    <div class="row">
+      <h1 class="text-center mb-5">{{ eventDetails?.title }}</h1>
+
+      <!-- Event Details -->
+      <div class="col-lg-8">
+        <div class="card shadow-lg p-4 mb-5">
+          <div class="row">
+            <div class="col-md-6 mb-4">
+              <div class="event-details__date-box text-center bg-light p-3 rounded">
+                <p class="fw-bold text-success">
+                  الوقت: {{ formattedTime }}<br />
+                  {{ formattedDate }}
+                </p>
+              </div>
+            </div>
+            <div class="col-md-6 mb-4">
+              <div class="event-details__location text-center bg-light p-3 rounded">
+                <p class="fw-bold text-success">
+                  الموقع: {{ eventDetails?.location }}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="event-details__img text-center">
+            <img [src]="eventDetails?.image" alt="Event Image" class="img-fluid rounded shadow" style="max-height: 300px;" />
+          </div>
+
+          <h3 class="event-details__title-1 mt-4 text-success">تفاصيل الفعالية</h3>
+          <p class="event-details__text-1 text-muted">{{ eventDetails?.description }}</p>
+
+          <!--<h5 class="mt-3">
+            السعة: <span class="text-info fw-bold">{{ eventDetails?.capacity }}</span>
+          </h5>-->
+        </div>
+      </div>
+
+      <!-- Google Map -->
+      <div class="col-lg-4">
+        <div class="event-details__google-map shadow-lg rounded overflow-hidden">
+          <iframe width="100%"
+                  height="450"
+                  frameborder="0"
+                  style="border:0;"
+                  allowfullscreen=""
+                  loading="lazy"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d21737.021183481044!2d35.85689081079534!3d32.55766191820579!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151c76a85c15c35b%3A0x4e9d9f89ff462f2e!2z2KfZhNis2YrYqSDYp9mE2LPZhNmK2KfZhdi2!5e0!3m2!1sar!2sjo!4v1700825037392!5m2!1sar!2sjo"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section dir="rtl" class="contact-one py-5 bg-light">
+  <div class="container">
+    <div class="section-title text-center mb-4">
+      <h2 class="section-title__title text-dark">للتسجيل</h2>
+    </div>
+    <form (ngSubmit)="registerForEvent()" #eventForm="ngForm" class="p-4 bg-white rounded shadow-lg">
+      <div class="row g-3">
+        <div class="col-12">
+          <input type="text"
+                 placeholder="الاسم الثلاثي"
+                 name="name"
+                 [(ngModel)]="participant.name"
+                 class="form-control"
+                 required />
+        </div>
+        <div class="col-md-6">
+          <input type="text"
+                 placeholder="رقم الهاتف"
+                 name="phone"
+                 [(ngModel)]="participant.phone"
+                 class="form-control"
+                 required />
+        </div>
+        <div class="col-md-6">
+          <input type="email"
+                 placeholder="البريد الالكتروني"
+                 name="email"
+                 [(ngModel)]="participant.email"
+                 class="form-control"
+                 required />
+        </div>
+      </div>
+      <div class="text-center mt-4">
+        <button type="submit"
+                [disabled]="!eventForm.form.valid"
+                class="btn btn-primary px-4 py-2">
+          تسجيل
+        </button>
+      </div>
+    </form>
+  </div>
+</section>

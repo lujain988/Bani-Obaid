@@ -1,0 +1,30 @@
+.event-form {
+  background-color: #f8f9fa;
+}
+
+  .event-form .card {
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .event-form .card-header {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  .event-form .btn {
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  .event-form input.form-control,
+  .event-form textarea.form-control {
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+  }
+
+    .event-form input.form-control:focus,
+    .event-form textarea.form-control:focus {
+      box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
+      border-color: #80bdff;
+    }

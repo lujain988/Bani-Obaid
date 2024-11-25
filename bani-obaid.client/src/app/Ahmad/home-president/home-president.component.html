@@ -1,0 +1,24 @@
+<section class="home-president" style="direction: rtl; padding: 50px 0; background-color: var(--govity-primary); margin-top: 4em;">
+  <div class="container">
+    <div class="row align-items-center">
+      <!-- الصورة -->
+      <div class="col-lg-6 text-center">
+        <img [src]="'https://localhost:7243' + PresidentArray.image"
+             [alt]="PresidentArray.name"
+             class="home-president__image" />
+      </div>
+      <!-- النص -->
+      <div class="col-lg-6">
+        <h2 class="home-president__name">{{ PresidentArray.name }}</h2>
+        <p class="home-president__speech">
+          {{ getFormattedSpeech(PresidentArray.speech) }}
+        </p>
+        <div class="home-president__btn-box">
+          <button type="button" class="thm-btn home-president__btn" routerLink="/President">
+            قراءة كلمة الرئيس
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

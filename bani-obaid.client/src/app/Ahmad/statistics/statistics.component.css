@@ -1,0 +1,52 @@
+.counter-one {
+  background-color: #ffffff;
+  padding: 50px 0;
+  direction: rtl; /* دعم النصوص والاتجاه من اليمين لليسار */
+}
+
+.counter-one__inner {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap; /* لتجنب الانكسار على الشاشات الصغيرة */
+}
+
+.history-one__top {
+  margin-top: 2em;
+}
+
+.counter-box {
+  background-color: #0063ae;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center; /* محاذاة النصوص في المنتصف */
+  min-width: 200px;
+  max-width: 250px;
+  flex: 1;
+}
+
+.counter-one__count h3 {
+  color: #fff;
+  font-size: 50px; /* تكبير النص حسب طلبك */
+  margin: 0;
+}
+
+.counter-one__text {
+  color: #fff;
+  font-size: 27px; /* تكبير النص حسب طلبك */
+  margin-top: 10px;
+}
+
+/* تحسين التصميم للشاشات الصغيرة */
+@media (max-width: 767px) {
+  .counter-one__inner {
+    flex-direction: column; /* عرض الصناديق بشكل عمودي */
+    align-items: center;
+  }
+
+  .counter-box {
+    margin-bottom: 20px;
+    width: 100%; /* ملء العرض */
+    max-width: 300px;
+  }
+}

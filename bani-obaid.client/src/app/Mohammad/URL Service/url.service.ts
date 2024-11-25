@@ -53,5 +53,45 @@ export class UrlService {
     return this.http.get<any[]>(`${this.staticData}/Events`);
   }
 
+  getEventDetails(id: number): Observable<any> {
+    return this.http.get(`${this.staticData}/Events/${id}`);
+  }
+
+  registerParticipant(eventId: number, participant: any): Observable<any> {
+    return this.http.post(`${this.staticData}/Events/${eventId}/register`, participant);
+  }
+
+  // Add new event
+  addEvent(event: any): Observable<any> {
+    debugger
+    return this.http.post<any>(`${this.staticData}/Events`, event);
+  }
+
+  // Update existing event
+  updateEvent(id: number, event: any): Observable<any> {
+    return this.http.put(`${this.staticData}/Events/${id}`, event);
+  }
+
+  // Delete an event
+  deleteEvent(id: number): Observable<any> {
+    return this.http.delete(`${this.staticData}/Events/${id}`);
+  }
+
+  getAllRegistrations(): Observable<any> {
+    return this.http.get(`${this.staticData}/Events/registrations`);
+  }
+
+  getRegistrationsByEvent(eventId: number): Observable<any> {
+    return this.http.get(`${this.staticData}/Events/registrations/${eventId}`);
+  }
+
+  deleteRegistration(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.staticData}/Events/registrations/${id}`);
+  }
+
+  getEventNames(): Observable<any> {
+    return this.http.get(`${this.staticData}/Events/events/names`);
+  }
+
 }
 

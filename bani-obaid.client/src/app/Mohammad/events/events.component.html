@@ -1,4 +1,27 @@
 
+
+
+<section class="page-header">
+  <div class="page-header-bg" style="background-image: url(assets/images/backgrounds/1.jpg)">
+  </div>
+  <div class="container">
+    <div class="page-header__inner">
+      <h2>الفعاليات</h2> <!-- Title added in Arabic -->
+      <ul class="thm-breadcrumb list-unstyled">
+        <li><a routerLink="">الرئيسية</a></li>
+        <!-- Home in Arabic -->
+        <li><span>/</span></li>
+        <li>الفعاليات</li> <!-- Portfolio in Arabic -->
+      </ul>
+    </div>
+  </div>
+</section>
+
+<button routerLink="/eventManagement">JobsManagement</button>
+<button routerLink="/RegistrationManagement">JobsManagement</button>
+
+
+
 <section style="direction: rtl;" class="events-page">
   <div class="container">
     <div class="section-title text-center">
@@ -39,7 +62,7 @@
                 </li>
               </ul>
               <h4 class="event-three__title" style="font-size: 20px">
-                <a [routerLink]="['/eventdetail', event.id]">{{ event.title }}</a>
+                <a routerLink="/eventdetail/{{event.id}}">{{ event.title }}</a>
               </h4>
             </div>
             <div class="event-three__btn-box">

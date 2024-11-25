@@ -40,6 +40,10 @@ import { ProfileComponent } from './Admin/profile/profile.component';
 import { AddPollComponent } from './Admin/add-poll/add-poll.component';
 import { GetPollsComponent } from './Admin/get-polls/get-polls.component';
 import { EditPollComponent } from './Admin/edit-poll/edit-poll.component';
+import { EventDetailsComponent } from './Mohammad/event-details/event-details.component';
+import { EventManagementComponent } from './Mohammad/event-management/event-management.component';
+import { EventFormComponent } from './Mohammad/event-form/event-form.component';
+import { RegistrationManagementComponent } from './Mohammad/registration-management/registration-management.component';
 
 @NgModule({
   declarations: [
@@ -76,7 +80,11 @@ import { EditPollComponent } from './Admin/edit-poll/edit-poll.component';
     ProfileComponent,
     AddPollComponent,
     GetPollsComponent,
-    EditPollComponent
+    EditPollComponent,
+    EventDetailsComponent,
+    EventManagementComponent,
+    EventFormComponent,
+    RegistrationManagementComponent
   ],
   imports: [
     FormsModule,
@@ -109,6 +117,12 @@ import { EditPollComponent } from './Admin/edit-poll/edit-poll.component';
       { path: "AddSuggestions", component: SuggestionsComponent },
       { path: "Polls", component: PollsComponent },
       { path: "Poll/:id", component: PollDetailsComponent },
+      { path: "eventdetail/:id", component: EventDetailsComponent },
+      { path: "eventManagement", component: EventManagementComponent },
+      { path: 'event-form', component: EventFormComponent }, // للإضافة
+      { path: 'event-form/:id', component: EventFormComponent }, // للتعديل
+      { path: 'RegistrationManagement', component: RegistrationManagementComponent }, //??
+
       { path: "admin", component: LoginComponent },
 
       {

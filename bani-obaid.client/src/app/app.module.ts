@@ -51,6 +51,10 @@ import { EventDetailsComponent } from './Mohammad/event-details/event-details.co
 import { EventManagementComponent } from './Mohammad/event-management/event-management.component';
 import { EventFormComponent } from './Mohammad/event-form/event-form.component';
 import { RegistrationManagementComponent } from './Mohammad/registration-management/registration-management.component';
+import { ImageHomePageComponent } from './Ahmad/image-home-page/image-home-page.component';
+import { HomePresidentComponent } from './Ahmad/home-president/home-president.component';
+import { StatisticsComponent } from './Ahmad/statistics/statistics.component';
+import { PartnerComponent } from './Ahmad/partner/partner.component';
 
 @NgModule({
   declarations: [
@@ -100,7 +104,11 @@ import { RegistrationManagementComponent } from './Mohammad/registration-managem
     EventDetailsComponent,
     EventManagementComponent,
     EventFormComponent,
-    RegistrationManagementComponent
+    RegistrationManagementComponent,
+    ImageHomePageComponent, 
+    HomePresidentComponent, 
+    StatisticsComponent,
+    PartnerComponent,
   ],
   imports: [
     FormsModule,

@@ -1,0 +1,52 @@
+<section class="page-header">
+  <div class="page-header-bg" style="background-image: url(assets/images/backgrounds/1.jpg)">
+  </div>
+  <div class="container">
+    <div class="page-header__inner">
+      <h2>نبذة عن البلدية</h2>
+      <ul class="thm-breadcrumb list-unstyled">
+        <li><a href="#">الرئيسية</a></li>
+        <li><span>/</span></li>
+        <li>نبذة عن البلدية</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- قسم عرض بيانات البلدية -->
+<section class="department-page" style="direction: rtl; text-align: right;">
+  <div class="container" *ngIf="AboutMunicipalityArray?.length > 0; else loading">
+    <div class="section-title text-center">
+      <h2 class="section-title__title">نبذة عن البلدية</h2>
+    </div>
+    <div class="row" *ngFor="let municipality of AboutMunicipalityArray">
+      <div class="col-xl-6 col-lg-6">
+        <div class="history-one__content-left">
+          <img [src]="'https://localhost:7243' + municipality?.descriptionImage" alt="{{ municipality?.descriptionImage }}" style="width: 400px; height:400px">
+        </div>
+      </div>
+      <div class="col-xl-6 col-lg-6" style="width: 465px; height:449px">
+        <h4>نبذة عن البلدية</h4>
+        <p>{{ municipality.description }}</p>
+      </div>
+    </div>
+    <div class="row" style="padding: 10px" *ngFor="let municipality of AboutMunicipalityArray">
+      <div class="col-lg-6">
+        <h4>الرؤية</h4>
+        <p>{{ municipality.vision }}</p>
+      </div>
+      <div class="col-lg-6">
+        <h4>الرسالة</h4>
+        <p>{{ municipality.mission }}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- رسالة انتظار -->
+  <ng-template #loading>
+    <div class="text-center">
+      <p>جاري تحميل البيانات...</p>
+    </div>
+  </ng-template>
+</section>
+

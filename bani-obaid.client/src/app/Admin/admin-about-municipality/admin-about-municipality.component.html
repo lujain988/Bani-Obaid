@@ -1,0 +1,41 @@
+<h1 class="text-center my-4 d-flex flex-column align-items-center" style="direction: rtl; font-weight: 900;">
+  <span>عن البلدية</span>
+</h1>
+
+<hr />
+
+<table class="table table-striped text-center" style="direction: rtl; table-layout: fixed; width: 100%;">
+  <thead>
+    <tr>
+      <th scope="col" style="width: 23%;">صورة الوصف</th>
+      <th scope="col" style="width: 23%;">الوصف</th>
+      <th scope="col" style="width: 23%;">الرؤية</th>
+      <th scope="col" style="width: 23%;">الرسالة</th>
+      <th scope="col" style="width: auto;">تعديل</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <img [src]="'https://localhost:7243' + AboutArray.descriptionImage" alt="وصف الصورة"
+             style="width: 150px; height: 150px; border: 1px solid #ccc;" />
+      </td>
+      <td style="text-align: justify;">
+        {{ AboutArray.description.split(' ').slice(0, 50).join(' ') }}...
+      </td>
+      <td style="text-align: justify;">{{ AboutArray.vision }}</td>
+      <td style="text-align: justify;">{{ AboutArray.mission }}</td>
+      <td>
+        <button class="btn btn-warning" [routerLink]="['/adminDashboard/EditAboutMunicipality', AboutArray.id]">تعديل</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- رسالة خطأ إذا لم تكن هناك بيانات -->
+<ng-template #errorTemplate>
+  <div class="text-center" style="color: red;">
+    <h3>تعذر تحميل البيانات</h3>
+    <p>يرجى التحقق من اتصالك بالخادم أو المحاولة لاحقًا.</p>
+  </div>
+</ng-template>

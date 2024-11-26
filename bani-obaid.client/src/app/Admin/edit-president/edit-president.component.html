@@ -1,0 +1,64 @@
+<h2 class="text-center my-4 d-flex flex-column align-items-center" style="direction: rtl;">
+  <span>تعديل كلمة الرئيس</span>
+</h2>
+
+<hr />
+
+<form (ngSubmit)="UpdatePresident(presidentData)" style="direction: rtl;">
+  <!-- اسم الرئيس -->
+  <div class="mb-3">
+    <label for="presidentName" class="form-label">اسم الرئيس:</label>
+    <input type="text"
+           name="name"
+           class="form-control"
+           id="presidentName"
+           required
+           [(ngModel)]="presidentData.name"
+           placeholder="أدخل اسم الرئيس" />
+  </div>
+
+  <!-- الصور: الحالية والجديدة -->
+  <div class="mb-3 d-flex justify-content-between align-items-center">
+    <!-- الصورة الحالية -->
+    <div class="text-center">
+      <label class="form-label">الصورة الحالية:</label>
+      <img *ngIf="presidentData.image"
+           [src]="'https://localhost:7243' + presidentData.image"
+           alt="{{ presidentData.name }}"
+           style="width: 150px; height: 150px; border: 1px solid #ccc;" />
+    </div>
+
+    <!-- الصورة الجديدة -->
+    <div class="text-center">
+      <label class="form-label">الصورة بعد التعديل:</label>
+      <img *ngIf="image"
+           [src]="image"
+           alt="الصورة الجديدة"
+           style="width: 150px; height: 150px; border: 1px solid #ccc;" />
+    </div>
+  </div>
+
+  <!-- تحميل صورة جديدة -->
+  <div class="mb-3">
+    <label for="presidentImage" class="form-label">تحميل صورة جديدة:</label>
+    <input type="file"
+           name="Image"
+           class="form-control"
+           id="presidentImage"
+           (change)="imageChange($event)" />
+  </div>
+
+  <!-- كلمة الرئيس -->
+  <div class="mb-3">
+    <label for="presidentSpeech" class="form-label">كلمة الرئيس:</label>
+    <textarea name="speech"
+              class="form-control"
+              id="presidentSpeech"
+              rows="5"
+              required
+              [(ngModel)]="presidentData.speech"
+              placeholder="أدخل كلمة الرئيس"></textarea>
+  </div>
+
+  <button type="submit" class="btn btn-primary">حفظ التعديلات</button>
+</form>

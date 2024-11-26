@@ -50,3 +50,12 @@
     max-width: 300px;
   }
 }
+.counter-box[_ngcontent-ng-c1636842447] {
+  background-color: #0ca554;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  min-width: 200px;
+  max-width: 250px;
+  flex: 1;
+}

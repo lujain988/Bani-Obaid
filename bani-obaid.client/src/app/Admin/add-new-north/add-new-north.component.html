@@ -1,0 +1,73 @@
+<div class="container mt-4" style="direction: rtl; max-width: 500px; margin: 0 auto;">
+  <h2 class="form-title text-center mb-4">إضافة مكان جديد</h2>
+
+  <form (ngSubmit)="onAdd()" #northForm="ngForm" class="landmark-form">
+    <!-- Name Field -->
+    <div class="form-group mb-3">
+      <label for="name" class="form-label">اسم المكان:</label>
+      <input id="name"
+             type="text"
+             [(ngModel)]="newPlaceData.name"
+             name="name"
+             class="form-control"
+             placeholder="أدخل اسم المكان"
+             required
+             #name="ngModel" />
+      <div *ngIf="name.invalid && name.touched" class="text-danger">
+        اسم المكان مطلوب.
+      </div>
+    </div>
+
+    <!-- Location Field -->
+    <div class="form-group mb-3">
+      <label for="location" class="form-label">الموقع:</label>
+      <input id="location"
+             type="text"
+             [(ngModel)]="newPlaceData.location"
+             name="location"
+             class="form-control"
+             placeholder="أدخل موقع المكان"
+             required
+             #location="ngModel" />
+      <div *ngIf="location.invalid && location.touched" class="text-danger">
+        الموقع مطلوب.
+      </div>
+    </div>
+
+    <!-- Description Field -->
+    <div class="form-group mb-3">
+      <label for="description" class="form-label">الوصف:</label>
+      <textarea id="description"
+                [(ngModel)]="newPlaceData.description"
+                name="description"
+                class="form-control"
+                rows="4"
+                placeholder="أدخل وصف المكان"
+                required></textarea>
+    </div>
+
+    <!-- File Upload -->
+    <div class="form-group mb-3">
+      <label for="image" class="form-label">إضافة صورة:</label>
+      <input id="image"
+             type="file"
+             (change)="onFileSelected($event)"
+             class="form-control"
+             accept="image/*" />
+
+      <!-- Image Preview -->
+      <div class="mt-3" *ngIf="imagePreviewUrl">
+        <p>معاينة الصورة:</p>
+        <img [src]="imagePreviewUrl"
+             alt="Image Preview"
+             class="img-thumbnail"
+             style="max-width: 400px; max-height: 300px;" />
+      </div>
+    </div>
+
+    <!-- Submit Button -->
+    <div class="form-group text-center">
+      <button type="submit" class="submit-button" [disabled]="northForm.invalid">إضافة</button>
+    </div>
+  </form>
+</div>

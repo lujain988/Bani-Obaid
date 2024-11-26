@@ -15,6 +15,7 @@ namespace Bani_Obaid.Server.Controllers
         {
             _db = db;
         }
+
         // GET: api/LandMark
         [HttpGet]
         public IActionResult GetLand()
@@ -80,37 +81,8 @@ namespace Bani_Obaid.Server.Controllers
             _db.GenralLands.Add(landmark);
             _db.SaveChanges();
 
-            // Handle additional images in landmark_images table
-            if (landDTO.AdditionalImages != null && landDTO.AdditionalImages.Count > 0)
-            {
-                foreach (var imgFile in landDTO.AdditionalImages)
-                {
-                    if (imgFile != null && imgFile.Length > 0)
-                    {
-                        var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images");
-                        Directory.CreateDirectory(uploadsFolder);
-                        var uniqueFileName = Guid.NewGuid().ToString() + "_" + imgFile.FileName;
-                        var filePath = Path.Combine(uploadsFolder, uniqueFileName);
-
-                        using (var fileStream = new FileStream(filePath, FileMode.Create))
-                        {
-                            imgFile.CopyTo(fileStream);
-                        }
-
-                        var landmarkImage = new Album
-                        {
-                            GenralLandId = landmark.Id,
-                            Image = $"/images/{uniqueFileName}"
-                        };
-                        _db.Albums.Add(landmarkImage);
-                    }
-                }
-                _db.SaveChanges();
-            }
-
             return CreatedAtAction(nameof(GetLand), new { id = landmark.Id }, landmark);
         }
-
 
         // PUT: api/LandMark/{id}
         [HttpPut("{id}")]
@@ -145,38 +117,76 @@ namespace Bani_Obaid.Server.Controllers
                 existingLandmark.Image = $"/images/{uniqueFileName}";
             }
 
-            // Handle additional images
-            if (landDTO.AdditionalImages != null && landDTO.AdditionalImages.Count > 0)
-            {
-                foreach (var imgFile in landDTO.AdditionalImages)
-                {
-                    if (imgFile != null && imgFile.Length > 0)
-                    {
-                        var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images");
-                        Directory.CreateDirectory(uploadsFolder);
-                        var uniqueFileName = Guid.NewGuid().ToString() + "_" + imgFile.FileName;
-                        var filePath = Path.Combine(uploadsFolder, uniqueFileName);
-
-                        using (var fileStream = new FileStream(filePath, FileMode.Create))
-                        {
-                            imgFile.CopyTo(fileStream);
-                        }
-
-                        var landmarkImage = new Album
-                        {
-                            GenralLandId = existingLandmark.Id,
-                            Image = $"/images/{uniqueFileName}"
-                        };
-                        _db.Albums.Add(landmarkImage);
-                    }
-                }
-            }
-
             _db.SaveChanges();
             return Ok(new { message = "Landmark updated successfully" });
         }
 
+        // New Action for Managing Additional Images
+        [HttpPost("AddAdditionalImages/{id}")]
+        public IActionResult AddAdditionalImages(int id, [FromForm] List<IFormFile> additionalImages)
+        {
+            var generalLand = _db.GenralLands.FirstOrDefault(a => a.Id == id);
+            if (generalLand == null)
+            {
+                return NotFound($"GeneralLand with ID {id} not found.");
+            }
 
+            if (additionalImages == null || additionalImages.Count == 0)
+            {
+                return BadRequest("No additional images provided.");
+            }
+
+            foreach (var imgFile in additionalImages)
+            {
+                if (imgFile != null && imgFile.Length > 0)
+                {
+                    var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images");
+                    Directory.CreateDirectory(uploadsFolder);
+                    var uniqueFileName = Guid.NewGuid().ToString() + "_" + imgFile.FileName;
+                    var filePath = Path.Combine(uploadsFolder, uniqueFileName);
+
+                    using (var fileStream = new FileStream(filePath, FileMode.Create))
+                    {
+                        imgFile.CopyTo(fileStream);
+                    }
+
+                    var album = new Album
+                    {
+                        GenralLandId = id,
+                        Image = $"/images/{uniqueFileName}"
+                    };
+
+                    _db.Albums.Add(album);
+                }
+            }
+
+            _db.SaveChanges();
+            return Ok(new { message = "Additional images added successfully." });
+        }
+
+        [HttpGet("showImages/{id}")]
+        public IActionResult ShowImages(int id)
+        {
+            // Ensure we only fetch images for the specified GenralLandId
+            var images = _db.Albums
+                .Where(img => img.GenralLandId == id)
+                .Select(img => new
+                {
+                    img.Id,
+                    img.Image,
+                    img.GenralLandId,
+                    img.CreatedAt,
+                    img.UpdatedAt
+                })
+                .ToList();
+
+            if (images == null || images.Count == 0)
+            {
+                return NotFound($"No images found for GenralLandId {id}.");
+            }
+
+            return Ok(images);
+        }
 
 
         // DELETE: api/GeneralLand/{id}
@@ -221,30 +231,33 @@ namespace Bani_Obaid.Server.Controllers
 
             return NoContent();
         }
-
-
-        // DELETE: api/LandMark/DeleteImage/{imageId}
         [HttpDelete("DeleteImage/{imageId}")]
         public IActionResult DeleteImage(int imageId)
         {
             var image = _db.Albums.FirstOrDefault(img => img.Id == imageId);
             if (image == null)
             {
-                return NotFound("Image not found.");
+                Console.WriteLine($"Image with ID {imageId} not found.");
+                return NotFound($"Image with ID {imageId} not found.");
             }
 
-            // Delete image file from the server
+            Console.WriteLine($"Deleting image: {image.Image}");
             var imagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", image.Image.TrimStart('/'));
+
             if (System.IO.File.Exists(imagePath))
             {
                 System.IO.File.Delete(imagePath);
+                Console.WriteLine($"Deleted file: {imagePath}");
+            }
+            else
+            {
+                Console.WriteLine($"File not found: {imagePath}");
             }
 
             _db.Albums.Remove(image);
             _db.SaveChanges();
             return Ok(new { message = "Image deleted successfully" });
         }
+
     }
 }
-
-

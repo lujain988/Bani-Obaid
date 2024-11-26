@@ -13,6 +13,9 @@ export class LujainService {
   getAllLandmarks(): Observable<any> {
     return this.http.get<any>(`${this.staticData}/LandMark`);
   }
+  ShowComplains(): Observable<any> {
+    return this.http.get<any>(`${this.staticData}/Complain`);
+  }
 
   getLandmarkById(id: number): Observable<any> {
     return this.http.get<any>(`${this.staticData}/LandMark/${id}`);

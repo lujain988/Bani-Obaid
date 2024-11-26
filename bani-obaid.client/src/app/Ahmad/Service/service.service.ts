@@ -21,7 +21,6 @@ export class ServiceService {
     return this.http.get<any>(`${this.staticData}/about_municipality/GetMunicipalityByID/${id}`);
   }
 
-
   addMunicipality(data: FormData): Observable<any> {
     return this.http.post<any>(`${this.staticData}/about_municipality/addMunicipality`, data);
   }
@@ -38,6 +37,10 @@ export class ServiceService {
 
   getPresident(): Observable<any> {
     return this.http.get<any>(`${this.staticData}/president/GetPresident`);
+  }
+
+  getPresidentById(id: string): Observable<any> {
+    return this.http.get<any>(`${this.staticData}/president/GetPresidentByID/${id}`);
   }
 
   addPresident(data: FormData): Observable<any> {
@@ -58,6 +61,10 @@ export class ServiceService {
     return this.http.get<any>(`${this.staticData}/MunicipalityMember/GetAllMembers`);
   }
 
+  getMemberById(id: string): Observable<any> {
+    return this.http.get<any>(`${this.staticData}/MunicipalityMember/GetAllMembersByID/${id}`);
+  }
+
   addMember(data: FormData): Observable<any> {
     return this.http.post<any>(`${this.staticData}/MunicipalityMember/addMember`, data);
   }
@@ -74,6 +81,10 @@ export class ServiceService {
 
   getStructure(): Observable<any> {
     return this.http.get<any>(`${this.staticData}/OrganizationStructure/GetStructure`);
+  }
+
+  getStructureById(id: string): Observable<any> {
+    return this.http.get<any>(`${this.staticData}/OrganizationStructure/GetStructureByID/${id}`);
   }
 
   addStructure(data: FormData): Observable<any> {

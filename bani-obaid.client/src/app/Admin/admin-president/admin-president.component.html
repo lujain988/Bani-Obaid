@@ -1,0 +1,40 @@
+<h1 class="text-center my-4 d-flex flex-column align-items-center" style="direction: rtl; font-weight:900;">
+  <span>كلمة الرئيس</span>
+</h1>
+
+<hr />
+
+<table class="table table-striped" style="direction: rtl;">
+  <thead>
+    <tr>
+      <th scope="col" style="text-align: center; width: 5em;">اسم الرئيس</th>
+      <th scope="col" style="text-align: center; width: 200px;">صورة الرئيس</th>
+      <th scope="col" style="text-align: center; width: 10em;">كلمة الرئيس</th>
+      <th scope="col" style="text-align: center; width: 5em;">تعديل</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let President of PresidentArray">
+      <td style="text-align: center; width: 5em;">{{ President.name }}</td>
+      <td style="text-align: center; width: 200px;">
+        <img [src]="'https://localhost:7243' + President.image" alt="{{ President.name }}"
+             style="width: 150px; height: 150px; border: 1px solid #ccc;" />
+      </td>
+      <td style="text-align: justify; direction: rtl; width: 10em;">
+        <!-- عرض أول 50 كلمة -->
+        {{ President.speech.split(' ').slice(0, 50).join(' ') }}...
+      </td>
+      <td style="text-align: center; width: 5em;">
+        <button class="btn btn-warning" [routerLink]="['/adminDashboard/EditPresident', President.id]">تعديل</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- رسالة خطأ إذا لم تكن هناك بيانات -->
+<ng-template #errorTemplate>
+  <div class="text-center" style="color: red;">
+    <h3>تعذر تحميل البيانات</h3>
+    <p>يرجى التحقق من اتصالك بالخادم أو المحاولة لاحقًا.</p>
+  </div>
+</ng-template>

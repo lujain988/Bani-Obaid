@@ -28,9 +28,11 @@
         <br><br>
         <h3>بسم الله الرحمن الرحيم</h3>
         <br>
-        <p *ngIf="PresidentArray?.speech" class="about-one__text" style="width: 75%; margin: 0 auto;">
+        <p *ngIf="PresidentArray?.speech" class="about-one__text"
+           style="width: 74%; margin: 0 auto; direction: rtl; text-align: justify; line-height: 1.8; font-size: 16px;">
           {{ PresidentArray?.speech }}
         </p>
+
         <br><br>
         <p *ngIf="PresidentArray?.name" class="about-one__big-text" style="font-size: 20px !important;">
           {{ PresidentArray?.name }}

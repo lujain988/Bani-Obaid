@@ -1,0 +1,65 @@
+<form #updateInvestmentForm="ngForm" (ngSubmit)="updateInvestment(updateInvestmentForm.value)" class="update-investment-form">
+  <h2 style="text-align: center; margin-bottom: 20px;">تحديث الاستثمار</h2>
+
+  <!-- Name Field -->
+  <div class="form-group" style="margin-bottom: 15px;">
+    <label for="Name">اسم الاستثمار</label>
+    <input type="text"
+           id="Name"
+           name="Name"
+           ngModel
+           class="form-control"
+           required
+           [ngModel]="investmentData.name"
+           placeholder="أدخل اسم الاستثمار" />
+    <div *ngIf="updateInvestmentForm.controls['Name']?.touched && updateInvestmentForm.controls['Name']?.invalid" class="text-danger">
+      يرجى إدخال اسم الاستثمار
+    </div>
+  </div>
+
+  <!-- Description Field -->
+  <div class="form-group" style="margin-bottom: 15px;">
+    <label for="Description">وصف الاستثمار</label>
+    <textarea id="Description"
+              name="Description"
+              ngModel
+              class="form-control"
+              rows="3"
+              required
+              [ngModel]="investmentData.description"
+              placeholder="أدخل وصف الاستثمار"></textarea>
+    <div *ngIf="updateInvestmentForm.controls['Description']?.touched && updateInvestmentForm.controls['Description']?.invalid" class="text-danger">
+      يرجى إدخال وصف الاستثمار
+    </div>
+  </div>
+
+  <!-- Final Date Field -->
+  <div class="form-group" style="margin-bottom: 15px;">
+    <label for="FinalDate">تاريخ الانتهاء</label>
+    <input type="date"
+           id="FinalDate"
+           name="FinalDate"
+           ngModel
+           class="form-control"
+           required
+           [ngModel]="investmentData.finalDate"
+           placeholder="أدخل تاريخ الانتهاء" />
+    <div *ngIf="updateInvestmentForm.controls['FinalDate']?.touched && updateInvestmentForm.controls['FinalDate']?.invalid" class="text-danger">
+      يرجى إدخال تاريخ الانتهاء
+    </div>
+  </div>
+
+  <!-- Image Field -->
+  <div class="form-group" style="margin-bottom: 15px;">
+    <label for="Image">الصورة الرئيسية</label>
+    <input type="file"
+           id="Image"
+           (change)="changeImage($event, 'Image')"
+           class="form-control" />
+    <img *ngIf="investmentData.image" [src]="'https://localhost:7243/' +investmentData.image" alt="Current Image 5" width="100">
+
+  </div>
+
+  <!-- Submit Button -->
+  <button type="submit" class="btn btn-primary" style="width: 100%;" [disabled]="updateInvestmentForm.invalid">تحديث الاستثمار</button>
+</form>

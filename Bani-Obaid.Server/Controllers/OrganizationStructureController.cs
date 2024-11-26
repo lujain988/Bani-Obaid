@@ -22,6 +22,20 @@ namespace Bani_Obaid.Server.Controllers
             return Ok(Structure);
         }
 
+        [HttpGet("GetStructureByID/{id}")]
+        public IActionResult GetStructureByID(int id)
+        {
+            var Structure = _db.OrganizationStructures.FirstOrDefault(m => m.Id == id);
+
+            if (Structure == null)
+            {
+                return NotFound("Structure not found.");
+            }
+
+            return Ok(Structure);
+        }
+
+
         [HttpPost("addStructure")]
         public IActionResult AddOrganizationStructures([FromForm] StructureRequest structureDto)
         {

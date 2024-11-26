@@ -1,0 +1,37 @@
+<h1 class="text-center my-4 d-flex flex-column align-items-center" style="direction: rtl; font-weight: 900;">
+  <span>الهيكل التنظيمي</span>
+</h1>
+
+<hr />
+
+<table class="table table-striped" style="direction: rtl;">
+  <thead>
+    <tr>
+      <th scope="col" style="text-align: center; width: 30%;">عنوان</th>
+      <th scope="col" style="text-align: center; width: 40%;">صورة الهيكل التنظيمي</th>
+      <th scope="col" style="text-align: center; width: 20%;">تاريخ الإنشاء</th>
+      <th scope="col" style="text-align: center; width: 10%;">تعديل</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let structure of StructureArray">
+      <td style="text-align: center;">{{ structure.title }}</td>
+      <td style="text-align: center;">
+        <img [src]="'https://localhost:7243' + structure.image" alt="{{ structure.title }}"
+             style="width: 200px; height: auto; border: 1px solid #ccc;" />
+      </td>
+      <td style="text-align: center;">{{ structure.createdAt | date: 'yyyy-MM-dd' }}</td>
+      <td style="text-align: center;">
+        <button class="btn btn-warning" [routerLink]="['/adminDashboard/EditStructure', structure.id]">تعديل</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- رسالة خطأ إذا لم تكن هناك بيانات -->
+<ng-template #errorTemplate>
+  <div class="text-center" style="color: red;">
+    <h3>تعذر تحميل البيانات</h3>
+    <p>يرجى التحقق من اتصالك بالخادم أو المحاولة لاحقًا.</p>
+  </div>
+</ng-template>

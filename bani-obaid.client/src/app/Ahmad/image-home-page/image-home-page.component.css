@@ -49,7 +49,7 @@
 
 .icon {
   font-size: 2rem; /* حجم الأيقونة */
-  color: #007bff; /* لون الأيقونة */
+  color: #0ca554; /* لون الأيقونة */
 }
 
 .text {
@@ -61,7 +61,7 @@
 .title {
   font-size: 1rem; /* حجم النص العلوي */
   font-weight: bold;
-  color: #007bff; /* لون النص العلوي */
+  color: #0ca554; /* لون النص العلوي */
 }
 
 .value {
@@ -131,7 +131,7 @@
   .carousel-caption .btn-custom {
     margin-top: 20px; /* مسافة أعلى الزر */
     text-align: center; /* النص داخل الزر في المنتصف */
-    background-color: #007bff; /* لون الزر الأساسي */
+    background-color: #0ca554; /* لون الزر الأساسي */
     color: white; /* لون النص داخل الزر */
     transition: all 0.3s ease-in-out; /* تأثير عند التمرير */
     border-radius: 8px; /* حواف مستديرة للزر */
@@ -144,7 +144,7 @@
     /* تأثير عند تمرير الماوس */
     .carousel-caption .btn-custom:hover {
       background-color: #ffffff; /* لون خلفية أبيض عند التمرير */
-      color: #007bff; /* لون النص داخل الزر */
+      color: #0ca554; /* لون النص داخل الزر */
       transform: translateY(-3px); /* حركة خفيفة للأعلى */
     }
 
@@ -170,7 +170,7 @@
   .carousel-caption[_ngcontent-ng-c2859364164] .btn-custom[_ngcontent-ng-c2859364164] {
     margin-top: 20px;
     text-align: center;
-    background-color: #007bff;
+    background-color: #0ca554;
     color: white;
     transition: all 0.3s ease-in-out;
     border-radius: 8px;

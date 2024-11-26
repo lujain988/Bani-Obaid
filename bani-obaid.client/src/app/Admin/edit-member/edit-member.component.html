@@ -1,0 +1,65 @@
+<h2 class="text-center my-4 d-flex flex-column align-items-center" style="direction: rtl;">
+  <span>تعديل بيانات عضو البلدية</span>
+</h2>
+
+<hr />
+
+<form (ngSubmit)="UpdateMember(MemberData)" style="direction: rtl;">
+  <!-- الاسم -->
+  <div class="mb-3">
+    <label for="memberName" class="form-label">اسم العضو:</label>
+    <input type="text"
+           name="name"
+           class="form-control"
+           id="memberName"
+           required
+           [(ngModel)]="MemberData.name"
+           placeholder="أدخل اسم العضو" />
+  </div>
+
+  <!-- الدور -->
+  <div class="mb-3">
+    <label for="memberRole" class="form-label">الدور:</label>
+    <select name="role"
+            class="form-select"
+            id="memberRole"
+            required
+            [(ngModel)]="MemberData.role">
+      <option *ngFor="let role of roles" [value]="role" [selected]="role === MemberData.role">{{ role }}</option>
+    </select>
+  </div>
+
+  <!-- الصور: الحالية والجديدة -->
+  <div class="mb-3 d-flex justify-content-between align-items-center">
+    <!-- الصورة الحالية -->
+    <div class="text-center">
+      <label class="form-label">الصورة الحالية:</label>
+      <img *ngIf="MemberData.image"
+           [src]="'https://localhost:7243' + MemberData.image"
+           alt="{{ MemberData.name }}"
+           style="width: 150px; height: 150px; border: 1px solid #ccc;" />
+    </div>
+
+    <!-- الصورة الجديدة -->
+    <div class="text-center">
+      <label class="form-label">الصورة الجديدة:</label>
+      <img *ngIf="image"
+           [src]="image"
+           alt="الصورة الجديدة"
+           style="width: 150px; height: 150px; border: 1px solid #ccc;" />
+    </div>
+  </div>
+
+  <!-- تحميل صورة جديدة -->
+  <div class="mb-3">
+    <label for="image" class="form-label">تحميل صورة جديدة:</label>
+    <input type="file"
+           name="image"
+           class="form-control"
+           id="image"
+           (change)="imageChange($event)" />
+  </div>
+
+  <!-- زر الحفظ -->
+  <button type="submit" class="btn btn-primary">حفظ التعديلات</button>
+</form>

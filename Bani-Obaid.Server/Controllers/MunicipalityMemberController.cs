@@ -22,6 +22,20 @@ namespace Bani_Obaid.Server.Controllers
             return Ok(member);
         }
 
+        [HttpGet("GetAllMembersByID/{id}")]
+        public IActionResult GetAllMembersByID(int id)
+        {
+            var Members = _db.Members.FirstOrDefault(m => m.Id == id);
+
+            if (Members == null)
+            {
+                return NotFound("Members not found.");
+            }
+
+            return Ok(Members);
+        }
+
+
         [HttpPost("addMember")]
         public IActionResult AddMember([FromForm] MunicipalityMember memberrequest)
         {

@@ -38,7 +38,6 @@ import { LoginComponent } from './Admin/login/login.component';
 import { ProfileComponent } from './Admin/profile/profile.component';
 import { AddPollComponent } from './Admin/add-poll/add-poll.component';
 import { GetPollsComponent } from './Admin/get-polls/get-polls.component';
-import { EditPollComponent } from './Admin/edit-poll/edit-poll.component';
 import { AboutMunicipalityComponent } from './Ahmad/about-municipality/about-municipality.component';
 import { PresidentComponent } from './Ahmad/president/president.component';
 import { MunicipalityMemberComponent } from './Ahmad/municipality-member/municipality-member.component';
@@ -100,7 +99,6 @@ import { HomeEventComponent } from './Ahmad/home-event/home-event.component';
     ProfileComponent,
     AddPollComponent,
     GetPollsComponent,
-    EditPollComponent,
     AboutMunicipalityComponent,
     PresidentComponent,
     MunicipalityMemberComponent,
@@ -108,7 +106,6 @@ import { HomeEventComponent } from './Ahmad/home-event/home-event.component';
     GetTendersComponent,
     AddTendersComponent,
     OrganizationStructureComponent,
-    EditPollComponent,
     EventDetailsComponent,
     EventManagementComponent,
     EventFormComponent,
@@ -181,7 +178,7 @@ import { HomeEventComponent } from './Ahmad/home-event/home-event.component';
           { path: 'home', component: DashboardComponent },
           { path: 'profile', component: ProfileComponent },
           { path: 'polls', component: GetPollsComponent },
-          { path: 'poll/:id', component: EditPollComponent },
+          { path: 'poll/:id', component: PollDetailsComponent },
           { path: 'addPoll', component: AddPollComponent },
           { path: 'tenders', component: GetTendersComponent },
           { path: 'AddTenders', component: AddTendersComponent },

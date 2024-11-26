@@ -87,37 +87,8 @@ namespace Bani_Obaid.Server.Controllers
             _db.Landmarks.Add(landmark);
             _db.SaveChanges();
 
-            // Handle additional images in landmark_images table
-            if (landDTO.AdditionalImages != null && landDTO.AdditionalImages.Count > 0)
-            {
-                foreach (var imgFile in landDTO.AdditionalImages)
-                {
-                    if (imgFile != null && imgFile.Length > 0)
-                    {
-                        var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images");
-                        Directory.CreateDirectory(uploadsFolder);
-                        var uniqueFileName = Guid.NewGuid().ToString() + "_" + imgFile.FileName;
-                        var filePath = Path.Combine(uploadsFolder, uniqueFileName);
-
-                        using (var fileStream = new FileStream(filePath, FileMode.Create))
-                        {
-                            imgFile.CopyTo(fileStream);
-                        }
-
-                        var landmarkImage = new LandmarkImage
-                        {
-                            LandmarkId = landmark.Id,
-                            ImageUrl = $"/images/{uniqueFileName}"
-                        };
-                        _db.LandmarkImages.Add(landmarkImage);
-                    }
-                }
-                _db.SaveChanges();
-            }
-
             return CreatedAtAction(nameof(GetLand), new { id = landmark.Id }, landmark);
         }
-
 
         // PUT: api/LandMark/{id}
         [HttpPut("{id}")]
@@ -152,10 +123,23 @@ namespace Bani_Obaid.Server.Controllers
                 existingLandmark.Image = $"/images/{uniqueFileName}";
             }
 
-            // Handle additional images
-            if (landDTO.AdditionalImages != null && landDTO.AdditionalImages.Count > 0)
+            _db.SaveChanges();
+            return Ok(new { message = "Landmark updated successfully" });
+        }
+
+        // POST: api/LandMark/AddAdditionalImages/{id}
+        [HttpPost("AddAdditionalImages/{id}")]
+        public IActionResult AddAdditionalImages(int id, [FromForm] List<IFormFile> additionalImages)
+        {
+            var landmark = _db.Landmarks.FirstOrDefault(a => a.Id == id);
+            if (landmark == null)
             {
-                foreach (var imgFile in landDTO.AdditionalImages)
+                return NotFound($"Landmark with ID {id} not found.");
+            }
+
+            if (additionalImages != null && additionalImages.Count > 0)
+            {
+                foreach (var imgFile in additionalImages)
                 {
                     if (imgFile != null && imgFile.Length > 0)
                     {
@@ -171,16 +155,24 @@ namespace Bani_Obaid.Server.Controllers
 
                         var landmarkImage = new LandmarkImage
                         {
-                            LandmarkId = existingLandmark.Id,
+                            LandmarkId = landmark.Id,
                             ImageUrl = $"/images/{uniqueFileName}"
                         };
                         _db.LandmarkImages.Add(landmarkImage);
                     }
                 }
+                _db.SaveChanges();
             }
 
-            _db.SaveChanges();
-            return Ok(new { message = "Landmark updated successfully" });
+            return Ok(new { message = "Additional images added successfully" });
+        }
+
+        [HttpGet("showImages/{id}")]
+        public IActionResult showImages(int id)
+        {
+            var images = _db.LandmarkImages.Where(a=> a.LandmarkId==id).ToList();
+            return images != null ? Ok(images) : NotFound();
+
         }
 
         // DELETE: api/LandMark/{id}

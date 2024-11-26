@@ -9,7 +9,7 @@
 
      
     <h2 style="color:black" class="text-center mb-4">جميع العطاءات</h2>
-    <button class="btn btn-success btn-sm" [routerLink]="['/adminDashBoard/AddTenders']">اضافة عطاء جديد</button>
+    <button class="btn btn-success btn-sm" [routerLink]="['/adminDashboard/AddTenders']">اضافة عطاء جديد</button>
 
     <div class="table-responsive mx-auto" style="max-width: 900px;">
       <table class="table table-light table-hover table-bordered">
@@ -39,7 +39,7 @@
 
             <td>
 
-              <button class="btn btn-primary btn-sm" [routerLink]="['/adminDashBoard/updatetenders', item.id]">
+              <button class="btn btn-primary btn-sm" [routerLink]="['/adminDashboard/updatetenders', item.id]">
                 تعديل
               </button>
               <button class="btn btn-danger btn-sm" (click)="deleteTenders(item.id)">

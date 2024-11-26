@@ -52,6 +52,12 @@ import { EventManagementComponent } from './Mohammad/event-management/event-mana
 import { EventFormComponent } from './Mohammad/event-form/event-form.component';
 import { RegistrationManagementComponent } from './Mohammad/registration-management/registration-management.component';
 import { DashboardComponent } from './Admin/dashboard/dashboard.component';
+import { ImageHomePageComponent } from './Ahmad/image-home-page/image-home-page.component';
+import { HomePresidentComponent } from './Ahmad/home-president/home-president.component';
+import { StatisticsComponent } from './Ahmad/statistics/statistics.component';
+import { PartnerComponent } from './Ahmad/partner/partner.component';
+import { GetSuggestionComponent } from './Admin/get-suggestion/get-suggestion.component';
+import { SuggestionDetailComponent } from './Admin/suggestion-detail/suggestion-detail.component';
 
 @NgModule({
   declarations: [
@@ -95,7 +101,6 @@ import { DashboardComponent } from './Admin/dashboard/dashboard.component';
     OrganizationStructureComponent,
     GetTendersComponent,
     AddTendersComponent,
-    UpdateTendersComponent,
     OrganizationStructureComponent,
     EditPollComponent,
     EventDetailsComponent,
@@ -103,6 +108,17 @@ import { DashboardComponent } from './Admin/dashboard/dashboard.component';
     EventFormComponent,
     RegistrationManagementComponent,
     DashboardComponent
+    RegistrationManagementComponent,
+    UpdateTendersComponent,
+    GetSuggestionComponent,
+    SuggestionDetailComponent,
+
+
+    RegistrationManagementComponent,
+    ImageHomePageComponent, 
+    HomePresidentComponent, 
+    StatisticsComponent,
+    PartnerComponent,
   ],
   imports: [
     FormsModule,
@@ -157,6 +173,9 @@ import { DashboardComponent } from './Admin/dashboard/dashboard.component';
           { path: 'tenders', component: GetTendersComponent },
           { path: 'AddTenders', component: AddTendersComponent },
           { path: "updatetenders/:id", component: UpdateTendersComponent },
+          { path: 'suggestions', component: GetSuggestionComponent },
+          { path: "suggestiondetail/:id", component: SuggestionDetailComponent },
+
           { path: "RegistrationManagement", component: RegistrationManagementComponent },
           { path: "eventManagement", component: EventManagementComponent },
           { path: 'event-form', component: EventFormComponent }, // للإضافة

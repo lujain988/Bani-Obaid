@@ -1,0 +1,17 @@
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+  width: 600px;
+  margin-left: 24rem;
+  height: auto;
+}
+
+
+.details-text {
+  word-wrap: break-word; /* Wrap long words */
+  white-space: pre-wrap; /* Preserve line breaks and wrap */
+  overflow-wrap: break-word; /* Handle text overflow */
+  margin-top: 5px; /* Add some spacing after the label */
+  display: block; /* Ensure it appears as a new block line */
+  max-width: 100%; /* Prevent it from exceeding the container width */
+}

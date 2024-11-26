@@ -1,23 +1,25 @@
 <section class="brand-one">
   <div class="container">
-    <div class="brand-one__title" dir="ltr" lang="en">
-      <p style="font-size: 25px;">شركاؤنا</p>
-    </div>
+    <!-- Section Title -->
+    <header class="brand-one__title text-center" dir="ltr" lang="en">
+      <p class="brand-one__title-text" style="font-size: 25px;">شركاؤنا</p>
+    </header>
 
-    <owl-carousel-o [options]="carouselOptions" lang="en" dir="ltr">
-      <ng-container *ngFor="let partner of partnersArray">
-        <ng-template carouselSlide>
-          <div class="brand-one__single">
-            <div class="brand-one__img">
-              <a [href]="partner.link" target="_blank">
-                <img [src]="'https://localhost:7243' + partner.logo"
-                     alt="{{ partner.name }}"
-                     style="max-height: 50px" />
-              </a>
-            </div>
-          </div>
-        </ng-template>
-      </ng-container>
-    </owl-carousel-o>
+    <!-- Partner Carousel -->
+    <div id="partnerCarousel" class="owl-carousel owl-theme">
+      <!-- Loop through the partnersArray -->
+      <div *ngFor="let partner of partnersArray"
+           class="brand-one__single"
+           [attr.aria-label]="'Visit ' + partner.name">
+        <figure class="brand-one__img">
+          <a [href]="partner.link" target="_blank" rel="noopener noreferrer">
+            <img [src]="'https://localhost:7243' + partner.logo"
+                 [alt]="partner.name"
+                 style="width: 400px; height: 400px;" />
+          </a>
+        </figure>
+      </div>
+    </div>
+    <!-- End Partner Carousel -->
   </div>
 </section>

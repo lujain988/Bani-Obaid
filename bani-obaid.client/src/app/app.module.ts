@@ -107,7 +107,7 @@ import { SuggestionDetailComponent } from './Admin/suggestion-detail/suggestion-
     EventManagementComponent,
     EventFormComponent,
     RegistrationManagementComponent,
-    DashboardComponent
+    DashboardComponent,
     RegistrationManagementComponent,
     UpdateTendersComponent,
     GetSuggestionComponent,

@@ -61,6 +61,10 @@ export class ServiceService {
     return this.http.get<any>(`${this.staticData}/MunicipalityMember/GetAllMembers`);
   }
 
+  getMemberById(id: string): Observable<any> {
+    return this.http.get<any>(`${this.staticData}/MunicipalityMember/GetAllMembersByID/${id}`);
+  }
+
   addMember(data: FormData): Observable<any> {
     return this.http.post<any>(`${this.staticData}/MunicipalityMember/addMember`, data);
   }

@@ -1,0 +1,45 @@
+<h2 class="text-center my-4 d-flex flex-column align-items-center" style="direction: rtl;">
+  <span>إضافة عضو جديد</span>
+</h2>
+
+<hr />
+
+<form #memberForm="ngForm" (ngSubmit)="AddNewMember(memberForm)" style="direction: rtl;">
+  <!-- الاسم -->
+  <div class="mb-3">
+    <label for="memberName" class="form-label">اسم العضو:</label>
+    <input type="text"
+           name="name"
+           class="form-control"
+           id="memberName"
+           required
+           [(ngModel)]="MemberData.name"
+           placeholder="أدخل اسم العضو" />
+  </div>
+
+  <!-- الدور -->
+  <div class="mb-3">
+    <label for="memberRole" class="form-label">دور العضو:</label>
+    <select name="role"
+            class="form-select"
+            id="memberRole"
+            required
+            [(ngModel)]="MemberData.role">
+      <option value="" disabled selected>اختر الدور</option>
+      <option value="عضو مجلس بلدي">عضو مجلس بلدي</option>
+    </select>
+  </div>
+
+  <!-- تحميل صورة -->
+  <div class="mb-3">
+    <label for="image" class="form-label">تحميل صورة العضو:</label>
+    <input type="file"
+           name="image"
+           class="form-control"
+           id="image"
+           (change)="imageChange($event)" />
+  </div>
+
+  <!-- زر الإضافة -->
+  <button type="submit" class="btn btn-primary">إضافة العضو</button>
+</form>

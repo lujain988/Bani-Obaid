@@ -80,6 +80,9 @@ import { AdminAboutMunicipalityComponent } from './Admin/admin-about-municipalit
 import { EditAboutMunicipalityComponent } from './Admin/edit-about-municipality/edit-about-municipality.component';
 import { AdminorganizationStructureComponent } from './Admin/adminorganization-structure/adminorganization-structure.component';
 import { EditStructureComponent } from './Admin/edit-structure/edit-structure.component';
+import { AdminMunicipalityMemberComponent } from './Admin/admin-municipality-member/admin-municipality-member.component';
+import { EditMemberComponent } from './Admin/edit-member/edit-member.component';
+import { AddMemberComponent } from './Admin/add-member/add-member.component';
 
 @NgModule({
   declarations: [
@@ -163,6 +166,9 @@ import { EditStructureComponent } from './Admin/edit-structure/edit-structure.co
     EditAboutMunicipalityComponent,
     AdminorganizationStructureComponent,
     EditStructureComponent,
+    AdminMunicipalityMemberComponent,
+    EditMemberComponent,
+    AddMemberComponent,
   ],
   imports: [
     FormsModule,
@@ -247,6 +253,10 @@ import { EditStructureComponent } from './Admin/edit-structure/edit-structure.co
           { path: 'EditAboutMunicipality/:id', component: EditAboutMunicipalityComponent },
           { path: "OrganizationStructure", component: AdminorganizationStructureComponent },
           { path: 'EditStructure/:id', component: EditStructureComponent },
+          { path: "AdminMunicipalityMember", component: AdminMunicipalityMemberComponent },
+          { path: 'EditMember/:id', component: EditMemberComponent },
+          { path: 'AddMember', component: AddMemberComponent },
+
 
         ]
 

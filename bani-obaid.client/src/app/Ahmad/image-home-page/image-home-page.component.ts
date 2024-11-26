@@ -33,13 +33,17 @@ export class ImageHomePageComponent implements OnInit {
   updateTime(): void {
     setInterval(() => {
       const now = new Date();
-      // استخراج الوقت الحالي من الجهاز المحلي
-      this.currentTime = now.toLocaleTimeString([], {
+      // استخراج الوقت الحالي بتنسيق 12 ساعة
+      const formattedTime = now.toLocaleTimeString([], {
         hour: '2-digit',
         minute: '2-digit',
-        hour12: true // يعرض الوقت بتنسيق 12 ساعة (AM/PM)
+        hour12: true // يعرض الوقت بتنسيق 12 ساعة
       });
+
+      // استبدال AM و PM بصباحاً ومساءً
+      this.currentTime = formattedTime.replace('AM', 'صباحًا').replace('PM', 'مساءً');
     }, 1000); // يتم التحديث كل ثانية
   }
+
 
 }

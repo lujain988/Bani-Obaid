@@ -63,6 +63,7 @@ import { LandManagmentComponent } from './Admin/land-managment/land-managment.co
 import { UpdateLandMarkComponent } from './Admin/update-land-mark/update-land-mark.component';
 import { ShowImgagesLandOneComponent } from './Admin/show-imgages-land-one/show-imgages-land-one.component';
 import { FeatureComponent } from './Ahmad/feature/feature.component';
+import { HomeEventComponent } from './Ahmad/home-event/home-event.component';
 
 @NgModule({
   declarations: [
@@ -130,6 +131,7 @@ import { FeatureComponent } from './Ahmad/feature/feature.component';
     StatisticsComponent,
     PartnerComponent,
     FeatureComponent,
+    HomeEventComponent,
   ],
   imports: [
     FormsModule,

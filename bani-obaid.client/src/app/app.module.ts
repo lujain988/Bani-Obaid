@@ -50,6 +50,11 @@ import { EventDetailsComponent } from './Mohammad/event-details/event-details.co
 import { EventManagementComponent } from './Mohammad/event-management/event-management.component';
 import { EventFormComponent } from './Mohammad/event-form/event-form.component';
 import { RegistrationManagementComponent } from './Mohammad/registration-management/registration-management.component';
+import { DashboardComponent } from './Admin/dashboard/dashboard.component';
+import { ImageHomePageComponent } from './Ahmad/image-home-page/image-home-page.component';
+import { HomePresidentComponent } from './Ahmad/home-president/home-president.component';
+import { StatisticsComponent } from './Ahmad/statistics/statistics.component';
+import { PartnerComponent } from './Ahmad/partner/partner.component';
 import { GetSuggestionComponent } from './Admin/get-suggestion/get-suggestion.component';
 import { SuggestionDetailComponent } from './Admin/suggestion-detail/suggestion-detail.component';
 import { AddBaniObaidTComponent } from './Admin/add-bani-obaid-t/add-bani-obaid-t.component';
@@ -57,6 +62,7 @@ import { AddBaniObaidGeneralComponent } from './Admin/add-bani-obaid-general/add
 import { LandManagmentComponent } from './Admin/land-managment/land-managment.component';
 import { UpdateLandMarkComponent } from './Admin/update-land-mark/update-land-mark.component';
 import { ShowImgagesLandOneComponent } from './Admin/show-imgages-land-one/show-imgages-land-one.component';
+import { FeatureComponent } from './Ahmad/feature/feature.component';
 
 @NgModule({
   declarations: [
@@ -106,6 +112,8 @@ import { ShowImgagesLandOneComponent } from './Admin/show-imgages-land-one/show-
     EventManagementComponent,
     EventFormComponent,
     RegistrationManagementComponent,
+    DashboardComponent,
+    RegistrationManagementComponent,
     UpdateTendersComponent,
     GetSuggestionComponent,
     SuggestionDetailComponent,
@@ -116,6 +124,12 @@ import { ShowImgagesLandOneComponent } from './Admin/show-imgages-land-one/show-
     ShowImgagesLandOneComponent,
 
 
+    RegistrationManagementComponent,
+    ImageHomePageComponent, 
+    HomePresidentComponent, 
+    StatisticsComponent,
+    PartnerComponent,
+    FeatureComponent,
   ],
   imports: [
     FormsModule,
@@ -162,7 +176,7 @@ import { ShowImgagesLandOneComponent } from './Admin/show-imgages-land-one/show-
 
       {
         path: 'adminDashboard', component: AdminDashboardComponent, children: [
-          { path: 'home', component: HomeComponent },
+          { path: 'home', component: DashboardComponent },
           { path: 'profile', component: ProfileComponent },
           { path: 'polls', component: GetPollsComponent },
           { path: 'poll/:id', component: EditPollComponent },

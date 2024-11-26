@@ -1,0 +1,141 @@
+.feature-four__single {
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+  .feature-four__single:hover {
+    transform: scale(1.05);
+  }
+
+.feature-four__img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 100%;
+}
+
+
+.feature-four__title a {
+  color: #333;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+  .feature-four__title a:hover {
+    color: #007bff;
+  }
+
+.thm-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+}
+
+  .thm-btn:hover {
+    background: #fff;
+    color: #007bff;
+  }
+
+.feature-four__single[_ngcontent-ng-c3525236681] {
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease;
+}
+
+.feature-four__single::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 78px;
+  border: 15px solid var(--govity-primary); /* قم بحذف هذه الخاصية */
+  z-index: -1;
+  background-color: white; /* إذا أردت جعل الخلفية بيضاء */
+}
+
+
+
+.feature-four__single[_ngcontent-ng-c1108500663] {
+  /* background: #f9f9f9; */
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  margin-bottom: 20px;
+  /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+  transition: transform 0.3s ease;
+}
+
+.feature-four__img-box {
+  position: relative;
+  display: inline-block;
+  border-radius: 100%;
+  padding: 10px;
+  background-color: #f9f9f9;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+  .feature-four__img-box:hover {
+    background-color: #007bff; /* اللون المطلوب عند التمرير */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* تأثير إضافي */
+  }
+
+.feature-four__img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 100%;
+}
+
+.feature-four__img-box {
+  position: relative;
+  display: inline-block;
+  border-radius: 100%;
+  padding: 10px;
+  background-color: #f9f9f9;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+  border: 3px solid transparent; /* الإطار الافتراضي */
+}
+
+  .feature-four__img-box:hover {
+    background-color: #007bff; /* تغيير لون الخلفية عند التمرير */
+    border: 3px solid #007bff; /* تغيير لون الإطار عند التمرير */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* إضافة تأثير الظل */
+  }
+
+.feature-four__img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 100%;
+}
+
+.feature-four__img-box {
+  position: relative;
+  display: inline-block;
+  border-radius: 100%;
+  padding: 10px;
+  background-color: #f9f9f9; /* الخلفية الأساسية */
+  border: 3px solid #f9f9f9; /* الإطار الأساسي */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; /* تأثير الانتقال */
+}
+
+  .feature-four__img-box:hover {
+    background-color: #007bff; /* الخلفية عند التمرير */
+    border-color: #007bff; /* تغيير لون الإطار عند التمرير */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* تأثير الظل */
+  }
+
+.feature-four__img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 100%; /* الحفاظ على الشكل الدائري */
+}

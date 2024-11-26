@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ServiceService } from '../Service/service.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-image-home-page',
@@ -9,14 +8,14 @@ import { Router } from '@angular/router';
 })
 export class ImageHomePageComponent implements OnInit {
 
-  HomeImageArray: any;
-  currentTime: string = ''; 
+  HomeImageArray: any = [];
+  currentTime: string = '';
 
-  constructor(private _ser: ServiceService, private router: Router) { }
+  constructor(private _ser: ServiceService) { }
 
   ngOnInit(): void {
     this.getAllHomeImages();
-    this.updateTime(); 
+    this.updateTime();
   }
 
   getAllHomeImages(): void {
@@ -26,7 +25,7 @@ export class ImageHomePageComponent implements OnInit {
         console.log(this.HomeImageArray, 'HomeImageArray');
       },
       (error) => {
-        console.error('Error fetching municipality data:', error);
+        console.error('Error fetching home images:', error);
       }
     );
   }
@@ -34,7 +33,13 @@ export class ImageHomePageComponent implements OnInit {
   updateTime(): void {
     setInterval(() => {
       const now = new Date();
-      this.currentTime = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true });
-    }, 1000); 
+      // استخراج الوقت الحالي من الجهاز المحلي
+      this.currentTime = now.toLocaleTimeString([], {
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: true // يعرض الوقت بتنسيق 12 ساعة (AM/PM)
+      });
+    }, 1000); // يتم التحديث كل ثانية
   }
+
 }

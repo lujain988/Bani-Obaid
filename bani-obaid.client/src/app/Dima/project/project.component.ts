@@ -19,7 +19,7 @@ export class ProjectComponent {
   }
 
   GetAllProject(): void {
-    this._ser.getAllProjects().subscribe(
+    this._ser.getVisibleProjects().subscribe(
       (data) => {
         this.projectdata = data;
         console.log('Fetched project Data:', this.projectdata);

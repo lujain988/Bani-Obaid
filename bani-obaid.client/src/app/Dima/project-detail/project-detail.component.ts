@@ -52,7 +52,7 @@ export class ProjectDetailComponent {
     );
   }
   getLatestProjects(): void {
-    this._ser.getAllProjects().subscribe(
+    this._ser.getVisibleProjects().subscribe(
       data => {
         console.log('Fetched all projects data:', data);
 

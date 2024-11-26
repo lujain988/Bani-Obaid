@@ -1,0 +1,54 @@
+<main>
+
+
+
+
+
+
+  <div class="container mt-4 " style="direction: rtl; text-align: center">
+
+
+    <h2 style="color:black" class="text-center mb-4">جميع الفرص الاستثمارية</h2>
+    <button class="btn btn-success btn-sm" [routerLink]="['/adminDashboard/AddInvestment']">اضافة فرصة جديدة</button>
+
+    <div class="table-responsive mx-auto" style="max-width: 900px;">
+      <table class="table table-light table-hover table-bordered">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>  عنوان الفرصة الاستثمارية</th>
+            <th>صورة الفرصة الاستثمارية</th>
+            <th>وصف الفرصة الاستثمارية</th>
+            <th>الموعد النهائي للفرصة الاستثمارية </th>
+
+            <th>الإجراء</th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+          <tr *ngFor="let item of investmentdata; let i = index">
+
+            <th scope="row">{{ item.id }}</th>
+            <td>{{ item.name }}</td>
+            <td><img class="img-fluid" src="https://localhost:7243/{{item.image}}" alt=""></td>
+            <td>{{item.description}}</td>
+            <td>{{item.finalDate| date: 'yyyy-MM-dd' }}</td>
+
+            <td>
+
+              <button class="btn btn-primary btn-sm" [routerLink]="['/adminDashboard/updateinvestments', item.id]">
+                تعديل
+              </button>
+              <button class="btn btn-danger btn-sm" (click)="deleteinvestment(item.id)">
+                حذف
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</main>
+

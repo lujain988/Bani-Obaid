@@ -1,0 +1,54 @@
+<main>
+
+
+
+
+
+
+  <div class="container mt-4 " style="direction: rtl; text-align: center">
+
+
+    <h2 style="color:black" class="text-center mb-4">جميع المشاريع</h2>
+    <button class="btn btn-success btn-sm" [routerLink]="['/adminDashboard/AddProject']">اضافة مشروع</button>
+
+    <div class="table-responsive mx-auto" style="max-width: 900px;">
+      <table class="table table-light table-hover table-bordered">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>  عنوان المشروع</th>
+            <th>صورة المشروع</th>
+            <th>وصف المشروع</th>
+            <th>نسبة الانجاز </th>
+            <th>الحالة </th>
+            <th>الإجراء</th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+          <tr *ngFor="let item of projectdata; let i = index">
+
+            <th scope="row">{{ item.id }}</th>
+            <td>{{ item.title }}</td>
+            <td><img class="img-fluid" src="https://localhost:7243/{{item.image}}" alt=""></td>
+            <td>{{item.description}}</td>
+            <td>{{item.percentage }} %</td>
+            <th>{{item.status}} </th>
+            <td>
+
+              <button class="btn btn-primary btn-sm" [routerLink]="['/adminDashboard/updateproject', item.id]">
+                تعديل
+              </button>
+              <button class="btn btn-danger btn-sm" (click)="deleteproject(item.id)">
+                حذف
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</main>
+

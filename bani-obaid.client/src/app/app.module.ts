@@ -57,6 +57,12 @@ import { StatisticsComponent } from './Ahmad/statistics/statistics.component';
 import { PartnerComponent } from './Ahmad/partner/partner.component';
 import { GetSuggestionComponent } from './Admin/get-suggestion/get-suggestion.component';
 import { SuggestionDetailComponent } from './Admin/suggestion-detail/suggestion-detail.component';
+import { InvestmentComponent } from './Admin/investment/investment.component';
+import { AddInvestmentComponent } from './Admin/add-investment/add-investment.component';
+import { UpdateInvestmentComponent } from './Admin/update-investment/update-investment.component';
+import { ProjectsAdminComponent } from './Admin/projects-admin/projects-admin.component';
+import { AddProjectComponent } from './Admin/add-project/add-project.component';
+import { UpdateProjectComponent } from './Admin/update-project/update-project.component';
 
 @NgModule({
   declarations: [
@@ -116,6 +122,12 @@ import { SuggestionDetailComponent } from './Admin/suggestion-detail/suggestion-
     HomePresidentComponent, 
     StatisticsComponent,
     PartnerComponent,
+    InvestmentComponent,
+    AddInvestmentComponent,
+    UpdateInvestmentComponent,
+    ProjectsAdminComponent,
+    AddProjectComponent,
+    UpdateProjectComponent,
   ],
   imports: [
     FormsModule,
@@ -170,9 +182,14 @@ import { SuggestionDetailComponent } from './Admin/suggestion-detail/suggestion-
           { path: 'tenders', component: GetTendersComponent },
           { path: 'AddTenders', component: AddTendersComponent },
           { path: "updatetenders/:id", component: UpdateTendersComponent },
+          { path: 'projectAdmin', component: ProjectsAdminComponent },
+          { path: 'AddProject', component: AddProjectComponent },
+          { path: "updateproject/:id", component: UpdateProjectComponent },
           { path: 'suggestions', component: GetSuggestionComponent },
           { path: "suggestiondetail/:id", component: SuggestionDetailComponent },
-
+          { path: 'invesments', component: InvestmentComponent },
+          { path: 'AddInvestment', component: AddInvestmentComponent },
+          { path: "updateinvestments/:id", component: UpdateInvestmentComponent },
           { path: "RegistrationManagement", component: RegistrationManagementComponent },
           { path: "eventManagement", component: EventManagementComponent },
           { path: 'event-form', component: EventFormComponent }, // للإضافة

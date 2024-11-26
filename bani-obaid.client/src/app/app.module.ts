@@ -57,6 +57,7 @@ import { StatisticsComponent } from './Ahmad/statistics/statistics.component';
 import { PartnerComponent } from './Ahmad/partner/partner.component';
 import { GetSuggestionComponent } from './Admin/get-suggestion/get-suggestion.component';
 import { SuggestionDetailComponent } from './Admin/suggestion-detail/suggestion-detail.component';
+import { FeatureComponent } from './Ahmad/feature/feature.component';
 
 @NgModule({
   declarations: [
@@ -116,6 +117,7 @@ import { SuggestionDetailComponent } from './Admin/suggestion-detail/suggestion-
     HomePresidentComponent, 
     StatisticsComponent,
     PartnerComponent,
+    FeatureComponent,
   ],
   imports: [
     FormsModule,

@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // Import ReactiveFormsModule
 
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -39,7 +38,6 @@ import { LoginComponent } from './Admin/login/login.component';
 import { ProfileComponent } from './Admin/profile/profile.component';
 import { AddPollComponent } from './Admin/add-poll/add-poll.component';
 import { GetPollsComponent } from './Admin/get-polls/get-polls.component';
-import { EditPollComponent } from './Admin/edit-poll/edit-poll.component';
 import { AboutMunicipalityComponent } from './Ahmad/about-municipality/about-municipality.component';
 import { PresidentComponent } from './Ahmad/president/president.component';
 import { MunicipalityMemberComponent } from './Ahmad/municipality-member/municipality-member.component';
@@ -51,6 +49,7 @@ import { EventDetailsComponent } from './Mohammad/event-details/event-details.co
 import { EventManagementComponent } from './Mohammad/event-management/event-management.component';
 import { EventFormComponent } from './Mohammad/event-form/event-form.component';
 import { RegistrationManagementComponent } from './Mohammad/registration-management/registration-management.component';
+import { DashboardComponent } from './Admin/dashboard/dashboard.component';
 import { ImageHomePageComponent } from './Ahmad/image-home-page/image-home-page.component';
 import { HomePresidentComponent } from './Ahmad/home-president/home-president.component';
 import { StatisticsComponent } from './Ahmad/statistics/statistics.component';
@@ -63,6 +62,19 @@ import { UpdateInvestmentComponent } from './Admin/update-investment/update-inve
 import { ProjectsAdminComponent } from './Admin/projects-admin/projects-admin.component';
 import { AddProjectComponent } from './Admin/add-project/add-project.component';
 import { UpdateProjectComponent } from './Admin/update-project/update-project.component';
+import { AddBaniObaidTComponent } from './Admin/add-bani-obaid-t/add-bani-obaid-t.component';
+import { AddBaniObaidGeneralComponent } from './Admin/add-bani-obaid-general/add-bani-obaid-general.component';
+import { LandManagmentComponent } from './Admin/land-managment/land-managment.component';
+import { UpdateLandMarkComponent } from './Admin/update-land-mark/update-land-mark.component';
+import { ShowImgagesLandOneComponent } from './Admin/show-imgages-land-one/show-imgages-land-one.component';
+import { FeatureComponent } from './Ahmad/feature/feature.component';
+import { HomeEventComponent } from './Ahmad/home-event/home-event.component';
+import { GetComplainsComponent } from './Admin/get-complains/get-complains.component';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { NorthManagmentComponent } from './Admin/north-managment/north-managment.component';
+import { UpdatNorthComponent } from './Admin/updat-north/updat-north.component';
+import { AddNewNorthComponent } from './Admin/add-new-north/add-new-north.component';
+import { ShowImageForNorthComponent } from './Admin/show-image-for-north/show-image-for-north.component';
 
 @NgModule({
   declarations: [
@@ -99,7 +111,6 @@ import { UpdateProjectComponent } from './Admin/update-project/update-project.co
     ProfileComponent,
     AddPollComponent,
     GetPollsComponent,
-    EditPollComponent,
     AboutMunicipalityComponent,
     PresidentComponent,
     MunicipalityMemberComponent,
@@ -107,14 +118,20 @@ import { UpdateProjectComponent } from './Admin/update-project/update-project.co
     GetTendersComponent,
     AddTendersComponent,
     OrganizationStructureComponent,
-    EditPollComponent,
     EventDetailsComponent,
     EventManagementComponent,
     EventFormComponent,
     RegistrationManagementComponent,
+    DashboardComponent,
+    RegistrationManagementComponent,
     UpdateTendersComponent,
     GetSuggestionComponent,
     SuggestionDetailComponent,
+    AddBaniObaidTComponent,
+    AddBaniObaidGeneralComponent,
+    LandManagmentComponent,
+    UpdateLandMarkComponent,
+    ShowImgagesLandOneComponent,
 
 
     RegistrationManagementComponent,
@@ -128,11 +145,19 @@ import { UpdateProjectComponent } from './Admin/update-project/update-project.co
     ProjectsAdminComponent,
     AddProjectComponent,
     UpdateProjectComponent,
+    FeatureComponent,
+    HomeEventComponent,
+    GetComplainsComponent,
+    NorthManagmentComponent,
+    UpdatNorthComponent,
+    AddNewNorthComponent,
+    ShowImageForNorthComponent,
   ],
   imports: [
     FormsModule,
-    ReactiveFormsModule ,
+    ReactiveFormsModule,
     BrowserModule, HttpClientModule,
+    InfiniteScrollModule,
     AppRoutingModule,
     RouterModule.forRoot([
 
@@ -174,10 +199,10 @@ import { UpdateProjectComponent } from './Admin/update-project/update-project.co
 
       {
         path: 'adminDashboard', component: AdminDashboardComponent, children: [
-          { path: 'home', component: HomeComponent },
+          { path: 'home', component: DashboardComponent },
           { path: 'profile', component: ProfileComponent },
           { path: 'polls', component: GetPollsComponent },
-          { path: 'poll/:id', component: EditPollComponent },
+          { path: 'poll/:id', component: PollDetailsComponent },
           { path: 'addPoll', component: AddPollComponent },
           { path: 'tenders', component: GetTendersComponent },
           { path: 'AddTenders', component: AddTendersComponent },
@@ -190,6 +215,15 @@ import { UpdateProjectComponent } from './Admin/update-project/update-project.co
           { path: 'invesments', component: InvestmentComponent },
           { path: 'AddInvestment', component: AddInvestmentComponent },
           { path: "updateinvestments/:id", component: UpdateInvestmentComponent },
+          { path: "Tourism", component: LandManagmentComponent },
+          { path: "Tourism/:id", component: UpdateLandMarkComponent },
+          { path: "landmark-form", component: AddBaniObaidTComponent },
+          { path: "AddLink/:id", component: ShowImgagesLandOneComponent },
+          { path: "TourismInNorth", component: NorthManagmentComponent },
+          { path: "updateNorth/:id", component: UpdatNorthComponent },
+          { path: "AddNewPlace", component: AddNewNorthComponent },
+          { path: "showAllImages/:id", component: ShowImageForNorthComponent },
+          { path: "ShowComplains", component: GetComplainsComponent },
           { path: "RegistrationManagement", component: RegistrationManagementComponent },
           { path: "eventManagement", component: EventManagementComponent },
           { path: 'event-form', component: EventFormComponent }, // للإضافة
@@ -199,7 +233,7 @@ import { UpdateProjectComponent } from './Admin/update-project/update-project.co
           { path: 'editJob/:id', component: EditJobComponent },
 
 
-       
+
         ]
 
       }

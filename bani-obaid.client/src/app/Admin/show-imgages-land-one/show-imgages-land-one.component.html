@@ -1,0 +1,42 @@
+<div class="container mt-4" style="direction: rtl;">
+  <h2 class="text-center mb-4">صور إضافية للمعلم</h2>
+
+  <!-- Image Upload Form -->
+  <div class="text-end mb-4">
+    <form (ngSubmit)="onImageUpload()">
+      <div class="form-group">
+        <label for="image">اختر صورة:</label>
+        <input type="file" id="image" (change)="onImageSelect($event)" class="form-control" />
+      </div>
+      <button type="submit" class="btn btn-primary mt-4" [disabled]="!imageFile">
+        إضافة صورة جديدة
+      </button>
+    </form>
+  </div>
+
+  <!-- Table to display the images -->
+  <table class="table table-bordered table-striped">
+    <thead class="table-dark">
+      <tr>
+        <th>#</th>
+        <th>الصورة</th>
+        <th>حذف</th> <!-- Column for the delete button -->
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let image of images; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>
+          <img [src]="'https://localhost:7243/' + image.imageUrl" alt="Image {{ i + 1 }}" class="img-thumbnail" style="max-width: 150px;">
+        </td>
+        <td>
+          <button class="btn btn-danger" (click)="deleteImage(image.id)">حذف</button> <!-- Delete button -->
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="images.length === 0" class="alert alert-warning text-center" role="alert">
+    لا توجد صور إضافية لهذا المعلم.
+  </div>
+</div>

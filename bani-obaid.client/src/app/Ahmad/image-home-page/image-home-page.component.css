@@ -1,0 +1,206 @@
+.carousel-background {
+  background-size: cover;
+  background-position: center;
+  height: 100vh; /* التأكد من وجود ارتفاع */
+  position: relative;
+}
+
+.carousel-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* طبقة شفافة فوق الصور */
+}
+
+.meta-box {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 10px 20px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 20px; /* مسافة بين الحرارة والوقت */
+}
+
+.meta-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 186px; /* عرض محدد */
+  height: 88px; /* ارتفاع محدد */
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.icon-text {
+  display: flex;
+  justify-content: space-between; /* عكس الاتجاه */
+  align-items: center;
+  width: 100%; /* عرض كامل داخل العنصر */
+  gap: 10px; /* مسافة بين النص والأيقونة */
+  direction: rtl; /* عكس الاتجاه */
+}
+
+.icon {
+  font-size: 2rem; /* حجم الأيقونة */
+  color: #007bff; /* لون الأيقونة */
+}
+
+.text {
+  display: flex;
+  flex-direction: column; /* النصوص فوق بعضها */
+  text-align: right; /* النصوص تبدأ من اليمين */
+}
+
+.title {
+  font-size: 1rem; /* حجم النص العلوي */
+  font-weight: bold;
+  color: #007bff; /* لون النص العلوي */
+}
+
+.value {
+  font-size: 0.9rem; /* حجم النص السفلي */
+  color: #333; /* لون النص السفلي */
+}
+
+.separator {
+  width: 2px;
+  height: 60px; /* ارتفاع الفاصل */
+  background-color: #ddd; /* لون الفاصل */
+}
+
+.meta-item[_ngcontent-ng-c899646786] {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 186px;
+  height: 88px;
+  background-color: rgb(241 241 241);
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.meta-box[_ngcontent-ng-c899646786] {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background-color: rgb(241 241 241);
+  padding: 10px 20px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.carousel-caption {
+  position: absolute;
+  top: 60%; /* أقل ارتفاعًا */
+  right: 10%; /* محاذاة النص إلى اليمين */
+  transform: translateY(-50%); /* لضبط المحاذاة العمودية */
+  text-align: right; /* محاذاة النص إلى اليمين */
+  color: white;
+  width: 40%; /* تحديد عرض النصوص */
+}
+
+  .carousel-caption h2 {
+    font-size: 2.5rem; /* حجم النص الرئيسي */
+    font-weight: bold;
+    margin-bottom: 15px; /* مسافة بين العنوان والفقرة */
+    color: #ffffff; /* لون النص الرئيسي */
+    position: relative;
+    right: -13em; /* تعديل الموضع */
+    top: -4em; /* تعديل الارتفاع */
+  }
+
+  .carousel-caption p {
+    font-size: 1.2rem; /* حجم النص */
+    line-height: 1.8; /* تحسين المسافة بين الأسطر */
+    color: #f1f1f1; /* لون النص */
+    position: relative;
+    right: -27em; /* تعديل الموضع */
+    top: -7em; /* تعديل الارتفاع */
+  }
+
+  .carousel-caption .btn-custom {
+    margin-top: 20px; /* مسافة أعلى الزر */
+    text-align: center; /* النص داخل الزر في المنتصف */
+    background-color: #007bff; /* لون الزر الأساسي */
+    color: white; /* لون النص داخل الزر */
+    transition: all 0.3s ease-in-out; /* تأثير عند التمرير */
+    border-radius: 8px; /* حواف مستديرة للزر */
+    padding: 10px 20px; /* حجم الزر */
+    position: relative;
+    right: -32em; /* تعديل الموضع */
+    top: -7em; /* تعديل الارتفاع */
+  }
+
+    /* تأثير عند تمرير الماوس */
+    .carousel-caption .btn-custom:hover {
+      background-color: #ffffff; /* لون خلفية أبيض عند التمرير */
+      color: #007bff; /* لون النص داخل الزر */
+      transform: translateY(-3px); /* حركة خفيفة للأعلى */
+    }
+
+  .carousel-caption[_ngcontent-ng-c2859364164] h2[_ngcontent-ng-c2859364164] {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #ffffff;
+    position: relative;
+    right: -13em;
+    top: -4em;
+  }
+
+  .carousel-caption[_ngcontent-ng-c2859364164] p[_ngcontent-ng-c2859364164] {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #f1f1f1;
+    position: relative;
+    right: -27em;
+    top: -7em;
+  }
+
+  .carousel-caption[_ngcontent-ng-c2859364164] .btn-custom[_ngcontent-ng-c2859364164] {
+    margin-top: 20px;
+    text-align: center;
+    background-color: #007bff;
+    color: white;
+    transition: all 0.3s ease-in-out;
+    border-radius: 8px;
+    padding: 10px 20px;
+    position: relative;
+    right: -32em;
+    top: -7em;
+  }
+
+
+.meta-item[_ngcontent-ng-c3660955994] {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 186px;
+  height: 88px;
+  background-color: rgb(248 248 248);
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.meta-box[_ngcontent-ng-c3660955994] {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background-color: rgba(255, 255, 255);
+  padding: 10px 20px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}

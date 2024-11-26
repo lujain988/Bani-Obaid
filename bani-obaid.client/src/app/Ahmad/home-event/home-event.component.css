@@ -1,0 +1,131 @@
+
+.history-one__content {
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+  .history-one__content:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+  }
+
+.history-one__content-img img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.history-one__content-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 10px 0;
+  color: #007bff;
+}
+
+.history-one__content-description {
+  font-size: 1rem;
+  color: #555;
+}
+
+.history-one__content-date,
+.history-one__content-location {
+  font-size: 0.9rem;
+  color: #888;
+}
+
+.thm-btn {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+  .thm-btn:hover {
+    background-color: white;
+    color: #007bff;
+    border: 2px solid #007bff;
+  }
+
+
+.history-one__date-box {
+  text-align: center;
+  cursor: pointer;
+}
+
+.history-one__content {
+  transition: transform 0.3s ease-in-out;
+}
+
+.swiper-slide:hover .history-one__content {
+  transform: scale(1.05);
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  color: #000;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: #0ca554; /* اللون الأخضر */
+  border-radius: 50%; /* يجعل الأيقونة دائرية */
+  width: 30px; /* حجم الأيقونة */
+  height: 30px;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  filter: none; /* يزيل تأثير التعتيم الافتراضي */
+}
+
+.carousel-indicators button {
+  background-color: #0ca554; /* اللون الأخضر */
+  border: none; /* إزالة الحدود الافتراضية */
+  width: 12px; /* حجم النقطة */
+  height: 12px;
+  border-radius: 50%; /* يجعل النقاط دائرية */
+}
+
+.carousel-indicators .active {
+  background-color: #0ca554; /* اللون الأخضر */
+  transform: scale(1.2); /* تكبير النقطة النشطة */
+}
+
+#eventsCarousel .carousel-control-prev-icon,
+#eventsCarousel .carousel-control-next-icon {
+  background-color: #0ca554;
+}
+
+#eventsCarousel .carousel-indicators button {
+  background-color: #0ca554;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #0ca554;
+  border-color: #0ca554;
+}
+
+.history-one__wrap {
+  position: relative;
+  display: block;
+  max-width: 1410px;
+  width: 100%;
+  margin: 0 auto 0;
+  background-color: var(--govity-primary);
+  overflow: hidden;
+  z-index: 1;
+  margin-bottom: 2em;
+}
+
+.history-one {
+  position: relative;
+  display: block;
+   padding: 0 0 0; 
+}

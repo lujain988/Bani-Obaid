@@ -1,0 +1,64 @@
+<section class="event-form py-5 bg-light" style="direction: rtl; margin-left: 15%">
+  <div class="container">
+    <div class="card shadow-lg">
+      <div class="card-header bg-primary text-white text-center">
+        <h2 class="m-0">{{ isEditMode ? 'تعديل الفعالية' : 'إضافة فعالية جديدة' }}</h2>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="eventForm" (ngSubmit)="onSubmit()">
+          <div class="mb-3">
+            <label for="title" class="form-label">عنوان الفعالية</label>
+            <input type="text"
+                   id="title"
+                   formControlName="title"
+                   class="form-control"
+                   [class.is-invalid]="eventForm.get('title')?.invalid && eventForm.get('title')?.touched" />
+            <div *ngIf="eventForm.get('title')?.invalid && eventForm.get('title')?.touched" class="invalid-feedback">
+              هذا الحقل مطلوب.
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="description" class="form-label">الوصف</label>
+            <textarea id="description"
+                      formControlName="description"
+                      rows="4"
+                      class="form-control"
+                      placeholder="أدخل وصف الفعالية هنا"></textarea>
+          </div>
+
+          <div class="mb-3">
+            <label for="location" class="form-label">الموقع</label>
+            <input type="text" id="location" formControlName="location" class="form-control" placeholder="أدخل موقع الفعالية" />
+          </div>
+
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="time" class="form-label">الوقت</label>
+              <input type="time" id="time" formControlName="time" class="form-control" />
+            </div>
+
+            <div class="col-md-6 mb-3">
+              <label for="eventDate" class="form-label">التاريخ</label>
+              <input type="date" id="eventDate" formControlName="eventDate" class="form-control" />
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="image" class="form-label">رابط الصورة</label>
+            <input type="text" id="image" formControlName="image" class="form-control" placeholder="أدخل رابط الصورة" />
+          </div>
+
+          <div class="d-flex justify-content-between">
+            <button type="submit" class="btn btn-success px-4">
+              {{ isEditMode ? 'حفظ التعديلات' : 'إضافة الفعالية' }}
+            </button>
+            <button type="button" class="btn btn-secondary px-4" routerLink="/adminDashboard/eventManagement">
+              إلغاء
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

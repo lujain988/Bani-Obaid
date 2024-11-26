@@ -1,0 +1,60 @@
+<main>
+
+
+
+
+
+
+  <div class="container mt-4 " style="direction: rtl; text-align: center">
+
+
+    <h2 style="color:black" class="text-center mb-4">جميع الإقتراحات</h2>
+
+    <div class="table-responsive mx-auto" style="max-width: 900px;">
+      <table class="table table-light table-hover table-bordered">
+        <thead>
+          <tr>
+            <th></th>
+            <th>اسم المقترح</th>
+            <th>البريد الإلكتروني</th>
+            <th>رقم الهاتف</th>
+            <th>القطاع</th>
+            <th>المكان</th>
+            <th>تفاصيل الفكرة
+            </th>
+
+            <th>الإجراء</th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+          <tr *ngFor="let item of suggestData; let i = index">
+
+            <th scope="row">{{ item.id }}</th>
+            <td>{{ item.name }}</td>
+            <td>{{item.email}}</td>
+            <td>{{item.number}}</td>
+            <td>{{item.sector}}</td>
+            <td>{{item.place}}</td>
+            <td>
+              {{ item.details.length > 20 ? (item.details | slice:0:20) + '...' : item.details }}
+            </td>
+
+            <td>
+
+              <button class="btn btn-primary btn-sm" [routerLink]="['/adminDashboard/suggestiondetail', item.id]">
+                المزيد 
+              </button>
+              <button class="btn btn-danger btn-sm" (click)="deletesuggestion(item.id)">
+                حذف
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</main>
+

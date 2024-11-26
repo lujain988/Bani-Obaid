@@ -1,0 +1,166 @@
+<!--<form #addTenderForm="ngForm" (ngSubmit)="addTender(addTenderForm.value)"  class="add-tender-form">
+  <h2 style="text-align: center; margin-bottom: 20px;">إضافة عطاء</h2>
+
+  <div class="form-group" style="margin-bottom: 15px;">
+    <label for="Title">عنوان العطاء</label>
+    <input type="text" id="Title" name="Title" ngModel class="form-control" required />
+  </div>
+
+  <div class="form-group" style="margin-bottom: 15px;">
+    <label for="Description">وصف العطاء</label>
+    <textarea id="Description" name="Description" ngModel class="form-control" rows="3" required></textarea>
+  </div>
+
+  <div class="form-group" style="margin-bottom: 15px;">
+    <label for="Amount">قيمة العطاء</label>
+    <input type="number" id="Amount" name="Amount" ngModel class="form-control" required />
+  </div>
+
+  <div class="form-group" style="margin-bottom: 15px;">
+    <label for="ClosingDate">تاريخ الانتهاء</label>
+    <input type="date" id="ClosingDate" name="ClosingDate" ngModel class="form-control" required />
+  </div>-->
+<!-- Main Image -->
+<!--<div class="form-group" style="margin-bottom: 15px;">
+  <label for="Image">الصورة الرئيسية</label>
+  <input type="file" id="Image" (change)="changeImage($event, 'Image')" class="form-control" required />
+</div>-->
+<!-- Optional Images -->
+<!--<div class="form-group" style="margin-bottom: 15px;">
+    <label for="Img1">الصورة الإختيارية 1</label>
+    <input type="file" id="Img1" (change)="changeImage($event, 'Img1')" class="form-control" />
+  </div>
+  <div class="form-group" style="margin-bottom: 15px;">
+    <label for="Img2">الصورة الإختيارية 2</label>
+    <input type="file" id="Img2" (change)="changeImage($event, 'Img2')" class="form-control" />
+  </div>
+  <div class="form-group" style="margin-bottom: 15px;">
+    <label for="Img3">الصورة الإختيارية 3</label>
+    <input type="file" id="Img3" (change)="changeImage($event, 'Img3')" class="form-control" />
+  </div>
+  <div class="form-group" style="margin-bottom: 15px;">
+    <label for="Img4">الصورة الإختيارية 4</label>
+    <input type="file" id="Img4" (change)="changeImage($event, 'Img4')" class="form-control" />
+  </div>
+  <div class="form-group" style="margin-bottom: 15px;">
+    <label for="Img5">الصورة الإختيارية 5</label>
+    <input type="file" id="Img5" (change)="changeImage($event, 'Img5')" class="form-control" />
+  </div>
+
+  <button type="submit" class="btn btn-primary" style="width: 100%;">Add Tender</button>
+</form>-->
+<form #addTenderForm="ngForm" (ngSubmit)="addTender(addTenderForm.value)" class="add-tender-form">
+  <h2 style="text-align: center; margin-bottom: 20px;">إضافة عطاء</h2>
+
+  <!-- Title Field -->
+  <div class="form-group" style="margin-bottom: 15px;">
+    <label for="Title">عنوان العطاء</label>
+    <input type="text"
+           id="Title"
+           name="Title"
+           ngModel
+           class="form-control"
+           required
+           placeholder="أدخل عنوان العطاء" />
+    <div *ngIf="addTenderForm.controls['Title']?.touched && addTenderForm.controls['Title']?.invalid" class="text-danger">
+      يرجى إدخال عنوان العطاء
+    </div>
+  </div>
+
+  <!-- Description Field -->
+  <div class="form-group" style="margin-bottom: 15px;">
+    <label for="Description">وصف العطاء</label>
+    <textarea id="Description"
+              name="Description"
+              ngModel
+              class="form-control"
+              rows="3"
+              required
+              placeholder="أدخل وصف العطاء"></textarea>
+    <div *ngIf="addTenderForm.controls['Description']?.touched && addTenderForm.controls['Description']?.invalid" class="text-danger">
+      يرجى إدخال وصف العطاء
+    </div>
+  </div>
+
+  <!-- Amount Field -->
+  <div class="form-group" style="margin-bottom: 15px;">
+    <label for="Amount">قيمة العطاء</label>
+    <input type="text"
+           id="Amount"
+           name="Amount"
+           ngModel
+           class="form-control"
+           required
+           placeholder="أدخل قيمة العطاء" />
+    <div *ngIf="addTenderForm.controls['Amount']?.touched && addTenderForm.controls['Amount']?.invalid" class="text-danger">
+      يرجى إدخال قيمة العطاء
+    </div>
+  </div>
+
+  <!-- Closing Date Field -->
+  <div class="form-group" style="margin-bottom: 15px;">
+    <label for="ClosingDate">تاريخ الانتهاء</label>
+    <input type="date"
+           id="ClosingDate"
+           name="ClosingDate"
+           ngModel
+           class="form-control"
+           required
+           placeholder="أدخل تاريخ الانتهاء" />
+    <div *ngIf="addTenderForm.controls['ClosingDate']?.touched && addTenderForm.controls['ClosingDate']?.invalid" class="text-danger">
+      يرجى إدخال تاريخ الانتهاء
+    </div>
+  </div>
+
+  <!-- Main Image Field -->
+  <div class="form-group" style="margin-bottom: 15px;">
+    <label for="Image">الصورة الرئيسية</label>
+    <input type="file"
+           id="Image"
+           (change)="changeImage($event, 'Image')"
+           class="form-control"
+           required />
+    <div *ngIf="!image" class="text-danger">
+      يجب اختيار الصورة الرئيسية
+    </div>
+  </div>
+
+  <!-- Optional Images (Img1 to Img5) -->
+  <div class="form-group" style="margin-bottom: 15px;">
+    <label for="Img1">الصورة الإختيارية 1</label>
+    <input type="file"
+           id="Img1"
+           (change)="changeImage($event, 'Img1')"
+           class="form-control" />
+  </div>
+  <div class="form-group" style="margin-bottom: 15px;">
+    <label for="Img2">الصورة الإختيارية 2</label>
+    <input type="file"
+           id="Img2"
+           (change)="changeImage($event, 'Img2')"
+           class="form-control" />
+  </div>
+  <div class="form-group" style="margin-bottom: 15px;">
+    <label for="Img3">الصورة الإختيارية 3</label>
+    <input type="file"
+           id="Img3"
+           (change)="changeImage($event, 'Img3')"
+           class="form-control" />
+  </div>
+  <div class="form-group" style="margin-bottom: 15px;">
+    <label for="Img4">الصورة الإختيارية 4</label>
+    <input type="file"
+           id="Img4"
+           (change)="changeImage($event, 'Img4')"
+           class="form-control" />
+  </div>
+  <div class="form-group" style="margin-bottom: 15px;">
+    <label for="Img5">الصورة الإختيارية 5</label>
+    <input type="file"
+           id="Img5"
+           (change)="changeImage($event, 'Img5')"
+           class="form-control" />
+  </div>
+  <!-- Submit Button -->
+  <button type="submit" class="btn btn-primary" style="width: 100%;" [disabled]="addTenderForm.invalid || !image">إضافة العطاء</button>
+</form>

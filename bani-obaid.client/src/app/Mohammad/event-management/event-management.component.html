@@ -1,0 +1,46 @@
+<section class="event-management" style="direction: rtl; margin-left: 15%">
+  <div class="container">
+    <div class="header">
+      <h2>إدارة الفعاليات</h2>
+      <br />
+      <!-- Add Button -->
+      <button class="btn btn-primary" (click)="addEvent()">إضافة فعالية جديدة</button>
+    </div>
+
+    <!-- Events Table -->
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>العنوان</th>
+          <th>الوصف</th>
+          <th>الموقع</th>
+          <th>التاريخ</th>
+          <th>الوقت</th>
+          <th>الإجراءات</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let event of events; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ event.title }}</td>
+          <td>{{ event.description }}</td>
+          <td>{{ event.location }}</td>
+          <td>{{ event.eventDate | date: 'yyyy-MM-dd' }}</td>
+          <td>{{ event.time }}</td>
+          <td>
+            <!-- Edit Button -->
+            <button class="btn btn-warning btn-sm" (click)="editEvent(event.id)">
+              تعديل
+            </button>
+            /
+            <!-- Delete Button -->
+            <button class="btn btn-danger btn-sm" (click)="deleteEvent(event.id)">
+              حذف
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>

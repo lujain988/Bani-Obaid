@@ -35,6 +35,24 @@ import { ComplainComponent } from './Lujain/complain/complain.component';
 import { TeamComponent } from './Lujain/team/team.component';
 import { PollsComponent } from './Hosam/polls/polls.component';
 import { PollDetailsComponent } from './Hosam/poll-details/poll-details.component';
+import { LoginComponent } from './Admin/login/login.component';
+import { ProfileComponent } from './Admin/profile/profile.component';
+import { AddPollComponent } from './Admin/add-poll/add-poll.component';
+import { GetPollsComponent } from './Admin/get-polls/get-polls.component';
+import { EditPollComponent } from './Admin/edit-poll/edit-poll.component';
+import { AboutMunicipalityComponent } from './Ahmad/about-municipality/about-municipality.component';
+import { PresidentComponent } from './Ahmad/president/president.component';
+import { MunicipalityMemberComponent } from './Ahmad/municipality-member/municipality-member.component';
+import { OrganizationStructureComponent } from './Ahmad/organization-structure/organization-structure.component';
+import { GetTendersComponent } from './Admin/get-tenders/get-tenders.component';
+import { AddTendersComponent } from './Admin/add-tenders/add-tenders.component';
+import { UpdateTendersComponent } from './Admin/update-tenders/update-tenders.component';
+import { EventDetailsComponent } from './Mohammad/event-details/event-details.component';
+import { EventManagementComponent } from './Mohammad/event-management/event-management.component';
+import { EventFormComponent } from './Mohammad/event-form/event-form.component';
+import { RegistrationManagementComponent } from './Mohammad/registration-management/registration-management.component';
+import { GetSuggestionComponent } from './Admin/get-suggestion/get-suggestion.component';
+import { SuggestionDetailComponent } from './Admin/suggestion-detail/suggestion-detail.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +84,29 @@ import { PollDetailsComponent } from './Hosam/poll-details/poll-details.componen
     ComplainComponent,
     TeamComponent,
     PollsComponent,
-    PollDetailsComponent
+    PollDetailsComponent,
+    LoginComponent,
+    ProfileComponent,
+    AddPollComponent,
+    GetPollsComponent,
+    EditPollComponent,
+    AboutMunicipalityComponent,
+    PresidentComponent,
+    MunicipalityMemberComponent,
+    OrganizationStructureComponent,
+    GetTendersComponent,
+    AddTendersComponent,
+    OrganizationStructureComponent,
+    EditPollComponent,
+    EventDetailsComponent,
+    EventManagementComponent,
+    EventFormComponent,
+    RegistrationManagementComponent,
+    UpdateTendersComponent,
+    GetSuggestionComponent,
+    SuggestionDetailComponent,
+
+
   ],
   imports: [
     FormsModule,
@@ -98,11 +138,40 @@ import { PollDetailsComponent } from './Hosam/poll-details/poll-details.componen
       { path: 'Events', component: EventsComponent },
       { path: "AddSuggestions", component: SuggestionsComponent },
       { path: "Polls", component: PollsComponent },
+      { path: "AboutMunicipality", component: AboutMunicipalityComponent },
+      { path: "President", component: PresidentComponent },
+      { path: "MunicipalityMember", component: MunicipalityMemberComponent },
+      { path: "OrganizationStructure", component: OrganizationStructureComponent },
       { path: "Poll/:id", component: PollDetailsComponent },
+      { path: "eventdetail/:id", component: EventDetailsComponent },
+      { path: "eventManagement", component: EventManagementComponent },
+      { path: 'event-form', component: EventFormComponent }, // للإضافة
+      { path: 'event-form/:id', component: EventFormComponent }, // للتعديل
+      { path: 'RegistrationManagement', component: RegistrationManagementComponent }, //??
+
+      { path: "admin", component: LoginComponent },
 
       {
         path: 'adminDashboard', component: AdminDashboardComponent, children: [
           { path: 'home', component: HomeComponent },
+          { path: 'profile', component: ProfileComponent },
+          { path: 'polls', component: GetPollsComponent },
+          { path: 'poll/:id', component: EditPollComponent },
+          { path: 'addPoll', component: AddPollComponent },
+          { path: 'tenders', component: GetTendersComponent },
+          { path: 'AddTenders', component: AddTendersComponent },
+          { path: "updatetenders/:id", component: UpdateTendersComponent },
+          { path: 'suggestions', component: GetSuggestionComponent },
+          { path: "suggestiondetail/:id", component: SuggestionDetailComponent },
+
+          { path: "RegistrationManagement", component: RegistrationManagementComponent },
+          { path: "eventManagement", component: EventManagementComponent },
+          { path: 'event-form', component: EventFormComponent }, // للإضافة
+          { path: 'event-form/:id', component: EventFormComponent }, // للتعديل
+          { path: 'JobsManagement', component: JobManagementComponent },
+          { path: 'addJob', component: AddJobComponent },
+          { path: 'editJob/:id', component: EditJobComponent },
+
 
        
         ]

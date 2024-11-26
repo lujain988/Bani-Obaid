@@ -86,7 +86,7 @@ export class UpdateLandMarkComponent implements OnInit {
       this.lujainService.updateLandmark(this.landmarkId, formData).subscribe(
         () => {
           alert('تم تحديث المعلم بنجاح.');
-          this.router.navigate(['/adminDashboard/Tourism']);
+          this.router.navigate(['//adminDashboard/Tourism']);
         },
         (error) => {
           console.error('Error updating landmark', error);

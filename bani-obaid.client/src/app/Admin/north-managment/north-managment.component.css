@@ -1,0 +1,4 @@
+.table img {
+  max-height: 100px;
+  object-fit: cover;
+}

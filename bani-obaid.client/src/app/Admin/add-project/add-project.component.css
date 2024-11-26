@@ -1,0 +1,72 @@
+.add-project-form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  margin-top: 38px;
+}
+
+  .add-project-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+
+  .add-project-form .form-group {
+    margin-bottom: 15px;
+  }
+
+  .add-project-form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  .add-project-form .form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+  }
+
+    .add-project-form .form-control::placeholder {
+      color: black;
+    }
+
+  .add-project-form .btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    text-align: center;
+  }
+
+    .add-project-form .btn:hover {
+      background-color: #0056b3;
+    }
+
+input::placeholder, textarea::placeholder {
+  color: #aaa; /* Light gray */
+}
+
+/* Right-to-left text alignment */
+input, textarea {
+  direction: rtl;
+  text-align: right;
+}
+
+/* Validation message styling */
+.error-message {
+  color: red;
+  font-size: 0.9em;
+  margin-top: 5px;
+}

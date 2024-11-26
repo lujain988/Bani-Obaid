@@ -1,1 +1,46 @@
-<p>get-polls works!</p>
+<section class="event-management" style="direction: rtl; margin-left: 15%">
+  <div class="container">
+    <div class="header">
+      <h2>إدارة الاستطلاعات</h2>
+      <br />
+      <!-- Add Button -->
+      <button class="btn btn-primary" (click)="addPoll()">إضافة استطلاع جديد</button>
+    </div>
+
+    <!-- Events Table -->
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>صورة</th>
+          <th>العنوان</th>
+          <th>الوصف</th>
+          <th>تاريخ البدأ</th>
+          <th>تاريخ الانتهاء</th>
+          <th>#</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let poll of polls">
+          <td>{{ poll.id }}</td>
+          <td><img [src]="'https://localhost:7243' + poll?.image" alt="{{ poll?.image }}" height="100" width="100"></td>
+          <td>{{ poll.title }}</td>
+          <td>{{ poll.description }}</td>
+          <td>{{ poll.createdAt | date: 'yyyy-MM-dd' }}</td>
+          <td>{{ poll.closeAt | date: 'yyyy-MM-dd' }}</td>
+          <td>
+            <!-- Edit Button -->
+            <button class="btn btn-warning btn-sm" (click)="editPoll(poll.id)">
+              تعديل
+            </button>
+
+            <!-- Delete Button -->
+            <button class="btn btn-danger btn-sm" (click)="deletePoll(poll.id)">
+              حذف
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>

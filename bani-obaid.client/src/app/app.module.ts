@@ -51,6 +51,7 @@ import { EventDetailsComponent } from './Mohammad/event-details/event-details.co
 import { EventManagementComponent } from './Mohammad/event-management/event-management.component';
 import { EventFormComponent } from './Mohammad/event-form/event-form.component';
 import { RegistrationManagementComponent } from './Mohammad/registration-management/registration-management.component';
+import { DashboardComponent } from './Admin/dashboard/dashboard.component';
 import { ImageHomePageComponent } from './Ahmad/image-home-page/image-home-page.component';
 import { HomePresidentComponent } from './Ahmad/home-president/home-president.component';
 import { StatisticsComponent } from './Ahmad/statistics/statistics.component';
@@ -106,6 +107,8 @@ import { FeatureComponent } from './Ahmad/feature/feature.component';
     EventDetailsComponent,
     EventManagementComponent,
     EventFormComponent,
+    RegistrationManagementComponent,
+    DashboardComponent,
     RegistrationManagementComponent,
     UpdateTendersComponent,
     GetSuggestionComponent,
@@ -164,7 +167,7 @@ import { FeatureComponent } from './Ahmad/feature/feature.component';
 
       {
         path: 'adminDashboard', component: AdminDashboardComponent, children: [
-          { path: 'home', component: HomeComponent },
+          { path: 'home', component: DashboardComponent },
           { path: 'profile', component: ProfileComponent },
           { path: 'polls', component: GetPollsComponent },
           { path: 'poll/:id', component: EditPollComponent },

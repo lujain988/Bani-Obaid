@@ -64,7 +64,7 @@ namespace Bani_Obaid.Server.Controllers
             {
                 HomeTitle = imageRequest.HomeTitle,
                 HomeDescription = imageRequest.HomeDescription,
-                HomeImage = $"/images/{imageFileName}" 
+                HomeImage = $"/images/{imageFileName}"
             };
 
             _db.HomePageImages.Add(newHomePageImage);

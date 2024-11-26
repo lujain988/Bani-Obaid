@@ -33,6 +33,84 @@ namespace Bani_Obaid.Server.Controllers
             return Ok(poll);
         }
 
+        [HttpPut("EditPollById/{id}")]
+        public IActionResult EditPollById(int id, [FromForm] PollDTO data)
+        {
+            var poll = _db.PollTopics.Find(id);
+            if (poll == null) { return BadRequest(); };
+
+            var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images");
+
+            if (!Directory.Exists(uploadsFolder))
+            {
+                Directory.CreateDirectory(uploadsFolder);
+            }
+
+            if (data.Image != null && data.Image.Length > 0)
+            {
+                var mainImageFileName = Guid.NewGuid().ToString() + "_" + data.Image.FileName;
+                var mainImagePath = Path.Combine(uploadsFolder, mainImageFileName);
+
+                using (var fileStream = new FileStream(mainImagePath, FileMode.Create))
+                {
+                    data.Image.CopyTo(fileStream);
+                }
+
+                poll.Image = $"/images/{mainImageFileName}";
+            }
+            poll.Title = data.Title;
+            poll.Description = data.Description;
+            poll.CreatedAt = data.CreatedAt;
+            poll.CloseAt = data.CloseAt;
+            _db.PollTopics.Update(poll);
+            _db.SaveChanges();
+            return Ok(poll);
+        }
+
+        [HttpPost("PostPoll")]
+        public IActionResult PostPoll([FromForm] PollDTO data)
+        {
+            if (data.Image == null || data.Image.Length == 0)
+            {
+                return BadRequest("The main investment image is required.");
+            }
+
+
+            var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images");
+            if (!Directory.Exists(uploadsFolder))
+            {
+                Directory.CreateDirectory(uploadsFolder);
+            }
+
+            var mainImageFileName = Guid.NewGuid().ToString() + "_" + data.Image.FileName;
+            var mainImagePath = Path.Combine(uploadsFolder, mainImageFileName);
+            using (var fileStream = new FileStream(mainImagePath, FileMode.Create))
+            {
+                data.Image.CopyTo(fileStream);
+            }
+            var poll = new PollTopic()
+            {
+            Title = data.Title,
+            Description = data.Description,
+            Image = $"/images/{mainImageFileName}",
+            CreatedAt = data.CreatedAt,
+            CloseAt = data.CloseAt,
+            };
+            _db.PollTopics.Add(poll);
+            _db.SaveChanges();
+            return Ok(poll);
+        }
+
+        [HttpDelete("DeletePollById/{id}")]
+        public IActionResult DeletePollById(int id)
+        {
+            var poll = _db.PollTopics.Find(id);
+            if (poll == null) { return BadRequest(); };
+            _db.PollTopics.Remove(poll);
+            _db.SaveChanges();
+            return Ok();
+        }
+
         [HttpGet("GetPollPercentage/{id}")]
         public IActionResult GetPollPercentage(int id)
         {

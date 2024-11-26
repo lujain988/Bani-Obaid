@@ -64,6 +64,8 @@ import { UpdateLandMarkComponent } from './Admin/update-land-mark/update-land-ma
 import { ShowImgagesLandOneComponent } from './Admin/show-imgages-land-one/show-imgages-land-one.component';
 import { FeatureComponent } from './Ahmad/feature/feature.component';
 import { HomeEventComponent } from './Ahmad/home-event/home-event.component';
+import { GetComplainsComponent } from './Admin/get-complains/get-complains.component';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 @NgModule({
   declarations: [
@@ -132,11 +134,13 @@ import { HomeEventComponent } from './Ahmad/home-event/home-event.component';
     PartnerComponent,
     FeatureComponent,
     HomeEventComponent,
+    GetComplainsComponent,
   ],
   imports: [
     FormsModule,
     ReactiveFormsModule,
     BrowserModule, HttpClientModule,
+    InfiniteScrollModule,
     AppRoutingModule,
     RouterModule.forRoot([
 
@@ -193,7 +197,7 @@ import { HomeEventComponent } from './Ahmad/home-event/home-event.component';
           { path: "landmark-form", component: AddBaniObaidTComponent },
           { path: "AddLink/:id", component: ShowImgagesLandOneComponent },
           { path: "TourismInNorth", component: AddBaniObaidGeneralComponent },
-
+          { path: "ShowComplains", component: GetComplainsComponent },
           { path: "RegistrationManagement", component: RegistrationManagementComponent },
           { path: "eventManagement", component: EventManagementComponent },
           { path: 'event-form', component: EventFormComponent }, // للإضافة

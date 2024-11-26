@@ -1,0 +1,45 @@
+<div class="container mt-4" style="direction: rtl;">
+  <h2 class="text-center mb-4">الشكاوي</h2>
+
+  <table class="table table-bordered table-striped">
+    <thead class="table-dark">
+      <tr>
+        <th>#</th>
+        <th>الاسم</th>
+        <th>البريد الإلكتروني</th>
+        <th>الهاتف</th>
+        <th>نوع الشكوى</th>
+        <th>تفاصيل الشكوى</th>
+        <th>العنوان</th>
+        <th>الصورة</th> <!-- New column for image -->
+        <th>تاريخ الإنشاء</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let complain of complains; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ complain.name }}</td>
+        <td>{{ complain.email }}</td>
+        <td>{{ complain.phone }}</td>
+        <td>{{ complain.complainType }}</td>
+        <td>{{ complain.complainDetails }}</td>
+        <td>{{ complain.address }}</td>
+        <td>
+          <!-- Image clickable to open in a new tab -->
+          <img *ngIf="complain.image" 
+               [src]="'https://localhost:7243/' + complain.image" 
+               alt="Complaint Image" 
+               class="img-thumbnail complain-image" 
+               (click)="openImageInNewTab(complain.image)" 
+               style="max-width: 150px; max-height: 150px; cursor: pointer;">
+          <span *ngIf="!complain.image">لا يوجد صور</span> <!-- Fallback text if no image -->
+        </td>
+        <td>{{ complain.createdAt | date }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="complains.length === 0" class="alert alert-warning text-center" role="alert">
+    لا توجد شكاوي حالياً.
+  </div>
+</div>

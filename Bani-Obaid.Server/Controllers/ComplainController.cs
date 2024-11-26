@@ -71,7 +71,18 @@ namespace Bani_Obaid.Server.Controllers
 
             return BadRequest(new { success = false, message = "Invalid data submitted." });
         }
+        [HttpGet]
+        public IActionResult ShowComplains()
+        {
+            var complain = _db.Complains
+                               .OrderByDescending(c => c.CreatedAt)  
+                               .ToList();
+
+            return Ok(new { success = true, complains = complain });
+        }
 
     }
+
+
 
 }

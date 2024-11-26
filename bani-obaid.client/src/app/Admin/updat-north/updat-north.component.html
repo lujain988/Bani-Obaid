@@ -1,0 +1,66 @@
+<div class="container mt-4" style="direction: rtl; text-align: center;">
+  <h2 class="mb-4" style="color: black;">تحديث السياحة في الشمال</h2>
+
+  <!-- Form -->
+  <form (ngSubmit)="onUpdate()">
+    <div class="mb-3">
+      <label for="name" class="form-label">الاسم</label>
+      <input id="name"
+             type="text"
+             class="form-control"
+             [(ngModel)]="northData.name"
+             name="name"
+             required />
+    </div>
+
+    <div class="mb-3">
+      <label for="location" class="form-label">الموقع</label>
+      <input id="location"
+             type="text"
+             class="form-control"
+             [(ngModel)]="northData.location"
+             name="location"
+             required />
+    </div>
+
+    <div class="mb-3">
+      <label for="description" class="form-label">الوصف</label>
+      <textarea id="description"
+                class="form-control"
+                [(ngModel)]="northData.description"
+                name="description"
+                rows="4"
+                required></textarea>
+    </div>
+
+    <div class="mb-3">
+      <label for="image" class="form-label">الصورة الرئيسية</label>
+
+      <!-- Current Image Preview -->
+      <div class="mb-3">
+        <img *ngIf="northData.image && !selectedFile"
+             [src]="'https://localhost:7243' + northData.image"
+             alt="Current Image"
+             class="img-thumbnail"
+             style="max-width: 400px; max-height: 300px;" />
+      </div>
+
+      <!-- New Image Input -->
+      <input id="image"
+             type="file"
+             class="form-control"
+             (change)="onFileSelected($event)" />
+
+      <!-- New Image Preview -->
+      <div class="mt-3" *ngIf="selectedFile">
+        <p>صورة جديدة:</p>
+        <img [src]="imagePreviewUrl"
+             alt="New Image Preview"
+             class="img-thumbnail"
+             style="max-width: 400px; max-height: 300px;" />
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-success">تحديث</button>
+  </form>
+</div>

@@ -65,6 +65,10 @@ import { FeatureComponent } from './Ahmad/feature/feature.component';
 import { HomeEventComponent } from './Ahmad/home-event/home-event.component';
 import { GetComplainsComponent } from './Admin/get-complains/get-complains.component';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { NorthManagmentComponent } from './Admin/north-managment/north-managment.component';
+import { UpdatNorthComponent } from './Admin/updat-north/updat-north.component';
+import { AddNewNorthComponent } from './Admin/add-new-north/add-new-north.component';
+import { ShowImageForNorthComponent } from './Admin/show-image-for-north/show-image-for-north.component';
 
 @NgModule({
   declarations: [
@@ -132,6 +136,10 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
     FeatureComponent,
     HomeEventComponent,
     GetComplainsComponent,
+    NorthManagmentComponent,
+    UpdatNorthComponent,
+    AddNewNorthComponent,
+    ShowImageForNorthComponent,
   ],
   imports: [
     FormsModule,
@@ -193,7 +201,10 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
           { path: "Tourism/:id", component: UpdateLandMarkComponent },
           { path: "landmark-form", component: AddBaniObaidTComponent },
           { path: "AddLink/:id", component: ShowImgagesLandOneComponent },
-          { path: "TourismInNorth", component: AddBaniObaidGeneralComponent },
+          { path: "TourismInNorth", component: NorthManagmentComponent },
+          { path: "updateNorth/:id", component: UpdatNorthComponent },
+          { path: "AddNewPlace", component: AddNewNorthComponent },
+          { path: "showAllImages/:id", component: ShowImageForNorthComponent },
           { path: "ShowComplains", component: GetComplainsComponent },
           { path: "RegistrationManagement", component: RegistrationManagementComponent },
           { path: "eventManagement", component: EventManagementComponent },

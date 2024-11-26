@@ -1,0 +1,57 @@
+<div class="container mt-4" style="direction: rtl; text-align: center;">
+  <h2 class="mb-4" style="color: black;">إضافة مكان جديد</h2>
+
+  <!-- Form -->
+  <form (ngSubmit)="onAdd()">
+    <div class="mb-3">
+      <label for="name" class="form-label">الاسم</label>
+      <input id="name"
+             type="text"
+             class="form-control"
+             [(ngModel)]="newPlaceData.name"
+             name="name"
+             required />
+    </div>
+
+    <div class="mb-3">
+      <label for="location" class="form-label">الموقع</label>
+      <input id="location"
+             type="text"
+             class="form-control"
+             [(ngModel)]="newPlaceData.location"
+             name="location"
+             required />
+    </div>
+
+    <div class="mb-3">
+      <label for="description" class="form-label">الوصف</label>
+      <textarea id="description"
+                class="form-control"
+                [(ngModel)]="newPlaceData.description"
+                name="description"
+                rows="4"
+                required></textarea>
+    </div>
+
+    <div class="mb-3">
+      <label for="image" class="form-label">الصورة الرئيسية</label>
+
+      <!-- Image Input -->
+      <input id="image"
+             type="file"
+             class="form-control"
+             (change)="onFileSelected($event)" />
+
+      <!-- Image Preview -->
+      <div class="mt-3" *ngIf="imagePreviewUrl">
+        <p>معاينة الصورة:</p>
+        <img [src]="imagePreviewUrl"
+             alt="Image Preview"
+             class="img-thumbnail"
+             style="max-width: 400px; max-height: 300px;" />
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">إضافة</button>
+  </form>
+</div>

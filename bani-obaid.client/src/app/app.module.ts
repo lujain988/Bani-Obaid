@@ -70,7 +70,6 @@ import { ShowImgagesLandOneComponent } from './Admin/show-imgages-land-one/show-
 import { FeatureComponent } from './Ahmad/feature/feature.component';
 import { HomeEventComponent } from './Ahmad/home-event/home-event.component';
 import { GetComplainsComponent } from './Admin/get-complains/get-complains.component';
-import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { NorthManagmentComponent } from './Admin/north-managment/north-managment.component';
 import { UpdatNorthComponent } from './Admin/updat-north/updat-north.component';
 import { AddNewNorthComponent } from './Admin/add-new-north/add-new-north.component';
@@ -157,7 +156,6 @@ import { ShowImageForNorthComponent } from './Admin/show-image-for-north/show-im
     FormsModule,
     ReactiveFormsModule,
     BrowserModule, HttpClientModule,
-    InfiniteScrollModule,
     AppRoutingModule,
     RouterModule.forRoot([
 

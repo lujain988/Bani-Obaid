@@ -27,6 +27,7 @@ export class OwnershipTransferComponent {
 
   onSubmit() {
     if (this.ownershipForm.valid) {
+      debugger
       const formData = this.ownershipForm.value;
       this.urlService.addOwnershipTransfer(formData).subscribe(
         response => {

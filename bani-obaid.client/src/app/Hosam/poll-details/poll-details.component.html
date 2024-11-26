@@ -20,7 +20,8 @@
       <div class="col-xl-12">
         <div class="event-details__left text-center">
           <div class=" event-details__img text-center">
-            <img class="w-50" src="assets/images/Polls/{{Poll.image}}" alt="">
+            <img class="w-50" [src]="'https://localhost:7243' + Poll?.image" alt="{{ Poll?.image }}">
+
           </div>
           <h3 class="event-details__title-1">{{Poll.title}}</h3>
           <p class="event-details__text-1">{{Poll.description}}</p>

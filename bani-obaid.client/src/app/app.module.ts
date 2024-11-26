@@ -51,6 +51,7 @@ import { EventDetailsComponent } from './Mohammad/event-details/event-details.co
 import { EventManagementComponent } from './Mohammad/event-management/event-management.component';
 import { EventFormComponent } from './Mohammad/event-form/event-form.component';
 import { RegistrationManagementComponent } from './Mohammad/registration-management/registration-management.component';
+import { DashboardComponent } from './Admin/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -100,7 +101,8 @@ import { RegistrationManagementComponent } from './Mohammad/registration-managem
     EventDetailsComponent,
     EventManagementComponent,
     EventFormComponent,
-    RegistrationManagementComponent
+    RegistrationManagementComponent,
+    DashboardComponent
   ],
   imports: [
     FormsModule,
@@ -147,7 +149,7 @@ import { RegistrationManagementComponent } from './Mohammad/registration-managem
 
       {
         path: 'adminDashboard', component: AdminDashboardComponent, children: [
-          { path: 'home', component: HomeComponent },
+          { path: 'home', component: DashboardComponent },
           { path: 'profile', component: ProfileComponent },
           { path: 'polls', component: GetPollsComponent },
           { path: 'poll/:id', component: EditPollComponent },

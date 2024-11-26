@@ -1,0 +1,63 @@
+<div class="container mt-4" style="direction: rtl; max-width: 500px; margin: 0 auto;">
+  <h2 class="form-title text-center mb-4">إضافة معلم جديد</h2>
+
+  <form (ngSubmit)="onSubmit()" #landmarkForm="ngForm" class="landmark-form">
+    <!-- Name Field -->
+    <div class="form-group mb-3">
+      <label for="name" class="form-label">اسم المعلم:</label>
+      <input id="name"
+             type="text"
+             [(ngModel)]="landmarkData.name"
+             name="name"
+             class="form-control"
+             placeholder="أدخل اسم المعلم"
+             required
+             #name="ngModel" />
+      <div *ngIf="name.invalid && name.touched" class="text-danger">
+        اسم المعلم مطلوب.
+      </div>
+    </div>
+
+    <!-- Location Field -->
+    <div class="form-group mb-3">
+      <label for="location" class="form-label">الموقع:</label>
+      <input id="location"
+             type="text"
+             [(ngModel)]="landmarkData.location"
+             name="location"
+             class="form-control"
+             placeholder="أدخل موقع المعلم"
+             required
+             #location="ngModel" />
+      <div *ngIf="location.invalid && location.touched" class="text-danger">
+        الموقع مطلوب.
+      </div>
+    </div>
+
+    <!-- Description Field -->
+    <div class="form-group mb-3">
+      <label for="description" class="form-label">الوصف:</label>
+      <textarea id="description"
+                [(ngModel)]="landmarkData.description"
+                name="description"
+                class="form-control"
+                rows="4"
+                placeholder="أدخل وصف المعلم"></textarea>
+    </div>
+
+    <!-- File Upload -->
+    <div class="form-group mb-3">
+      <label for="image" class="form-label">إضافة صورة:</label>
+      <input id="image"
+             type="file"
+             (change)="onFileSelected($event)"
+             class="form-control"
+             accept="image/*" />
+    </div>
+
+    <!-- Submit Button -->
+    <div class="form-group text-center">
+      <button type="submit" class="submit-button" [disabled]="landmarkForm.invalid">إضافة</button>
+    </div>
+  </form>
+</div>

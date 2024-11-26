@@ -1,0 +1,46 @@
+<main>
+  <div class="container mt-4" style="direction: rtl; text-align: center">
+    <h2 style="color: black" class="text-center mb-4">جميع المعالم</h2>
+    <button class="btn btn-success btn-sm" [routerLink]="['/adminDashboard/landmark-form']">إضافة معلم جديد</button>
+    <br /> <br />
+
+    <div class="table-responsive mx-auto" style="max-width: 900px;">
+      <table class="table table-light table-hover table-bordered">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>اسم المعلم</th>
+            <th>صورة المعلم</th>
+            <th>الموقع</th>
+            <th>الوصف</th>
+            <th>التاريخ</th>
+            <th>إضافة صورة</th>
+            <th>الإجراء</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let item of landmarks; let i = index">
+            <th scope="row">{{ i + 1 }}</th>
+            <td>{{ item.name }}</td>
+            <td>
+              <img class="img-fluid" [src]="'https://localhost:7243/' + item.image" alt="Landmark Image" style="max-width: 100px; height: auto;">
+            </td>
+            <td>{{ item.location }}</td>
+            <td>{{ item.description | truncate:50 }}</td>
+            <td>{{ item.createdAt | date: 'yyyy-MM-dd' }}</td>
+            <td class="text-center">
+              <button class="btn btn-secondary btn-sm" [routerLink]="['/adminDashboard/AddLink', item.id]">
+                <i class="fa fa-upload"></i>
+              </button>
+            </td>
+            <td>
+              <button class="btn btn-primary btn-sm" [routerLink]="['/adminDashboard/Tourism', item.id]">تعديل</button>
+              <button class="btn btn-danger btn-sm" (click)="deleteLandmark(item.id)">حذف</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</main>

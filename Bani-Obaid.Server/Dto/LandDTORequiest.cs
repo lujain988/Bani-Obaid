@@ -14,6 +14,6 @@
 
         public IFormFile? Image { get; set; }
 
-        public List<IFormFile>? AdditionalImages { get; set; }
+        //public List<IFormFile>? AdditionalImages { get; set; }
     }
 }

@@ -18,11 +18,11 @@ export class LujainService {
     return this.http.get<any>(`${this.staticData}/LandMark/${id}`);
   }
 
-  createLandmark(data: FormData): Observable<any> {
+  createLandmark(data: any): Observable<any> {
     return this.http.post<any>(`${this.staticData}/LandMark`, data);
   }
 
-  updateLandmark(id: number, data: FormData): Observable<any> {
+  updateLandmark(id: number, data: any): Observable<any> {
     return this.http.put<any>(`${this.staticData}/LandMark/${id}`, data);
   }
 
@@ -35,5 +35,12 @@ export class LujainService {
   }
   postComplain(data: FormData): Observable<any> {
     return this.http.post<any>(`${this.staticData}/Complain/Complain`, data);
+  }
+  addAdditionalImages(id: number, additionalImages: FormData): Observable<any> {
+    return this.http.post<any>(`${this.staticData}/LandMark/AddAdditionalImages/${id}`, additionalImages);
+  }
+
+  showImages(id: number): Observable<any> {
+    return this.http.get<any>(`${this.staticData}/LandMark/showImages/${id}`);
   }
 }

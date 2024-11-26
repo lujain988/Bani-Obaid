@@ -59,6 +59,7 @@ import { PartnerComponent } from './Ahmad/partner/partner.component';
 import { GetSuggestionComponent } from './Admin/get-suggestion/get-suggestion.component';
 import { SuggestionDetailComponent } from './Admin/suggestion-detail/suggestion-detail.component';
 import { FeatureComponent } from './Ahmad/feature/feature.component';
+import { HomeEventComponent } from './Ahmad/home-event/home-event.component';
 
 @NgModule({
   declarations: [
@@ -121,6 +122,7 @@ import { FeatureComponent } from './Ahmad/feature/feature.component';
     StatisticsComponent,
     PartnerComponent,
     FeatureComponent,
+    HomeEventComponent,
   ],
   imports: [
     FormsModule,

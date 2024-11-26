@@ -1,0 +1,69 @@
+<!-- Events Section -->
+<section class="history-one">
+  <div class="history-one__top">
+    <div class="container">
+      <div class="section-title text-center">
+        <div class="section-title__icon">
+          <span class="fa fa-star"></span>
+        </div>
+        <span class="section-title__tagline">آخر الفعاليات</span>
+        <h2 class="section-title__title">آخر الفعاليات في مدينة الرمثا</h2>
+      </div>
+    </div>
+  </div>
+  <div class="history-one__bottom">
+    <div class="history-one__wrap events_wrap">
+      <div class="container">
+        <div id="eventsCarousel" class="carousel slide" data-bs-ride="carousel">
+          <!-- Indicators -->
+          <div class="carousel-indicators">
+            <button type="button"
+                    *ngFor="let event of EventArray; let i = index"
+                    data-bs-target="#eventsCarousel"
+                    [attr.data-bs-slide-to]="i"
+                    [class.active]="i === 0">
+            </button>
+          </div>
+
+          <!-- Carousel Items -->
+          <div class="carousel-inner">
+            <div class="carousel-item"
+                 *ngFor="let event of EventArray; let i = index"
+                 [class.active]="i === 0">
+              <div class="row">
+                <!-- Event Image -->
+                <div class="col-xl-6 col-lg-6 d-flex align-items-center justify-content-center">
+                  <img [src]="event.image"
+                       alt="{{ event.title }}"
+                       class="d-block w-100"
+                       style="max-height: 400px;">
+                </div>
+                <!-- Event Details -->
+                <div class="col-xl-6 col-lg-6 d-flex flex-column justify-content-center text-start" dir="rtl">
+                  <h4 class="font-event">{{ event.title }}</h4>
+                  <p class="mobile-description">{{ event.description }}</p>
+                  <!-- Event Date -->
+                  <p class="text-muted mt-2">
+                    <strong>تاريخ الفعالية: </strong>{{ event.formattedDate }}
+                  </p>
+
+                  <a [routerLink]="['/eventdetail', event.id]" class="btn btn-primary mt-3">انتقل الى الفعالية</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Controls -->
+          <button class="carousel-control-prev" type="button" data-bs-target="#eventsCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#eventsCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

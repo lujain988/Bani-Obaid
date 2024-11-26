@@ -1,58 +1,67 @@
-<div class="container mt-4" style="direction: rtl; text-align: center;">
-  <h2 class="mb-4" style="color: black;">تحديث السياحة في الشمال</h2>
+<div class="container mt-4" style="direction: rtl; max-width: 500px; margin: 0 auto;">
+  <h2 class="form-title text-center mb-4">تحديث بيانات السياحة في الشمال</h2>
 
-  <!-- Form -->
-  <form (ngSubmit)="onUpdate()">
-    <div class="mb-3">
-      <label for="name" class="form-label">الاسم</label>
+  <form (ngSubmit)="onUpdate()" class="landmark-form">
+    <!-- Name Field -->
+    <div class="form-group mb-3">
+      <label for="name" class="form-label">اسم المكان:</label>
       <input id="name"
              type="text"
-             class="form-control"
              [(ngModel)]="northData.name"
              name="name"
+             class="form-control"
+             placeholder="أدخل اسم المكان"
              required />
     </div>
 
-    <div class="mb-3">
-      <label for="location" class="form-label">الموقع</label>
+    <!-- Location Field -->
+    <div class="form-group mb-3">
+      <label for="location" class="form-label">الموقع:</label>
       <input id="location"
              type="text"
-             class="form-control"
              [(ngModel)]="northData.location"
              name="location"
+             class="form-control"
+             placeholder="أدخل موقع المكان"
              required />
     </div>
 
-    <div class="mb-3">
-      <label for="description" class="form-label">الوصف</label>
+    <!-- Description Field -->
+    <div class="form-group mb-3">
+      <label for="description" class="form-label">الوصف:</label>
       <textarea id="description"
-                class="form-control"
                 [(ngModel)]="northData.description"
                 name="description"
+                class="form-control"
                 rows="4"
+                placeholder="أدخل وصف المكان"
                 required></textarea>
     </div>
 
-    <div class="mb-3">
-      <label for="image" class="form-label">الصورة الرئيسية</label>
-
-      <!-- Current Image Preview -->
-      <div class="mb-3">
-        <img *ngIf="northData.image && !selectedFile"
-             [src]="'https://localhost:7243' + northData.image"
+    <!-- Current Image -->
+    <div class="form-group mb-3">
+      <label for="currentImage" class="form-label">الصورة الحالية:</label>
+      <div class="current-image-container">
+        <img *ngIf="northData.image; else noImage"
+             [src]="'https://localhost:7243/' + northData.image"
              alt="Current Image"
-             class="img-thumbnail"
-             style="max-width: 400px; max-height: 300px;" />
+             class="img-fluid" />
+        <ng-template #noImage>
+          <p>لا توجد صورة حالياً لهذا المكان.</p>
+        </ng-template>
       </div>
+    </div>
 
-      <!-- New Image Input -->
+    <!-- Upload New Image -->
+    <div class="form-group mb-3">
+      <label for="image" class="form-label">تحديث الصورة:</label>
       <input id="image"
              type="file"
+             (change)="onFileSelected($event)"
              class="form-control"
-             (change)="onFileSelected($event)" />
-
+             accept="image/*" />
       <!-- New Image Preview -->
-      <div class="mt-3" *ngIf="selectedFile">
+      <div class="mt-3" *ngIf="imagePreviewUrl">
         <p>صورة جديدة:</p>
         <img [src]="imagePreviewUrl"
              alt="New Image Preview"
@@ -61,6 +70,9 @@
       </div>
     </div>
 
-    <button type="submit" class="btn btn-success">تحديث</button>
+    <!-- Submit Button -->
+    <div class="form-group text-center">
+      <button type="submit" class="submit-button">تحديث</button>
+    </div>
   </form>
 </div>

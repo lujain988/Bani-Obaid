@@ -26,13 +26,13 @@
 }
 
   .feature-four__title a:hover {
-    color: #007bff;
+    color: #0ca554;
   }
 
 .thm-btn {
   display: inline-block;
   padding: 10px 20px;
-  background: #007bff;
+  background: #0ca554;
   color: #fff;
   text-decoration: none;
   border-radius: 5px;
@@ -41,7 +41,7 @@
 
   .thm-btn:hover {
     background: #fff;
-    color: #007bff;
+    color: #0ca554;
   }
 
 .feature-four__single[_ngcontent-ng-c3525236681] {
@@ -86,7 +86,7 @@
 }
 
   .feature-four__img-box:hover {
-    background-color: #007bff; /* اللون المطلوب عند التمرير */
+    background-color: #0ca554; /* اللون المطلوب عند التمرير */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* تأثير إضافي */
   }
 
@@ -107,8 +107,8 @@
 }
 
   .feature-four__img-box:hover {
-    background-color: #007bff; /* تغيير لون الخلفية عند التمرير */
-    border: 3px solid #007bff; /* تغيير لون الإطار عند التمرير */
+    background-color: #0ca554; /* تغيير لون الخلفية عند التمرير */
+    border: 3px solid #0ca554; /* تغيير لون الإطار عند التمرير */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* إضافة تأثير الظل */
   }
 
@@ -129,8 +129,8 @@
 }
 
   .feature-four__img-box:hover {
-    background-color: #007bff; /* الخلفية عند التمرير */
-    border-color: #007bff; /* تغيير لون الإطار عند التمرير */
+    background-color: #0ca554; /* الخلفية عند التمرير */
+    border-color: #0ca554; /* تغيير لون الإطار عند التمرير */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* تأثير الظل */
   }
 
@@ -138,4 +138,12 @@
   max-width: 100%;
   height: auto;
   border-radius: 100%; /* الحفاظ على الشكل الدائري */
+}
+
+.feature-four__title[_ngcontent-ng-c3252844067] a[_ngcontent-ng-c3252844067] {
+  color: #333;
+  text-decoration: none;
+  font-size: 2.2rem;
+  position: relative;
+  top: -.7em;
 }

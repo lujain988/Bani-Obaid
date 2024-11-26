@@ -7,7 +7,7 @@
           <span class="fa fa-star"></span>
         </div>
         <span class="section-title__tagline">آخر الفعاليات</span>
-        <h2 class="section-title__title">آخر الفعاليات في مدينة الرمثا</h2>
+        <h2 class="section-title__title">آخر الفعاليات في مدينة الحصن</h2>
       </div>
     </div>
   </div>
@@ -31,23 +31,23 @@
                  *ngFor="let event of EventArray; let i = index"
                  [class.active]="i === 0">
               <div class="row">
+                <!-- Event Details -->
+                <div class="col-xl-6 col-lg-6 d-flex flex-column justify-content-center text-start" dir="rtl">
+                  <h4 class="font-event text-end">{{ event.title }}</h4>
+                  <p class="mobile-description text-end">{{ event.description }}</p>
+                  <!-- Event Date -->
+                  <p class="text-muted mt-2 text-end">
+                    <strong>تاريخ الفعالية: </strong>{{ event.formattedDate }}
+                  </p>
+
+                  <a [routerLink]="['/eventdetail', event.id]" class="btn btn-primary mt-3">انتقل الى الفعالية</a>
+                </div>
                 <!-- Event Image -->
                 <div class="col-xl-6 col-lg-6 d-flex align-items-center justify-content-center">
                   <img [src]="event.image"
                        alt="{{ event.title }}"
                        class="d-block w-100"
                        style="max-height: 400px;">
-                </div>
-                <!-- Event Details -->
-                <div class="col-xl-6 col-lg-6 d-flex flex-column justify-content-center text-start" dir="rtl">
-                  <h4 class="font-event">{{ event.title }}</h4>
-                  <p class="mobile-description">{{ event.description }}</p>
-                  <!-- Event Date -->
-                  <p class="text-muted mt-2">
-                    <strong>تاريخ الفعالية: </strong>{{ event.formattedDate }}
-                  </p>
-
-                  <a [routerLink]="['/eventdetail', event.id]" class="btn btn-primary mt-3">انتقل الى الفعالية</a>
                 </div>
               </div>
             </div>

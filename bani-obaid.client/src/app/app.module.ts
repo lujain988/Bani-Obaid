@@ -64,6 +64,8 @@ import { UpdateLandMarkComponent } from './Admin/update-land-mark/update-land-ma
 import { ShowImgagesLandOneComponent } from './Admin/show-imgages-land-one/show-imgages-land-one.component';
 import { FeatureComponent } from './Ahmad/feature/feature.component';
 import { HomeEventComponent } from './Ahmad/home-event/home-event.component';
+import { AdminPresidentComponent } from './Admin/admin-president/admin-president.component';
+import { EditPresidentComponent } from './Admin/edit-president/edit-president.component';
 
 @NgModule({
   declarations: [
@@ -132,6 +134,8 @@ import { HomeEventComponent } from './Ahmad/home-event/home-event.component';
     PartnerComponent,
     FeatureComponent,
     HomeEventComponent,
+    AdminPresidentComponent,
+    EditPresidentComponent,
   ],
   imports: [
     FormsModule,
@@ -201,6 +205,9 @@ import { HomeEventComponent } from './Ahmad/home-event/home-event.component';
           { path: 'JobsManagement', component: JobManagementComponent },
           { path: 'addJob', component: AddJobComponent },
           { path: 'editJob/:id', component: EditJobComponent },
+          { path: "AdminPresident", component: AdminPresidentComponent },
+          { path: 'EditPresident/:id', component: EditPresidentComponent },
+
 
 
 

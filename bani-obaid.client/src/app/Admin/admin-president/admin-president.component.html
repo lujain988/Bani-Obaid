@@ -1,0 +1,48 @@
+<h2 class="text-center my-4 d-flex flex-column align-items-center" style="direction:rtl;">
+  <span>كلمة الرئيس</span>
+  <!-- زر التعديل -->
+  <button class="btn btn-success me-2"
+          style="font-size: 18px; padding: 10px 20px;"
+          [routerLink]="['/adminDashboard/EditPresident', PresidentArray[0]?.id]">
+    تعديل
+  </button>
+</h2>
+
+<hr />
+
+<!--Projects Page Start-->
+<section class="department-page" *ngIf="PresidentArray?.length > 0; else errorTemplate" style="direction:rtl;">
+  <div class="container">
+    <div class="row">
+      <div class="text-center" style="direction:rtl">
+        <img *ngIf="PresidentArray[0]?.image" [src]="'https://localhost:7243' + PresidentArray[0].image" alt="{{ PresidentArray[0]?.name }}" style="width: 200px; height:200px;" />
+        <br><br>
+        <h3>بسم الله الرحمن الرحيم</h3>
+        <br>
+        <p *ngIf="PresidentArray[0]?.speech" class="about-one__text"
+           style="width: 74%; margin: 0 auto; direction: rtl; text-align: justify; line-height: 1.8;">
+          {{ PresidentArray[0]?.speech }}
+        </p>
+        <br><br>
+        <p *ngIf="PresidentArray[0]?.name" class="about-one__big-text" style="font-size: 20px !important;">
+          {{ PresidentArray[0]?.name }}
+        </p>
+        <br><br>
+        <div class="d-flex justify-content-center">
+          <!-- زر الحذف -->
+          <!--<button class="btn btn-danger" (click)="deletePresident(PresidentArray[0]?.id)">
+            حذف
+          </button>-->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Template for error handling -->
+<ng-template #errorTemplate>
+  <div class="text-center" style="color: red;">
+    <h3>تعذر تحميل البيانات</h3>
+    <p>يرجى التحقق من اتصالك بالخادم أو المحاولة لاحقًا.</p>
+  </div>
+</ng-template>

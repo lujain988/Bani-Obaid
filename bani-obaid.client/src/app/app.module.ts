@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // Import ReactiveFormsModule
 
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -58,6 +57,13 @@ import { StatisticsComponent } from './Ahmad/statistics/statistics.component';
 import { PartnerComponent } from './Ahmad/partner/partner.component';
 import { GetSuggestionComponent } from './Admin/get-suggestion/get-suggestion.component';
 import { SuggestionDetailComponent } from './Admin/suggestion-detail/suggestion-detail.component';
+import { AddBaniObaidTComponent } from './Admin/add-bani-obaid-t/add-bani-obaid-t.component';
+import { AddBaniObaidGeneralComponent } from './Admin/add-bani-obaid-general/add-bani-obaid-general.component';
+import { LandManagmentComponent } from './Admin/land-managment/land-managment.component';
+import { UpdateLandMarkComponent } from './Admin/update-land-mark/update-land-mark.component';
+import { ShowImgagesLandOneComponent } from './Admin/show-imgages-land-one/show-imgages-land-one.component';
+import { FeatureComponent } from './Ahmad/feature/feature.component';
+import { HomeEventComponent } from './Ahmad/home-event/home-event.component';
 
 @NgModule({
   declarations: [
@@ -112,6 +118,11 @@ import { SuggestionDetailComponent } from './Admin/suggestion-detail/suggestion-
     UpdateTendersComponent,
     GetSuggestionComponent,
     SuggestionDetailComponent,
+    AddBaniObaidTComponent,
+    AddBaniObaidGeneralComponent,
+    LandManagmentComponent,
+    UpdateLandMarkComponent,
+    ShowImgagesLandOneComponent,
 
 
     RegistrationManagementComponent,
@@ -119,10 +130,12 @@ import { SuggestionDetailComponent } from './Admin/suggestion-detail/suggestion-
     HomePresidentComponent, 
     StatisticsComponent,
     PartnerComponent,
+    FeatureComponent,
+    HomeEventComponent,
   ],
   imports: [
     FormsModule,
-    ReactiveFormsModule ,
+    ReactiveFormsModule,
     BrowserModule, HttpClientModule,
     AppRoutingModule,
     RouterModule.forRoot([
@@ -175,6 +188,11 @@ import { SuggestionDetailComponent } from './Admin/suggestion-detail/suggestion-
           { path: "updatetenders/:id", component: UpdateTendersComponent },
           { path: 'suggestions', component: GetSuggestionComponent },
           { path: "suggestiondetail/:id", component: SuggestionDetailComponent },
+          { path: "Tourism", component: LandManagmentComponent },
+          { path: "Tourism/:id", component: UpdateLandMarkComponent },
+          { path: "landmark-form", component: AddBaniObaidTComponent },
+          { path: "AddLink/:id", component: ShowImgagesLandOneComponent },
+          { path: "TourismInNorth", component: AddBaniObaidGeneralComponent },
 
           { path: "RegistrationManagement", component: RegistrationManagementComponent },
           { path: "eventManagement", component: EventManagementComponent },
@@ -185,7 +203,7 @@ import { SuggestionDetailComponent } from './Admin/suggestion-detail/suggestion-
           { path: 'editJob/:id', component: EditJobComponent },
 
 
-       
+
         ]
 
       }

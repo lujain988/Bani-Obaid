@@ -132,4 +132,10 @@ export class ServiceService {
     return this.http.delete<any>(`${this.staticData}/Partner/DeletePartner/${id}`);
   }
 
+  //Events
+
+  getEvents(): Observable<any> {
+    return this.http.get<any>(`${this.staticData}/Events`);
+  }
+
 }

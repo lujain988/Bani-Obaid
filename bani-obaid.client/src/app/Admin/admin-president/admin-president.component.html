@@ -1,45 +1,37 @@
-<h2 class="text-center my-4 d-flex flex-column align-items-center" style="direction:rtl;">
+<h1 class="text-center my-4 d-flex flex-column align-items-center" style="direction: rtl; font-weight:900;">
   <span>كلمة الرئيس</span>
-  <!-- زر التعديل -->
-  <button class="btn btn-success me-2"
-          style="font-size: 18px; padding: 10px 20px;"
-          [routerLink]="['/adminDashboard/EditPresident', PresidentArray[0]?.id]">
-    تعديل
-  </button>
-</h2>
+</h1>
 
 <hr />
 
-<!--Projects Page Start-->
-<section class="department-page" *ngIf="PresidentArray?.length > 0; else errorTemplate" style="direction:rtl;">
-  <div class="container">
-    <div class="row">
-      <div class="text-center" style="direction:rtl">
-        <img *ngIf="PresidentArray[0]?.image" [src]="'https://localhost:7243' + PresidentArray[0].image" alt="{{ PresidentArray[0]?.name }}" style="width: 200px; height:200px;" />
-        <br><br>
-        <h3>بسم الله الرحمن الرحيم</h3>
-        <br>
-        <p *ngIf="PresidentArray[0]?.speech" class="about-one__text"
-           style="width: 74%; margin: 0 auto; direction: rtl; text-align: justify; line-height: 1.8;">
-          {{ PresidentArray[0]?.speech }}
-        </p>
-        <br><br>
-        <p *ngIf="PresidentArray[0]?.name" class="about-one__big-text" style="font-size: 20px !important;">
-          {{ PresidentArray[0]?.name }}
-        </p>
-        <br><br>
-        <div class="d-flex justify-content-center">
-          <!-- زر الحذف -->
-          <!--<button class="btn btn-danger" (click)="deletePresident(PresidentArray[0]?.id)">
-            حذف
-          </button>-->
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+<table class="table table-striped" style="direction: rtl;">
+  <thead>
+    <tr>
+      <th scope="col" style="text-align: center; width: 5em;">اسم الرئيس</th>
+      <th scope="col" style="text-align: center; width: 200px;">صورة الرئيس</th>
+      <th scope="col" style="text-align: center; width: 10em;">كلمة الرئيس</th>
+      <th scope="col" style="text-align: center; width: 5em;">تعديل</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let President of PresidentArray">
+      <td style="text-align: center; width: 5em;">{{ President.name }}</td>
+      <td style="text-align: center; width: 200px;">
+        <img [src]="'https://localhost:7243' + President.image" alt="{{ President.name }}"
+             style="width: 150px; height: 150px; border: 1px solid #ccc;" />
+      </td>
+      <td style="text-align: justify; direction: rtl; width: 10em;">
+        <!-- عرض أول 50 كلمة -->
+        {{ President.speech.split(' ').slice(0, 50).join(' ') }}...
+      </td>
+      <td style="text-align: center; width: 5em;">
+        <button class="btn btn-warning" [routerLink]="['/adminDashboard/EditPresident', President.id]">تعديل</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
-<!-- Template for error handling -->
+<!-- رسالة خطأ إذا لم تكن هناك بيانات -->
 <ng-template #errorTemplate>
   <div class="text-center" style="color: red;">
     <h3>تعذر تحميل البيانات</h3>

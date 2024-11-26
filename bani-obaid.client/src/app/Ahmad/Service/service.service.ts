@@ -79,6 +79,10 @@ export class ServiceService {
     return this.http.get<any>(`${this.staticData}/OrganizationStructure/GetStructure`);
   }
 
+  getStructureById(id: string): Observable<any> {
+    return this.http.get<any>(`${this.staticData}/OrganizationStructure/GetStructureByID/${id}`);
+  }
+
   addStructure(data: FormData): Observable<any> {
     return this.http.post<any>(`${this.staticData}/OrganizationStructure/addStructure`, data);
   }

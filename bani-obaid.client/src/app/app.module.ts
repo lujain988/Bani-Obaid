@@ -76,6 +76,10 @@ import { NorthManagmentComponent } from './Admin/north-managment/north-managment
 import { UpdatNorthComponent } from './Admin/updat-north/updat-north.component';
 import { AddNewNorthComponent } from './Admin/add-new-north/add-new-north.component';
 import { ShowImageForNorthComponent } from './Admin/show-image-for-north/show-image-for-north.component';
+import { AdminAboutMunicipalityComponent } from './Admin/admin-about-municipality/admin-about-municipality.component';
+import { EditAboutMunicipalityComponent } from './Admin/edit-about-municipality/edit-about-municipality.component';
+import { AdminorganizationStructureComponent } from './Admin/adminorganization-structure/adminorganization-structure.component';
+import { EditStructureComponent } from './Admin/edit-structure/edit-structure.component';
 
 @NgModule({
   declarations: [
@@ -155,6 +159,10 @@ import { ShowImageForNorthComponent } from './Admin/show-image-for-north/show-im
     UpdatNorthComponent,
     AddNewNorthComponent,
     ShowImageForNorthComponent,
+    AdminAboutMunicipalityComponent,
+    EditAboutMunicipalityComponent,
+    AdminorganizationStructureComponent,
+    EditStructureComponent,
   ],
   imports: [
     FormsModule,
@@ -235,9 +243,10 @@ import { ShowImageForNorthComponent } from './Admin/show-image-for-north/show-im
           { path: 'editJob/:id', component: EditJobComponent },
           { path: "AdminPresident", component: AdminPresidentComponent },
           { path: 'EditPresident/:id', component: EditPresidentComponent },
-
-
-
+          { path: "AboutMunicipality", component: AdminAboutMunicipalityComponent },
+          { path: 'EditAboutMunicipality/:id', component: EditAboutMunicipalityComponent },
+          { path: "OrganizationStructure", component: AdminorganizationStructureComponent },
+          { path: 'EditStructure/:id', component: EditStructureComponent },
 
         ]
 

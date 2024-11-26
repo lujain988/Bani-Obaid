@@ -55,6 +55,8 @@ import { ImageHomePageComponent } from './Ahmad/image-home-page/image-home-page.
 import { HomePresidentComponent } from './Ahmad/home-president/home-president.component';
 import { StatisticsComponent } from './Ahmad/statistics/statistics.component';
 import { PartnerComponent } from './Ahmad/partner/partner.component';
+import { GetSuggestionComponent } from './Admin/get-suggestion/get-suggestion.component';
+import { SuggestionDetailComponent } from './Admin/suggestion-detail/suggestion-detail.component';
 
 @NgModule({
   declarations: [
@@ -105,6 +107,8 @@ import { PartnerComponent } from './Ahmad/partner/partner.component';
     EventFormComponent,
     RegistrationManagementComponent,
     UpdateTendersComponent,
+    GetSuggestionComponent,
+    SuggestionDetailComponent,
 
 
     RegistrationManagementComponent,
@@ -166,6 +170,9 @@ import { PartnerComponent } from './Ahmad/partner/partner.component';
           { path: 'tenders', component: GetTendersComponent },
           { path: 'AddTenders', component: AddTendersComponent },
           { path: "updatetenders/:id", component: UpdateTendersComponent },
+          { path: 'suggestions', component: GetSuggestionComponent },
+          { path: "suggestiondetail/:id", component: SuggestionDetailComponent },
+
           { path: "RegistrationManagement", component: RegistrationManagementComponent },
           { path: "eventManagement", component: EventManagementComponent },
           { path: 'event-form', component: EventFormComponent }, // للإضافة

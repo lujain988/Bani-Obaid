@@ -48,6 +48,29 @@ namespace Bani_Obaid.Server.Controllers
             return NotFound("there is not Suggestion with this id ");
         }
 
+
+
+        [HttpDelete("Deletesuggestion/{id}")]
+
+        public IActionResult DeleteTsuggestions(int id)
+        {
+            if (id <= 0)
+            {
+                return BadRequest("Please enter a valid Id");
+            }
+
+            var suggest = _db.Suggestions.FirstOrDefault(t => t.Id == id);
+            if (suggest == null)
+            {
+                return NotFound("there is no suggest with this id ");
+
+            }
+
+            _db.Suggestions.Remove(suggest);
+            _db.SaveChanges();
+            return NoContent();
+        }
+
         [HttpPost("AddNewSuggestion")]
         public IActionResult AddSuggestion([FromForm] SuggestionDto suggest)
         {

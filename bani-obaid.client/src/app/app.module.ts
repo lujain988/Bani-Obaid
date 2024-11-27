@@ -56,6 +56,12 @@ import { StatisticsComponent } from './Ahmad/statistics/statistics.component';
 import { PartnerComponent } from './Ahmad/partner/partner.component';
 import { GetSuggestionComponent } from './Admin/get-suggestion/get-suggestion.component';
 import { SuggestionDetailComponent } from './Admin/suggestion-detail/suggestion-detail.component';
+import { InvestmentComponent } from './Admin/investment/investment.component';
+import { AddInvestmentComponent } from './Admin/add-investment/add-investment.component';
+import { UpdateInvestmentComponent } from './Admin/update-investment/update-investment.component';
+import { ProjectsAdminComponent } from './Admin/projects-admin/projects-admin.component';
+import { AddProjectComponent } from './Admin/add-project/add-project.component';
+import { UpdateProjectComponent } from './Admin/update-project/update-project.component';
 import { AddBaniObaidTComponent } from './Admin/add-bani-obaid-t/add-bani-obaid-t.component';
 import { AddBaniObaidGeneralComponent } from './Admin/add-bani-obaid-general/add-bani-obaid-general.component';
 import { LandManagmentComponent } from './Admin/land-managment/land-managment.component';
@@ -63,6 +69,21 @@ import { UpdateLandMarkComponent } from './Admin/update-land-mark/update-land-ma
 import { ShowImgagesLandOneComponent } from './Admin/show-imgages-land-one/show-imgages-land-one.component';
 import { FeatureComponent } from './Ahmad/feature/feature.component';
 import { HomeEventComponent } from './Ahmad/home-event/home-event.component';
+import { AdminPresidentComponent } from './Admin/admin-president/admin-president.component';
+import { EditPresidentComponent } from './Admin/edit-president/edit-president.component';
+import { GetComplainsComponent } from './Admin/get-complains/get-complains.component';
+import { NorthManagmentComponent } from './Admin/north-managment/north-managment.component';
+import { UpdatNorthComponent } from './Admin/updat-north/updat-north.component';
+import { AddNewNorthComponent } from './Admin/add-new-north/add-new-north.component';
+import { ShowImageForNorthComponent } from './Admin/show-image-for-north/show-image-for-north.component';
+import { AdminAboutMunicipalityComponent } from './Admin/admin-about-municipality/admin-about-municipality.component';
+import { EditAboutMunicipalityComponent } from './Admin/edit-about-municipality/edit-about-municipality.component';
+import { AdminorganizationStructureComponent } from './Admin/adminorganization-structure/adminorganization-structure.component';
+import { EditStructureComponent } from './Admin/edit-structure/edit-structure.component';
+import { AdminMunicipalityMemberComponent } from './Admin/admin-municipality-member/admin-municipality-member.component';
+import { EditMemberComponent } from './Admin/edit-member/edit-member.component';
+import { AddMemberComponent } from './Admin/add-member/add-member.component';
+import { OwnershipTransferManagementComponent } from './Mohammad/ownership-transfer-management/ownership-transfer-management.component';
 
 @NgModule({
   declarations: [
@@ -127,8 +148,29 @@ import { HomeEventComponent } from './Ahmad/home-event/home-event.component';
     HomePresidentComponent, 
     StatisticsComponent,
     PartnerComponent,
+    InvestmentComponent,
+    AddInvestmentComponent,
+    UpdateInvestmentComponent,
+    ProjectsAdminComponent,
+    AddProjectComponent,
+    UpdateProjectComponent,
     FeatureComponent,
     HomeEventComponent,
+    AdminPresidentComponent,
+    EditPresidentComponent,
+    GetComplainsComponent,
+    NorthManagmentComponent,
+    UpdatNorthComponent,
+    AddNewNorthComponent,
+    ShowImageForNorthComponent,
+    AdminAboutMunicipalityComponent,
+    EditAboutMunicipalityComponent,
+    AdminorganizationStructureComponent,
+    EditStructureComponent,
+    AdminMunicipalityMemberComponent,
+    EditMemberComponent,
+    AddMemberComponent,
+    OwnershipTransferManagementComponent,
   ],
   imports: [
     FormsModule,
@@ -183,14 +225,23 @@ import { HomeEventComponent } from './Ahmad/home-event/home-event.component';
           { path: 'tenders', component: GetTendersComponent },
           { path: 'AddTenders', component: AddTendersComponent },
           { path: "updatetenders/:id", component: UpdateTendersComponent },
+          { path: 'projectAdmin', component: ProjectsAdminComponent },
+          { path: 'AddProject', component: AddProjectComponent },
+          { path: "updateproject/:id", component: UpdateProjectComponent },
           { path: 'suggestions', component: GetSuggestionComponent },
           { path: "suggestiondetail/:id", component: SuggestionDetailComponent },
+          { path: 'invesments', component: InvestmentComponent },
+          { path: 'AddInvestment', component: AddInvestmentComponent },
+          { path: "updateinvestments/:id", component: UpdateInvestmentComponent },
           { path: "Tourism", component: LandManagmentComponent },
           { path: "Tourism/:id", component: UpdateLandMarkComponent },
           { path: "landmark-form", component: AddBaniObaidTComponent },
           { path: "AddLink/:id", component: ShowImgagesLandOneComponent },
-          { path: "TourismInNorth", component: AddBaniObaidGeneralComponent },
-
+          { path: "TourismInNorth", component: NorthManagmentComponent },
+          { path: "updateNorth/:id", component: UpdatNorthComponent },
+          { path: "AddNewPlace", component: AddNewNorthComponent },
+          { path: "showAllImages/:id", component: ShowImageForNorthComponent },
+          { path: "ShowComplains", component: GetComplainsComponent },
           { path: "RegistrationManagement", component: RegistrationManagementComponent },
           { path: "eventManagement", component: EventManagementComponent },
           { path: 'event-form', component: EventFormComponent }, // للإضافة
@@ -198,6 +249,16 @@ import { HomeEventComponent } from './Ahmad/home-event/home-event.component';
           { path: 'JobsManagement', component: JobManagementComponent },
           { path: 'addJob', component: AddJobComponent },
           { path: 'editJob/:id', component: EditJobComponent },
+          { path: "AdminPresident", component: AdminPresidentComponent },
+          { path: 'EditPresident/:id', component: EditPresidentComponent },
+          { path: "AboutMunicipality", component: AdminAboutMunicipalityComponent },
+          { path: 'EditAboutMunicipality/:id', component: EditAboutMunicipalityComponent },
+          { path: "OrganizationStructure", component: AdminorganizationStructureComponent },
+          { path: 'EditStructure/:id', component: EditStructureComponent },
+          { path: "AdminMunicipalityMember", component: AdminMunicipalityMemberComponent },
+          { path: 'EditMember/:id', component: EditMemberComponent },
+          { path: 'AddMember', component: AddMemberComponent },
+          { path: 'OwnershipTransfer', component: OwnershipTransferManagementComponent },
 
 
 

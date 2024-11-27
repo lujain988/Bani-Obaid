@@ -17,7 +17,6 @@ namespace Bani_Obaid.Server.Dto
         // Main image for the GeneralLand
         public IFormFile? Image { get; set; }
 
-        // List of album images only
-        public List<IFormFile>? AdditionalImages { get; set; }
+
     }
 }

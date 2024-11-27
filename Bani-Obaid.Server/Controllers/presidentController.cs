@@ -22,6 +22,20 @@ namespace Bani_Obaid.Server.Controllers
             return Ok(Municipality);
         }
 
+        [HttpGet("GetPresidentByID/{id}")]
+        public IActionResult GetPresidentByID(int id)
+        {
+            var President = _db.BaniObaidClubsPresidents.FirstOrDefault(m => m.Id == id);
+
+            if (President == null)
+            {
+                return NotFound("President not found.");
+            }
+
+            return Ok(President);
+        }
+
+
         [HttpPost("addPresident")]
         public IActionResult Municipality([FromForm] PresidentRequest presidentDTO)
         {

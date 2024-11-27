@@ -46,7 +46,18 @@ export class UrlService {
 
   // POST method to create a new ownership transfer
   addOwnershipTransfer(data: any): Observable<any> {
-    return this.http.post<any>(`${this.staticData}/OwnershipTransfer/api/OwnershipTransfers`, data);
+    debugger
+    return this.http.post<any>(`${this.staticData}/OwnershipTransfer/OwnershipTransfers`, data);
+  }
+
+  // Fetch all ownership transfers
+  getAllOwnershipTransfers(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.staticData}/OwnershipTransfer`);
+  }
+
+  // Delete an ownership transfer by ID
+  deleteOwnershipTransfer(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.staticData}/OwnershipTransfer/${id}`);
   }
 
   getEvents(): Observable<any[]> {

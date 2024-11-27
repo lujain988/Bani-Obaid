@@ -1,0 +1,8 @@
+.department-page {
+  position: relative;
+  display: block;
+   padding: 0 0 60px; 
+}
+p.about-one__big-text {
+  margin-top: -2em;
+}

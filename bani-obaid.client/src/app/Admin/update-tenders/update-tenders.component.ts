@@ -69,6 +69,17 @@ export class UpdateTendersComponent {
  
 
   UpdateTender(data: any) {
+
+    // Check if the main image is selected
+    if (!this.imageFile) {
+      Swal.fire({
+        icon: 'error',
+        title: 'خطأ',
+        text: 'يجب اختيار الصورة الرئيسية قبل التعديل.',
+        confirmButtonText: 'حسنًا'
+      });
+      return;  // Prevent submission if the image is not selected
+    }
     const form = new FormData();
     for (let key in data) {
       form.append(key, data[key]);

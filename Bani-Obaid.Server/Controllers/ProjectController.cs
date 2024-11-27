@@ -138,7 +138,7 @@ namespace Bani_Obaid.Server.Controllers
         [HttpGet("getVisibleProjects")]
         public IActionResult GetVisibleProjects()
         {
-            var visibleProjects = _db.Projects.Where(p => p.Status == "Visible").ToList();
+            var visibleProjects = _db.Projects.Where(p => p.Status == "مرئي").ToList();
             return Ok(visibleProjects);
         }
 

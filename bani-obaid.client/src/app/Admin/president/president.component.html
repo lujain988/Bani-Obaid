@@ -1,0 +1,33 @@
+<h2 class="text-center my-4 d-flex flex-column align-items-center">
+  <span>كلمة الرئيس</span>
+</h2>
+
+<hr />
+
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col" style="text-align: center;">أسم الرئيس</th>
+      <th scope="col" style="text-align: center;">صورة الرئيس</th>
+      <th scope="col" style="text-align: center;">كلمة الرئيس</th>
+      <th scope="col" style="text-align: center;">تعديل</th>
+      <th scope="col" style="text-align: center;">حذف</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let President of PresidentArray">
+      <td style="text-align: center;">{{ President.name }}</td>
+      <img [src]="'https://localhost:7118/api/Product/images/' + President?.image"
+           alt="{{ President?.image }}"
+           style="width: 50px; height: 50px;" />
+      <td style="text-align: center;">{{ President.speech }}</td>
+      <td style="text-align: center;">
+    <button class="btn btn-success" [routerLink]="['/dashboard/UpdateCategory', President.id]">تعديل</button>
+  </td>
+      <!--<td style="text-align: center;">
+        <button class="btn btn-danger" (click)="deleteCategoryById(President.id)">حذف</button>
+      </td>-->
+    </tr>
+  </tbody>
+</table>

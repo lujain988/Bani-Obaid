@@ -38,6 +38,9 @@ export class ServicesService {
   getAllProjects(): Observable<any> {
     return this.http.get<any>(`${this.staticData}/Project/GetAllProjects`);
   }
+  getVisibleProjects(): Observable<any> {
+    return this.http.get<any>(`${this.staticData}/Project/getVisibleProjects`);
+  }
 
   getprojectById(id: number): Observable<any> {
     return this.http.get<any>(`${this.staticData}/Project/GetProjectbyId/${id}`);
@@ -63,6 +66,17 @@ export class ServicesService {
     return this.http.get<any>(`${this.staticData}/Investment/GetInvestmentById/${id}`);
   }
 
+  createinvestment(data: FormData): Observable<any> {
+    return this.http.post<any>(`${this.staticData}/Investment/addInvestment`, data);
+  }
+
+  updateinvestment(id: number, data: FormData): Observable<any> {
+    return this.http.put<any>(`${this.staticData}/Investment/updateInvestment/${id}`, data);
+  }
+
+  deleteinvestment(id: number): Observable<any> {
+    return this.http.delete<any>(`${this.staticData}/Investment/DeleteInvestment/${id}`);
+  }
   AddSuggest(data: any): Observable<any> {
     return this.http.post<any>(`${this.staticData}/Suggest/AddNewSuggestion`, data);
 

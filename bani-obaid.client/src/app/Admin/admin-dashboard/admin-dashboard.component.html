@@ -1,53 +1,90 @@
 
 
-<div class="app-container">
+<div class="app-container d-flex">
+  <!-- Toggle Button for Tablet and Smaller Devices -->
+  <div class="d-lg-none bg-dark text-white p-2 w-100 text-end">
+    <button class="btn btn-outline-light btn-sm" (click)="toggleSidebar()">
+      <i class="fas" [class.fa-bars]="!isSidebarVisible" [class.fa-times]="isSidebarVisible"></i> القائمة
+    </button>
+  </div>
 
-  <!-- app-navigation.component.html -->
-  <div class="sidebar">
-    <div class="logo">Dashboard</div>
+  <!-- Sidebar -->
+  <div class="sidebar bg-dark text-white p-3"
+       [ngClass]="{
+      'd-none': !isSidebarVisible && isTabletOrBelow,
+      'd-lg-block': !isTabletOrBelow,
+      'position-absolute': isTabletOrBelow
+    }"
+       [style.top]="isTabletOrBelow ? '40px' : '0'"
+       [style.width]="isTabletOrBelow ? '100%' : '250px'"
+       [style.height]="isTabletOrBelow ? (isSidebarVisible ? 'calc(100vh - 40px)' : '0') : '100vh'"
+       [style.overflowY]="isSidebarVisible ? 'auto' : 'hidden'">
+    <div class="logo text-center py-3">نظام التحكم</div>
 
     <div class="nav-section">MAIN</div>
-    <a routerLink="/adminDashboard/home" class="nav-link" routerLinkActive="active">
+    <a routerLink="/adminDashboard/home" class="nav-link d-flex align-items-center" routerLinkActive="active">
       <span class="link-highlight"></span>
-      <i class="fas fa-home"></i> الرئيسية
+      <i class="fas fa-home me-2"></i>الصفحة الرئيسية
     </a>
 
-    <div class="nav-section">APPLICATIONS</div>
-    <a routerLink="/adminDashboard/tenders" class="nav-link" routerLinkActive="active">
-      <span class="link-highlight"></span>
-      <i class="fas fa-users"></i> العطاءات
+    <div class="nav-section">التطبيقات</div>
+    <a routerLink="/adminDashboard/tenders" class="nav-link d-flex align-items-center" routerLinkActive="active">
+      <i class="fas fa-users me-2"></i> العطاءات
     </a>
-    <a routerLink="/adminDashboard/suggestions" class="nav-link" routerLinkActive="active">
-      <span class="link-highlight"></span>
-      <i class="fas fa-user-plus"></i> الإقتراحات
+    <a routerLink="/adminDashboard/projectAdmin" class="nav-link d-flex align-items-center" routerLinkActive="active">
+      <i class="fas fa-users me-2"></i> المشاريع
+    </a>
+    <a routerLink="/adminDashboard/invesments" class="nav-link d-flex align-items-center" routerLinkActive="active">
+      <i class="fas fa-users me-2"></i> الفرص الاستثمارية
+    </a>
+    <a routerLink="/adminDashboard/suggestions" class="nav-link d-flex align-items-center" routerLinkActive="active">
+      <i class="fas fa-user-plus me-2"></i> الإقتراحات
+    </a>
+    <a routerLink="/adminDashboard/ShowComplains" class="nav-link d-flex align-items-center" routerLinkActive="active">
+      <i class="fas fa-exclamation-triangle me-2"></i> الشكاوي
+    </a>
+    <a routerLink="/adminDashboard/JobsManagement" class="nav-link d-flex align-items-center" routerLinkActive="active">
+      <i class="fas fa-download me-2"></i> إدارة الوظائف
+    </a>
+    <a routerLink="/adminDashboard/eventManagement" class="nav-link d-flex align-items-center" routerLinkActive="active">
+      <i class="fas fa-download me-2"></i> إدارة الفعاليات
+    </a>
+    <a routerLink="/adminDashboard/RegistrationManagement" class="nav-link d-flex align-items-center" routerLinkActive="active">
+      <i class="fas fa-download me-2"></i> إدارة التسجيلات
+    </a>
+    <a routerLink="/adminDashboard/Tourism" class="nav-link d-flex align-items-center" routerLinkActive="active">
+      <i class="fas fa-map me-2"></i> إدارة السياحة في بني عبيد
+    </a>
+    <a routerLink="/adminDashboard/TourismInNorth" class="nav-link d-flex align-items-center" routerLinkActive="active">
+      <i class="fas fa-map me-2"></i> إدارة السياحة في الشمال
+    </a>
+    <a routerLink="/adminDashboard/polls" class="nav-link d-flex align-items-center" routerLinkActive="active">
+      <i class="fas fa-poll me-2"></i> إدارة استطلاعات الرأي
     </a>
 
-    <a routerLink="/adminDashboard/JobsManagement" class="nav-link" routerLinkActive="active">
+    <a routerLink="/adminDashboard/AdminMunicipalityMember" class="nav-link" routerLinkActive="active">
       <span class="link-highlight"></span>
-      <i class="fas fa-download"></i>إدارة الوظائف
+      <i class="fas fa-poll"></i> إدارة أعضاء البلدية
     </a>
 
-    <a routerLink="/adminDashboard/eventManagement" class="nav-link" routerLinkActive="active">
+    <a routerLink="/adminDashboard/AdminPresident" class="nav-link" routerLinkActive="active">
       <span class="link-highlight"></span>
-      <i class="fas fa-download"></i>إدارة الفعاليات
+      <i class="fas fa-poll"></i> إدارة كلمة الرئيس
     </a>
 
-    <a routerLink="/adminDashboard/RegistrationManagement" class="nav-link" routerLinkActive="active">
+    <a routerLink="/adminDashboard/AboutMunicipality" class="nav-link" routerLinkActive="active">
       <span class="link-highlight"></span>
-      <i class="fas fa-download"></i>إدارة التسجيلات
+      <i class="fas fa-poll"></i> إدارة النبذة عند البلدية
     </a>
 
-    <a routerLink="/adminDashboard/Tourism" class="nav-link" routerLinkActive="active">
+    <a routerLink="/adminDashboard/OrganizationStructure" class="nav-link" routerLinkActive="active">
       <span class="link-highlight"></span>
-      <i class="fas fa-map"></i>إدارة السياحة في بني عبيد
+      <i class="fas fa-poll"></i> إدارة الهيكل التنظيمي
     </a>
-    <a routerLink="/adminDashboard/TourismInNorth" class="nav-link" routerLinkActive="active">
+
+    <a routerLink="/adminDashboard/OwnershipTransfer" class="nav-link" routerLinkActive="active">
       <span class="link-highlight"></span>
-      <i class="fas fa-map"></i>إدارة السياحة في الشمال
-    </a>
-    <a routerLink="/adminDashboard/polls" class="nav-link" routerLinkActive="active">
-      <span class="link-highlight"></span>
-      <i class="fas fa-poll"></i> إدارة استطلاعات الرأي
+      <i class="fas fa-poll"></i> إدارة خدمة نقل الملكية
     </a>
 
     <div class="nav-section">ACCOUNT</div>
@@ -55,13 +92,18 @@
       <span class="link-highlight"></span>
       <i class="fas fa-user-alt"></i> حساب المستخدم
     </a>
-    <a routerLink="/admin" (click)="Logout()" class="nav-link">
-      <span class="link-highlight"></span>
-      <i class="fas fa-sign-out-alt"></i> تسجيل الخروج
+    <div class="nav-section">الحساب</div>
+    <a routerLink="/adminDashboard/profile" class="nav-link d-flex align-items-center" routerLinkActive="active">
+      <i class="fas fa-user-alt me-2"></i> حساب المستخدم
     </a>
+    <a routerLink="/admin" class="nav-link d-flex align-items-center" (click)="Logout()">
+      <i class="fas fa-sign-out-alt me-2"></i> تسجيل الخروج
+    </a>
+
   </div>
 
-  <div class="main-content">
+  <!-- Main Content -->
+  <div class="main-content flex-grow-1 p-4">
     <router-outlet></router-outlet>
   </div>
 </div>

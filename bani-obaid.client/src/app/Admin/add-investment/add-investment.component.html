@@ -1,0 +1,64 @@
+<form #addInvestmentForm="ngForm" (ngSubmit)="addInvestment(addInvestmentForm.value)" class="add-investment-form">
+  <h2 style="text-align: center; margin-bottom: 20px;">إضافة استثمار</h2>
+
+  <!-- Name Field -->
+  <div class="form-group" style="margin-bottom: 15px;">
+    <label for="Name">اسم الاستثمار</label>
+    <input type="text"
+           id="Name"
+           name="Name"
+           ngModel
+           class="form-control"
+           required
+           placeholder="أدخل اسم الاستثمار" />
+    <div *ngIf="addInvestmentForm.controls['Name']?.touched && addInvestmentForm.controls['Name']?.invalid" class="text-danger">
+      يرجى إدخال اسم الاستثمار
+    </div>
+  </div>
+
+  <!-- Description Field -->
+  <div class="form-group" style="margin-bottom: 15px;">
+    <label for="Description">وصف الاستثمار</label>
+    <textarea id="Description"
+              name="Description"
+              ngModel
+              class="form-control"
+              rows="3"
+              required
+              placeholder="أدخل وصف الاستثمار"></textarea>
+    <div *ngIf="addInvestmentForm.controls['Description']?.touched && addInvestmentForm.controls['Description']?.invalid" class="text-danger">
+      يرجى إدخال وصف الاستثمار
+    </div>
+  </div>
+
+  <!-- Final Date Field -->
+  <div class="form-group" style="margin-bottom: 15px;">
+    <label for="FinalDate">تاريخ الانتهاء</label>
+    <input type="date"
+           id="FinalDate"
+           name="FinalDate"
+           ngModel
+           class="form-control"
+           required
+           placeholder="أدخل تاريخ الانتهاء" />
+    <div *ngIf="addInvestmentForm.controls['FinalDate']?.touched && addInvestmentForm.controls['FinalDate']?.invalid" class="text-danger">
+      يرجى إدخال تاريخ الانتهاء
+    </div>
+  </div>
+
+  <!-- Image Field -->
+  <div class="form-group" style="margin-bottom: 15px;">
+    <label for="Image">الصورة الرئيسية</label>
+    <input type="file"
+           id="Image"
+           (change)="changeImage($event, 'Image')"
+           class="form-control"
+           required />
+    <div *ngIf="!image" class="text-danger">
+      يجب اختيار الصورة الرئيسية
+    </div>
+  </div>
+
+  <!-- Submit Button -->
+  <button type="submit" class="btn btn-primary" style="width: 100%;" [disabled]="addInvestmentForm.invalid || !image">إضافة الاستثمار</button>
+</form>

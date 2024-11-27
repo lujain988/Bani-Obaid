@@ -28,8 +28,16 @@ export class LandService {
   deleteLandmark(id: number): Observable<any> {
     return this.http.delete<any>(`${this.staticData}/GeneralLand/${id}`);
   }
-
   deleteLandmarkImage(imageId: number): Observable<any> {
     return this.http.delete<any>(`${this.staticData}/GeneralLand/DeleteImage/${imageId}`);
   }
+
+  showImages(id: number): Observable<any[]> {
+    return this.http.get<any[]>(`${this.staticData}/GeneralLand/showImages/${id}`);
+  }
+  addAdditionalImages(id: number, additionalImages: FormData): Observable<any> {
+    return this.http.post<any>(`${this.staticData}/GeneralLand/AddAdditionalImages/${id}`, additionalImages);
+  }
+
+
 }

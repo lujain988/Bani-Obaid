@@ -1,0 +1,153 @@
+<form #updateProjectForm="ngForm" (ngSubmit)="updateProject(updateProjectForm.value)" class="update-project-form">
+  <h2 style="text-align: center; margin-bottom: 20px;">تحديث المشروع</h2>
+
+  <!-- Title Field -->
+  <div class="form-group" style="margin-bottom: 15px;">
+    <label for="Title">اسم المشروع</label>
+    <input type="text"
+           id="Title"
+           name="Title"
+           ngModel
+           class="form-control"
+           required
+           [ngModel]="projectData.title"
+           placeholder="أدخل اسم المشروع" />
+    <div *ngIf="updateProjectForm.controls['Title']?.touched && updateProjectForm.controls['Title']?.invalid" class="text-danger">
+      يرجى إدخال اسم المشروع
+    </div>
+  </div>
+
+  <!-- Description Field -->
+  <div class="form-group" style="margin-bottom: 15px;">
+    <label for="Description">وصف المشروع</label>
+    <textarea id="Description"
+              name="Description"
+              ngModel
+              class="form-control"
+              rows="3"
+              required
+              [ngModel]="projectData.description"
+              placeholder="أدخل وصف المشروع"></textarea>
+    <div *ngIf="updateProjectForm.controls['Description']?.touched && updateProjectForm.controls['Description']?.invalid" class="text-danger">
+      يرجى إدخال وصف المشروع
+    </div>
+  </div>
+
+  <!-- Percentage Field -->
+  <div class="form-group" style="margin-bottom: 15px;">
+    <label for="Percentage">النسبة</label>
+    <input type="number"
+           id="Percentage"
+           name="Percentage"
+           ngModel
+           class="form-control"
+           required
+           [ngModel]="projectData.percentage"
+           min="0"
+           max="100"
+           placeholder="أدخل النسبة بين 0 و 100" />
+    <div *ngIf="updateProjectForm.controls['Percentage']?.touched && updateProjectForm.controls['Percentage']?.invalid" class="text-danger">
+      يرجى إدخال النسبة بشكل صحيح
+    </div>
+  </div>
+
+  <!-- Status Dropdown -->
+  <div class="form-group" style="margin-bottom: 15px;">
+    <label for="Status">الحالة</label>
+    <select id="Status"
+            name="Status"
+            ngModel
+            class="form-control"
+            required
+            [ngModel]="projectData.status">
+      <option value="مرئي">مرئي</option>
+      <option value="مخفي">مخفي</option>
+    </select>
+    <div *ngIf="updateProjectForm.controls['Status']?.touched && updateProjectForm.controls['Status']?.invalid" class="text-danger">
+      يرجى تحديد الحالة
+    </div>
+  </div>
+  <div class="form-group" style="margin-bottom: 15px;">
+    <label for="Image">الصورة الرئيسية</label>
+    <input type="file"
+           id="Image"
+           (change)="changeImage($event, 'Image')"
+           class="form-control" />
+    <img *ngIf="projectData.image" [src]="'https://localhost:7243/' + projectData.image" alt="Current Image " width="100">
+  </div>
+  <!-- Image Fields (Img1 to Img8) -->
+  <div class="form-group" style="margin-bottom: 15px;">
+    <label for="Img1">الصورة 1</label>
+    <input type="file"
+           id="Img1"
+           (change)="changeImage($event, 'Img1')"
+           class="form-control" />
+    <img *ngIf="projectData.img1" [src]="'https://localhost:7243/' + projectData.img1" alt="Current Image 1" width="100">
+  </div>
+
+  <div class="form-group" style="margin-bottom: 15px;">
+    <label for="Img2">الصورة 2</label>
+    <input type="file"
+           id="Img2"
+           (change)="changeImage($event, 'Img2')"
+           class="form-control" />
+    <img *ngIf="projectData.img2" [src]="'https://localhost:7243/' + projectData.img2" alt="Current Image 2" width="100">
+  </div>
+
+  <div class="form-group" style="margin-bottom: 15px;">
+    <label for="Img3">الصورة 3</label>
+    <input type="file"
+           id="Img3"
+           (change)="changeImage($event, 'Img3')"
+           class="form-control" />
+    <img *ngIf="projectData.img3" [src]="'https://localhost:7243/' + projectData.img3" alt="Current Image 3" width="100">
+  </div>
+
+  <div class="form-group" style="margin-bottom: 15px;">
+    <label for="Img4">الصورة 4</label>
+    <input type="file"
+           id="Img4"
+           (change)="changeImage($event, 'Img4')"
+           class="form-control" />
+    <img *ngIf="projectData.img4" [src]="'https://localhost:7243/' + projectData.img4" alt="Current Image 4" width="100">
+  </div>
+
+  <div class="form-group" style="margin-bottom: 15px;">
+    <label for="Img5">الصورة 5</label>
+    <input type="file"
+           id="Img5"
+           (change)="changeImage($event, 'Img5')"
+           class="form-control" />
+    <img *ngIf="projectData.img5" [src]="'https://localhost:7243/' + projectData.img5" alt="Current Image 5" width="100">
+  </div>
+
+  <div class="form-group" style="margin-bottom: 15px;">
+    <label for="Img6">الصورة 6</label>
+    <input type="file"
+           id="Img6"
+           (change)="changeImage($event, 'Img6')"
+           class="form-control" />
+    <img *ngIf="projectData.img6" [src]="'https://localhost:7243/' + projectData.img6" alt="Current Image 6" width="100">
+  </div>
+
+  <div class="form-group" style="margin-bottom: 15px;">
+    <label for="Img7">الصورة 7</label>
+    <input type="file"
+           id="Img7"
+           (change)="changeImage($event, 'Img7')"
+           class="form-control" />
+    <img *ngIf="projectData.img7" [src]="'https://localhost:7243/' + projectData.img7" alt="Current Image 7" width="100">
+  </div>
+
+  <div class="form-group" style="margin-bottom: 15px;">
+    <label for="Img8">الصورة 8</label>
+    <input type="file"
+           id="Img8"
+           (change)="changeImage($event, 'Img8')"
+           class="form-control" />
+    <img *ngIf="projectData.img8" [src]="'https://localhost:7243/' + projectData.img8" alt="Current Image 8" width="100">
+  </div>
+
+  <!-- Submit Button -->
+  <button type="submit" class="btn btn-primary" style="width: 100%;" [disabled]="updateProjectForm.invalid">تحديث المشروع</button>
+</form>

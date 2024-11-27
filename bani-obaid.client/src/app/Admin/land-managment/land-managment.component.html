@@ -1,21 +1,21 @@
 <main>
   <div class="container mt-4" style="direction: rtl; text-align: center">
-    <h2 style="color: black" class="text-center mb-4">جميع المعالم</h2>
-    <button class="btn btn-success btn-sm" [routerLink]="['/adminDashboard/landmark-form']">إضافة معلم جديد</button>
+    <h2 style="color: black" class="text-center mb-4">إدارة المعالم السياحية في بني عبيد</h2>
+    <button class="btn btn-primary btn-sm" [routerLink]="['/adminDashboard/landmark-form']">إضافة معلم جديد</button>
     <br /> <br />
 
     <div class="table-responsive mx-auto" style="max-width: 900px;">
-      <table class="table table-light table-hover table-bordered">
+      <table class="table table-light table-hover table-bordered" style="table-layout: fixed; width: 100%;">
         <thead>
           <tr>
-            <th>#</th>
-            <th>اسم المعلم</th>
-            <th>صورة المعلم</th>
-            <th>الموقع</th>
-            <th>الوصف</th>
-            <th>التاريخ</th>
-            <th>إضافة صورة</th>
-            <th>الإجراء</th>
+            <th style="width: 5%;">#</th>
+            <th style="width: 15%;">اسم المعلم</th>
+            <th style="width: 15%;">صورة المعلم</th>
+            <th style="width: 15%;">الموقع</th>
+            <th style="width: 25%;">الوصف</th>
+            <th style="width: 10%;">التاريخ</th>
+            <th style="width: 5%;">إضافة صور</th>
+            <th style="width: 10%;">الإجراء</th>
           </tr>
         </thead>
 
@@ -27,7 +27,7 @@
               <img class="img-fluid" [src]="'https://localhost:7243/' + item.image" alt="Landmark Image" style="max-width: 100px; height: auto;">
             </td>
             <td>{{ item.location }}</td>
-            <td>{{ item.description | truncate:50 }}</td>
+            <td style="white-space: normal; word-wrap: break-word; overflow-wrap: break-word;">{{ item.description }}</td>
             <td>{{ item.createdAt | date: 'yyyy-MM-dd' }}</td>
             <td class="text-center">
               <button class="btn btn-secondary btn-sm" [routerLink]="['/adminDashboard/AddLink', item.id]">

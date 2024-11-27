@@ -11,6 +11,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="wwwroot\images\030febc0-3e68-4342-a435-494856b5c639_16x9_1200x676.webp" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\images\030febc0-3e68-4342-a435-494856b5c639_16x9_1200x676.webp" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.10" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.10" />
     <PackageReference Include="Microsoft.AspNetCore.SpaProxy">

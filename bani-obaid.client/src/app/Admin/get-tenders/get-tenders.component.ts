@@ -19,13 +19,11 @@ export class GetTendersComponent {
 
   ngOnInit() {
     console.log('ngOnInit executed');
-    debugger;
-
+    
     this.GetTenders();
   }
 
   GetTenders() {
-    debugger;
 
     this._ser.getAllTenders().subscribe(
       (data) => {
@@ -54,7 +52,7 @@ export class GetTendersComponent {
           () => {
             console.log('Tender deleted with ID:', tenderId);
 
-            // Refresh the tender data
+            
             this.GetTenders();
 
             Swal.fire(

@@ -2,7 +2,7 @@
 <form #updateTenderForm="ngForm" (ngSubmit)="UpdateTender(updateTenderForm.value)" enctype="multipart/form-data" class="update-tender-form">
 
 
-    <h2 style="text-align: center; margin-bottom: 20px;">تحديث العطاء</h2>
+  <h2 style="text-align: center; margin-bottom: 20px;">تحديث العطاء</h2>
 
   <div class="form-group">
     <label for="Title">عنوان العطاء</label>
@@ -16,9 +16,22 @@
 
   <div class="form-group">
     <label for="Image"> الصورة الرئيسية </label>
-    <input type="file" id="Image"  (change)="changeImage($event)" class="form-control" [required]="true">
+    <input type="file" id="Image" (change)="changeImage($event)" class="form-control" [required]="true">
     <img *ngIf="tender.image" [src]="'https://localhost:7243/' + tender.image" alt="Current Image" width="100">
   </div>
+
+
+
+  <div class="form-group">
+    <label for="Amount">قيمة نسخة العطاء</label>
+    <input type="text" id="Amount" name="Amount" [(ngModel)]="tender.amount" class="form-control" required>
+  </div>
+
+  <div class="form-group">
+    <label for="ClosingDate">تاريخ آخر موعد لشراء العروض</label>
+    <input type="date" id="ClosingDate" name="ClosingDate" [(ngModel)]="tender.closingDate" class="form-control" required>
+  </div>
+
 
   <div class="form-group">
     <label for="Img1"> 1 الصورة الاختيارية </label>
@@ -51,15 +64,6 @@
 
 
 
-  <div class="form-group">
-    <label for="Amount">قيمة العاطاء</label>
-    <input type="text" id="Amount" name="Amount" [(ngModel)]="tender.amount" class="form-control" required>
-  </div>
-
-  <div class="form-group">
-    <label for="ClosingDate">تاريخ انتهاء العطاء</label>
-    <input type="date" id="ClosingDate" name="ClosingDate" [(ngModel)]="tender.closingDate" class="form-control" required>
-  </div>
 
   <button type="submit" class="btn btn-primary">تعديل العطاء</button>
 </form>

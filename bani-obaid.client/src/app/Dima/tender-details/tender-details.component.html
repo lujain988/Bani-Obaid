@@ -106,7 +106,7 @@
           <div class="contact-page__right">
             <div class="section-title text-center">
               <div class="section-title__icon">
-                <span class="fa fa-star" style="color: #0063ae;"></span>
+                <span class="fa fa-star" ></span>
               </div>
               <h2 class="section-title__title" style="direction: rtl;">{{ tender.title }}</h2>
             </div>
@@ -116,16 +116,16 @@
             <ul class="list-unstyled contact-page__contact-list">
               <li style="direction: rtl;">
                 <div class="icon">
-                  <span class="fas fa-money-bill" style="color: #0063ae;"></span>
+                  <span class="fas fa-money-bill" ></span>
                 </div>
                 <div class="content" style="margin-right: 15px">
-                  <p>قيمة العطاء :</p>
+                  <p>قيمة نسخة العطاء :</p>
                   <h4>{{ tender.amount }}</h4>
                 </div>
               </li>
               <li style="direction: rtl;">
                 <div class="icon">
-                  <span class="far fa-calendar-alt" style="color: #0063ae;"></span>
+                  <span class="far fa-calendar-alt" ></span>
                 </div>
                 <div class="content" style="margin-right: 15px;">
                   <p>الموعد النهائي لاستلام العروض :</p>
@@ -134,11 +134,11 @@
               </li>
               <li style="direction: rtl;">
                 <div class="icon">
-                  <span class="far fa-image" style="color: #0063ae;"></span>
+                  <span class="far fa-image" ></span>
                 </div>
                 <div class="content" style="margin-right: 15px">
                   <p>تحميل الصورة :</p>
-                  <button (click)="downloadImage('https://localhost:7243' + tender?.image)" class="btn btn-primary">
+                  <button (click)="downloadImage('https://localhost:7243' + tender?.image)" class="btn btn-success">
                     تحميل
                   </button>
                 </div>

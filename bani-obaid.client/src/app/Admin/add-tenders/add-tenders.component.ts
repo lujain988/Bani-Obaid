@@ -41,7 +41,7 @@ export class AddTendersComponent {
       });
       return;
     }
-    // Check if all required form fields are filled
+    
     if (!data.Title || !data.Description || !data.Amount || !data.ClosingDate) {
       Swal.fire({
         icon: 'error',
@@ -49,7 +49,7 @@ export class AddTendersComponent {
         text: 'يرجى تعبئة جميع الحقول المطلوبة',
         confirmButtonText: 'OK',
       });
-      return; // Prevent form submission if any required field is empty
+      return; 
     }
 
     const form = new FormData();
@@ -57,7 +57,7 @@ export class AddTendersComponent {
       form.append(key, data[key]);
     }
 
-    // Append images
+    
     form.append('Image', this.image);
     if (this.img1) form.append('Img1', this.img1);
     if (this.img2) form.append('Img2', this.img2);

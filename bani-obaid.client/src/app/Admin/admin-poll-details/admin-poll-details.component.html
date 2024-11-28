@@ -1,0 +1,66 @@
+<h2 class="event-details__title-1">تفاصيل الاستطلاع</h2>
+<section class="event-details pt-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-12">
+        <div class="event-details__left text-center">
+          <div class=" event-details__img text-center">
+            <img class="w-50" [src]="'https://localhost:7243' + Poll?.image" alt="{{ Poll?.image }}">
+
+          </div>
+          <h3 class="event-details__title-1">{{Poll.title}}</h3>
+          <p class="event-details__text-1">{{Poll.description}}</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section dir="rtl" class="contact-one">
+
+  <div style="display:flex; justify-content:center">
+    <div class="text-center m-3 row">
+      <span class="h6">
+        نسبة الموافقة على
+        الإستطلاع هي:
+      </span><h2 class="mb-1 agree">{{Percentage}}%</h2>
+    </div>
+
+    <div class="text-center m-3 row">
+      <span class="h6">
+        عدد الاصوات الكلي هو:
+      </span><h2 class="mb-1 agree">{{Count}}</h2>
+    </div>
+  </div>
+
+  <br />
+  <div class="contact-one__bg" style="background-image: url(assets/images/backgrounds/contact-one-bg.png);">
+  </div>
+  <div class="container">
+    <h2 class="event-details__title-1">المصوتين :</h2>
+    <br />
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>الرقم الوطني</th>
+          <th>الرسالة</th>
+          <th>تاريخ التصويت</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let Vote of Votes; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ Vote.nationalId }}</td>
+          <td>{{ Vote.message }}</td>
+          <td>{{ Vote.createdAt | date: 'yyyy-MM-dd' }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+
+  </div>
+</section>

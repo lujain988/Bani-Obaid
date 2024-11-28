@@ -1,1 +1,62 @@
-<p>add-poll works!</p>
+<div class="container mt-4" style="direction: rtl; max-width: 500px; margin: 0 auto;">
+  <h2 class="form-title text-center mb-4">إضافة استطلاع جديد</h2>
+
+  <form (ngSubmit)="onSubmit()" #pollForm="ngForm" class="poll-form">
+    <div class="form-group mb-3">
+      <label for="title" class="form-label">عنوان الاستطلاع:</label>
+      <input id="title"
+             type="text"
+             [(ngModel)]="pollData.title"
+             name="title"
+             class="form-control"
+             placeholder="أدخل عنوان الاستطلاع"
+             required
+             #title="ngModel" />
+      <div *ngIf="title.invalid && title.touched" class="text-danger">
+        عنوان الاستطلاع مطلوب.
+      </div>
+    </div>
+
+
+    <!-- Description Field -->
+    <div class="form-group mb-3">
+      <label for="description" class="form-label">الوصف:</label>
+      <textarea id="description"
+                [(ngModel)]="pollData.description"
+                name="description"
+                class="form-control"
+                rows="4"
+                placeholder="أدخل وصف الاستطلاع"></textarea>
+    </div>
+
+
+    <div class="form-group mb-3">
+      <label for="closeAt" class="form-label">تاريخ نهاية الاستطلاع:</label>
+      <input id="closeAt"
+             type="date"
+             [(ngModel)]="pollData.closeAt"
+             name="closeAt"
+             class="form-control"
+             required
+             #closeAt="ngModel" />
+      <div *ngIf="closeAt.invalid && closeAt.touched" class="text-danger">
+        تاريخ نهاية الاستطلاع مطلوب.
+      </div>
+    </div>
+
+    <!-- File Upload -->
+    <div class="form-group mb-3">
+      <label for="image" class="form-label">إضافة صورة:</label>
+      <input id="image"
+             type="file"
+             (change)="onFileSelected($event)"
+             class="form-control"
+             accept="image/*" />
+    </div>
+
+    <!-- Submit Button -->
+    <div class="form-group text-center">
+      <button type="submit" class="submit-button" [disabled]="pollForm.invalid">إضافة</button>
+    </div>
+  </form>
+</div>

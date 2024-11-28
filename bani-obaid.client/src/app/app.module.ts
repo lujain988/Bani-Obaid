@@ -84,6 +84,7 @@ import { AdminMunicipalityMemberComponent } from './Admin/admin-municipality-mem
 import { EditMemberComponent } from './Admin/edit-member/edit-member.component';
 import { AddMemberComponent } from './Admin/add-member/add-member.component';
 import { OwnershipTransferManagementComponent } from './Mohammad/ownership-transfer-management/ownership-transfer-management.component';
+import { AdminPollDetailsComponent } from './Admin/admin-poll-details/admin-poll-details.component';
 
 @NgModule({
   declarations: [
@@ -171,6 +172,7 @@ import { OwnershipTransferManagementComponent } from './Mohammad/ownership-trans
     EditMemberComponent,
     AddMemberComponent,
     OwnershipTransferManagementComponent,
+    AdminPollDetailsComponent,
   ],
   imports: [
     FormsModule,
@@ -220,7 +222,7 @@ import { OwnershipTransferManagementComponent } from './Mohammad/ownership-trans
           { path: 'home', component: DashboardComponent },
           { path: 'profile', component: ProfileComponent },
           { path: 'polls', component: GetPollsComponent },
-          { path: 'poll/:id', component: PollDetailsComponent },
+          { path: 'poll/:id', component: AdminPollDetailsComponent },
           { path: 'addPoll', component: AddPollComponent },
           { path: 'tenders', component: GetTendersComponent },
           { path: 'AddTenders', component: AddTendersComponent },

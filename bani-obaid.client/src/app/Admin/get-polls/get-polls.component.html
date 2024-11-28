@@ -1,4 +1,4 @@
-<section class="event-management" style="direction: rtl; margin-left: 15%">
+<section style="direction: rtl">
   <div class="container">
     <div class="header">
       <h2>إدارة الاستطلاعات</h2>
@@ -11,7 +11,7 @@
     <table class="table table-striped">
       <thead>
         <tr>
-          <th>#</th>
+          <th>ID</th>
           <th>صورة</th>
           <th>العنوان</th>
           <th>الوصف</th>
@@ -25,13 +25,13 @@
           <td>{{ poll.id }}</td>
           <td><img [src]="'https://localhost:7243' + poll?.image" alt="{{ poll?.image }}" height="100" width="100"></td>
           <td>{{ poll.title }}</td>
-          <td>{{ poll.description }}</td>
+          <td class="ellipsis first"><span>{{ poll.description }}</span></td>
           <td>{{ poll.createdAt | date: 'yyyy-MM-dd' }}</td>
           <td>{{ poll.closeAt | date: 'yyyy-MM-dd' }}</td>
           <td>
             <!-- Edit Button -->
             <button class="btn btn-warning btn-sm" (click)="editPoll(poll.id)">
-              تعديل
+              تفاصيل
             </button>
 
             <!-- Delete Button -->

@@ -4,27 +4,27 @@ import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-admin-municipality-member',
-  templateUrl: './admin-municipality-member.component.html',
-  styleUrl: './admin-municipality-member.component.css'
+  selector: 'app-admin-partners',
+  templateUrl: './admin-partners.component.html',
+  styleUrl: './admin-partners.component.css'
 })
-export class AdminMunicipalityMemberComponent {
-  MemberArray: any;
+export class AdminPartnersComponent {
+  PartnersArray: any;
 
   constructor(private _ser: ServiceService, private router: Router) { }
 
   ngOnInit(): void {
-    this.getAllMembers();
+    this.getAllPartners();
   }
 
-  getAllMembers() {
-    this._ser.getMember().subscribe((data) => {
-      this.MemberArray = data
-      console.log(this.MemberArray, "this.MemberArray")
+  getAllPartners() {
+    this._ser.getPartner().subscribe((data) => {
+      this.PartnersArray = data
+      console.log(this.PartnersArray, "this.PartnersArray")
     })
   }
 
-  deleteMember(id: any) {
+  deletePartners(id: any) {
     Swal.fire({
       title: 'هل أنت متأكد؟',
       text: 'لن تتمكن من التراجع عن هذا الإجراء!',
@@ -36,26 +36,26 @@ export class AdminMunicipalityMemberComponent {
       cancelButtonText: 'إلغاء'
     }).then((result) => {
       if (result.isConfirmed) {
-        this._ser.deleteMember(id).subscribe(
+        this._ser.deletePartner(id).subscribe(
           () => {
             Swal.fire(
               'تم الحذف!',
-              'تم حذف العضو بنجاح.',
+              'تم حذف الشريك بنجاح.',
               'success'
             );
-            this.getAllMembers();
+            this.getAllPartners();
           },
           (error) => {
             if (error.status === 400) {
               Swal.fire(
                 'خطأ',
-                'لا يمكن حذف هذا العضو لأنه يحتوي على منتجات مرتبطة.',
+                'لا يمكن حذف هذا الشريك لأنه يحتوي على معلومات مرتبطة.',
                 'error'
               );
             } else {
               Swal.fire(
                 'خطأ',
-                'حدث خطأ أثناء محاولة حذف العضو. يرجى المحاولة مرة أخرى.',
+                'حدث خطأ أثناء محاولة حذف الشريك. يرجى المحاولة مرة أخرى.',
                 'error'
               );
             }
@@ -65,9 +65,9 @@ export class AdminMunicipalityMemberComponent {
     });
   }
 
-
-  navigateToAddMember() {
-    this.router.navigate(['/adminDashboard/AddMember']);
+  navigateToAddPartners() {
+    this.router.navigate(['/adminDashboard/AddPartner']);
   }
+
 
 }

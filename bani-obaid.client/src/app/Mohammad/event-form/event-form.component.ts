@@ -68,21 +68,26 @@ export class EventFormComponent implements OnInit {
       return;
     }
 
-    const eventData = { ...this.eventForm.value }; // نسخ بيانات النموذج
-    const rawTime = this.eventForm.get('time')?.value;
+    const formData = new FormData();
+    formData.append('title', this.eventForm.get('title')?.value);
+    formData.append('description', this.eventForm.get('description')?.value);
+    formData.append('location', this.eventForm.get('location')?.value);
+    formData.append('time', this.eventForm.get('time')?.value);
+    formData.append('eventDate', this.eventForm.get('eventDate')?.value);
 
-    // تحويل الوقت إلى صيغة "HH:mm:ss"
-    if (rawTime) {
-      const timeParts = rawTime.split(':'); // تقسيم الوقت إلى ساعات ودقائق وثوانٍ
-      eventData.time = `${timeParts[0]}:${timeParts[1]}:00`; // إضافة الثواني إذا لم تكن موجودة
+    // إضافة الصورة إلى FormData
+    const fileInput: HTMLInputElement = document.querySelector('#image')!;
+    const file = fileInput.files ? fileInput.files[0] : null;
+    if (file) {
+      formData.append('image', file);
     }
 
     if (this.isEditMode && this.eventId !== null) {
       // تعديل فعالية
-      this.urlService.updateEvent(this.eventId, eventData).subscribe(
+      this.urlService.updateEvent(this.eventId, formData).subscribe(
         () => {
           alert('تم تعديل الفعالية بنجاح.');
-          this.router.navigate(['/eventManagement']); // العودة لقائمة الفعاليات
+          this.router.navigate(['/adminDashboard/eventManagement']);
         },
         (error) => {
           console.error('Error updating event', error);
@@ -90,10 +95,10 @@ export class EventFormComponent implements OnInit {
       );
     } else {
       // إضافة فعالية جديدة
-      this.urlService.addEvent(eventData).subscribe(
+      this.urlService.addEvent(formData).subscribe(
         () => {
           alert('تمت إضافة الفعالية بنجاح.');
-          this.router.navigate(['/eventManagement']); // العودة لقائمة الفعاليات
+          this.router.navigate(['/adminDashboard/eventManagement']);
         },
         (error) => {
           console.error('Error adding event', error);

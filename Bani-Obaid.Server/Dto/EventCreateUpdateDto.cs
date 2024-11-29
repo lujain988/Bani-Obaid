@@ -8,7 +8,7 @@
         public TimeOnly? Time { get; set; }
 
         public DateOnly? EventDate { get; set; }
-        public string? Image { get; set; }
+        public IFormFile? Image { get; set; }
 
     }
 }

@@ -1,0 +1,6 @@
+.event-three__img img {
+  width: 100%;
+  transform: scale(1);
+  transition: all 500ms ease;
+  margin-top: 15%;
+}

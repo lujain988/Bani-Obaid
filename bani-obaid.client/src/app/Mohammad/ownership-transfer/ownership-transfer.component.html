@@ -1,3 +1,21 @@
+
+<section class="page-header">
+  <div class="page-header-bg" style="background-image: url(assets/images/backgrounds/1.jpg)">
+  </div>
+  <div >
+    <div class="page-header__inner">
+      <h2>نقل الملكية </h2> <!-- Title added in Arabic -->
+      <ul class="thm-breadcrumb list-unstyled">
+        <li><a routerLink="">الرئيسية</a></li>
+        <!-- Home in Arabic -->
+        <li><span>/</span></li>
+        <li>نقل الملكية</li> <!-- Portfolio in Arabic -->
+      </ul>
+    </div>
+  </div>
+</section>
+
+
 <div class="container" dir="rtl">
   <div class="section-title text-center">
     <h2 class="section-title__title">طلب نقل الملكية</h2>
@@ -9,7 +27,7 @@
   <form [formGroup]="ownershipForm" (ngSubmit)="onSubmit()" class="modern-form">
     <div class="form-group">
       <label for="landlord_phone">رقم هاتف المالك الحالي</label>
-      <input type="number" placeholder="رقم هاتف المالك الحالي" formControlName="landlordPhone">
+      <input type="text" placeholder="رقم هاتف المالك الحالي" formControlName="landlordPhone">
     </div>
 
     <div class="form-group two-columns">
@@ -19,13 +37,13 @@
       </div>
       <div>
         <label for="new_owner_phone">رقم هاتف المالك الجديد</label>
-        <input type="number" placeholder="رقم هاتف المالك الجديد" formControlName="newOwnerPhone">
+        <input type="text" placeholder="رقم هاتف المالك الجديد" formControlName="newOwnerPhone">
       </div>
     </div>
 
     <div class="form-group">
       <label for="national_id">الرقم الوطني</label>
-      <input type="number" placeholder="الرقم الوطني" formControlName="nationalId">
+      <input type="text" placeholder="الرقم الوطني" formControlName="nationalId">
     </div>
 
     <div class="form-group two-columns">
@@ -35,7 +53,7 @@
       </div>
       <div>
         <label for="municipality_name">اسم البلدية</label>
-        <input type="text" placeholder="مثل : الرمثا/ البويضة" formControlName="municipalityName">
+        <input type="text" placeholder="مثل : بني عبيد/ " formControlName="municipalityName">
       </div>
     </div>
 

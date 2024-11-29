@@ -1,0 +1,44 @@
+<section class="ownership-transfer-management" style="direction: rtl; margin-left: 15%;">
+  <div class="container">
+    <div class="header">
+      <h2>إدارة نقل الملكية</h2>
+    </div>
+    <br />
+    <!-- Ownership Transfer Table -->
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>رقم هاتف المالك الحالي</th>
+          <th>اسم المالك الجديد</th>
+          <th>رقم هاتف المالك الجديد</th>
+          <th>الرقم الوطني</th>
+          <th>رقم العقار</th>
+          <th>اسم البلدية</th>
+          <th>الحوض</th>
+          <th>الحي</th>
+          <th>رقم الأرض</th>
+          <th>الإجراءات</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let transfer of ownershipTransfers; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ transfer.landlordPhone }}</td>
+          <td>{{ transfer.newOwnerName }}</td>
+          <td>{{ transfer.newOwnerPhone }}</td>
+          <td>{{ transfer.nationalId }}</td>
+          <td>{{ transfer.propertyNumber }}</td>
+          <td>{{ transfer.municipalityName }}</td>
+          <td>{{ transfer.basin }}</td>
+          <td>{{ transfer.district }}</td>
+          <td>{{ transfer.landNumber }}</td>
+          <td>
+            <!-- Delete Button -->
+            <button class="btn btn-danger btn-sm" (click)="deleteOwnershipTransfer(transfer.id)">حذف</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>

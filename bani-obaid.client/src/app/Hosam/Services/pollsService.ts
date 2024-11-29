@@ -21,16 +21,16 @@ export class PollsService {
     return this.http.get<any>(`${this.staticData}/Polls/GetPollPercentage/${id}`);
   }
 
+  getVotesByPollId(id: number): Observable<any> {
+    return this.http.get<any>(`${this.staticData}/Polls/GetVotesByPollId/${id}`);
+  }
+
   postVote(id: number, data: FormData): Observable<any> {
     return this.http.post<any>(`${this.staticData}/Polls/PostVote/${id}`, data);
   }
 
   addPoll(poll: any): Observable<any> {
     return this.http.post<any>(`${this.staticData}/Polls/PostPoll`, poll); 
-  }
-
-  updatePoll(id: number, poll: any): Observable<any> {
-    return this.http.put(`${this.staticData}/Polls/EditPollById/${id}`, poll);
   }
 
   deletePoll(id: number): Observable<any> {

@@ -84,7 +84,7 @@
 
   <!-- Amount Field -->
   <div class="form-group" style="margin-bottom: 15px;">
-    <label for="Amount">قيمة العطاء</label>
+    <label for="Amount">قيمة نسخة العطاء</label>
     <input type="text"
            id="Amount"
            name="Amount"
@@ -99,16 +99,16 @@
 
   <!-- Closing Date Field -->
   <div class="form-group" style="margin-bottom: 15px;">
-    <label for="ClosingDate">تاريخ الانتهاء</label>
+    <label for="ClosingDate">آخر موعد لشراء العروض </label>
     <input type="date"
            id="ClosingDate"
            name="ClosingDate"
            ngModel
            class="form-control"
            required
-           placeholder="أدخل تاريخ الانتهاء" />
+           placeholder="أدخل آخر موعد لشراء العروض " />
     <div *ngIf="addTenderForm.controls['ClosingDate']?.touched && addTenderForm.controls['ClosingDate']?.invalid" class="text-danger">
-      يرجى إدخال تاريخ الانتهاء
+      يرجى إدخال آخر موعد لشراء العروض 
     </div>
   </div>
 

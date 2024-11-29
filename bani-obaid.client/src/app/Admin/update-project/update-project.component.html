@@ -67,7 +67,14 @@
       يرجى تحديد الحالة
     </div>
   </div>
-
+  <div class="form-group" style="margin-bottom: 15px;">
+    <label for="Image">الصورة الرئيسية</label>
+    <input type="file"
+           id="Image"
+           (change)="changeImage($event, 'Image')"
+           class="form-control" />
+    <img *ngIf="projectData.image" [src]="'https://localhost:7243/' + projectData.image" alt="Current Image " width="100">
+  </div>
   <!-- Image Fields (Img1 to Img8) -->
   <div class="form-group" style="margin-bottom: 15px;">
     <label for="Img1">الصورة 1</label>

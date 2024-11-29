@@ -35,8 +35,7 @@ namespace Bani_Obaid.Server.Controllers
 
             return ownershipTransfer;
         }
-        [HttpPost]
-        [Route("api/OwnershipTransfers")]
+        [HttpPost("OwnershipTransfers")]
         public async Task<IActionResult> CreateOwnershipTransfer([FromBody] OwnershipTransferDto dto)
         {
             var transfer = new OwnershipTransfer

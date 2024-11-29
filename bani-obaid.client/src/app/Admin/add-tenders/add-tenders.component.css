@@ -55,16 +55,16 @@
     }
 
 input::placeholder, textarea::placeholder {
-  color: #aaa; /* Light gray */
+  color: #aaa; 
 }
 
-/* Right-to-left text alignment */
+
 input, textarea {
   direction: rtl;
   text-align: right;
 }
 
-/* Validation message styling */
+
 .error-message {
   color: red;
   font-size: 0.9em;

@@ -12,6 +12,7 @@ export class UpdateProjectComponent {
   projectId: any;
   projectData: any = {};
   imageFields: any = {
+    Image:null,
     Img1: null,
     Img2: null,
     Img3: null,

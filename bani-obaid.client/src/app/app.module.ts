@@ -83,6 +83,8 @@ import { EditStructureComponent } from './Admin/edit-structure/edit-structure.co
 import { AdminMunicipalityMemberComponent } from './Admin/admin-municipality-member/admin-municipality-member.component';
 import { EditMemberComponent } from './Admin/edit-member/edit-member.component';
 import { AddMemberComponent } from './Admin/add-member/add-member.component';
+import { OwnershipTransferManagementComponent } from './Mohammad/ownership-transfer-management/ownership-transfer-management.component';
+import { AdminPollDetailsComponent } from './Admin/admin-poll-details/admin-poll-details.component';
 
 @NgModule({
   declarations: [
@@ -169,6 +171,8 @@ import { AddMemberComponent } from './Admin/add-member/add-member.component';
     AdminMunicipalityMemberComponent,
     EditMemberComponent,
     AddMemberComponent,
+    OwnershipTransferManagementComponent,
+    AdminPollDetailsComponent,
   ],
   imports: [
     FormsModule,
@@ -218,7 +222,7 @@ import { AddMemberComponent } from './Admin/add-member/add-member.component';
           { path: 'home', component: DashboardComponent },
           { path: 'profile', component: ProfileComponent },
           { path: 'polls', component: GetPollsComponent },
-          { path: 'poll/:id', component: PollDetailsComponent },
+          { path: 'poll/:id', component: AdminPollDetailsComponent },
           { path: 'addPoll', component: AddPollComponent },
           { path: 'tenders', component: GetTendersComponent },
           { path: 'AddTenders', component: AddTendersComponent },
@@ -256,6 +260,8 @@ import { AddMemberComponent } from './Admin/add-member/add-member.component';
           { path: "AdminMunicipalityMember", component: AdminMunicipalityMemberComponent },
           { path: 'EditMember/:id', component: EditMemberComponent },
           { path: 'AddMember', component: AddMemberComponent },
+          { path: 'OwnershipTransfer', component: OwnershipTransferManagementComponent },
+
 
 
         ]

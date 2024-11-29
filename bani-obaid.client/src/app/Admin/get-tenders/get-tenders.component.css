@@ -1,4 +1,4 @@
-.table td {
+/*.table td {
   vertical-align: middle;
   height: 150px;
   width:130px;
@@ -41,4 +41,28 @@ button.btn.btn-danger.btn-sm {
   padding: 4px;
   height: 39px;
   font-size: 17px;
+}
+*/
+
+
+
+.btn-danger {
+  color: #fff;
+  background-color: #dc3545;
+  border-color: #dc3545;
+  width: 46px;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+  width: 46px;
+}
+
+.btn-success {
+  color: #fff;
+  background-color: #198754;
+  border-color: #198754;
+  margin-bottom: 20px;
 }

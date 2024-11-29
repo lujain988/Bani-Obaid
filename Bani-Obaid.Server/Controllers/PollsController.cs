@@ -106,6 +106,11 @@ namespace Bani_Obaid.Server.Controllers
         {
             var poll = _db.PollTopics.Find(id);
             if (poll == null) { return BadRequest(); };
+            var votes = _db.PollVotes.Where(v => v.PollTopicId == id).ToList();
+            foreach (var vote in votes)
+            {
+                _db.PollVotes.Remove(vote);
+            }
             _db.PollTopics.Remove(poll);
             _db.SaveChanges();
             return Ok();
@@ -125,6 +130,13 @@ namespace Bani_Obaid.Server.Controllers
             return Ok(Math.Round(percentage, 1));
         }
 
+        [HttpGet("GetVotesByPollId/{id}")]
+        public IActionResult GetVotesByPollId(int id)
+        {
+            var votes = _db.PollVotes.Where(v => v.PollTopicId == id).ToList();
+            var count = votes.Count;
+            return Ok(new {Votes = votes, Count = count});
+        }
 
         [HttpPost("PostVote/{id}")]
         public IActionResult PostVote(int id, [FromForm] PostVoteDTO vote)

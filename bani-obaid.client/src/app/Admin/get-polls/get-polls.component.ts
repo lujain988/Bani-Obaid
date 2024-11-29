@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { PollsService } from '../../Hosam/Services/pollsService';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-get-polls',
@@ -40,16 +41,26 @@ export class GetPollsComponent {
   }
 
   deletePoll(id: number) {
-    if (confirm('هل أنت متأكد أنك تريد حذف هذا الاستطلاع؟')) {
-      this.pollService.deletePoll(id).subscribe(
-        () => {
-          alert('تم حذف الاستطلاع بنجاح.');
-          this.getPolls();
-        },
-        (error) => {
-          console.error('حدث خطأ اثناء حذف الاستطلاع', error);
-        }
-      );
-    }
+    Swal.fire({
+      title: 'هل أنت متأكد أنك تريد حذف هذا الاستطلاع؟',
+      text: 'لن تتمكن من استرجاعه بعد الحذف!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'نعم, احذف',
+      cancelButtonText: 'لا, إلغاء',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.pollService.deletePoll(id).subscribe(
+          () => {
+            Swal.fire('تم الحذف!', 'تم حذف الاستطلاع بنجاح.', 'success');
+            this.getPolls();
+          },
+          (error) => {
+            Swal.fire('حدث خطأ!', 'حدث خطأ اثناء حذف الاستطلاع.', 'error');
+            console.error('حدث خطأ اثناء حذف الاستطلاع', error);
+          }
+        );
+      }
+    });
   }
 }

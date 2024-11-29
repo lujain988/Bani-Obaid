@@ -17,8 +17,6 @@
   </div>
 </section>
 
-<button routerLink="/eventManagement">JobsManagement</button>
-<button routerLink="/RegistrationManagement">JobsManagement</button>
 
 
 
@@ -38,7 +36,7 @@
         <div class="event-three__single">
           <div class="event-three__img-box">
             <div class="event-three__img">
-              <img class="event-img" [src]="event.image" alt="Event Image" />
+              <img class="event-img" [src]="'https://localhost:7243/images/' + event?.image" alt="{{event.image}}" />
             </div>
           </div>
           <div class="event-three__content">

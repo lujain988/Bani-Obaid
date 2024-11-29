@@ -14,7 +14,6 @@ export class ServicesService {
   staticData = "https://localhost:7243/api";
 
   getAllTenders(): Observable<any> {
-    debugger;
     return this.http.get<any>(`${this.staticData}/Tenders/GetAllTenders`);
   }
 

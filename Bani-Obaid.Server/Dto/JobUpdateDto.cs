@@ -2,7 +2,7 @@
 {
     public class JobUpdateDto
     {
-        public string? Image { get; set; }
+        public IFormFile? Image { get; set; }
         public string? Img1 { get; set; }
         public string? Img2 { get; set; }
         public string? Img3 { get; set; }

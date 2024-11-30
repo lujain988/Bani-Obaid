@@ -100,14 +100,45 @@ namespace Bani_Obaid.Server.Controllers
 
         // POST: api/Jobs
         [HttpPost]
-        public IActionResult PostJob([FromBody] JobCreateDto jobDto)
+        public IActionResult PostJob([FromForm] JobCreateDto jobDto)
         {
+            if (jobDto.Image == null || jobDto.Image.Length == 0)
+            {
+                return BadRequest("Main image is required.");
+            }
+
+            // Folder path for saving images
+            var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images");
+            if (!Directory.Exists(uploadsFolder))
+            {
+                Directory.CreateDirectory(uploadsFolder);
+            }
+
+            // Helper method to save file and return relative path
+            string SaveFile(IFormFile file)
+            {
+                var uniqueFileName = Guid.NewGuid().ToString() + "_" + file.FileName;
+                var filePath = Path.Combine(uploadsFolder, uniqueFileName);
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                {
+                    file.CopyTo(fileStream);
+                }
+                return $"/images/{uniqueFileName}";
+            }
+
+            // Save images and get paths
+            var imagePath = SaveFile(jobDto.Image);
+            var img1Path = jobDto.Img1 != null ? SaveFile(jobDto.Img1) : null;
+            var img2Path = jobDto.Img2 != null ? SaveFile(jobDto.Img2) : null;
+            var img3Path = jobDto.Img3 != null ? SaveFile(jobDto.Img3) : null;
+
+            // Create the job object
             var job = new Job
             {
-                Image = jobDto.Image,
-                Img1 = jobDto.Img1,
-                Img2 = jobDto.Img2,
-                Img3 = jobDto.Img3,
+                Image = imagePath,
+                Img1 = img1Path,
+                Img2 = img2Path,
+                Img3 = img3Path,
                 Title = jobDto.Title,
                 Type = jobDto.Type,
                 Link = jobDto.Link,
@@ -120,6 +151,7 @@ namespace Bani_Obaid.Server.Controllers
             return CreatedAtAction(nameof(GetJobById), new { id = job.Id }, job);
         }
 
+
         // PUT: api/Jobs/5
         [HttpPut("{id}")]
         public IActionResult EditJob(int id, [FromForm] JobUpdateDto jobDto)
@@ -129,8 +161,31 @@ namespace Bani_Obaid.Server.Controllers
             if (job == null)
                 return NotFound();
 
-            // Only update if values are not null
-            job.Image = jobDto.Image ?? job.Image;
+            // تحديث الصورة إذا تم رفع صورة جديدة
+            if (jobDto.Image != null && jobDto.Image.Length > 0)
+            {
+                var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images");
+
+                if (!Directory.Exists(uploadsFolder))
+                {
+                    Directory.CreateDirectory(uploadsFolder);
+                }
+
+                // إنشاء اسم فريد للصورة
+                var uniqueFileName = Guid.NewGuid().ToString() + "_" + jobDto.Image.FileName;
+                var filePath = Path.Combine(uploadsFolder, uniqueFileName);
+
+                // حفظ الصورة على الخادم
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                {
+                    jobDto.Image.CopyTo(fileStream);
+                }
+
+                // تحديث مسار الصورة في قاعدة البيانات
+                job.Image = $"/images/{uniqueFileName}";
+            }
+
+            // تحديث الحقول الأخرى إذا لم تكن فارغة
             job.Img1 = jobDto.Img1 ?? job.Img1;
             job.Img2 = jobDto.Img2 ?? job.Img2;
             job.Img3 = jobDto.Img3 ?? job.Img3;
@@ -140,15 +195,17 @@ namespace Bani_Obaid.Server.Controllers
             job.Status = jobDto.Status ?? job.Status;
             job.UpdatedAt = DateTime.Now;
 
+            // تحديث البيانات في قاعدة البيانات
             _context.Jobs.Update(job);
             _context.SaveChanges();
 
             return Ok(job);
         }
-    
 
-    // DELETE: api/Jobs/5
-    [HttpDelete("{id}")]
+
+
+        // DELETE: api/Jobs/5
+        [HttpDelete("{id}")]
         public IActionResult DeleteJob(int id)
         {
             var job = _context.Jobs.Find(id);

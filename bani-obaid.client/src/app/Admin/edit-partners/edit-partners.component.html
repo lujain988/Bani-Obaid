@@ -1,0 +1,65 @@
+<h2 class="text-center my-4 d-flex flex-column align-items-center" style="direction: rtl;">
+  <span>تعديل بيانات الشريك</span>
+</h2>
+
+<hr />
+
+<form (ngSubmit)="UpdatePartner(PartnerData)" style="direction: rtl;">
+  <!-- الاسم -->
+  <div class="mb-3">
+    <label for="partnerName" class="form-label">اسم الشريك:</label>
+    <input type="text"
+           name="name"
+           class="form-control"
+           id="partnerName"
+           required
+           [(ngModel)]="PartnerData.name"
+           placeholder="أدخل اسم الشريك" />
+  </div>
+
+  <!-- رابط الشريك -->
+  <div class="mb-3">
+    <label for="partnerLink" class="form-label">رابط الشريك:</label>
+    <input type="url"
+           name="link"
+           class="form-control"
+           id="partnerLink"
+           required
+           [(ngModel)]="PartnerData.link"
+           placeholder="أدخل رابط الشريك" />
+  </div>
+
+  <!-- الصور: الحالية والجديدة -->
+  <div class="mb-3 d-flex justify-content-between align-items-center">
+    <!-- الصورة الحالية -->
+    <div class="text-center">
+      <label class="form-label">الصورة الحالية:</label>
+      <img *ngIf="PartnerData.logo"
+           [src]="'https://localhost:7243' + PartnerData.logo"
+           alt="{{ PartnerData.name }}"
+           style="width: 150px; height: 150px; border: 1px solid #ccc;" />
+    </div>
+
+    <!-- الصورة الجديدة -->
+    <div class="text-center">
+      <label class="form-label">الصورة الجديدة:</label>
+      <img *ngIf="logo"
+           [src]="logo"
+           alt="الصورة الجديدة"
+           style="width: 150px; height: 150px; border: 1px solid #ccc;" />
+    </div>
+  </div>
+
+  <!-- تحميل صورة جديدة -->
+  <div class="mb-3">
+    <label for="logo" class="form-label">تحميل صورة جديدة:</label>
+    <input type="file"
+           name="logo"
+           class="form-control"
+           id="logo"
+           (change)="imageChange($event)" />
+  </div>
+
+  <!-- زر الحفظ -->
+  <button type="submit" class="btn btn-primary">حفظ التعديلات</button>
+</form>

@@ -11,6 +11,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class EditJobComponent implements OnInit {
   editJobForm: FormGroup;
   jobId: string | null = null;
+  selectedImage: File | null = null; // To store the selected image file
+
 
   constructor(
     private fb: FormBuilder,
@@ -21,11 +23,18 @@ export class EditJobComponent implements OnInit {
     // Initialize the form with the correct controls
     this.editJobForm = this.fb.group({
       title: ['', Validators.required],
-      image: [''],
+      image: [null],
       type: ['', Validators.required],
       link: [''],
       status: ['active'] // Default status
     });
+  }
+
+  onFileSelected(event: Event) {
+    const input = event.target as HTMLInputElement;
+    if (input.files && input.files.length > 0) {
+      this.selectedImage = input.files[0];
+    }
   }
 
   ngOnInit(): void {
@@ -41,7 +50,6 @@ export class EditJobComponent implements OnInit {
       // Ensure the form is updated with existing job data
       this.editJobForm.patchValue({
         title: jobDetails.title,
-        image: jobDetails.image,
         type: jobDetails.type,
         link: jobDetails.link,
         status: jobDetails.status
@@ -53,19 +61,22 @@ export class EditJobComponent implements OnInit {
     if (this.editJobForm.valid && this.jobId) {
       const formData = new FormData();
 
-      // تحويل القيم إلى FormData
+      // Add form values to FormData
       formData.append('title', this.editJobForm.get('title')?.value || '');
-      formData.append('image', this.editJobForm.get('image')?.value || '');
+      // Append the image file if selected
+      if (this.selectedImage) {
+        formData.append('image', this.selectedImage);
+      }
       formData.append('type', this.editJobForm.get('type')?.value || '');
       formData.append('link', this.editJobForm.get('link')?.value || '');
       formData.append('status', this.editJobForm.get('status')?.value || 'active');
 
-      // استدعاء دالة الخدمة مع FormData
+      // Call the service method to update the job with FormData
       this.urlService.editJob(this.jobId, formData).subscribe(response => {
         console.log('Job updated successfully', response);
         alert('تم تعديل الوظيفة بنجاح .'); // Show success message
-        this.router.navigate(['/JobsManagement']);      });
+        this.router.navigate(['/adminDashboard/JobsManagement']);
+      });
     }
   }
-
 }

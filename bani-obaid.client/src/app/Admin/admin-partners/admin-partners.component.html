@@ -1,0 +1,53 @@
+<h1 class="text-center my-4 d-flex flex-column align-items-center" style="direction: rtl; font-weight: 900;">
+  <span>الشركاء</span>
+</h1>
+
+<hr />
+
+ <!--زر إضافة شريك جديد--> 
+<div class="d-flex justify-content-center align-items-center mb-4">
+  <button class="btn btn-success" (click)="navigateToAddPartners()">إضافة شريك جديد</button>
+</div>
+
+<!-- جدول الشركاء -->
+<table class="table table-striped text-center" style="direction: rtl; table-layout: fixed; width: 100%;">
+  <thead>
+    <tr>
+      <th scope="col" style="width: 5%;">العدد</th>
+      <th scope="col" style="width: 20%;">شعار الشريك</th>
+      <th scope="col" style="width: 20%;">الاسم</th>
+      <th scope="col" style="width: 20%;">الرابط</th>
+      <th scope="col" style="width: auto;">تعديل</th>
+      <th scope="col" style="width: auto;">حذف</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let partner of PartnersArray; let i = index">
+      <td style="text-align: center;">{{ i + 1 }}</td>
+      <td>
+        <!-- عرض الشعار -->
+        <img [src]="'https://localhost:7243' + partner.logo" alt="{{ partner.name }}"
+             style="width: 150px; height: 150px; border: 1px solid #ccc;" />
+      </td>
+      <td style="text-align: center;">{{ partner.name }}</td>
+      <td style="text-align: center;">
+        <!-- رابط الشريك، يفتح في نافذة جديدة -->
+        <a [href]="partner.link" target="_blank">{{ partner.link }}</a>
+      </td>
+      <td>
+        <button class="btn btn-warning" [routerLink]="['/adminDashboard/EditPartners', partner.id]">تعديل</button>
+      </td>
+      <td>
+        <button class="btn btn-danger" (click)="deletePartners(partner.id)">حذف</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- رسالة خطأ إذا لم تكن هناك بيانات -->
+<ng-template #errorTemplate>
+  <div class="text-center" style="color: red;">
+    <h3>تعذر تحميل البيانات</h3>
+    <p>يرجى التحقق من اتصالك بالخادم أو المحاولة لاحقًا.</p>
+  </div>
+</ng-template>

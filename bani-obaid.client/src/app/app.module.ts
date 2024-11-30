@@ -1,7 +1,7 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // Import ReactiveFormsModule
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -85,6 +85,11 @@ import { EditMemberComponent } from './Admin/edit-member/edit-member.component';
 import { AddMemberComponent } from './Admin/add-member/add-member.component';
 import { OwnershipTransferManagementComponent } from './Mohammad/ownership-transfer-management/ownership-transfer-management.component';
 import { AdminPollDetailsComponent } from './Admin/admin-poll-details/admin-poll-details.component';
+import { MunicipalitiesComponent } from './Mohammad/municipalities/municipalities.component';
+import { AdminPartnersComponent } from './Admin/admin-partners/admin-partners.component';
+import { AddPartnerComponent } from './Admin/add-partner/add-partner.component';
+import { EditPartnersComponent } from './Admin/edit-partners/edit-partners.component';
+import { AdminGuard } from './Hosam/Services/admin.guard';
 
 @NgModule({
   declarations: [
@@ -173,6 +178,10 @@ import { AdminPollDetailsComponent } from './Admin/admin-poll-details/admin-poll
     AddMemberComponent,
     OwnershipTransferManagementComponent,
     AdminPollDetailsComponent,
+    MunicipalitiesComponent,
+    AdminPartnersComponent,
+    AddPartnerComponent,
+    EditPartnersComponent,
   ],
   imports: [
     FormsModule,
@@ -211,14 +220,15 @@ import { AdminPollDetailsComponent } from './Admin/admin-poll-details/admin-poll
       { path: "Poll/:id", component: PollDetailsComponent },
       { path: "eventdetail/:id", component: EventDetailsComponent },
       { path: "eventManagement", component: EventManagementComponent },
-      { path: 'event-form', component: EventFormComponent }, // للإضافة
-      { path: 'event-form/:id', component: EventFormComponent }, // للتعديل
-      { path: 'RegistrationManagement', component: RegistrationManagementComponent }, //??
+      { path: 'event-form', component: EventFormComponent },
+      { path: 'event-form/:id', component: EventFormComponent },
+      { path: 'RegistrationManagement', component: RegistrationManagementComponent },
+      { path: 'Municipalities', component: MunicipalitiesComponent },
 
       { path: "admin", component: LoginComponent },
 
       {
-        path: 'adminDashboard', component: AdminDashboardComponent, children: [
+        path: 'adminDashboard', component: AdminDashboardComponent, canActivate: [AdminGuard], children: [
           { path: 'home', component: DashboardComponent },
           { path: 'profile', component: ProfileComponent },
           { path: 'polls', component: GetPollsComponent },
@@ -246,8 +256,8 @@ import { AdminPollDetailsComponent } from './Admin/admin-poll-details/admin-poll
           { path: "ShowComplains", component: GetComplainsComponent },
           { path: "RegistrationManagement", component: RegistrationManagementComponent },
           { path: "eventManagement", component: EventManagementComponent },
-          { path: 'event-form', component: EventFormComponent }, // للإضافة
-          { path: 'event-form/:id', component: EventFormComponent }, // للتعديل
+          { path: 'event-form', component: EventFormComponent },
+          { path: 'event-form/:id', component: EventFormComponent },
           { path: 'JobsManagement', component: JobManagementComponent },
           { path: 'addJob', component: AddJobComponent },
           { path: 'editJob/:id', component: EditJobComponent },
@@ -261,6 +271,11 @@ import { AdminPollDetailsComponent } from './Admin/admin-poll-details/admin-poll
           { path: 'EditMember/:id', component: EditMemberComponent },
           { path: 'AddMember', component: AddMemberComponent },
           { path: 'OwnershipTransfer', component: OwnershipTransferManagementComponent },
+          { path: "AdminPartners", component: AdminPartnersComponent },
+          { path: 'AddPartner', component: AddPartnerComponent },
+          { path: 'EditPartners/:id', component: EditPartnersComponent },
+
+
 
 
 

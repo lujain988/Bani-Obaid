@@ -1,7 +1,7 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // Import ReactiveFormsModule
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -89,6 +89,7 @@ import { MunicipalitiesComponent } from './Mohammad/municipalities/municipalitie
 import { AdminPartnersComponent } from './Admin/admin-partners/admin-partners.component';
 import { AddPartnerComponent } from './Admin/add-partner/add-partner.component';
 import { EditPartnersComponent } from './Admin/edit-partners/edit-partners.component';
+import { AdminGuard } from './Hosam/Services/admin.guard';
 
 @NgModule({
   declarations: [
@@ -219,15 +220,15 @@ import { EditPartnersComponent } from './Admin/edit-partners/edit-partners.compo
       { path: "Poll/:id", component: PollDetailsComponent },
       { path: "eventdetail/:id", component: EventDetailsComponent },
       { path: "eventManagement", component: EventManagementComponent },
-      { path: 'event-form', component: EventFormComponent }, // للإضافة
-      { path: 'event-form/:id', component: EventFormComponent }, // للتعديل
-      { path: 'RegistrationManagement', component: RegistrationManagementComponent }, //??
+      { path: 'event-form', component: EventFormComponent },
+      { path: 'event-form/:id', component: EventFormComponent },
+      { path: 'RegistrationManagement', component: RegistrationManagementComponent },
       { path: 'Municipalities', component: MunicipalitiesComponent },
 
       { path: "admin", component: LoginComponent },
 
       {
-        path: 'adminDashboard', component: AdminDashboardComponent, children: [
+        path: 'adminDashboard', component: AdminDashboardComponent, canActivate: [AdminGuard], children: [
           { path: 'home', component: DashboardComponent },
           { path: 'profile', component: ProfileComponent },
           { path: 'polls', component: GetPollsComponent },
@@ -255,8 +256,8 @@ import { EditPartnersComponent } from './Admin/edit-partners/edit-partners.compo
           { path: "ShowComplains", component: GetComplainsComponent },
           { path: "RegistrationManagement", component: RegistrationManagementComponent },
           { path: "eventManagement", component: EventManagementComponent },
-          { path: 'event-form', component: EventFormComponent }, // للإضافة
-          { path: 'event-form/:id', component: EventFormComponent }, // للتعديل
+          { path: 'event-form', component: EventFormComponent },
+          { path: 'event-form/:id', component: EventFormComponent },
           { path: 'JobsManagement', component: JobManagementComponent },
           { path: 'addJob', component: AddJobComponent },
           { path: 'editJob/:id', component: EditJobComponent },

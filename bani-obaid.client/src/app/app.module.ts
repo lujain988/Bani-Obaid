@@ -89,7 +89,9 @@ import { MunicipalitiesComponent } from './Mohammad/municipalities/municipalitie
 import { AdminPartnersComponent } from './Admin/admin-partners/admin-partners.component';
 import { AddPartnerComponent } from './Admin/add-partner/add-partner.component';
 import { EditPartnersComponent } from './Admin/edit-partners/edit-partners.component';
-
+import { AdminImageHomePageComponent } from './Admin/admin-image-home-page/admin-image-home-page.component';
+import { AddImageHomePageComponent } from './Admin/add-image-home-page/add-image-home-page.component';
+import { EditImageHomePageComponent } from './Admin/edit-image-home-page/edit-image-home-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -181,6 +183,9 @@ import { EditPartnersComponent } from './Admin/edit-partners/edit-partners.compo
     AdminPartnersComponent,
     AddPartnerComponent,
     EditPartnersComponent,
+    AdminImageHomePageComponent,
+    AddImageHomePageComponent,
+    EditImageHomePageComponent,
   ],
   imports: [
     FormsModule,
@@ -273,6 +278,9 @@ import { EditPartnersComponent } from './Admin/edit-partners/edit-partners.compo
           { path: "AdminPartners", component: AdminPartnersComponent },
           { path: 'AddPartner', component: AddPartnerComponent },
           { path: 'EditPartners/:id', component: EditPartnersComponent },
+          { path: "AdminImageHomePage", component: AdminImageHomePageComponent },
+          { path: 'AddImageHomePage', component: AddImageHomePageComponent },
+          { path: 'EditImageHomePage/:id', component: EditImageHomePageComponent },
 
 
 

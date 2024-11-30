@@ -1,0 +1,57 @@
+<h2 class="text-center my-4 d-flex flex-column align-items-center" style="direction: rtl;">
+  <span>تعديل بيانات الصورة في الصفحة الرئيسية</span>
+</h2>
+
+<hr />
+
+<form (ngSubmit)="UpdatePartner(ImagesData)" style="direction: rtl;">
+  <div class="mb-3">
+    <label for="homeTitle" class="form-label">العنوان:</label>
+    <input type="text"
+           name="homeTitle"
+           class="form-control"
+           id="homeTitle"
+           required
+           [(ngModel)]="ImagesData.homeTitle"
+           placeholder="أدخل العنوان" />
+  </div>
+
+  <div class="mb-3">
+    <label for="homeDescription" class="form-label">الوصف:</label>
+    <textarea name="homeDescription"
+              class="form-control"
+              id="homeDescription"
+              required
+              [(ngModel)]="ImagesData.homeDescription"
+              placeholder="أدخل الوصف" rows="4"></textarea>
+  </div>
+
+  <div class="mb-3 d-flex justify-content-between align-items-center">
+    <div class="text-center">
+      <label class="form-label">الصورة الحالية:</label>
+      <img *ngIf="ImagesData.homeImage"
+           [src]="'https://localhost:7243' + ImagesData.homeImage"
+           alt="{{ ImagesData.homeTitle || 'الصورة الحالية' }}"
+           style="width: 150px; height: 150px; border: 1px solid #ccc;" />
+    </div>
+
+    <div class="text-center">
+      <label class="form-label">الصورة الجديدة:</label>
+      <img *ngIf="homeImagePreview"
+           [src]="homeImagePreview"
+           alt="الصورة الجديدة"
+           style="width: 150px; height: 150px; border: 1px solid #ccc;" />
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="homeImage" class="form-label">تحميل صورة جديدة:</label>
+    <input type="file"
+           name="homeImage"
+           class="form-control"
+           id="homeImage"
+           (change)="imageChange($event)" />
+  </div>
+
+  <button type="submit" class="btn btn-primary">حفظ التعديلات</button>
+</form>

@@ -8,7 +8,7 @@ import { ServiceService } from '../Service/service.service';
   styleUrls: ['./about-municipality.component.css']
 })
 export class AboutMunicipalityComponent implements OnInit {
-  AboutMunicipalityArray: any; 
+  AboutMunicipalityArray: any;
 
   constructor(private _ser: ServiceService, private router: Router) { }
 

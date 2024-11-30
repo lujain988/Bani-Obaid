@@ -3,35 +3,35 @@ import { ServiceService } from '../../Ahmad/Service/service.service';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-add-partner',
-  templateUrl: './add-partner.component.html',
-  styleUrls: ['./add-partner.component.css']
+  selector: 'app-add-image-home-page',
+  templateUrl: './add-image-home-page.component.html',
+  styleUrls: ['./add-image-home-page.component.css']
 })
-export class AddPartnerComponent {
-  PartnerData: any = {
-    name: '',
-    link: ''
+export class AddImageHomePageComponent {
+  ImagesData: any = {
+    homeTitle: '',
+    homeDescription: ''
   };
-  logo: any;
+  homeImage: any;
   isSubmitted = false;
 
   constructor(private _ser: ServiceService) { }
 
   imageChange(e: any) {
-    this.logo = e.target.files[0];
+    this.homeImage = e.target.files[0];
   }
 
-  AddNewPartner(form: any) {
+  AddNewImages(form: any) {
     this.isSubmitted = true;
 
-    if (!form.valid || !this.logo) {
+    if (!form.valid || !this.homeImage) {
       Swal.fire({
         icon: 'error',
         title: 'خطأ في الإدخال',
-        text: 'يرجى تعبئة جميع الحقول المطلوبة وتحميل صورة الشعار.',
+        text: 'يرجى تعبئة جميع الحقول المطلوبة وتحميل صورة للصفحة الرئيسية.',
         confirmButtonColor: '#d33'
       });
-      this.isSubmitted = false; 
+      this.isSubmitted = false;
       return;
     }
 
@@ -39,19 +39,19 @@ export class AddPartnerComponent {
     for (let key in form.value) {
       formData.append(key, form.value[key]);
     }
-    formData.append("logo", this.logo);
+    formData.append("homeImage", this.homeImage); // تأكد من إرسال صورة الصفحة الرئيسية
 
-    this._ser.addPartner(formData).subscribe(
+    this._ser.addHomeImage(formData).subscribe(
       () => {
         Swal.fire({
           icon: 'success',
-          title: 'نجاح',
-          text: 'تمت إضافة الشريك بنجاح.',
+          title: 'تم التحديث بنجاح',
+          text: 'تم تحديث الصورة في الصفحة الرئيسية بنجاح.',
           confirmButtonColor: '#3085d6'
         });
         this.isSubmitted = false;
         form.reset();
-        this.logo = null; // إعادة تعيين الصورة بعد الإضافة
+        this.homeImage = null;
       },
       (error) => {
         let errorMessage = 'حدث خطأ غير متوقع. يرجى المحاولة لاحقًا.';
@@ -66,8 +66,9 @@ export class AddPartnerComponent {
           text: errorMessage,
           confirmButtonColor: '#d33'
         });
-        this.isSubmitted = false; // إعادة تمكين الزر في حالة الخطأ
+        this.isSubmitted = false;
       }
     );
   }
+
 }

@@ -1,0 +1,47 @@
+<h1 class="text-center my-4 d-flex flex-column align-items-center" style="direction: rtl; font-weight: 900;">
+  <span>صور الصفحة الرئيسية</span>
+</h1>
+
+<hr />
+
+<div class="d-flex justify-content-center align-items-center mb-4">
+  <button class="btn btn-success" (click)="navigateToAddImges()">إضافة صورة جديدة</button>
+</div>
+
+<table class="table table-striped text-center" style="direction: rtl; table-layout: fixed; width: 100%;">
+  <thead>
+    <tr>
+      <th scope="col" style="width: 5%;">العدد</th>
+      <th scope="col" style="width: 20%;">الصورة</th>
+      <th scope="col" style="width: 20%;">العنوان</th>
+      <th scope="col" style="width: 30%;">الوصف</th>
+      <th scope="col" style="width: auto;">تعديل</th>
+      <th scope="col" style="width: auto;">حذف</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let image of ImagesHomePageArray; let i = index">
+      <td style="text-align: center;">{{ i + 1 }}</td>
+      <td>
+        <img [src]="'https://localhost:7243' + image.homeImage" alt="{{ image.homeTitle }}"
+             style="width: 150px; height: 150px; border: 1px solid #ccc;" />
+      </td>
+      <td style="text-align: center;">{{ image.homeTitle }}</td>
+      <td style="text-align: center;">{{ image.homeDescription }}</td>
+      <td>
+        <button class="btn btn-warning" [routerLink]="['/adminDashboard/EditImageHomePage', image.id]">تعديل</button>
+      </td>
+      <td>
+        <button class="btn btn-danger" (click)="deleteImagesForHomePage(image.id)">حذف</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- رسالة خطأ إذا لم تكن هناك بيانات -->
+<ng-template #errorTemplate>
+  <div class="text-center" style="color: red;">
+    <h3>تعذر تحميل البيانات</h3>
+    <p>يرجى التحقق من اتصالك بالخادم أو المحاولة لاحقًا.</p>
+  </div>
+</ng-template>

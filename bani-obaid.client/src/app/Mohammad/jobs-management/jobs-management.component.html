@@ -1,7 +1,7 @@
-<section class="job-management" style="direction:rtl ; margin-left: 15%">
+<section class="job-management" style="direction:rtl">
   <div class="container">
     <div class="header">
-      <h2>إدارة الوظائف  </h2>
+      <h2>إدارة الوظائف</h2>
       <!-- Add Button -->
       <br>
       <button class="btn btn-primary" (click)="addJob()">إضافة وظيفة جديدة</button>
@@ -15,6 +15,7 @@
           <th>العنوان</th>
           <th>النوع</th>
           <th>الحالة</th>
+          <th>الصورة</th>
           <th>الإجراءات</th>
         </tr>
       </thead>
@@ -22,8 +23,12 @@
         <tr *ngFor="let job of jobs; let i = index">
           <td>{{ i + 1 }}</td>
           <td>{{ job.title }}</td>
-          <td>{{ job.type == "1" ? 'فرص ديوان الخدمة ' : 'فرص مؤقته' }}</td>
+          <td>{{ job.type == "1" ? 'فرص ديوان الخدمة' : 'فرص مؤقتة' }}</td>
           <td>{{ job.status == "active" ? 'فعال' : 'غير فعال' }}</td>
+          <td>
+            <img *ngIf="job.image" [src]="'https://localhost:7243/' + job.image" alt="صورة الوظيفة" style="width: 100px; height: auto; border-radius: 5px;">
+            <span *ngIf="!job.image">لا توجد صورة</span>
+          </td>
           <td>
             <!-- Edit Button -->
             <button class="btn btn-warning btn-sm" (click)="editJob(job.id)">تعديل</button>
@@ -35,7 +40,7 @@
             <button class="btn btn-secondary btn-sm"
                     [ngClass]="{'btn-success': !job.isActive, 'btn-secondary': job.isActive}"
                     (click)="toggleActivation(job.id)">
-              {{ job.status == 'active' ? 'الغاء التفعيل' : 'تفعيل' }}
+              {{ job.status == 'active' ? 'إلغاء التفعيل' : 'تفعيل' }}
             </button>
           </td>
         </tr>

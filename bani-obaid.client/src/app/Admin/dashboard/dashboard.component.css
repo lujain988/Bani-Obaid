@@ -1,0 +1,5 @@
+.fixed-container {
+  width: 500px;
+  border: 1px solid #ccc;
+  overflow: auto;
+}

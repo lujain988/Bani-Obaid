@@ -1,0 +1,44 @@
+<h2 class="text-center my-4 d-flex flex-column align-items-center" style="direction: rtl;">
+  <span>إضافة صورة للصفحة الرئيسية</span>
+</h2>
+
+<hr />
+
+<form #imageForm="ngForm" (ngSubmit)="AddNewImages(imageForm)" style="direction: rtl;">
+  <!-- العنوان -->
+  <div class="mb-3">
+    <label for="homeTitle" class="form-label">عنوان الصورة:</label>
+    <input type="text"
+           name="homeTitle"
+           class="form-control"
+           id="homeTitle"
+           required
+           [(ngModel)]="ImagesData.homeTitle"
+           placeholder="أدخل عنوان الصورة" />
+  </div>
+
+  <!-- الوصف -->
+  <div class="mb-3">
+    <label for="homeDescription" class="form-label">وصف الصورة:</label>
+    <textarea name="homeDescription"
+              class="form-control"
+              id="homeDescription"
+              required
+              [(ngModel)]="ImagesData.homeDescription"
+              placeholder="أدخل وصف الصورة"
+              rows="3"></textarea>
+  </div>
+
+  <!-- تحميل الصورة -->
+  <div class="mb-3">
+    <label for="homeImage" class="form-label">تحميل صورة الصفحة الرئيسية:</label>
+    <input type="file"
+           name="homeImage"
+           class="form-control"
+           id="homeImage"
+           (change)="imageChange($event)" />
+  </div>
+
+  <!-- زر الإضافة -->
+  <button type="submit" class="btn btn-primary" [disabled]="!imageForm.valid || isSubmitted">إضافة الصورة</button>
+</form>

@@ -46,7 +46,6 @@ export class EditPartnersComponent {
     }
   }
 
-  // دالة التعامل مع تحميل الصور
   imageChange(e: any) {
     const file = e.target.files[0];
     if (file) {
@@ -54,9 +53,7 @@ export class EditPartnersComponent {
     }
   }
 
-  // دالة تحديث بيانات الشريك
   UpdatePartner(data: any) {
-    // التحقق من الحقول المطلوبة
     if (!data.name) {
       Swal.fire({
         icon: 'error',

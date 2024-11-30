@@ -1,7 +1,7 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // Import ReactiveFormsModule
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -89,6 +89,10 @@ import { MunicipalitiesComponent } from './Mohammad/municipalities/municipalitie
 import { AdminPartnersComponent } from './Admin/admin-partners/admin-partners.component';
 import { AddPartnerComponent } from './Admin/add-partner/add-partner.component';
 import { EditPartnersComponent } from './Admin/edit-partners/edit-partners.component';
+import { AdminImageHomePageComponent } from './Admin/admin-image-home-page/admin-image-home-page.component';
+import { AddImageHomePageComponent } from './Admin/add-image-home-page/add-image-home-page.component';
+import { EditImageHomePageComponent } from './Admin/edit-image-home-page/edit-image-home-page.component';
+import { AdminGuard } from './Hosam/Services/admin.guard';
 import { AreaDetailsComponent } from './Mohammad/area-details/area-details.component';
 
 @NgModule({
@@ -182,6 +186,9 @@ import { AreaDetailsComponent } from './Mohammad/area-details/area-details.compo
     AdminPartnersComponent,
     AddPartnerComponent,
     EditPartnersComponent,
+    AdminImageHomePageComponent,
+    AddImageHomePageComponent,
+    EditImageHomePageComponent,
     AreaDetailsComponent,
   ],
   imports: [
@@ -221,16 +228,16 @@ import { AreaDetailsComponent } from './Mohammad/area-details/area-details.compo
       { path: "Poll/:id", component: PollDetailsComponent },
       { path: "eventdetail/:id", component: EventDetailsComponent },
       { path: "eventManagement", component: EventManagementComponent },
-      { path: 'event-form', component: EventFormComponent }, // للإضافة
-      { path: 'event-form/:id', component: EventFormComponent }, // للتعديل
-      { path: 'RegistrationManagement', component: RegistrationManagementComponent }, //??
+      { path: 'event-form', component: EventFormComponent },
+      { path: 'event-form/:id', component: EventFormComponent },
+      { path: 'RegistrationManagement', component: RegistrationManagementComponent },
       { path: 'Municipalities', component: MunicipalitiesComponent },
       { path: 'area-details/:id', component: AreaDetailsComponent },
 
       { path: "admin", component: LoginComponent },
 
       {
-        path: 'adminDashboard', component: AdminDashboardComponent, children: [
+        path: 'adminDashboard', component: AdminDashboardComponent, canActivate: [AdminGuard], children: [
           { path: 'home', component: DashboardComponent },
           { path: 'profile', component: ProfileComponent },
           { path: 'polls', component: GetPollsComponent },
@@ -258,8 +265,8 @@ import { AreaDetailsComponent } from './Mohammad/area-details/area-details.compo
           { path: "ShowComplains", component: GetComplainsComponent },
           { path: "RegistrationManagement", component: RegistrationManagementComponent },
           { path: "eventManagement", component: EventManagementComponent },
-          { path: 'event-form', component: EventFormComponent }, // للإضافة
-          { path: 'event-form/:id', component: EventFormComponent }, // للتعديل
+          { path: 'event-form', component: EventFormComponent },
+          { path: 'event-form/:id', component: EventFormComponent },
           { path: 'JobsManagement', component: JobManagementComponent },
           { path: 'addJob', component: AddJobComponent },
           { path: 'editJob/:id', component: EditJobComponent },
@@ -276,6 +283,9 @@ import { AreaDetailsComponent } from './Mohammad/area-details/area-details.compo
           { path: "AdminPartners", component: AdminPartnersComponent },
           { path: 'AddPartner', component: AddPartnerComponent },
           { path: 'EditPartners/:id', component: EditPartnersComponent },
+          { path: "AdminImageHomePage", component: AdminImageHomePageComponent },
+          { path: 'AddImageHomePage', component: AddImageHomePageComponent },
+          { path: 'EditImageHomePage/:id', component: EditImageHomePageComponent },
 
 
 

@@ -149,4 +149,26 @@ export class ServiceService {
     return this.http.get<any>(`${this.staticData}/Events`);
   }
 
+  // SocialIcons
+
+  getSocialIcons(): Observable<any> {
+    return this.http.get<any>(`${this.staticData}/ContactInfo/GetContactInfo`);
+  }
+
+  getSocialIconsById(id: string): Observable<any> {
+    return this.http.get<any>(`${this.staticData}/ContactInfo/GetContactInfoByID/${id}`);
+  }
+
+  addSocialIcons(data: FormData): Observable<any> {
+    return this.http.post<any>(`${this.staticData}/ContactInfo/AddContactInfo`, data);
+  }
+
+  editSocialIcons(id: number, data: FormData): Observable<any> {
+    return this.http.put<any>(`${this.staticData}/ContactInfo/UpdateContactInfo/${id}`, data);
+  }
+
+  deleteSocialIcons(id: number): Observable<any> {
+    return this.http.delete<any>(`${this.staticData}/ContactInfo/DeleteContactInfo/${id}`);
+  }
+
 }

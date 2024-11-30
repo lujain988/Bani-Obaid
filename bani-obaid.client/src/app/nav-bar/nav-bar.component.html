@@ -7,9 +7,10 @@
     padding-right: 30px;
 ">
     <!-- Logo -->
-    <a class="navbar-brand" href="/">
-      <img src="assets/images/resources/logobani.jpg" alt="Logo" style="height:50px; width:50px">
+    <a class="navbar-brand" [routerLink]="['/']">
+      <img *ngIf="SocialIconsArray?.length > 0" [src]="'https://localhost:7243' + SocialIconsArray[0]?.logo" alt="Logo" style="height:50px; width:50px">
     </a>
+
     <!-- Mobile Toggle Button -->
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarExample01" aria-controls="navbarExample01" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
@@ -18,7 +19,7 @@
     <div class="collapse navbar-collapse" id="navbarExample01">
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link" href="/">الرئيسية</a>
+          <a class="nav-link" routerLink="/">الرئيسية</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownAbout" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -30,7 +31,7 @@
             <li><a class="dropdown-item" routerLink="/OrganizationStructure">الهيكل التنظيمي</a></li>
             <li><a class="dropdown-item" routerLink="/MunicipalityMember">الأعضاء</a></li>
             <li><a class="dropdown-item" routerLink="/Municipalities">أقسام البلدية</a></li>
-            <li><a class="dropdown-item"  routerLink="/landBaniObaid">أهم المعالم في بني عبيد</a></li>
+            <li><a class="dropdown-item" routerLink="/landBaniObaid">أهم المعالم في بني عبيد</a></li>
           </ul>
         </li>
         <li class="nav-item dropdown">
@@ -63,14 +64,14 @@
           </ul>
         </li>
         <!--<li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownTourism" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            السياحة
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdownTourism">
-            <li><a class="dropdown-item" routerLink="/landBaniObaid">السياحة في بني عبيد</a></li>
-            <li><a class="dropdown-item" routerLink="/north">السياحة في الشمال</a></li>
-          </ul>
-        </li>-->
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownTourism" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          السياحة
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdownTourism">
+          <li><a class="dropdown-item" routerLink="/landBaniObaid">السياحة في بني عبيد</a></li>
+          <li><a class="dropdown-item" routerLink="/north">السياحة في الشمال</a></li>
+        </ul>
+      </li>-->
 
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownTourism" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -90,33 +91,32 @@
       </ul>
 
       <!-- Social Icons and Contact -->
-      <ul class="navbar-nav flex-row social-icons" style="
-    padding-right: 15px;
-">
+      <ul class="navbar-nav flex-row social-icons" *ngFor="let link of SocialIconsArray">
         <li class="nav-item">
-          <a class="nav-link px-2" href="https://www.facebook.com/">
+          <a class="nav-link px-2" href="{{ link.facebook }}" target="_blank">
             <i class="fab fa-facebook-square"></i>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link px-2" href="https://twitter.com/;s=09">
+          <a class="nav-link px-2" href="{{ link.twitter }}" target="_blank">
             <i class="fab fa-twitter"></i>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link px-2" href="https://youtube.com/">
+          <a class="nav-link px-2" href="{{ link.youtube }}" target="_blank">
             <i class="fab fa-youtube"></i>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link px-2" href="tel:+962">
+          <a class="nav-link px-2" href="tel:{{ link.phone }}">
             <i class="fas fa-phone"></i>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link px-2" href="mailto:">
+          <a class="nav-link px-2" [href]="'https://mail.google.com/mail/?view=cm&fs=1&to=' + link.email + '&su=Inquiry&body=Hello'" target="_blank">
             <i class="fas fa-envelope"></i>
           </a>
+
         </li>
       </ul>
     </div>

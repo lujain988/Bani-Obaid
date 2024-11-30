@@ -100,8 +100,15 @@ namespace Bani_Obaid.Server.Controllers
 
             if (imageRequest.HomeImage != null)
             {
-                var imageFileName = Guid.NewGuid().ToString() + "_" + imageRequest.HomeImage;
+                var fileExtension = Path.GetExtension(imageRequest.HomeImage.FileName);
+                var imageFileName = Guid.NewGuid().ToString() + fileExtension;
                 var imagePath = Path.Combine(uploadsFolder, imageFileName);
+
+                using (var stream = new FileStream(imagePath, FileMode.Create))
+                {
+                    imageRequest.HomeImage.CopyTo(stream);
+                }
+
                 existingImage.HomeImage = $"/images/{imageFileName}";
             }
 

@@ -8,8 +8,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./president.component.css']
 })
 export class PresidentComponent implements OnInit {
-  PresidentArray: any = null; // لتخزين بيانات الرئيس
-  errorMessage: string | null = null; // لتخزين الأخطاء
+  PresidentArray: any = null; 
+  errorMessage: string | null = null; 
 
   constructor(private _ser: ServiceService, private router: Router) { }
 
@@ -20,7 +20,7 @@ export class PresidentComponent implements OnInit {
   getAllPresident(): void {
     this._ser.getPresident().subscribe(
       (data) => {
-        this.PresidentArray = data.length > 0 ? data[0] : null; // اختيار العنصر الأول
+        this.PresidentArray = data.length > 0 ? data[0] : null; 
         this.errorMessage = null;
         console.log(this.PresidentArray, 'PresidentArray');
       },

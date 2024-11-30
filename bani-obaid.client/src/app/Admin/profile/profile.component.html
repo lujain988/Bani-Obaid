@@ -1,1 +1,83 @@
-<p>profile works!</p>
+<div class="container mt-4" style="direction: rtl; max-width: 500px; margin: 0 auto;">
+  <h2 class="form-title text-center mb-4">تغيير كلمة المرور</h2>
+
+  <form (ngSubmit)="onSubmit()" #passwordForm="ngForm" class="password-form">
+    <!-- Email Field -->
+    <div class="form-group mb-3">
+      <label for="email" class="form-label">البريد الإلكتروني:</label>
+      <input id="email"
+             type="email"
+             [(ngModel)]="profileData.email"
+             name="email"
+             class="form-control"
+             placeholder="أدخل البريد الإلكتروني"
+             required
+             #email="ngModel" />
+      <div *ngIf="email.invalid && email.touched" class="text-danger">
+        البريد الإلكتروني مطلوب.
+      </div>
+    </div>
+
+    <!-- Old Password Field -->
+    <div class="form-group mb-3">
+      <label for="oldPassword" class="form-label">كلمة المرور الحالية:</label>
+      <input id="oldPassword"
+             type="password"
+             [(ngModel)]="profileData.oldPassword"
+             name="oldPassword"
+             class="form-control"
+             placeholder="أدخل كلمة المرور الحالية"
+             required
+             minlength="8"
+             #oldPassword="ngModel" />
+      <div *ngIf="oldPassword.invalid && oldPassword.touched" class="text-danger">
+        <div *ngIf="oldPassword.errors?.['required']">كلمة المرور الحالية مطلوبة.</div>
+        <div *ngIf="oldPassword.errors?.['minlength']">كلمة المرور يجب أن تكون على الأقل 8 أحرف.</div>
+      </div>
+    </div>
+
+    <!-- New Password Field -->
+    <div class="form-group mb-3">
+      <label for="newPassword" class="form-label">كلمة المرور الجديدة:</label>
+      <input id="newPassword"
+             type="password"
+             [(ngModel)]="profileData.password"
+             name="newPassword"
+             class="form-control"
+             placeholder="أدخل كلمة المرور الجديدة"
+             required
+             minlength="8"
+             #newPassword="ngModel" />
+      <div *ngIf="newPassword.invalid && newPassword.touched" class="text-danger">
+        <div *ngIf="newPassword.errors?.['required']">كلمة المرور الجديدة مطلوبة.</div>
+        <div *ngIf="newPassword.errors?.['minlength']">كلمة المرور يجب أن تكون على الأقل 8 أحرف.</div>
+      </div>
+    </div>
+
+    <!-- Confirm New Password Field -->
+    <div class="form-group mb-3">
+      <label for="confirmPassword" class="form-label">تأكيد كلمة المرور الجديدة:</label>
+      <input id="confirmPassword"
+             type="password"
+             [(ngModel)]="profileData.confirmPassword"
+             name="confirmPassword"
+             class="form-control"
+             placeholder="أعد إدخال كلمة المرور الجديدة"
+             required
+             minlength="8"
+             #confirmPassword="ngModel" />
+      <div *ngIf="confirmPassword.invalid && confirmPassword.touched" class="text-danger">
+        <div *ngIf="confirmPassword.errors?.['required']">تأكيد كلمة المرور مطلوب.</div>
+        <div *ngIf="confirmPassword.errors?.['minlength']">كلمة المرور يجب أن تكون على الأقل 8 أحرف.</div>
+        <div *ngIf="profileData.password !== profileData.confirmPassword && confirmPassword.touched">
+          كلمة المرور الجديدة وتأكيد كلمة المرور غير متطابقتين.
+        </div>
+      </div>
+    </div>
+
+    <!-- Submit Button -->
+    <div class="form-group text-center">
+      <button type="submit" class="submit-button" [disabled]="passwordForm.invalid">تغيير كلمة المرور</button>
+    </div>
+  </form>
+</div>

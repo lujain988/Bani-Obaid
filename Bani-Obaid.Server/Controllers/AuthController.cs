@@ -1,4 +1,6 @@
-﻿using Bani_Obaid.Server.Helpers;
+﻿using Bani_Obaid.Helpers;
+using Bani_Obaid.Server.Dto;
+using Bani_Obaid.Server.Helpers;
 using Bani_Obaid.Server.Models;
 using hosam.DTOs;
 using Microsoft.AspNetCore.Http;
@@ -47,6 +49,29 @@ namespace Bani_Obaid.Server.Controllers
             context.Users.Add(newuser);
             context.SaveChanges();
             return Ok(newuser);
+        }
+
+        [HttpPut]
+        public IActionResult ResetPassword([FromForm] resetPasswordDTO newpass)
+        {
+            var user = context.Users.FirstOrDefault(u => u.Email == newpass.Email);
+            if (user == null)
+            {
+                return BadRequest();
+            }
+
+            var isConfirmed = PasswordHasher.VerifyPasswordHash(newpass.OldPassword, user.PasswordHash, user.PasswordSalt);
+            if (!isConfirmed)
+            {
+                return BadRequest("passwords don't match");
+            }
+            byte[] hash, salt;
+            PasswordHasher.CreatePasswordHash(newpass.Password, out hash, out salt);
+            user.PasswordSalt = salt;
+            user.PasswordHash = hash;
+            context.Users.Update(user);
+            context.SaveChanges();
+            return Ok(user);
         }
     }
 }

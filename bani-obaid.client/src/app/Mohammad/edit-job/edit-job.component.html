@@ -1,4 +1,4 @@
-<div style="direction: rtl; margin-left: 15%">
+<div style="direction: rtl">
   <h2 class="form-title">تعديل الوظيفة</h2>
 
   <form [formGroup]="editJobForm" (ngSubmit)="onSubmit()" class="job-form">
@@ -9,7 +9,7 @@
 
     <div class="form-group">
       <label for="image">الصورة:</label>
-      <input id="image" formControlName="image" type="text" />
+      <input id="image" formControlName="image" type="file" accept="image/*" (change)="onFileSelected($event)"  />
     </div>
 
     <div class="form-group">

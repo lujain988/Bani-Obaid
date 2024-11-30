@@ -89,6 +89,7 @@ import { MunicipalitiesComponent } from './Mohammad/municipalities/municipalitie
 import { AdminPartnersComponent } from './Admin/admin-partners/admin-partners.component';
 import { AddPartnerComponent } from './Admin/add-partner/add-partner.component';
 import { EditPartnersComponent } from './Admin/edit-partners/edit-partners.component';
+import { AreaDetailsComponent } from './Mohammad/area-details/area-details.component';
 
 @NgModule({
   declarations: [
@@ -181,6 +182,7 @@ import { EditPartnersComponent } from './Admin/edit-partners/edit-partners.compo
     AdminPartnersComponent,
     AddPartnerComponent,
     EditPartnersComponent,
+    AreaDetailsComponent,
   ],
   imports: [
     FormsModule,
@@ -223,6 +225,7 @@ import { EditPartnersComponent } from './Admin/edit-partners/edit-partners.compo
       { path: 'event-form/:id', component: EventFormComponent }, // للتعديل
       { path: 'RegistrationManagement', component: RegistrationManagementComponent }, //??
       { path: 'Municipalities', component: MunicipalitiesComponent },
+      { path: 'area-details/:id', component: AreaDetailsComponent },
 
       { path: "admin", component: LoginComponent },
 

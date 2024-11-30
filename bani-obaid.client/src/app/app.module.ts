@@ -85,6 +85,10 @@ import { EditMemberComponent } from './Admin/edit-member/edit-member.component';
 import { AddMemberComponent } from './Admin/add-member/add-member.component';
 import { OwnershipTransferManagementComponent } from './Mohammad/ownership-transfer-management/ownership-transfer-management.component';
 import { AdminPollDetailsComponent } from './Admin/admin-poll-details/admin-poll-details.component';
+import { MunicipalitiesComponent } from './Mohammad/municipalities/municipalities.component';
+import { AdminPartnersComponent } from './Admin/admin-partners/admin-partners.component';
+import { AddPartnerComponent } from './Admin/add-partner/add-partner.component';
+import { EditPartnersComponent } from './Admin/edit-partners/edit-partners.component';
 
 @NgModule({
   declarations: [
@@ -173,6 +177,10 @@ import { AdminPollDetailsComponent } from './Admin/admin-poll-details/admin-poll
     AddMemberComponent,
     OwnershipTransferManagementComponent,
     AdminPollDetailsComponent,
+    MunicipalitiesComponent,
+    AdminPartnersComponent,
+    AddPartnerComponent,
+    EditPartnersComponent,
   ],
   imports: [
     FormsModule,
@@ -214,6 +222,7 @@ import { AdminPollDetailsComponent } from './Admin/admin-poll-details/admin-poll
       { path: 'event-form', component: EventFormComponent }, // للإضافة
       { path: 'event-form/:id', component: EventFormComponent }, // للتعديل
       { path: 'RegistrationManagement', component: RegistrationManagementComponent }, //??
+      { path: 'Municipalities', component: MunicipalitiesComponent },
 
       { path: "admin", component: LoginComponent },
 
@@ -261,6 +270,11 @@ import { AdminPollDetailsComponent } from './Admin/admin-poll-details/admin-poll
           { path: 'EditMember/:id', component: EditMemberComponent },
           { path: 'AddMember', component: AddMemberComponent },
           { path: 'OwnershipTransfer', component: OwnershipTransferManagementComponent },
+          { path: "AdminPartners", component: AdminPartnersComponent },
+          { path: 'AddPartner', component: AddPartnerComponent },
+          { path: 'EditPartners/:id', component: EditPartnersComponent },
+
+
 
 
 

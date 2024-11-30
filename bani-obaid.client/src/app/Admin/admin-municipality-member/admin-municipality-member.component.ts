@@ -17,7 +17,6 @@ export class AdminMunicipalityMemberComponent {
     this.getAllMembers();
   }
 
-  CategoryArray: any
   getAllMembers() {
     this._ser.getMember().subscribe((data) => {
       this.MemberArray = data

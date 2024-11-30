@@ -39,12 +39,34 @@ namespace Bani_Obaid.Server.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> AddEvent([FromBody] EventCreateUpdateDto newEventDto)
+        public async Task<IActionResult> AddEvent([FromForm] EventCreateUpdateDto newEventDto)
         {
             if (newEventDto == null)
             {
                 return BadRequest(new { message = "Invalid event data" });
             }
+
+            if (newEventDto.Image == null || newEventDto.Image.Length == 0)
+            {
+                return BadRequest("Image is required.");
+            }
+
+            var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images");
+
+            if (!Directory.Exists(uploadsFolder))
+            {
+                Directory.CreateDirectory(uploadsFolder);
+            }
+
+
+            var uniqueFileName = Guid.NewGuid().ToString() + "_" + newEventDto.Image.FileName;
+            var filePath = Path.Combine(uploadsFolder, uniqueFileName);
+            using (var fileStream = new FileStream(filePath, FileMode.Create))
+            {
+                newEventDto.Image.CopyTo(fileStream);
+            }
+            var imagePath = $"/images/{uniqueFileName}";
+
 
             var newEvent = new Event
             {
@@ -53,7 +75,7 @@ namespace Bani_Obaid.Server.Controllers
                 Location = newEventDto.Location,
                 Time = newEventDto.Time,
                 EventDate = newEventDto.EventDate,
-                Image = newEventDto.Image,
+                Image = imagePath,
                 CreatedAt = DateTime.Now,
                 UpdatedAt = DateTime.Now
             };
@@ -67,7 +89,7 @@ namespace Bani_Obaid.Server.Controllers
 
         // ** Update Event **
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateEvent(int id, [FromBody] EventCreateUpdateDto updatedEventDto)
+        public async Task<IActionResult> UpdateEvent(int id, [FromForm] EventCreateUpdateDto updatedEventDto)
         {
             var existingEvent = await _db.Events.FindAsync(id);
             if (existingEvent == null)
@@ -75,17 +97,35 @@ namespace Bani_Obaid.Server.Controllers
                 return NotFound(new { message = "Event not found" });
             }
 
-            existingEvent.Title = updatedEventDto.Title;
-            existingEvent.Description = updatedEventDto.Description;
-            existingEvent.Location = updatedEventDto.Location;
-            existingEvent.Time = updatedEventDto.Time;
-            existingEvent.EventDate = updatedEventDto.EventDate;
-            existingEvent.Image = updatedEventDto.Image;
-            existingEvent.UpdatedAt = DateTime.Now;
+            if (updatedEventDto.Image != null && updatedEventDto.Image.Length > 0)
+            {
+                var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images");
 
-            await _db.SaveChangesAsync();
+                if (!Directory.Exists(uploadsFolder))
+                {
+                    Directory.CreateDirectory(uploadsFolder);
+                }
 
-            return NoContent();
+                var uniqueFileName = Guid.NewGuid().ToString() + "_" + updatedEventDto.Image.FileName;
+                var filePathWwwroot = Path.Combine(uploadsFolder, uniqueFileName);
+
+                using (var fileStream = new FileStream(filePathWwwroot, FileMode.Create))
+                {
+                    updatedEventDto.Image.CopyTo(fileStream);
+                }
+
+                existingEvent.Title = updatedEventDto.Title;
+                existingEvent.Description = updatedEventDto.Description;
+                existingEvent.Location = updatedEventDto.Location;
+                existingEvent.Time = updatedEventDto.Time;
+                existingEvent.EventDate = updatedEventDto.EventDate;
+                existingEvent.Image = $"/images/{uniqueFileName}";
+                existingEvent.UpdatedAt = DateTime.Now;
+                await _db.SaveChangesAsync();
+
+                return Ok(existingEvent);
+            }
+            return BadRequest();
         }
 
 

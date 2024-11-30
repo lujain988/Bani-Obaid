@@ -1,4 +1,4 @@
-<section class="event-management" style="direction: rtl; margin-left: 15%">
+<section class="event-management" style="direction: rtl">
   <div class="container">
     <div class="header">
       <h2>إدارة الفعاليات</h2>
@@ -17,6 +17,7 @@
           <th>الموقع</th>
           <th>التاريخ</th>
           <th>الوقت</th>
+          <th>الصورة</th> <!-- New column for image -->
           <th>الإجراءات</th>
         </tr>
       </thead>
@@ -28,6 +29,11 @@
           <td>{{ event.location }}</td>
           <td>{{ event.eventDate | date: 'yyyy-MM-dd' }}</td>
           <td>{{ event.time }}</td>
+          <td>
+            <!-- Display image if available -->
+            <img *ngIf="event.image" [src]="'https://localhost:7243/' + event.image" alt="Event Image" style="width: 100px; height: auto;" />
+            <span *ngIf="!event.image">No image</span>
+          </td>
           <td>
             <!-- Edit Button -->
             <button class="btn btn-warning btn-sm" (click)="editEvent(event.id)">

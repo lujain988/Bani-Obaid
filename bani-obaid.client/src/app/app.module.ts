@@ -93,6 +93,7 @@ import { AdminImageHomePageComponent } from './Admin/admin-image-home-page/admin
 import { AddImageHomePageComponent } from './Admin/add-image-home-page/add-image-home-page.component';
 import { EditImageHomePageComponent } from './Admin/edit-image-home-page/edit-image-home-page.component';
 import { AdminGuard } from './Hosam/Services/admin.guard';
+import { AreaDetailsComponent } from './Mohammad/area-details/area-details.component';
 
 @NgModule({
   declarations: [
@@ -188,6 +189,7 @@ import { AdminGuard } from './Hosam/Services/admin.guard';
     AdminImageHomePageComponent,
     AddImageHomePageComponent,
     EditImageHomePageComponent,
+    AreaDetailsComponent,
   ],
   imports: [
     FormsModule,
@@ -230,6 +232,7 @@ import { AdminGuard } from './Hosam/Services/admin.guard';
       { path: 'event-form/:id', component: EventFormComponent },
       { path: 'RegistrationManagement', component: RegistrationManagementComponent },
       { path: 'Municipalities', component: MunicipalitiesComponent },
+      { path: 'area-details/:id', component: AreaDetailsComponent },
 
       { path: "admin", component: LoginComponent },
 

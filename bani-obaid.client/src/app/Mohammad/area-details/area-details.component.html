@@ -1,0 +1,27 @@
+<section class="page-header">
+  <div class="page-header-bg" style="background-image: url(assets/images/backgrounds/1.jpg)">
+  </div>
+  <div class="container">
+    <div class="page-header__inner text-center">
+      <h2 class="page-title">تفاصيل أقسام بلدية بني عبيد</h2>
+      <ul class="thm-breadcrumb list-unstyled">
+        <li><a routerLink="">الرئيسية</a></li>
+        <li><span>/</span></li>
+        <li>{{ area?.name }}</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="container details-container" style="direction:rtl">
+  <div class="details-card shadow-lg p-4 rounded">
+    <h2 class="details-title">{{ area?.name }}</h2>
+    <p class="details-description">{{ area?.description }}</p>
+    <div class="images-gallery">
+      <div class="image-box" *ngFor="let img of area?.images">
+        <img [src]="img" alt="صورة للمنطقة" class="full-width-image rounded shadow-sm" />
+      </div>
+    </div>
+  </div>
+</div>
+

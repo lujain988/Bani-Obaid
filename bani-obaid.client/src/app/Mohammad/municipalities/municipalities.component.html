@@ -21,7 +21,10 @@
     <img [src]="section.image" [alt]="section.name" class="section-image" />
     <div class="section-details">
       <h2>{{ section.name }}</h2>
-      <p>{{ section.info }}</p>
+      <p>المساحة الكلية: {{ section.totalArea }} كم²</p>
+      <p>المساحة المنظمة: {{ section.organizedArea }} كم²</p>
+      <p>المساحة غير المنظمة: {{ section.unorganizedArea }} كم²</p>
+      <button class="btn-more" (click)="viewMore(section.id)">المزيد</button>
     </div>
   </div>
 </div>
